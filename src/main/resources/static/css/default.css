@@ -3,7 +3,78 @@
     font-family: kotra-hope;
     src: url(../font/KotraHope.otf);
 }
+@font-face {
+    font-family: ns-thin;
+    src: url(../font/NotoSansKR-Thin.otf);
+}
+@font-face {
+    font-family: ns-light;
+    src: url(../font/NotoSansKR-Light.otf);
+}
+@font-face {
+    font-family: ns-medium;
+    src: url(../font/NotoSansKR-Medium.otf);
+}
+@font-face {
+    font-family: ns-bold;
+    src: url(../font/NotoSansKR-Bold.otf);
+}
+@font-face {
+    font-family: ns-black;
+    src: url(../font/NotoSansKR-Black.otf);
+}
+@font-face {
+    font-family: ns-regular;
+    src: url(../font/NotoSansKR-Regular.otf);
+}
 
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: ns-medium;
+    color: #1C2B2D;
+}
+
+
+/* 폰트 클래스 */
 .f-title{
     font-family: kotra-hope;
+}
+.f-thin{
+    font-family: ns-thin;
+}
+.f-light{
+    font-family: ns-light;
+}
+.f-medium{
+    font-family: ns-medium;
+}
+.f-regular{
+    font-family: ns-regular;
+}
+.f-bold{
+    font-family: ns-bold;
+}
+.f-black{
+    font-family: ns-black;
+}
+
+
+/* 글씨색 */
+.fc-1{
+    color: #04909f;
+}
+.fc-2{
+    color: #9ed2dc;
+}
+
+
+
+/* 배경색 */
+.bg-1{
+    background-color: #04909f;
+}
+.bg-2{
+    background-color: #9ed2dc;
 }
