@@ -1,0 +1,9 @@
+/* 사용 폰트 */
+@font-face{
+    font-family: kotra-hope;
+    src: url(../font/KotraHope.otf);
+}
+
+.f-title{
+    font-family: kotra-hope;
+}
