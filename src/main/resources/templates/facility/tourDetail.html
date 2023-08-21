@@ -4,72 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>시설 상세보기</title>
+
     <link rel="stylesheet" href="/static/css/default.css"></link>
+    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="/css/tourDetail.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=87niwjr4qs"></script>
+
+
+
 </head>
-<style>
-    .content-name{
-        display: flex;
-    }
-    img{
-        width: 400px;
-        height: 400px;
-    }
-    ul{
-        margin-right: auto;
-        border-radius: 30px;
-        background-color: aliceblue;
-        width: 400px;
-        height: 300px;
-    }
-    .map{
-        width: 300px;
-        height: 300px;
-        background-color: blue;
-    }
-    .wrap-flex{
-        display: flex;
-    }
-    .content-title{
-        font-size: 30px;
-    }
-</style>
 <body>
     <th:block th:include="common/header"></th:block>
     <div class="page-content">
         <div class="page-title">
         	<h1>식음료</h1>
         </div>
-        <div class="content-name">
+        <div class="tour-detail wrap-flex">
             <img src="" alt="">
-            <div class="wrap">
-                <div>대관령 하늘목장<span>찜</span></div>
-                <ul>
-                    <li>주소 : </li>
-                    <li>문의처 : </li>
-                    <li>이용시간 : </li>
-                    <li>홈페이지 : </li>
+            <div class="wrap flex-left">
+                <div class="tour-title wrap-flex">대관령 하늘목장<span class="material-icons flex-left">turned_in_not</span></div>
+                <ul class="tour-info">
+                    <li>
+                        <div class="list">주소 </div><p>주소입니다</p>
+                    </li>
+                    <li><p class="list">문의처 </p><p>문의</p></li>
+                    <li><p class="list">이용시간 </p><p>시간시간</p></li>
+                    <li><p class="list">홈페이지 </p><p>라블라블라블라블라</p></li>
                 </ul>
             </div>
         </div>
-        <div class="content-main">
+        <div class="tour-content">
             <div class="content-wrap">
-                <div class="content-title">소개</div>
+                <div class="content-title">
+                    <span class="material-icons">pets</span>소개
+                </div>
                 <div class="wrap-flex">
                     <div>
-                        <p>소개 소개 소개 소개 소개 소개 소개 소개 소개 소개 소개 소개 </p>
+                        <p class="content-detail">소개 소개 소개 소개 소개 소개 소개 소개 소개 소개 소개 소개 </p>
                         <div class="content-title">주요시설</div>
-                        <p>주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설</p>
+                        <p class="content-detail">주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설</p>
                     </div>
-                    <div class="map"></div>
+                    <div id="map" style="width:500px;height:400px;" class="flex-left"></div>
                 </div>
             </div>
             <div class="content-wrap">
                 <div class="content-title">이용요금</div>
-                <p>이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금</p>
+                <p class="content-detail">이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금</p>
             </div>
             <div class="content-wrap">
                 <div class="content-title">애견 정책 및 주의사항</div>
-                <p>주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항</p>
+                <p class="content-detail">주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항</p>
             </div>
             <div class="comment">
                 <div class="content-title">댓글</div>
@@ -87,5 +72,15 @@
         </div>
     </div>
     <th:block th:include="common/footer"></th:block>
+    
+    <script>
+		var mapOptions = {
+        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        zoom: 10
+    };
+
+    var map = new naver.maps.Map('map', mapOptions);
+	</script>
+    
 </body>
 </html>
