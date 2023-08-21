@@ -34,6 +34,7 @@
     padding: 0;
     font-family: ns-medium;
     color: #1C2B2D;
+    list-style-type: none;
 }
 
 
@@ -90,9 +91,9 @@
     border-radius: 5px;
 }
 .bc1{
-    background-color: #2E8A99;
+    background-color: #04909f;
     color: #fff;
-    border: 2px solid #2E8A99;
+    border: 2px solid #04909f;
 }
 .bc1:hover{
     background-color: #1F6E8C;
@@ -152,5 +153,16 @@
     margin-right: 10px;
 }
 .page-content-top>div:last-child>form>.btn{
+    float: left;
+}
+.mid-list-wrap{
+    overflow: hidden;
+}
+.mid-list{
+    width: calc(100% / 4);
+    height: 350px;
+    background-color: antiquewhite;
+    padding: 20px;
+    box-sizing: border-box;
     float: left;
 }
