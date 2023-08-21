@@ -27,12 +27,17 @@
 }
 .content-title{
     font-size: 18px;
-    line-height: 24px;
-    border-bottom: 2px solid rgb(216, 216, 216);
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    margin: 20px 0;
 }
 .content-detail{
     font-size: 16px;
     letter-spacing: -1px;
+}
+.content-except{
+    width: 680px;
 }
 .wrap-flex{
     display: flex;
@@ -40,8 +45,11 @@
 .flex-left{
     margin-left: auto;
 }
-.love{
+.wish{
     font-size: 30px;
+}
+.wish:hover{
+    cursor: pointer;
 }
 .list{
     display: inline-block;
@@ -58,4 +66,18 @@ p{
 }
 .icons{
     margin: 0px 10px;
+}
+/*버튼인데 다음에 만들게요*/
+.more-btn{
+    display: block;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    background-color: rgb(158, 210, 220);
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+}
+.more-btn:hover{
+
 }
