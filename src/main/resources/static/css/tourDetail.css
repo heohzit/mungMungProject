@@ -3,9 +3,10 @@
     margin: 30px 0;
     padding-left: 30px;
 }
-img{
+.tour-img{
     width: 660px;
     height: 440px;
+    background-color: antiquewhite;
 }
 .tour-info{
     border-radius: 50px;
@@ -27,6 +28,7 @@ img{
 .content-title{
     font-size: 18px;
     line-height: 24px;
+    border-bottom: 2px solid rgb(216, 216, 216);
 }
 .content-detail{
     font-size: 16px;
@@ -41,14 +43,19 @@ img{
 .love{
     font-size: 30px;
 }
-/*  */
-.content-wrap{
-    margin: 20px 0;
-}
 .list{
     display: inline-block;
     width: 80px;
 }
+/*  */
+.content-wrap{
+    margin: 30px 0;
+    box-sizing: content-box;
+}
+
 p{
     display: inline-block;
+}
+.icons{
+    margin: 0px 10px;
 }
