@@ -33,7 +33,8 @@ public class NoticeDao {
 	
 	//공지사항 보기 
 	public Notice selectOneNotice(int noticeNo) {
-		String query = "select * from notice where notice_no = ?";
+		System.out.println(noticeNo);
+		String query = "select * from notice join member on (member_no = notice_writer) where notice_no = ?";
 		List list = jdbc.query(query, noticeRowMapper,noticeNo);
 		return (Notice)list.get(0);
 	}
@@ -49,7 +50,7 @@ public class NoticeDao {
 	//공지사항 작성
 	public int insertNotice(Notice n) {
 		String query = "insert into notice values (notice_seq.nextval,?,?,?,to_char(sysdate,'yyyy-mm-dd'),0)";
-		Object[] params = {n.getNoticeTitle(),n.getNoticeContent(),n.getMemberId()};
+		Object[] params = {n.getMemberId(),n.getNoticeTitle(),n.getNoticeContent()};
 		int result = jdbc.update(query,params);
 		return result;
 	}
