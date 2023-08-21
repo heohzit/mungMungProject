@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>공지사항 작성</title>
+<script src="/js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <script src="/summernote/summernote-lite.js"></script>
+	<script src="/summernote/lang/summernote-ko-KR.js"></script>
+	<link rel="stylesheet" href="/summernote/summernote-lite.css">
+    <div class="page-content">
+        <div class="page-title">공지사항 작성</div>
+        <form action="/notice/write" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <th>제목</th>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <th>작성자</th>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td>
+                        <textarea id="noticeContent"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>버튼</th>
+                    <td>
+                        <button>글쓰기</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+    $("#noticeContent").summernote({
+		height : 400,
+		lang :"ko-KR",
+		callbacks :{
+			onImageUpload : function(files){
+
+				uploadImage(files[0],this);
+			}
+		}
+	});
+	function uploadImage(file,editor){
+		const form = new FormData()
+		
+		form.append("file",file);
+		console.log(form);
+		$.ajax({
+			url : "/notice/editor",
+			type : "post",
+			data : form,
+			processData : false,
+			contentType : false,
+			success : function(data){
+				$(editor).summernote("insertImage",data);
+				
+			}
+		});
+	}
+    </script>
+    
+</body>
+</html>
