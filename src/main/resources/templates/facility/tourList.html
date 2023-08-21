@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>관광지</title>
-<link rel="stylesheet" href="/css/default.css"></link>
+<link rel="stylesheet" href="/static/css/default.css"></link>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+	<!-- <th:block th:include="common/header"></th:block> -->
     <div class="page-content">
         <div class="page-title">
-            <h3>관광지</h3>
+            <h1>관광지</h1>
         </div>
         <div class="page-content-top">
             <div>
-                <a href="#" class="btn bc1">등록하기</a>
+                <a href="/facility/insertFrm" class="btn bc1">등록하기</a>
             </div>
             <div>
-                <form action="#">
-                    <input type="text" class="input-form">
+                <form action="">
+                    <input type="text" class="input-form1">
                     <button type="button" class="btn bc1">검색</button>
                 </form>
             </div>
@@ -240,5 +241,6 @@
             </ul>
         </div>
     </div>
+    <!-- <th:block th:include="common/footer"></th:block> -->
 </body>
 </html>

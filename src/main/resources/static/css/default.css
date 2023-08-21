@@ -32,7 +32,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: ns-medium;
+    font-family: ns-regular;
     color: #1C2B2D;
     list-style-type: none;
     text-decoration: none;
@@ -103,7 +103,7 @@
 }
 
 /* input 디자인 */
-.input-form{
+.input-form1{
     display: block;
     height: 45px;
     padding: 0.5rem;
@@ -113,7 +113,26 @@
     box-sizing: border-box;
     border-radius: 5px;
 }
-.input-form:focus{
+.input-form2{
+    width: 450px;
+    height: 40px;
+    margin: 10px 20px;
+    padding: 0.5rem;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #ccc; 
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 16px;
+    text-indent: 5px;
+}
+.input-form1:focus{
+    box-shadow: 0 0 0 0.1rem #eee;
+}
+.input-form2:focus{
+    box-shadow: 0 0 0 0.1rem #eee;
+}
+.insert-select:focus{
     box-shadow: 0 0 0 0.1rem #eee;
 }
 
@@ -126,7 +145,7 @@
 .page-title{
     margin-bottom: 30px;
 }
-.page-title>h3{
+.page-title>h1{
     text-align: center;
 }
 .page-content-top{
@@ -145,7 +164,7 @@
 .page-content-top>div:last-child>form{
     overflow: hidden;
 }
-.page-content-top>div:last-child>form>.input-form{
+.page-content-top>div:last-child>form>.input-form1{
     float: left;
     margin-right: 10px;
 }
@@ -182,8 +201,12 @@
 .list-text-box{
     padding: 15px;
 }
+.list-text-box>ul{
+    text-align: left;
+}
 .list-text-box>ul>li{
-    margin: 10px 0;
+    width: 90%;
+    margin: 10px auto;
     font-family: ns-light;
 }
 .pagination{
@@ -214,4 +237,35 @@
 .select-page{
     background-color: #04909f;
     color: #fff;
+}
+.insert-box{
+    border: 1px solid #ccc;
+}
+.insert-wrap{
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+}
+.label-wrap{
+    width: 150px;
+    float: left;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    background-color: #eee;
+}
+.label-wrap>label{
+    font-family: ns-medium;
+    font-size: 18px;
+}
+.insert-select{
+    width: 450px;
+    height: 40px;
+    font-size: 16px;
+    float: left;
+    margin: 10px 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 5px;
+    color: #1C2B2D;
+    text-indent: 5px;
 }
