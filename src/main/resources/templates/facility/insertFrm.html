@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>시설 등록하기</title>
+<link rel="stylesheet" href="/static/css/default.css"></link>
+</head>
+<body>
+	<!-- <th:block th:include="common/header"></th:block> -->
+	<div class="page-content">
+		<div class="page-title">
+			<h1>시설 등록하기</h1>
+		</div>
+		<div class="page-content-top"></div>
+		<div class="page-content-mid">
+			<form action="" method="post">
+				<div class="insert-box">
+					<div class="insert-wrap">
+						<div class="label-wrap">
+							<label for="facilityRegion">지역</label>
+						</div>
+						<select class="insert-select" name="facilityRegion" id="facilityRegion" required>
+							<option value>지역</option>
+							<option value="1">춘천시</option>
+							<option value="2">원주시</option>
+							<option value="3">강릉시</option>
+							<option value="4">동해시</option>
+							<option value="5">태백시</option>
+							<option value="6">속초시</option>
+							<option value="7">삼척시</option>
+							<option value="8">홍천군</option>
+							<option value="9">횡성군</option>
+							<option value="10">영월군</option>
+							<option value="11">평창군</option>
+							<option value="12">정선군</option>
+							<option value="13">철원군</option>
+							<option value="14">화천군</option>
+							<option value="15">양구군</option>
+							<option value="16">인제군</option>
+							<option value="17">고성군</option>
+							<option value="18">양양군</option>
+						</select>
+					</div>
+					<div class="insert-wrap">
+						<div class="label-wrap">
+							<label for="facilityCase">분야</label>
+						</div>
+						<select class="insert-select" name="facilityCase" id="facilityCase" required>
+							<option value>분야</option>
+							<option value="1">관광지</option>
+							<option value="2">숙박</option>
+							<option value="3">식음료</option>
+							<option value="4">체험</option>
+							<option value="5">동물병원</option>
+						</select>
+					</div>
+					<div class="insert-wrap">
+						<div class="label-wrap">
+							<label for="facilityName">시설명</label>
+						</div>
+						<input type="text" name="facilityName" id="facilityName" class="input-form2" required>
+					</div>
+					<div class="insert-wrap">
+						<div class="label-wrap">
+							<label for="facilityAddr">주소</label>
+						</div>
+					</div>
+					<div class="insert-wrap">5</div>
+					<div class="insert-wrap">6</div>
+					<div class="insert-wrap">7</div>
+					<div class="insert-wrap">8</div>
+					<div class="insert-wrap">9</div>
+					<div class="insert-wrap">10</div>
+					<div class="insert-wrap">11</div>
+					<div class="insert-wrap">12</div>
+				</div>
+				<div class="btn-box">
+					<button type="submit" class="btn bc1">등록</button>
+				</div>
+			</form>
+		</div>
+		<div class="page-content-bottom"></div>
+	</div>
+	<!-- <th:block th:include="common/footer"></th:block> -->
+</body>
+</html>
