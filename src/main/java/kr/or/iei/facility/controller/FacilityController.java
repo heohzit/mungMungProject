@@ -16,4 +16,9 @@ public class FacilityController {
 	public String tourList() {
 		return "facility/tourList";
 	}
+	
+	@GetMapping(value="/insertFrm")
+	public String tourInsert() {
+		return "facility/insertFrm";
+	}
 }
