@@ -3,10 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <title>main</title>
+	<script src="/js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="/css/mung_main.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 </head>
 <body>
-	<h1>메인페이지</h1>
 	<a href="facility/tourList">tourList 이동</a>
 	<a href="facility/tourDetail">tourDetail 이동</a>
+	<a href="notice/list?reqPage=1">공지사항 이동</a>
+	<div class="wrap"><!--전체를 감싸는 div-->
+        <div class="wrap-top">
+            <!-- 메인 페이지 Top영역 
+                이미지 슬라이드 및 공지사항 검색창, 이미지 위 소개글 
+            -->
+            <span class="slideshow-container"><!--슬라이드 -->
+                <div class="Slidesbackground">
+                    <div class="mySlides fade">
+                        <div class="mySlides-text">
+                            <span>이게 보이나 ??? 테스트 테스트 응애</span>
+                        </div>
+                        <img src="img/main/댕댕이와 등산.jpg" class="slideshow-image">
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="mySlides-text">
+                            <span>이건?????? 어케 사진 위로 띄우지</span>
+                        </div>
+                        <img src="img/main/댕댕이 헤엄.jpg" class="slideshow-image">
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="mySlides-text">
+                            <span>아니 같이 바뀌긴하는데</span>
+                        </div>
+                        <img src="img/main/댕댕이 식사.jpg" class="slideshow-image">
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="mySlides-text">
+                            <span>어케 사진으로 오게 하죠?</span>
+                        </div>
+                        <img src="img/main/노을 해변가 댕댕이.jpg" class="slideshow-image">
+                    </div>
+                </div>
+            </span>
+            <div class="top-mid"><!--공지사항 검색창 영역-->
+                <div class="notice">
+                    <div class="notice-text">
+                        <span class="material-icons">campaign</span>
+                        <span>공지사항</span>
+                    </div>
+                    <div class="notice-list">
+                        <p>테스트</p>
+                    </div>
+                    
+                    <div class="search">
+                        <div class="search-icon">
+                            <span class="material-icons">manage_search</span>
+                        </div>
+                        <div class="search-input">
+                            <input type="text" name="search" id="search" placeholder="검색어를 입력해주세요.">
+                            <button type="submit" class="search-submit">검색하기</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="top-bottom"><!--이미지 위 텍스트 소개글-->
+                <div class="bottom-text1">
+                    <div class="text1">
+                        <span>이제는 여행도</span>
+                    </div>
+                    <div class="text2">반려견과 함께</div>
+                </div>
+                
+                <div class="bottom-img">
+                    <img src="/img/main/제목 없는 디자인.jpg">
+                </div>
+            </div>
+        </div>
+        <div class="wrap-mid">
+            <!-- 메인 페이지 middle영역 
+            숙소 , 체험 ,식음료 미리보기 슬라이드 
+            -->
+        </div>
+        <div class="wrap-bottom">
+            <!-- 메인 페이지 bottom영역
+            동물병원 , 패키지 소개 및 댕댕이 자랑 슬라이드
+            -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="/js/mung_main.js"></script>
 </body>
 </html>

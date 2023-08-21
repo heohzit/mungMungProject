@@ -91,6 +91,16 @@
     font-size: 16px;
     border-radius: 5px;
 }
+.btn2{
+    border: none;
+    height: 40px;
+    width: 100px;
+    display: inline-block;
+    box-sizing: border-box;
+    transition-duration: 0.5s;
+    font-size: 16px;
+    border-radius: 5px;
+}
 .bc1{
     background-color: #04909f;
     color: #fff;
@@ -115,6 +125,19 @@
 }
 .input-form2{
     width: 450px;
+    height: 40px;
+    margin: 10px 20px;
+    padding: 0.5rem;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #ccc; 
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 16px;
+    text-indent: 5px;
+}
+.input-form3{
+    width: 200px;
     height: 40px;
     margin: 10px 20px;
     padding: 0.5rem;
