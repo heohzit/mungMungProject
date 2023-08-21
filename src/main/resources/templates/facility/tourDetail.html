@@ -6,12 +6,15 @@
     <title>시설 상세보기</title>
 
     <link rel="stylesheet" href="/static/css/default.css"></link>
-    <link rel="stylesheet" href="/css/default.css" />
-    <link rel="stylesheet" href="/css/tourDetail.css" />
+    <link rel="stylesheet" href="/static/css/default.css" />
+    <link rel="stylesheet" href="/static/css/tourDetail.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=87niwjr4qs"></script>
+    <!-- jquery -->
+    <script src="/js/jquery-3.6.0.js"></script>
 
-    <link rel="stylesheet" href="/css/default.css" />
+    <link rel="stylesheet" href="../../static/css/default.css">
+    <link rel="stylesheet" href="../../static/css/tourDetail.css">
 
 </head>
 <body>
@@ -21,9 +24,9 @@
         	<h1>식음료</h1>
         </div>
         <div class="tour-detail wrap-flex">
-            <img src="" alt="">
+            <img src="" alt="" class="tour-img">
             <div class="wrap flex-left">
-                <div class="tour-title wrap-flex">대관령 하늘목장<span class="material-icons flex-left">turned_in_not</span></div>
+                <div class="tour-title wrap-flex">대관령 하늘목장<span class="material-icons flex-left wish" onclick="wish(this);">turned_in_not</span></div>
                 <ul class="tour-info">
                     <li>
                         <div class="list">주소 </div><p>주소입니다</p>
@@ -37,50 +40,66 @@
         <div class="tour-content">
             <div class="content-wrap">
                 <div class="content-title">
-                    <span class="material-icons">pets</span>소개
+                    <span class="material-icons icons">pets</span>소개
                 </div>
                 <div class="wrap-flex">
-                    <div>
-                        <p class="content-detail">소개 소개 소개 소개 소개 소개 소개 소개 소개 소개 소개 소개 </p>
-                        <div class="content-title">주요시설</div>
-                        <p class="content-detail">주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설</p>
+                    <div class="content-except">
+                        <p class="content-detail">소개 소소개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 개 소개 소개 소개 소개 소개 소개 소개 </p>
+                        <div class="content-title">
+                            <span class="material-icons icons">pets</span>주요시설
+                        </div>
+                        <p class="content-detail">주요시설주요시설주요시설주주요시설주요시설주요시설주요시주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설주요시설요시설주요시설주요시설주요시설주요시설주요시설주요시설</p>
                     </div>
                     <div id="map" style="width:500px;height:400px;" class="flex-left"></div>
                 </div>
             </div>
             <div class="content-wrap">
-                <div class="content-title">이용요금</div>
-                <p class="content-detail">이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금</p>
+                <div class="content-title">
+                    <span class="material-icons icons">pets</span>이용요금
+                </div>
+                <p class="content-detail">이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금이용요금</p>
             </div>
             <div class="content-wrap">
-                <div class="content-title">애견 정책 및 주의사항</div>
-                <p class="content-detail">주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항</p>
+                <div class="content-title">
+                    <span class="material-icons icons">pets</span>애견 정책 및 주의사항
+                </div>
+                <p class="content-detail">주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의사항주의사항</p>
             </div>
+            <!-- 나중에.. -->
             <div class="comment">
-                <div class="content-title">댓글</div>
-                <p>
-                    댓글 1
-                    댓글 2
-                    댓글 3
-                </p>
+                <div class="content-title">
+                    <span class="material-icons icons">pets</span>댓글
+                </div>
+                <pre>
+                    th써야하니까
+                    나중에
+                    만들게요
+                </pre>
             </div>
             <div class="comment-write">
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea name="" class="input-form"></textarea>
                 <span>등록</span>
                 <span>삭제</span>
             </div>
+            <button class="more-btn">더보기</button>
         </div>
     </div>
 
-    <th:block th:include="common/footer"></th:block>
     
     <script>
+        // 지도api
 		var mapOptions = {
-        center: new naver.maps.LatLng(37.3595704, 127.105399),
-        zoom: 10
-    };
-
-    var map = new naver.maps.Map('map', mapOptions);
+            center: new naver.maps.LatLng(37.3595704, 127.105399),
+            zoom: 10
+        };
+        var map = new naver.maps.Map('map', mapOptions);
+        
+        //찜하기(파라미터 상품번호)
+        function wish(obj){
+            const wishBtn = $(obj);
+            wishBtn.text("turned_in");
+        };
+    
 	</script>
     
 </body>

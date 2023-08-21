@@ -113,6 +113,30 @@
 }
 
 /* input 디자인 */
+/* input 댓글작성용 */
+.input-form {
+  width: 100%;
+  display: block;
+  padding: 0.8rem;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #ccc;
+
+  box-sizing: border-box;
+}
+.input-form:focus {
+  box-shadow: 0 0 0 0.1rem #eee;
+}
+
+textarea.input-form {
+  resize: none;
+  min-height: 96px;	/* 300*/
+}
+.input-form:read-only:not(select),
+.input-form:disabled {
+  background-color: #f7f7f9;
+}
+/***********************/
 .input-form1{
     display: block;
     height: 45px;
@@ -261,20 +285,15 @@
     background-color: #04909f;
     color: #fff;
 }
-.insert-box{
+
+.insert-table{
     border: 1px solid #ccc;
 }
-.insert-wrap{
-    overflow: hidden;
-    border-bottom: 1px solid #ccc;
-}
 .label-wrap{
-    width: 150px;
-    float: left;
-    height: 60px;
     text-align: center;
-    line-height: 60px;
-    background-color: #eee;
+}
+.insert-table-th{
+    width: 200px;
 }
 .label-wrap>label{
     font-family: ns-medium;
@@ -284,7 +303,6 @@
     width: 450px;
     height: 40px;
     font-size: 16px;
-    float: left;
     margin: 10px 20px;
     border: 1px solid #ccc;
     outline: none;
