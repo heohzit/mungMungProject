@@ -70,11 +70,87 @@
 }
 
 
-
 /* 배경색 */
 .bg-1{
     background-color: #04909f;
 }
 .bg-2{
     background-color: #9ed2dc;
+}
+
+/* 버튼 디자인 */
+.btn{
+    border: none;
+    height: 45px;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    box-sizing: border-box;
+    transition-duration: 0.5s;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.bc1{
+    background-color: #2E8A99;
+    color: #fff;
+    border: 2px solid #2E8A99;
+}
+.bc1:hover{
+    background-color: #1F6E8C;
+    border: 2px solid #1F6E8C;
+    cursor: pointer;
+}
+
+/* input 디자인 */
+.input-form {
+    display: block;
+    height: 45px;
+    padding: 0.5rem;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #ccc; 
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.input-form:focus {
+    box-shadow: 0 0 0 0.1rem #eee;
+}
+
+
+
+.page-content{
+    width: 1200px;
+    margin: 30px auto;
+}
+.page-title{
+    margin-bottom: 30px;
+}
+.page-title>h1{
+    text-align: center;
+}
+.page-content-top{
+    border-top: 1px solid #ccc;
+    overflow: hidden;
+    height: 100px;
+}
+.page-content-top>div:first-child{
+    float: left;
+    margin: 20px;
+}
+.page-content-top>div:first-child>a{
+    text-decoration: none;
+
+}
+.page-content-top>div:last-child{
+    float: right;
+    margin: 20px;
+}
+.page-content-top>div:last-child>form{
+    overflow: hidden;
+}
+.page-content-top>div:last-child>form>.input-form{
+    float: left;
+    margin-right: 10px;
+}
+.page-content-top>div:last-child>form>.btn{
+    float: left;
 }
