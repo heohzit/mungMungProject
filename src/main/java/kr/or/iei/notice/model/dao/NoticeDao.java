@@ -13,6 +13,7 @@ import kr.or.iei.notice.model.vo.NoticeRowMapper;
 public class NoticeDao {
 	@Autowired
 	private JdbcTemplate jdbc;
+	
 	@Autowired
 	private NoticeRowMapper noticeRowMapper;
 	
