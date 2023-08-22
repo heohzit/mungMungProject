@@ -14,69 +14,154 @@
 		<div class="page-content-top"></div>
 		<div class="page-content-mid">
 			<form action="" method="post">
-				<div class="insert-box">
-					<div class="insert-wrap">
-						<div class="label-wrap">
-							<label for="facilityRegion">지역</label>
-						</div>
-						<select class="insert-select" name="facilityRegion" id="facilityRegion" required>
-							<option value>지역</option>
-							<option value="1">춘천시</option>
-							<option value="2">원주시</option>
-							<option value="3">강릉시</option>
-							<option value="4">동해시</option>
-							<option value="5">태백시</option>
-							<option value="6">속초시</option>
-							<option value="7">삼척시</option>
-							<option value="8">홍천군</option>
-							<option value="9">횡성군</option>
-							<option value="10">영월군</option>
-							<option value="11">평창군</option>
-							<option value="12">정선군</option>
-							<option value="13">철원군</option>
-							<option value="14">화천군</option>
-							<option value="15">양구군</option>
-							<option value="16">인제군</option>
-							<option value="17">고성군</option>
-							<option value="18">양양군</option>
-						</select>
-					</div>
-					<div class="insert-wrap">
-						<div class="label-wrap">
-							<label for="facilityCase">분야</label>
-						</div>
-						<select class="insert-select" name="facilityCase" id="facilityCase" required>
-							<option value>분야</option>
-							<option value="1">관광지</option>
-							<option value="2">숙박</option>
-							<option value="3">식음료</option>
-							<option value="4">체험</option>
-							<option value="5">동물병원</option>
-						</select>
-					</div>
-					<div class="insert-wrap">
-						<div class="label-wrap">
-							<label for="facilityName">시설명</label>
-						</div>
-						<input type="text" name="facilityName" id="facilityName" class="input-form2" required>
-					</div>
-					<div class="insert-wrap">
-						<div class="label-wrap">
-							<label for="facilityAddr">주소</label>
-						</div>
-						<input type="text" name="postcode" id="postcode" class="input-form3" readonly>
-						<button class="btn2 bc1">주소찾기</button>
-						<input type="text" name="facilityAddr" id="facilityAddr">
-					</div>
-					<div class="insert-wrap">5</div>
-					<div class="insert-wrap">6</div>
-					<div class="insert-wrap">7</div>
-					<div class="insert-wrap">8</div>
-					<div class="insert-wrap">9</div>
-					<div class="insert-wrap">10</div>
-					<div class="insert-wrap">11</div>
-					<div class="insert-wrap">12</div>
-				</div>
+				<table class="insert-table">
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="facilityRegion">지역</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<select class="insert-select" name="facilityRegion" id="facilityRegion" required>
+								<option value>지역</option>
+								<option value="1">춘천시</option>
+								<option value="2">원주시</option>
+								<option value="3">강릉시</option>
+								<option value="4">동해시</option>
+								<option value="5">태백시</option>
+								<option value="6">속초시</option>
+								<option value="7">삼척시</option>
+								<option value="8">홍천군</option>
+								<option value="9">횡성군</option>
+								<option value="10">영월군</option>
+								<option value="11">평창군</option>
+								<option value="12">정선군</option>
+								<option value="13">철원군</option>
+								<option value="14">화천군</option>
+								<option value="15">양구군</option>
+								<option value="16">인제군</option>
+								<option value="17">고성군</option>
+								<option value="18">양양군</option>
+							</select>
+						</td>
+					</tr>
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="facilityCase">분야</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<select class="insert-select" name="facilityCase" id="facilityCase" required>
+								<option value>분야</option>
+								<option value="1">관광지</option>
+								<option value="2">숙박</option>
+								<option value="3">식음료</option>
+								<option value="4">체험</option>
+								<option value="5">동물병원</option>
+							</select>
+						</td>
+					</tr>
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="facilityName">시설명</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<input type="text" name="facilityName" id="facilityName" class="input-form2" required>
+						</td>
+					</tr>
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="postcode">주소</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<div>
+								<input type="text" name="postcode" id="postcode" class="input-form3" readonly required>
+								<button class="btn2 bc1">주소찾기</button>
+							</div>
+							<div>
+								<input type="text" name="facilityAddr" id="facilityAddr" class="input-form2" readonly required>
+							</div>
+							<div>
+								<input type="text" name="facilityAddr" id="detailAddr" class="input-form2">
+							</div>
+						</td>
+					</tr>
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="facilityPhone">전화번호</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<input type="text" name="facilityPhone" id="facilityPhone" class="input-form2" required>
+						</td>
+					</tr>
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="facilityTime">이용시간</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<input type="text" name="facilityTime" id="facilityTime" class="input-form2" required>
+						</td>
+					</tr>
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="facilityHomepage">홈페이지</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<input type="text" name="facilityHomepage" id="facilityHomepage" class="input-form2">
+						</td>
+					</tr>
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="facilityInfo">소개</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<textarea class="input-form4" name="facilityInfo" id="facilityInfo" required></textarea>
+						</td>
+					</tr>
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="facilityMajor">주요시설</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<textarea class="input-form4" name="facilityMajor" id="facilityMajor"></textarea>
+						</td>
+					</tr>
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="facilityPrice">이용요금</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<textarea class="input-form4" name="facilityPrice" id="facilityPrice"></textarea>
+						</td>
+					</tr>
+					<tr class="insert-wrap">
+						<th class="insert-table-th">
+							<div class="label-wrap">
+								<label for="facilityNotice">반려동물 정책 및 주의사항</label>
+							</div>
+						</th>
+						<td class="insert-table-td">
+							<textarea class="input-form4" name="facilityNotice" id="facilityNotice"></textarea>
+						</td>
+					</tr>
+				</table>
 				<div class="btn-box">
 					<button type="submit" class="btn bc1">등록</button>
 				</div>
