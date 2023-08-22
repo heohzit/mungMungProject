@@ -9,23 +9,24 @@
         <div class="page-title">공지사항 상세보기</div>
         <table>
             <tr>
-                <th>제목</th>
-                <td>
-                </td>
+                <th th:text="${n.noticeTitle}"></th>
             </tr>
             <tr>
                 <th>작성자</th>
-                <td>
-                </td>
+                <td th:text="${n.memberId}"></td>
+            </tr>
+            <tr>
+                <th>작성일</th>
+                <td th:text="${n.noticeWriteDate}"></td>
+            </tr>
+             <tr>
+                <th>조회수</th>
+                <td th:text="${n.noticeReadCount}"></td>
             </tr>
             <tr>
                 <th>내용</th>
                 <td>
-                </td>
-            </tr>
-            <tr>
-                <th>버튼</th>
-                <td>
+                <div th:text="${n.noticeContent}"></div>
                 </td>
             </tr>
         </table>

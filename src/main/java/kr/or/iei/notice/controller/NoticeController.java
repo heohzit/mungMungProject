@@ -37,7 +37,7 @@ public class NoticeController {
 	@PostMapping(value="write")
 	public String noticeWrite(Notice n,Model model){	
 		int result = noticeService.insertNotice(n);
-		return "/notice/list";	
+		return "notice/noticeList";	
 	}
 	
 	//공지사항 보기
@@ -45,6 +45,7 @@ public class NoticeController {
 	public String noticeView(int noticeNo, Model model) {
 		Notice n = noticeService.selectOneNotice(noticeNo);
 		if (n != null) {
+			model.addAttribute("n",n);
 			return "notice/noticeView";
 		} else {
 			return "notice/noticeList";

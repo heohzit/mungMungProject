@@ -115,26 +115,25 @@
 /* input 디자인 */
 /* input 댓글작성용 */
 .input-form {
-  width: 100%;
-  display: block;
-  padding: 0.8rem;
-  background-color: #fff;
-  outline: none;
-  border: 1px solid #ccc;
-
-  box-sizing: border-box;
+    width: 100%;
+    display: block;
+    padding: 0.8rem;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 .input-form:focus {
-  box-shadow: 0 0 0 0.1rem #eee;
+    box-shadow: 0 0 0 0.1rem #eee;
 }
 
 textarea.input-form {
-  resize: none;
-  min-height: 96px;	/* 300*/
+    resize: none;
+    min-height: 96px;	/* 300*/
 }
 .input-form:read-only:not(select),
 .input-form:disabled {
-  background-color: #f7f7f9;
+    background-color: #f7f7f9;
 }
 /***********************/
 .input-form1{
@@ -172,6 +171,20 @@ textarea.input-form {
     border-radius: 5px;
     font-size: 16px;
     text-indent: 5px;
+}
+.input-form4{
+    resize: none;
+    min-height: 300px;
+    width: 95%;
+    display: block;
+    padding: 1rem;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 10px 20px;
+    font-size: 16px;
 }
 .input-form1:focus{
     box-shadow: 0 0 0 0.1rem #eee;
@@ -289,15 +302,22 @@ textarea.input-form {
 .insert-table{
     border: 1px solid #ccc;
 }
+.insert-wrap{
+    border: 1px solid #ccc;
+}
 .label-wrap{
     text-align: center;
 }
 .insert-table-th{
-    width: 200px;
+    width: 210px;
+    background-color: #eee;
 }
 .label-wrap>label{
     font-family: ns-medium;
     font-size: 18px;
+}
+.insert-table-td{
+    width: 990px;
 }
 .insert-select{
     width: 450px;
