@@ -89,11 +89,30 @@ public class NoticeController {
 	public String deleteNotice(int noticeNo) {
 		int result = noticeService.deleteNotice(noticeNo);
 		if (result != 0) {
-			return "notice/noticeView";
+			return "notice/noticeList";
 		} else {
 			return "notice/noticeList";
 		}
 	}
 		
-		//공지사항 수정
+	//공지사항 수정
+	@GetMapping(value="updateFrm")
+	public String updateFrm(int noticeNo , Model model) {
+		Notice n = noticeService.getNotice(noticeNo);
+		model.addAttribute("n", n);
+		return "notice/updateFrm";
+	}
+	
+	//공지사항 수정
+	@PostMapping(value="update")
+	public String update(Notice n) {
+		int result = noticeService.updateNotice(n);
+		if(result>0) {
+			return "notice/noticeWriteFrm";				
+		}else {
+			return "notice/noticeWriteFrm";	
+		}
+	}
+	
+
 }

@@ -5,11 +5,13 @@
 <title>공지사항 상세보기</title>
 </head>
 <body>
+<th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
         <div class="page-title">공지사항 상세보기</div>
         <table>
             <tr>
-                <th th:text="${n.noticeTitle}"></th>
+            	<th>제목</th>
+                <td th:text="${n.noticeTitle}"></td>
             </tr>
             <tr>
                 <th>작성자</th>
@@ -25,16 +27,19 @@
             </tr>
             <tr>
                 <th>내용</th>
-                <td>
-                <div th:text="${n.noticeContent}"></div>
-                </td>
+                 <td>
+					<div class="noticeContent" th:utext="${n.noticeContent}"></div>
+
+                  </td>
             </tr>
         </table>
-        <a href="/notice/delete">삭제하기</a>
-        <a href="/notice/update">수정하기</a>
-
+        <div class="btn1">
+	        <a th:href="@{/notice/delete(noticeNo=${n.noticeNo})}">삭제하기</a>
+	        <a th:href="@{/notice/updateFrm(noticeNo=${n.noticeNo})}">수정하기</a>
+		</div>
         <div>이전글</div>
         <div>다음글</div>
     </div>
+    <th:block th:include="common/mung_footer"></th:block>
 </body>
 </html>

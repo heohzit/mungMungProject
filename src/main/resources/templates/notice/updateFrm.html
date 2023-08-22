@@ -2,48 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>공지사항 작성</title>
+<title>공지사항 수정</title>
 <script src="/js/jquery-3.6.0.js"></script>
 </head>
 <body>
-    <script src="/summernote/summernote-lite.js"></script>
+	<script src="/summernote/summernote-lite.js"></script>
 	<script src="/summernote/lang/summernote-ko-KR.js"></script>
 	<link rel="stylesheet" href="/summernote/summernote-lite.css">
 	
 	<th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
-        <div class="page-title">공지사항 작성</div>
-        <form action="/notice/write" method="post" enctype="multipart/form-data">
+        <div class="page-title">공지사항 수정</div>
+        <form action="/notice/update" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <th>제목</th>
                     <td>
-                        <input type="text" name="noticeTitle">
+                        <input type="text" name="noticeTitle" th:value="${n.noticeTitle}">
                     </td>
                 </tr>
                 <tr>
                     <th>작성자</th>
                     <td>
-                       
-                        <input  type="hidden" name="memberId">
+                        <input type="hidden" name="noticeNo" th:value="${n.noticeNo}">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                    	<input style="display: none;" type="file" name="upfile" multiple>
-                        <textarea id="noticeContent" name="noticeContent"></textarea>
+                        <input style="display: none;" type="file" name="upfile" multiple>
+                        <div id="noticeContent" name="noticeContent" th:utext="${n.noticeContent}"></div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button type="submit">작성완료</button>
+                        <button type="submit">수정완료</button>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
-    <script>
+     <script>
     $("#noticeContent").summernote({
 		height : 400,
 		lang :"ko-KR",
@@ -54,9 +53,10 @@
 		}
 	});
 	function uploadImage(file,editor){
-		const form = new FormData();
+		const form = new FormData()
 		
 		form.append("file",file);
+
 		$.ajax({
 			url : "/notice/editor",
 			type : "post",

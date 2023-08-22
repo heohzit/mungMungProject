@@ -2,36 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>공지사항 작성</title>
+<title>커뮤니티 수정</title>
 <script src="/js/jquery-3.6.0.js"></script>
 </head>
 <body>
-    <script src="/summernote/summernote-lite.js"></script>
+<script src="/summernote/summernote-lite.js"></script>
 	<script src="/summernote/lang/summernote-ko-KR.js"></script>
 	<link rel="stylesheet" href="/summernote/summernote-lite.css">
-	
-	<th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
-        <div class="page-title">공지사항 작성</div>
-        <form action="/notice/write" method="post" enctype="multipart/form-data">
+        <div class="page-title">커뮤니티 작성</div>
+        <form action="/board/write" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <th>제목</th>
                     <td>
-                        <input type="text" name="noticeTitle">
+                        <input type="text" name="boardTitle">
                     </td>
                 </tr>
                 <tr>
                     <th>작성자</th>
                     <td>
                        
-                        <input  type="hidden" name="memberId">
                     </td>
                 </tr>
                 <tr>
                     <td>
                     	<input style="display: none;" type="file" name="upfile" multiple>
-                        <textarea id="noticeContent" name="noticeContent"></textarea>
+                        <textarea id="boardContent" name="boardContent"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -42,9 +39,8 @@
             </table>
         </form>
     </div>
-    <th:block th:include="common/mung_footer"></th:block>
     <script>
-    $("#noticeContent").summernote({
+    $("#boardContent").summernote({
 		height : 400,
 		lang :"ko-KR",
 		callbacks :{
@@ -54,11 +50,11 @@
 		}
 	});
 	function uploadImage(file,editor){
-		const form = new FormData();
+		const form = new FormData()
 		
 		form.append("file",file);
 		$.ajax({
-			url : "/notice/editor",
+			url : "/board/editor",
 			type : "post",
 			data : form,
 			processData : false,

@@ -16,14 +16,16 @@ public class NoticeService {
 	
 	//공지사항 리스트
 	public NoticeListData selectNoticeList(int reqPage) {
-		int numPerPage = 30;
-		int endPage = reqPage * numPerPage;
-		int startPage = endPage-numPerPage+1;
-		List noticeList = noticeDao.selectNoticeList(startPage,endPage);
+		int numPerPage = 10;
+		int end = reqPage * numPerPage;
+		int start = end-numPerPage+1;
+		System.out.println(start);
+		System.out.println(end);
+		List noticeList = noticeDao.selectNoticeList(start,end);
 		
 		//공지사항 총 게시글
-		int totalNum = noticeDao.selectNoticeTotalNum();
-		int totalPage = totalNum%numPerPage ==0 ? totalNum/numPerPage : totalNum/numPerPage+1;
+		int totalCount = noticeDao.selectNoticeTotalNum();
+		int totalPage = totalCount%numPerPage == 0 ? totalCount/numPerPage : totalCount/numPerPage+1;
 		
 		int pageNaviSize =5;
 		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
@@ -73,7 +75,7 @@ public class NoticeService {
 		//공지사항 조회수
 		int count = noticeDao.updateReadCount(noticeNo);
 		if(count>0) {
-			Notice n = noticeDao.selectOneNotice(noticeNo);			
+			Notice n = noticeDao.selectOneNotice(noticeNo);	
 			return n;
 		}else {
 			return null;
@@ -99,4 +101,20 @@ public class NoticeService {
 			return 0;
 		}
 	}
+
+	public Notice getNotice(int noticeNo) {
+		Notice n = noticeDao.selectOneNotice(noticeNo);
+		
+		return n;
+	}
+
+	public int updateNotice(Notice n) {
+		int result = noticeDao.updateNotice(n);
+		if(result > 0) {
+			return result;
+		}else {
+			return 0;
+		}
+	}
+
 }
