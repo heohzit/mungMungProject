@@ -20,23 +20,23 @@
 
 }
 .footer_text>ul>li{
-    padding: 5px 0px 5px 30px;
+    padding: 8px;
     font-size: 17px;
     font-weight: 500;
     color: gray;
 }
-.logo{
-	text-align: left;
+.footer_logo{
+    width: 100%;
     padding: 20px;
     background-color: rgb(4, 144, 159);
 }
-.logo>a{
+.footer_logo>a{
     text-decoration: none;
 }
-.logo>a>span{
-	text-align: left;
+.footer_logo>a>span{
     font-size: 50px;
     color: aliceblue;
     font-family: KOTRAHOPE;
     padding-left: 10px;
+    text-align: left;
 }
