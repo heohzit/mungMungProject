@@ -5,6 +5,7 @@
 <title>일정선택 & 결제</title>
 <link rel="stylesheet" href="/static/css/default.css">
 <script src="/static/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 </head>
 <body>
     <th:block th:include="common/mung_header"></th:block>
@@ -14,10 +15,64 @@
         </div>
         <div class="page-content-top"></div>
         <div class="page-content-mid">
-            
+            <div class="pay-content-wrap">
+                <div class="product-box">
+                    <div class="pay-img-box">
+                        <img src="/static/img/pay_test_img.png">
+                    </div>
+                    <div class="pay-name-box">
+                        <h3>패키지상품1</h3>
+                    </div>
+                </div>
+                <div class="pay-box">
+                    <table class="pay-box-tbl">
+                        <tr>
+                            <th>일정 선택</th>
+                            <td>
+                                <input type="date">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>결제 금액</th>
+                            <td>1,000원</td>
+                            <input type="hidden" id="price" value="1000">
+                        </tr>
+                        <tr>
+                            <th colspan="2">
+                                <button id="payBtn" class="btn bc1">결제하기</button>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
         <div class="page-content-bottom"></div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
+    <script>
+        $("#payBtn").on("click", function(){
+			const price = $("#price").val();
+			const d = new Date();
+			const date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours() + "" + d.getMinutes() + "" + d.getSeconds();
+			IMP.init("imp15740857");
+			IMP.request_pay({
+				pg: "html5_inicis",
+				pay_method: "card",
+				merchant_uid: "상품번호_" + date,	// 상점에서 관리하는 주문번호
+				name: "결제 테스트",
+				amount: price,	// 결제금액
+				buyer_email: "user01@naver.com",
+				buyer_name: "유저1",
+				buyer_tel: "010-1111-1111"
+			}, function(rsp){
+				if(rsp.success){
+					alert("결제 성공");
+					// 결제 성공시 DB작업 필요(결제내역 업데이트)
+				}else{
+					alert("결제 실패");
+				}
+			});
+		});
+    </script>
 </body>
 </html>
