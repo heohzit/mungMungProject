@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'GangwonState';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'KOTRAHOPE';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    margin: 0;
+}
+.header-top{
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    text-align: center;
+    overflow: hidden;
+}
+.logo{
+width: 100%;
+padding: 30px 0px 0px 0px;
+text-align: center;
+float: left;
+}
+.logo>a{
+    text-decoration: none;
+}
+.logo>a>span{
+    color: rgb(4, 144, 159);
+    font-family: KOTRAHOPE;
+    font-size: 80px;
+}
+.login{
+    float: right;
+    padding: 0px 10px 10px 10px;
+}
+
+.signin{
+    float: right;
+    padding: 0px 10px 10px 10px;
+}
+.btn{
+    width: 90px;
+    font-size: 18px;
+    font-weight: 550;
+    border: none;
+    background-color: rgb(4, 144, 159);
+    color: aliceblue;
+    border-radius: 5px;
+}
+
+/****************헤더 내비 탭 영역******************/
+.navi>ul{
+    margin: 0 auto;
+    padding: 0;
+    width: 1000px;
+    overflow: hidden;
+}
+.navi>ul>li{
+    list-style: none;
+    float: left;
+    width: calc(100%/6);
+}
+.navi>ul>li>a{
+    display: block;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: GangwonState;
+    color: black;
+}
+.navi>ul>li:hover{
+    background-color: rgb(158, 210, 220);
+}
+.navi>ul>li:hover>a{
+    font-weight: 900;
+    color:aliceblue;
+    
+}
+/************헤더 서브 메뉴 탭 영역**************/
+.sub{
+    background-color: rgb(158, 210, 220);
+	z-index: 1000;
+    position: absolute;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 166px;
+    overflow: hidden;
+    display: none;
+}
+.sub>li{
+    text-align: center;
+}
+.sub>li>a{
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: GangwonState;
+}
+.sub-a{
+    color: aliceblue;
+}
+.sub>li>a:hover{
+    font-weight: 900;
+}
+.more{
+    position: relative;
+    right: 20px;
+    font-size: 20px;
+    transition-duration: 0.4s;
+}
+.active{
+    transform: rotate(45deg);
+}
+.navi>ul>li:hover>a+.sub{
+    display: block;
+}
