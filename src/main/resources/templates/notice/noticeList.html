@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
+<script src="/js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../css/noticeList.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -30,7 +31,7 @@
             <tr th:each="notice : ${noticeList}">
                 <td th:text="${notice.noticeNo}"></td>
                 <td><a th:href="@{/notice/view(noticeNo=${notice.noticeNo})}" th:text="${notice.noticeTitle}"></td></a>
-                <td th:text="${notice.memberId}"></td>
+                <td th:text="${notice.noticeWriter}"></td>
                 <td th:text="${notice.noticeReadCount}"></td>
                 <td th:text="${notice.noticeWriteDate}"></td>
             </tr>

@@ -18,9 +18,10 @@ public class NoticeDao {
 	private NoticeRowMapper noticeRowMapper;
 	
 	//공지사항 리스트
-	public List selectNoticeList(int startPage, int endPage) {
-		String query = "select * from (select rownum as rnum , n.*,member_id from (select * from notice order by 1 desc)n join member on (member_no = notice_writer))where rnum between ? and ?";
-		List noticeList = jdbc.query(query, noticeRowMapper,startPage,endPage);
+	public List selectNoticeList(int start, int end) {
+		//String query = "select * from (select rownum as rnum , n.*,member_id from (select * from notice order by 1 desc)n join member on (member_no = notice_writer))where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum , n.* from (select * from notice order by 1 desc)n)where rnum between ? and ?";
+		List noticeList = jdbc.query(query, noticeRowMapper,start,end);
 		return noticeList;
 	}
 	
@@ -33,8 +34,8 @@ public class NoticeDao {
 	
 	//공지사항 보기 
 	public Notice selectOneNotice(int noticeNo) {
-		System.out.println(noticeNo);
-		String query = "select * from notice join member on (member_no = notice_writer) where notice_no = ?";
+		//String query = "select * from notice join member on (member_no = notice_writer) where notice_no = ?";
+		String query = "select * from notice where notice_no = ?";
 		List list = jdbc.query(query, noticeRowMapper,noticeNo);
 		return (Notice)list.get(0);
 	}
@@ -62,5 +63,15 @@ public class NoticeDao {
 		int result = jdbc.update(query,params);
 		return result;
 	}
+	
+	//공지사항 수정
+	public int updateNotice(Notice n) {
+		String query = "update notice set notice_title=? where notice_no =?";
+		Object[] params = {n.getNoticeTitle(),n.getNoticeNo()};
+		int result = jdbc.update(query,params);
+		return result;
+	}
+	
+
 
 }
