@@ -330,3 +330,7 @@ textarea.input-form {
     color: #1C2B2D;
     text-indent: 5px;
 }
+.btn-box{
+    margin: 30px 0px;
+    text-align: center;
+}
