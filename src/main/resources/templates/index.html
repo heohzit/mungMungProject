@@ -12,6 +12,7 @@
 	<a href="facility/tourDetail">tourDetail 이동</a>
 	<a href="notice/list?reqPage=1">공지사항 이동</a>
     <a href="member/admin.html">관리자페이지 이동</a>
+	<th:block th:include="common/mung_header"></th:block>
 	<div class="wrap"><!--전체를 감싸는 div-->
         <div class="wrap-top">
             <!-- 메인 페이지 Top영역 
@@ -91,13 +92,7 @@
             -->
         </div>
     </div>
-
-
-
-
-
-
-
+	<th:block th:include="common/mung_footer"></th:block>
     <script src="../js/mung_main.js"></script>
 </body>
 </html>
