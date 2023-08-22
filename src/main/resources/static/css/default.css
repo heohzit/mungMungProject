@@ -301,14 +301,15 @@ textarea.input-form {
 
 .insert-table{
     border: 1px solid #ccc;
+    border-collapse: collapse;
 }
-.insert-wrap{
-    border: 1px solid #ccc;
+.insert-table tr{
+    border-bottom: 1px solid #ccc;
 }
 .label-wrap{
     text-align: center;
 }
-.insert-table-th{
+.insert-table th{
     width: 210px;
     background-color: #eee;
 }
@@ -329,4 +330,52 @@ textarea.input-form {
     border-radius: 5px;
     color: #1C2B2D;
     text-indent: 5px;
+}
+.btn-box{
+    margin: 30px 0px;
+    text-align: center;
+}
+
+
+.admin-page-select{
+    width: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.admin-page-select>li{
+    margin: 0 auto;
+    float: left;
+    width: 200px;
+    height: 45px;
+    line-height: 40px;
+    text-align: center;
+    border: none;
+    box-sizing: border-box;
+    transition-duration: 0.5s;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #04909f;
+    color: #fff;
+    border: 2px solid #04909f;
+    cursor: pointer;
+}
+.admin-page-select>li.active-tab{
+    background-color: #1F6E8C;
+    border: 2px solid #1F6E8C;    
+}
+
+.admin-member-tbl{
+    width: 100%;
+    border-collapse: collapse;
+}
+.admin-member-tbl tr{
+    border-bottom: 1px solid #ccc;
+}
+.admin-member-tbl th{
+    background-color: #eee;
+    padding: 1rem;
+}
+.admin-member-tbl td{
+    padding: 1rem;
+    text-align: center;
 }

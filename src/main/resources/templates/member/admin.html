@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>관리자페이지</title>
+<link rel="stylesheet" href="/static/css/default.css"></link>
+<script src="/js/jquery-3.6.0.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- <th:block th:include="common/header"></th:block> -->
+    <div class="page-content">
+        <div class="page-title">
+            <h1>관리자페이지</h1>
+        </div>
+        <div class="page-content-top">
+            <ul class="admin-page-select">
+                <li class="active-tab">전체회원정보</li>
+                <li>결제취소요청 관리</li>
+            </ul>
+        </div>
+        <div class="page-content-mid">
+            <div class="admin-page-content">
+                <table class="admin-member-tbl">
+                    <tr>
+                        <th style="width: 10%;">회원번호</th>
+                        <th style="width: 10%;">아이디</th>
+                        <th style="width: 10%;">이름</th>
+                        <th style="width: 15%;">전화번호</th>
+                        <th style="width: 25%;">주소</th>
+                        <th style="width: 10%;">회원등급</th>
+                        <th style="width: 10%;">가입일</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>admin</td>
+                        <td>관리자</td>
+                        <td>010-1234-5678</td>
+                        <td>서울 영등포구 선유동2로 57 이레빌딩 19층</td>
+                        <td>관리자</td>
+                        <td>2023-08-22</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>user01</td>
+                        <td>유저1</td>
+                        <td>010-1111-1111</td>
+                        <td>서울 영등포구 선유동2로 57 이레빌딩 19층</td>
+                        <td>회원</td>
+                        <td>2023-08-22</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="page-content-bottom">
+            <ul class="pagination">
+                <li>
+                    <a href="#" class="page-btn">
+                        <span class="material-icons">arrow_back_ios_new</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="page-btn select-page">1</a>
+                </li>
+                <li>
+                    <a href="#" class="page-btn">2</a>
+                </li>
+                <li>
+                    <a href="#" class="page-btn">3</a>
+                </li>
+                <li>
+                    <a href="#" class="page-btn">4</a>
+                </li>
+                <li>
+                    <a href="#" class="page-btn">5</a>
+                </li>
+                <li>
+                    <a href="#" class="page-btn">
+                        <span class="material-icons">arrow_forward_ios</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- <th:block th:include="common/footer"></th:block> -->
+</body>
+</html>
