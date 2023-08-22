@@ -62,4 +62,5 @@ public class NoticeDao {
 		int result = jdbc.update(query,params);
 		return result;
 	}
+
 }

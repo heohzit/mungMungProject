@@ -27,12 +27,13 @@
                 </tr>
                 <tr>
                     <td>
-                        <textarea id="noticeContent" name="noticeContent" ></textarea>
+                    	<input style="display: none;" type="file" name="upfile" multiple>
+                        <textarea id="noticeContent" name="noticeContent"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <button type="submit">글쓰기</button>
+                        <button type="submit">작성완료</button>
                     </td>
                 </tr>
             </table>
@@ -44,7 +45,6 @@
 		lang :"ko-KR",
 		callbacks :{
 			onImageUpload : function(files){
-
 				uploadImage(files[0],this);
 			}
 		}
@@ -61,12 +61,10 @@
 			processData : false,
 			contentType : false,
 			success : function(data){
-				$(editor).summernote("insertImage",data);
-				
+				$(editor).summernote("insertImage",data);			
 			}
 		});
 	}
-    </script>
-    
+    </script>    
 </body>
 </html>
