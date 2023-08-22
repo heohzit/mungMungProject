@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자페이지</title>
-<link rel="stylesheet" href="/static/css/default.css"></link>
-<script src="/js/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="../css/default.css">
+<script src="../js/jquery-3.6.0.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -15,28 +15,28 @@
         </div>
         <div class="page-content-top">
             <ul class="admin-page-select">
-                <li class="active-tab">전체회원정보</li>
+                <li>전체회원정보</li>
                 <li>결제취소요청 관리</li>
             </ul>
         </div>
         <div class="page-content-mid">
             <div class="admin-page-content">
-                <table class="admin-member-tbl">
+                <table class="admin-tbl">
                     <tr>
                         <th style="width: 10%;">회원번호</th>
-                        <th style="width: 10%;">아이디</th>
+                        <th style="width: 15%;">아이디</th>
                         <th style="width: 10%;">이름</th>
                         <th style="width: 15%;">전화번호</th>
-                        <th style="width: 25%;">주소</th>
-                        <th style="width: 10%;">회원등급</th>
-                        <th style="width: 10%;">가입일</th>
+                        <th style="width: 20%;">이메일</th>
+                        <th style="width: 15%;">회원등급</th>
+                        <th style="width: 15%;">가입일</th>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>admin</td>
                         <td>관리자</td>
                         <td>010-1234-5678</td>
-                        <td>서울 영등포구 선유동2로 57 이레빌딩 19층</td>
+                        <td>admin@gmail.com</td>
                         <td>관리자</td>
                         <td>2023-08-22</td>
                     </tr>
@@ -45,9 +45,59 @@
                         <td>user01</td>
                         <td>유저1</td>
                         <td>010-1111-1111</td>
-                        <td>서울 영등포구 선유동2로 57 이레빌딩 19층</td>
+                        <td>user01@naver.com</td>
                         <td>회원</td>
                         <td>2023-08-22</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="admin-page-content">
+                <table class="admin-tbl">
+                    <tr>
+                        <th style="width: 6%;">선택</th>
+                        <th style="width: 8%;">예약번호</th>
+                        <th style="width: 10%;">아이디</th>
+                        <th style="width: 9%;">이름</th>
+                        <th style="width: 18%;">패키지상품명</th>
+                        <th style="width: 12%;">전화번호</th>
+                        <th style="width: 17%;">이메일</th>
+                        <th style="width: 10%;">결제일</th>
+                        <th style="width: 10%;">취소확정</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>1</td>
+                        <td>user01</td>
+                        <td>유저1</td>
+                        <td>패키지상품1</td>
+                        <td>010-1111-1111</td>
+                        <td>user01@naver.com</td>
+                        <td>2023-08-22</td>
+                        <td>
+                            <button class="btn bc1">확정</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>2</td>
+                        <td>user01</td>
+                        <td>유저1</td>
+                        <td>패키지상품2</td>
+                        <td>010-1111-1111</td>
+                        <td>user01@naver.com</td>
+                        <td>2023-08-23</td>
+                        <td>
+                            <button class="btn bc1">확정</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="9">
+                            <button class="btn bc1">선택회원취소확정</button>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -83,5 +133,6 @@
         </div>
     </div>
     <!-- <th:block th:include="common/footer"></th:block> -->
+    <script src="../js/admin_page.js"></script>
 </body>
 </html>

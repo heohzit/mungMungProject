@@ -306,18 +306,18 @@ textarea.input-form {
 .insert-table tr{
     border-bottom: 1px solid #ccc;
 }
-.label-wrap{
-    text-align: center;
-}
 .insert-table th{
     width: 210px;
     background-color: #eee;
+}
+.label-wrap{
+    text-align: center;
 }
 .label-wrap>label{
     font-family: ns-medium;
     font-size: 18px;
 }
-.insert-table-td{
+.insert-table td{
     width: 990px;
 }
 .insert-select{
@@ -330,6 +330,9 @@ textarea.input-form {
     border-radius: 5px;
     color: #1C2B2D;
     text-indent: 5px;
+}
+#facilityFile{
+    padding: 1rem 1.5rem;
 }
 .btn-box{
     margin: 30px 0px;
@@ -364,18 +367,18 @@ textarea.input-form {
     border: 2px solid #1F6E8C;    
 }
 
-.admin-member-tbl{
+.admin-tbl{
     width: 100%;
     border-collapse: collapse;
 }
-.admin-member-tbl tr{
+.admin-tbl tr{
     border-bottom: 1px solid #ccc;
 }
-.admin-member-tbl th{
+.admin-tbl th{
     background-color: #eee;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
 }
-.admin-member-tbl td{
-    padding: 1rem;
+.admin-tbl td{
+    padding: 1rem 0.5rem;
     text-align: center;
 }
