@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>멍멍 패키지 </title>
+</head>
+<body>
+	<th:block th:include="common/mung_header"></th:block>
+	<div class="page-content">
+		<div class="page-title">멈멈패키지</div>
+		<table>
+			<tr th:each="product : ${productList}">
+				<td th:text="${product.productNo}"></td>
+				<td><a href="#" th:text="${product.productName}"></a></td>
+				
+			</tr>
+		</table>
+	</div>
+	<th:block th:include="common/mung_footer"></th:block>
+</body>
+</html>

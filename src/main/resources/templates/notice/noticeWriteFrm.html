@@ -23,6 +23,7 @@
                     <th>작성자</th>
                     <td>
                        
+                        <input  type="hidden" name="memberId">
                     </td>
                 </tr>
                 <tr>
@@ -50,7 +51,7 @@
 		}
 	});
 	function uploadImage(file,editor){
-		const form = new FormData()
+		const form = new FormData();
 		
 		form.append("file",file);
 		$.ajax({
