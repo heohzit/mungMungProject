@@ -41,9 +41,10 @@
 }
 .wrap-flex{
     display: flex;
+    justify-content: space-between;
 }
 .flex-left{
-    margin-left: auto;
+    /* margin-left: auto; */
 }
 .wish{
     font-size: 30px;

@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>시설 상세보기</title>
 
-    <link rel="stylesheet" href="/static/css/default.css"></link>
-    <link rel="stylesheet" href="/static/css/default.css" />
-    <link rel="stylesheet" href="/static/css/tourDetail.css" />
+    <link rel="stylesheet" href="../css/default.css"></link>
+    <link rel="stylesheet" href="../css/tourDetail.css"></link>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=87niwjr4qs"></script>
     <!-- jquery -->
     <script src="/js/jquery-3.6.0.js"></script>
-
+	
+	<!-- vscode용 -->
+    <!-- 
     <link rel="stylesheet" href="../../static/css/default.css">
     <link rel="stylesheet" href="../../static/css/tourDetail.css">
-
+	 -->
 </head>
 <body>
     
@@ -26,7 +28,10 @@
         <div class="tour-detail wrap-flex">
             <img src="" alt="" class="tour-img">
             <div class="wrap flex-left">
-                <div class="tour-title wrap-flex">대관령 하늘목장<span class="material-icons flex-left wish" onclick="wish(this);">turned_in_not</span></div>
+                <div class="tour-title wrap-flex">
+                    <span>대관령 하늘목장</span>
+                    <span class="material-icons flex-left wish" onclick="wish(this);">turned_in_not</span>
+                </div>
                 <ul class="tour-info">
                     <li>
                         <div class="list">주소 </div><p>주소입니다</p>
@@ -65,23 +70,6 @@
                 </div>
                 <p class="content-detail">주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의항주의사항주의사항주의사항주의사항주의사항주의사항</p>
             </div>
-            <!-- 나중에.. -->
-            <div class="comment">
-                <div class="content-title">
-                    <span class="material-icons icons">pets</span>댓글
-                </div>
-                <pre>
-                    th써야하니까
-                    나중에
-                    만들게요
-                </pre>
-            </div>
-            <div class="comment-write">
-                <textarea name="" class="input-form"></textarea>
-                <span>등록</span>
-                <span>삭제</span>
-            </div>
-            <button class="more-btn">더보기</button>
         </div>
     </div>
 
@@ -98,8 +86,16 @@
         function wish(obj){
             const wishBtn = $(obj);
             wishBtn.text("turned_in");
+            wishBtn.attr("onclick","delWish(this);");
         };
-    
+        
+        //찜하기 삭제(파라미터 상품번호)
+    	function delWish(obj){
+        	const delBtn = $(obj);
+        	delBtn.text("turned_in_not");
+            delBtn.attr("onclick","wish(this);");
+        }
+        
 	</script>
     
 </body>
