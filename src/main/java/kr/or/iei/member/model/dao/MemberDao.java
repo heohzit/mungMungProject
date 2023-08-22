@@ -27,7 +27,7 @@ public class MemberDao {
 	}
 
 	public int insertMember(Member member) {
-		String query = "insert into member_tbl values(member_seq.nextval,?,?,?,?,?,2,to_char(sysdate,'yyyy-mm-dd'),?)";
+		String query = "insert into member values(member_seq.nextval,?,?,?,?,2,to_char(sysdate,'yyyy-mm-dd'),?)";
 		Object [] params = {member.getMemberId(),member.getMemberPw(),member.getMemberPhone(),member.getMemberEmail(),member.getMemberName()};
 		int result = jdbc.update(query,params);
 		return result;

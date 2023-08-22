@@ -3,17 +3,25 @@ package kr.or.iei.api;
 import java.io.IOException;
 
 import org.jsoup.Jsoup;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import kr.or.iei.EmailSender;
+
 @Controller
 @RequestMapping(value = "/api")
 public class ApiController {
+	@Autowired
+	private EmailSender emailSender;
+	
 	@GetMapping(value = "/apiControl")
 	public String apiControl() {
 		System.out.println("잘뜨는지 확인점");
@@ -49,4 +57,12 @@ public class ApiController {
 		}
 		return "/facility/tourDetail";
 	}
+	
+	@ResponseBody
+	@PostMapping(value="/auth")
+	public String authMail(String email) {
+		String authCode = emailSender.authMail(email);
+		return authCode;
+	}
+	
 }
