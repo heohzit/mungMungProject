@@ -16,7 +16,7 @@ public class NoticeService {
 	
 	//공지사항 리스트
 	public NoticeListData selectNoticeList(int reqPage) {
-		int numPerPage = 5;
+		int numPerPage = 30;
 		int endPage = reqPage * numPerPage;
 		int startPage = endPage-numPerPage+1;
 		List noticeList = noticeDao.selectNoticeList(startPage,endPage);

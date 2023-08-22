@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'GangwonState';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'KOTRAHOPE';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.footer_content{
+    width: 100%;
+    border-top: 1px solid lightgray;
+
+}
+.footer_text>ul>li{
+    padding: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color: gray;
+}
+.footer_logo{
+    width: 100%;
+    padding: 20px;
+    background-color: rgb(4, 144, 159);
+}
+.footer_logo>a{
+    text-decoration: none;
+}
+.footer_logo>a>span{
+    font-size: 50px;
+    color: aliceblue;
+    font-family: KOTRAHOPE;
+    padding-left: 10px;
+    text-align: left;
+}

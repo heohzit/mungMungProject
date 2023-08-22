@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>시설 등록하기</title>
-<script src="/js/jquery-3.6.0.js"></script>
-<link rel="stylesheet" href="../css/default.css"></link>
+<link rel="stylesheet" href="../css/default.css">
+<script src="../js/jquery-3.6.0.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
-	<!-- <th:block th:include="common/header"></th:block> -->
+	<th:block th:include="common/mung_header"></th:block>
 	<div class="page-content">
 		<div class="page-title">
 			<h1>시설 등록하기</h1>
@@ -17,13 +17,13 @@
 		<div class="page-content-mid">
 			<form action="" method="post">
 				<table class="insert-table">
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="facilityRegion">지역</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<select class="insert-select" name="facilityRegion" id="facilityRegion" required>
 								<option value>지역</option>
 								<option value="1">춘천시</option>
@@ -47,13 +47,13 @@
 							</select>
 						</td>
 					</tr>
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="facilityCase">분야</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<select class="insert-select" name="facilityCase" id="facilityCase" required>
 								<option value>분야</option>
 								<option value="1">관광지</option>
@@ -64,23 +64,23 @@
 							</select>
 						</td>
 					</tr>
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="facilityName">시설명</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<input type="text" name="facilityName" id="facilityName" class="input-form2" required>
 						</td>
 					</tr>
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="postcode">주소</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<div>
 								<input type="text" name="postcode" id="postcode" class="input-form3" readonly required>
 								<button type="button" class="btn2 bc1" onclick="searchAddr();">주소찾기</button>
@@ -93,74 +93,84 @@
 							</div>
 						</td>
 					</tr>
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="facilityPhone">전화번호</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<input type="text" name="facilityPhone" id="facilityPhone" class="input-form2" required>
 						</td>
 					</tr>
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="facilityTime">이용시간</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<input type="text" name="facilityTime" id="facilityTime" class="input-form2" required>
 						</td>
 					</tr>
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="facilityHomepage">홈페이지</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<input type="text" name="facilityHomepage" id="facilityHomepage" class="input-form2">
 						</td>
 					</tr>
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="facilityInfo">소개</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<textarea class="input-form4" name="facilityInfo" id="facilityInfo" required></textarea>
 						</td>
 					</tr>
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="facilityMajor">주요시설</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<textarea class="input-form4" name="facilityMajor" id="facilityMajor"></textarea>
 						</td>
 					</tr>
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="facilityPrice">이용요금</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<textarea class="input-form4" name="facilityPrice" id="facilityPrice"></textarea>
 						</td>
 					</tr>
-					<tr class="insert-wrap">
-						<th class="insert-table-th">
+					<tr>
+						<th>
 							<div class="label-wrap">
 								<label for="facilityNotice">반려동물 정책 및 주의사항</label>
 							</div>
 						</th>
-						<td class="insert-table-td">
+						<td>
 							<textarea class="input-form4" name="facilityNotice" id="facilityNotice"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<div class="label-wrap">
+								<label for="facilityFile">첨부파일</label>
+							</div>
+						</th>
+						<td>
+							<input type="file" name="facilityFile" id="facilityFile" multiple>
 						</td>
 					</tr>
 				</table>
@@ -171,7 +181,7 @@
 		</div>
 		<div class="page-content-bottom"></div>
 	</div>
-	<!-- <th:block th:include="common/footer"></th:block> -->
+	<th:block th:include="common/mung_footer"></th:block>
 	<script>
 		function searchAddr(){
 			new daum.Postcode({
