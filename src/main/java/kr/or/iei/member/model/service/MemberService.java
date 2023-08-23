@@ -22,5 +22,9 @@ public class MemberService {
 		return result;
 
 	}
+	public Member selectOneMember(String checkId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

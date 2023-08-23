@@ -33,12 +33,12 @@ $("#authBtn").on("click", function(){
 	if(authCode != null){
 		const inputCode = $("#authCode").val();
 		if(authCode == inputCode){
-			$("#authMsg").text("인증 완료");
+			$("#authMsg").text("인증 완료되었습니다.");
 			$("#authMsg").css("color","blue");
 			$("#memberEmail").val(email);
 			console.log($("#memberEmail").val());
 		}else{
-			$("#authMsg").text("메일코드를 확인하세요");
+			$("#authMsg").text("인증번호를 확인해주세요.");
 			$("#authMsg").css("color","red");
 		}
 	}
