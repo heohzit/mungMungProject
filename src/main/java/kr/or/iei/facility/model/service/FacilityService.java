@@ -19,6 +19,7 @@ public class FacilityService {
 		int startNum = endNum - numPerPage + 1;
 		List facilityList = facilityDao.selectTourList(startNum, endNum);
 		
+		int totalCount = facilityDao.selectTourListTotalCount();
 		
 		
 		return null;

@@ -20,4 +20,10 @@ public class FacilityDao {
 		List list = jdbc.query(query, facilityRowMapper, startNum, endNum);
 		return list;
 	}
+
+	public int selectTourListTotalCount() {
+		String query = "select count(*) from facility";
+		int totalCount = jdbc.queryForObject(query, Integer.class);
+		return totalCount;
+	}
 }
