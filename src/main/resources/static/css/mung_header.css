@@ -63,7 +63,7 @@ float: left;
 .navi>ul>li{
     list-style: none;
     float: left;
-    width: calc(100%/6);
+    width: calc(100%/5);
 }
 .navi>ul>li>a{
     display: block;
@@ -91,7 +91,7 @@ float: left;
     list-style-type: none;
     margin: 0 auto;
     padding: 0;
-    width: 166px;
+    width: 200px;
     overflow: hidden;
     display: none;
 }
