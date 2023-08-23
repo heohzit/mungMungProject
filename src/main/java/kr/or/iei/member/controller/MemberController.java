@@ -72,5 +72,8 @@ public class MemberController {
 			return "1";
 		}
 	}
-
+	@GetMapping(value="/mypage")
+	public String mypage() {
+		return "member/mypage";
+	}
 }
