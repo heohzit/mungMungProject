@@ -5,6 +5,7 @@
 <title>일정선택 & 결제</title>
 <link rel="stylesheet" href="/static/css/default.css">
 <script src="/static/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 </head>
 <body>
     <th:block th:include="common/mung_header"></th:block>
@@ -14,10 +15,40 @@
         </div>
         <div class="page-content-top"></div>
         <div class="page-content-mid">
-            
+            <div class="pay-content-wrap">
+                <div class="product-box">
+                    <div class="pay-img-box">
+                        <img src="/static/img/pay_test_img.png">
+                    </div>
+                    <div class="pay-name-box">
+                        <h3>패키지상품1</h3>
+                    </div>
+                </div>
+                <div class="pay-box">
+                    <table class="pay-box-tbl">
+                        <tr>
+                            <th>일정 선택</th>
+                            <td>
+                                <input type="date">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>결제 금액</th>
+                            <td>1,000원</td>
+                            <input type="hidden" id="price" value="1000">
+                        </tr>
+                        <tr>
+                            <th colspan="2">
+                                <button id="payBtn" class="btn bc1">결제하기</button>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
         <div class="page-content-bottom"></div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
+    <script src="/static/js/pay.js"></script>
 </body>
 </html>
