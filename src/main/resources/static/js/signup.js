@@ -24,7 +24,7 @@ $("#sendBtn").on("click",function(){
         success : function(data){
             console.log(data);
             authCode = data;
-            $("#auth").slideDown();
+            $("#auth").show();
         }
     });
 });
@@ -45,7 +45,7 @@ $("#authBtn").on("click", function(){
 $("#memberId").on("change",function(){
 			const memberId = $(this).val();
 			//정규표현식을 통한 유효성 검사
-			const idReg = /^[a-z0-9]{4,10}$/;
+			const idReg = /^[a-z0-9]{2,8}$/;
 			if(idReg.test(memberId)){
 				//유효성이 만족되면 -> db에서 중복체크(ajax)
 				$.ajax({
@@ -68,7 +68,7 @@ $("#memberId").on("change",function(){
 					}
 				});
 			}else{
-				$("#ajaxCheckId").text(" " + "아이디는 영어소문자/숫자 포함해서 4~10글자입니다.");
+				$("#ajaxCheckId").text(" " + "아이디는 영어소문자/숫자 2~8글자입니다.");
 				$("#ajaxCheckId").css("color","red");
 				$(this).css("border","1px solid red");
 				
