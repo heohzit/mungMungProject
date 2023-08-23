@@ -7,10 +7,16 @@
 }
 
 .login-wrap{
-    margin-top: 200px;
+    margin-top: 130px;
     text-align: center;
     
 }
+.login-header{
+	width: 1200px;
+	margin: auto;
+	height: 400px;
+}
+
 .login-header>h2{
     margin-bottom: 40px;
 }
@@ -33,9 +39,7 @@
 
 .link-box>a{
     text-decoration-line: none;
-    font-size: 14px;
-    
-    
+    font-size: 14px;   
 }
 
 .btn-box>button{
@@ -48,6 +52,5 @@
     height: 50px;
     border-radius: 5px;
     font-size: 15px;
-    margin-top: 30px;
     cursor: pointer;
 }

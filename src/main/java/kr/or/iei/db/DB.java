@@ -1,4 +1,4 @@
-package kr.or.iei.api;
+package kr.or.iei.db;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Api {
+public class DB {
 	private int facilityNo;
 	private int facilityWriter;
 	private int facilityRegion;
