@@ -1,4 +1,4 @@
-package kr.or.iei.api;
+package kr.or.iei.db;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

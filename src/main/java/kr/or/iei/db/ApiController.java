@@ -1,4 +1,4 @@
-package kr.or.iei.api;
+package kr.or.iei.db;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import com.google.gson.JsonParser;
 
 
 @Controller
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/db")
 public class ApiController {
 	@Autowired
 	ApiService apiService;
