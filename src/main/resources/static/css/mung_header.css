@@ -51,6 +51,7 @@ float: left;
     background-color: rgb(4, 144, 159);
     color: aliceblue;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 /****************헤더 내비 탭 영역******************/

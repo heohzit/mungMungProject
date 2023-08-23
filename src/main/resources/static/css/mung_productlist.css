@@ -1,0 +1,97 @@
+@font-face{
+    font-family: kotra-hope;
+    src: url(../font/KotraHope.otf);
+}
+@font-face {
+    font-family: ns-thin;
+    src: url(../font/NotoSansKR-Thin.otf);
+}
+@font-face {
+    font-family: ns-light;
+    src: url(../font/NotoSansKR-Light.otf);
+}
+@font-face {
+    font-family: ns-medium;
+    src: url(../font/NotoSansKR-Medium.otf);
+}
+@font-face {
+    font-family: ns-bold;
+    src: url(../font/NotoSansKR-Bold.otf);
+}
+@font-face {
+    font-family: ns-black;
+    src: url(../font/NotoSansKR-Black.otf);
+}
+@font-face {
+    font-family: ns-regular;
+    src: url(../font/NotoSansKR-Regular.otf);
+}
+*{
+    margin:0;
+    padding:0;
+}
+.productlist-wrap{
+    width: 100%;
+    text-align: center;
+}
+.product-top{
+    border-bottom: 1px solid lightgray;
+
+}
+.product-top>img{
+    width: 1200px;
+    height: 300px;
+    border-radius: 5px;
+}
+.product-top>h1{
+    padding-left: 500px;
+    position: absolute;
+    /* ㅌㅔ 스 트 입 ㄴ ㅣ ㄷ ㅏ */
+}
+/*************** 관리자 전용 버튼 및 리스트 영역 ************/
+.product-content{
+    text-align: center;
+}
+.admin_insert{
+    text-align: center;
+    height: 60px;
+}
+.admin_insert>a>button{
+    width: 400px;
+    height: 60px;
+    font-size: 30px;
+    font-family: ns-bold ;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(4, 144, 159);
+    color: aliceblue;
+    cursor: pointer;
+
+}
+/*****************패키지 리스트 영역 ***************/
+.product-content{
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+.productlist{
+    text-align: center;
+    overflow: hidden;
+}
+
+.product{
+    padding: 10px 0px 10px 39px;
+    list-style: none;
+    float: left;
+}
+.product>a{
+    display: block;
+    text-decoration: none;
+    
+}
+.img-box{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+

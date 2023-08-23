@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Api {
+public class DB {
 	private int facilityNo;
 	private int facilityWriter;
 	private int facilityRegion;

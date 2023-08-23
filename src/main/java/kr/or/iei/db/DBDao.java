@@ -5,13 +5,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ApiDao {
+public class DBDao {
 	@Autowired
 	private JdbcTemplate jdbc;
 	@Autowired
-	private ApiRowMapper apiRowMapper;
+	private DBRowMapper DBRowMapper;
 	
-	public int insertApi(Api api) {
+	public int insertApi(DB api) {
 		// TODO Auto-generated method stub
 						//INSERT INTO FACILITY VALUES(FACILITY_SEQ.NEXTVAL,21,1,1,'시설이름','시설번호','시설주소',111.111,111.111,'영업시간','홈페이지','정보','주요시설','가격','주요사항');
 		String query = "INSERT INTO FACILITY VALUES(FACILITY_SEQ.NEXTVAL, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
