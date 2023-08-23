@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>멍 헤더 </title>
     <script src="../js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../css/mung_header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
-<body>
+<header>
     <div class="header-wrap"><!--전체를 감싸는 div-->
-<!-- 로고 영역 headerTop -->
+        <!-- 로고 영역 headerTop -->
         <div class="header-top">
             <div class="logo">
                 <a href="/"><span>강원도 멍멍 탐험대</span></a>
@@ -25,13 +21,13 @@
                 <a href="member/login"><button type="button" name="login" class="header_btn">로그인</button></a>
             </div>
         </div>
-<!--메뉴 navi탭 영역-->
+        <!--메뉴 navi탭 영역-->
         <div class="navi">
             <ul>
                 <li>
                     <a href=#>멍멍 여행지</a>
                     <ul class="sub">
-                        <li><a href="/facility/tourList">멍멍 관광지</a></li>
+                        <li><a href="/facility/tourList?reqPage=1">멍멍 관광지</a></li>
                         <li> <a href="#">멍멍 숙박</a></li>
                         <li><a href="#">멍멍 식음료</a></li>
                         <li><a href="#">멍멍 체험</a></li>
@@ -44,10 +40,6 @@
             </ul>
         </div>
     </div>
-
-
-
-
     <script src="../js/mung_header.js"></script>
-</body>
+</header>
 </html>
