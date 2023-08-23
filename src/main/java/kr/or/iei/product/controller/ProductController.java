@@ -16,10 +16,14 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@GetMapping(value = "/list")
+	@GetMapping(value = "/list")//패키지 리스트
 	public String productList(Model model) {
 		List productList = productService.selectProductList();
 		model.addAttribute("productList", productList);
 		return "product/productList";
+	}
+	@GetMapping(value = "/writeFrm")//관리자용 패키지 등록 페이지 이동 양식
+		public String productWriteFrm() {
+			return "product/writeFrm";
 	}
 }
