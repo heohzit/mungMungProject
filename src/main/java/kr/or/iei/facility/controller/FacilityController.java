@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.or.iei.facility.model.service.FacilityService;
-import kr.or.iei.facility.model.vo.Facility;
 import kr.or.iei.facility.model.vo.FacilityListData;
 
 @Controller
@@ -32,5 +31,13 @@ public class FacilityController {
 	@GetMapping(value="/insertFrm")
 	public String tourInsert() {
 		return "facility/insertFrm";
+	}
+	
+	@GetMapping(value="/searchTourList")
+	public String searchTourList(Model model, int reqPage, String searchName) {
+		FacilityListData fld = facilityService.selectSearchTourList(reqPage, searchName);
+		model.addAttribute("facilityList", fld.getFacilityList());
+		model.addAttribute("pageNavi", fld.getPageNavi());
+		return "facility/searchTourList";
 	}
 }
