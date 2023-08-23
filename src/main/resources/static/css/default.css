@@ -1,4 +1,7 @@
+
+/* 사용폰트 */
 /* 폰트 클래스 */
+
 @font-face{
     font-family: kotra-hope;
     src: url(../font/KotraHope.otf);
@@ -39,7 +42,7 @@
 }
 
 
-/* �룿�듃 �겢�옒�뒪 */
+/* */
 .f-title{
     font-family: kotra-hope;
 }
@@ -63,7 +66,7 @@
 }
 
 
-/* 湲��뵪�깋 */
+
 .fc-1{
     color: #04909f;
 }
@@ -72,7 +75,7 @@
 }
 
 
-/* 諛곌꼍�깋 */
+
 .bg-1{
     background-color: #04909f;
 }
@@ -80,7 +83,7 @@
     background-color: #9ed2dc;
 }
 
-/* 踰꾪듉 �뵒�옄�씤 */
+
 .btn{
     border: none;
     height: 45px;
@@ -112,8 +115,7 @@
     cursor: pointer;
 }
 
-/* input �뵒�옄�씤 */
-/* input �뙎湲��옉�꽦�슜 */
+
 .input-form {
     width: 100%;
     display: block;
