@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.Member;
@@ -61,6 +62,7 @@ public class MemberController {
 	public String signup() {
 		return "member/signup";
 	}
+	@ResponseBody
 	@GetMapping(value="/ajaxCheckId")
 	public String ajaxCheckId(String memberId) {
 		Member m = memberService.selectOneMember(memberId);
@@ -70,5 +72,8 @@ public class MemberController {
 			return "1";
 		}
 	}
-
+	@GetMapping(value="/mypage")
+	public String mypage() {
+		return "member/mypage";
+	}
 }
