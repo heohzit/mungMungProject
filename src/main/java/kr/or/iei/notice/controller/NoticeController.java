@@ -61,7 +61,7 @@ public class NoticeController {
 	@ResponseBody
 	@PostMapping (value="editor",produces ="plain/text;charset=utf-8")
 	public String editorUpload(MultipartFile file) {
-		String savepath = root+"editor/";
+		String savepath = root+"notice/";
 		String filepath = fileUtil.getFilepath(savepath, file.getOriginalFilename());
 		File image = new File(savepath+filepath);
 			try {

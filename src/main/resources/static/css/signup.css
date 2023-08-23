@@ -6,13 +6,16 @@
     color: #1C2B2D;
 }
 .menu{
-    padding: 20px;
+    padding: 70px;
     margin: auto;
     box-sizing: border-box;
     border: 1px solid #ccc;   
     width: 650px;
 }
-
+.input-wrap{
+	padding-top: 20px;
+}
+<!--
 .input-form{
     height: 50px;
     width: 200px;
@@ -23,11 +26,40 @@
     border-radius: 5px;
     border: 1px solid rgb(221, 221, 221);
 }
+-->
+.einput-form{
+	display: inline-block;
+   	height: 50px;
+    outline: none;
+    background-color: #fff;
+   	border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
 .email-choice{
     height: 50px;
     width: 200px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 5px;
+}
+#authBtn{
+	background-color: lightgrey;
+    color: white;
+    border-style: none;
+    width: 60px;
+    height: 50px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#authCode{
+	display: inline-block;
+   	height: 50px;
+    outline: none;
+    background-color: #fff;
+   	border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 .memberbtn{
     background-color: lightgrey;

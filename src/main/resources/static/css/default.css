@@ -1,4 +1,7 @@
-/* 사용 폰트 */
+
+/* 사용폰트 */
+/* 폰트 클래스 */
+
 @font-face{
     font-family: kotra-hope;
     src: url(../font/KotraHope.otf);
@@ -39,7 +42,7 @@
 }
 
 
-/* 폰트 클래스 */
+/* */
 .f-title{
     font-family: kotra-hope;
 }
@@ -63,7 +66,7 @@
 }
 
 
-/* 글씨색 */
+
 .fc-1{
     color: #04909f;
 }
@@ -72,7 +75,7 @@
 }
 
 
-/* 배경색 */
+
 .bg-1{
     background-color: #04909f;
 }
@@ -80,7 +83,7 @@
     background-color: #9ed2dc;
 }
 
-/* 버튼 디자인 */
+
 .btn{
     border: none;
     height: 45px;
@@ -112,8 +115,7 @@
     cursor: pointer;
 }
 
-/* input 디자인 */
-/* input 댓글작성용 */
+
 .input-form {
     width: 100%;
     display: block;
@@ -402,7 +404,7 @@ textarea.input-form {
 }
 .pay-img-box, .pay-name-box{
     width: 95%;
-    margin: 30px auto;
+    margin: 50px auto;
     text-align: center;
 }
 .pay-img-box>img{
@@ -416,13 +418,59 @@ textarea.input-form {
 }
 .pay-box-tbl{
     border-collapse: collapse;
+    margin: 0 auto;
+    width: 90%;
 }
-.pay-box-tbl th{
+.pay-box-tbl-th{
     width: 20%;
-    padding: 2rem 0.5rem;
+    padding: 1rem 0.5rem;
 }
-.pay-box-tbl td{
-    width: 80%;
-    padding: 2rem 0.5rem;
+.pay-box-tbl-td{
+    width: 90%;
+    padding: 1rem 0.5rem;
     text-align: center;
+}
+
+
+
+
+
+
+.posting-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.posting-wrap .posting-item {
+  cursor:pointer;
+  box-sizing: border-box;
+  width: calc(100% / 3);
+  padding: 20px;
+}
+.posting-wrap .posting-item .posting-img img {
+  width: 100%;
+  height: 300px;
+}
+.posting-wrap .posting-item .posting-content {
+  width: 80%;
+  margin: 0 auto;
+}
+.posting-wrap .posting-item:hover {
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.calendar{
+    width: 100%;
+    border: 1px solid #ddd;
+}
+.title{
+    padding: 1rem;
+}
+.calendar td{
+    padding: 1rem 0.5rem;
+}
+.week>th:first-child{
+    color: red;
+}
+.week>th:last-child{
+    color: blue;
 }
