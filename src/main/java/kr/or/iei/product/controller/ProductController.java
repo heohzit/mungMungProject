@@ -26,4 +26,5 @@ public class ProductController {
 		public String productWriteFrm() {
 			return "product/writeFrm";
 	}
+	
 }
