@@ -23,7 +23,7 @@ public class MemberService {
 
 	}
 	public Member selectOneMember(String checkId) {
-		// TODO Auto-generated method stub
+		Member m = memberDao.selectOneMember(checkId);
 		return null;
 	}
 

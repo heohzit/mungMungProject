@@ -17,7 +17,6 @@ let authCode = null;
 let email = null;
 $("#sendBtn").on("click",function(){
     email = $("#memberEmail1").val() + '@' + $("#memberEmail2").val();
-    //이메일주소 유효성검사를 통해서 정상적인 이메일인지 확인 후 다음로직진행(비정상이면 안내메세지 전송)
     $.ajax({
         url : "/api/auth",
         data : {email : email},
@@ -42,5 +41,39 @@ $("#authBtn").on("click", function(){
 			$("#authMsg").css("color","red");
 		}
 	}
-})
+});
+$("#memberId").on("change",function(){
+			const memberId = $(this).val();
+			//정규표현식을 통한 유효성 검사
+			const idReg = /^[a-z0-9]{4,10}$/;
+			if(idReg.test(memberId)){
+				//유효성이 만족되면 -> db에서 중복체크(ajax)
+				$.ajax({
+					//MemberController에 작성
+					url:"/member/ajaxCheckId",
+					type : "get",
+					data : {memberId : memberId},
+					success : function(data){
+					console.log(data);
+						if(data == "0"){
+							$("#ajaxCheckId").text(" " + "사용 가능한 아이디입니다.");
+							$("#ajaxCheckId").css("color","blue");
+							$("#memberId").css("border","1px solid blue");
+						}else{
+							$("#ajaxCheckId").text(" " + "이미 사용 중인 아이디입니다.");
+							$("#ajaxCheckId").css("color","red");
+							$("#memberId").css("border","1px solid red");
+							
+						}
+					}
+				});
+			}else{
+				$("#ajaxCheckId").text(" " + "아이디는 영어소문자/숫자 포함해서 4~10글자입니다.");
+				$("#ajaxCheckId").css("color","red");
+				$(this).css("border","1px solid red");
+				
+			}
+			//db에서 중복체크(ajax)
+		});
+
 	
