@@ -497,7 +497,7 @@ float: left;
 .navi>ul{
     margin: 0 auto;
     padding: 0;
-    width: 1000px;
+    width: 90%;
     overflow: hidden;
 }
 .navi>ul>li{
@@ -511,7 +511,7 @@ float: left;
     height: 60px;
     line-height: 60px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 19px;
     font-family: GangwonState;
     color: black;
 }
@@ -531,12 +531,16 @@ float: left;
     list-style-type: none;
     margin: 0 auto;
     padding: 0;
-    width: 200px;
+    width: 342px;
     overflow: hidden;
     display: none;
 }
 .sub>li{
     text-align: center;
+}
+.sub>li>a:hover{
+	font-size:21px;
+	
 }
 .sub>li>a{
     display: block;
@@ -544,7 +548,7 @@ float: left;
     line-height: 60px;
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 19px;
     font-family: GangwonState;
 }
 .sub-a{

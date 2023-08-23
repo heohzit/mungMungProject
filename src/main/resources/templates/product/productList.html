@@ -16,7 +16,7 @@
         	<div class="product-content">
             	<!-- 관리자용 패키지 등록 버튼 -->
             	<div class="admin_insert">
-                	<a href="#"><button type="button">패키지 등록하기</button></a>
+                	<a th:if="${session.m != null && session.m.memberLevel ==1 }" href="/product/writeFrm"><button type="button">패키지 등록하기</button></a>
            		</div>
             	<!-- 패키지 리스트 -->
 				<div class="productlist">
