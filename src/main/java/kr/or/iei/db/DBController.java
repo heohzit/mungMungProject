@@ -3,13 +3,10 @@ package kr.or.iei.db;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
-
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.google.gson.JsonArray;
@@ -24,7 +21,7 @@ public class DBController {
 	@Autowired
 	DBService DBService;
 	
-	@GetMapping(value = "/apiControl")
+	@GetMapping(value = "/apiControl19151")
 	public String apiControl() {
 		System.out.println("잘뜨는지 확인점");
 		String url = "https://www.pettravel.kr/api/detailSeqPart.do";
@@ -32,7 +29,7 @@ public class DBController {
 		int facilityCase = 4; 
 		
 		try {
-			ArrayList<DB> list = new ArrayList<DB>();
+			ArrayList<Facility> list = new ArrayList<Facility>();
 			int count = 0;
 			for(int i=1;i<510;i++) {
 			String result = Jsoup.connect(url)
@@ -160,7 +157,7 @@ public class DBController {
 					count++;
 					
 	/////////////////데이터 삽입///////////////////////////////////////////////////////////////////////				
-					DB api = new DB();
+					Facility api = new Facility();
 					api.setFacilityAddr(facilityAddr);
 					api.setFacilityCase(facilityCase);
 					api.setFacilityHomepage(facilityHomepage);
@@ -189,16 +186,106 @@ public class DBController {
 			System.out.println(count);
 			
 			///////apiService로 전달//////////////
-			int result1 = DBService.insertApi(list);
-			if(result1>0) {
-				System.out.println("성공"+result1);
-			} else {
-				System.out.println("실패");
-			}
+//			int result1 = DBService.insertApi(list);
+//			if(result1>0) {
+//				System.out.println("성공"+result1);
+//			} else {
+//				System.out.println("실패");
+//			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return "/facility/tourDetail";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@GetMapping(value = "apiImgControl31465")
+	public String apiImgControl() {
+		String url = "https://www.pettravel.kr/api/detailSeqPart.do";
+		String partCode = "PC04";	/*분야코드 변경*/
+		int facilityNo = 430;	// 초기값(설정값-1)
+		ArrayList<FacilityFile> list = new ArrayList<FacilityFile>();
+		
+		try {
+			for(int i=1;i<510;i++) {
+				String result = Jsoup.connect(url)
+						.data("partCode", partCode)
+						.data("contentNum", Integer.toString(i))
+							.ignoreContentType(true)	//응답형식을 무시함(문자열로 받아서 직접 편집하기 위해)
+							.get()						//get요청
+							.text()						//받은 데이터를 문자열로 변환
+							;
+				//문자열 -> json
+				JsonArray array = (JsonArray)JsonParser.parseString(result);
+//				System.out.println("array : "+array);
+				//키값으로 받아오고 타입지정
+				JsonObject resultList = array.get(0).getAsJsonObject();
+//				System.out.println("resultList : "+resultList);
+//				System.out.println("i : "+ i);
+			
+				if(resultList.size() == 2) {	//값이 정상적으로 들어있는 경우 2, error : 1
+					facilityNo++;
+					JsonObject resultList2 = resultList.get("resultList").getAsJsonObject();
+//					System.out.println("resultList2 : "+resultList2);
+					
+					if(resultList2.has("imageList")) {
+						//System.out.println("imageList있");	
+						System.out.println("resultList2 : "+resultList2);
+						JsonArray imageList = resultList2.get("imageList").getAsJsonArray();
+						System.out.println("imageList : "+imageList);
+						System.out.println("imageList.size() : "+imageList.size());
+						
+						for(int j=0;j<imageList.size();j++) {
+							JsonObject imageTmp = imageList.get(j).getAsJsonObject();
+							String image = imageTmp.get("image").getAsString();
+							System.out.println("시설번호"+facilityNo+"의 "+j+"번째 image : "+image);
+////////////////////////////////데이터 삽입///////////////////////////////////							
+							FacilityFile file = new FacilityFile();
+							file.setFacilityFileNo(facilityNo);
+							file.setFacilityFilePath(image);
+							
+							list.add(file);
+						}
+						System.out.println();
+						
+						
+						
+					} //imageList
+				}//resultList.size()
+			
+			
+			}//for문 종료
+			
+			System.out.println(list.get(0));
+			System.out.println(list.get(list.size()-1));
+			System.out.println("list사이즈 : " + list.size());
+/////////////////service로 이동 /////////////////////////////////////////
+//			int result1 = DBService.insertFile(list);
+//			if(result1>0) {
+//				System.out.println("성공(개) : "+result1);
+//			} else {
+//				System.out.println("실패");
+//			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		return "/facility/tourDetail";
 	}
 }

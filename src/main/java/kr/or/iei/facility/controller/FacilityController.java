@@ -23,7 +23,8 @@ public class FacilityController {
 	@GetMapping(value="/tourList")
 	public String tourList(Model model, int reqPage) {
 		FacilityListData fld = facilityService.selectTourList(reqPage);
-		
+		model.addAttribute("facilityList", fld.getFacilityList());
+		model.addAttribute("pageNavi", fld.getPageNavi());
 		return "facility/tourList";
 	}
 	

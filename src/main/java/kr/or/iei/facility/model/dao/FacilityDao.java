@@ -16,8 +16,14 @@ public class FacilityDao {
 	public FacilityRowMapper facilityRowMapper;
 
 	public List selectTourList(int startNum, int endNum) {
-		String query = "select * from (select rownum as rnum, n.* from (select * from facility order by 1 desc) n) where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 3) n) where rnum between ? and ?";
 		List list = jdbc.query(query, facilityRowMapper, startNum, endNum);
 		return list;
+	}
+
+	public int selectTourListTotalCount() {
+		String query = "select count(*) from facility";
+		int totalCount = jdbc.queryForObject(query, Integer.class);
+		return totalCount;
 	}
 }

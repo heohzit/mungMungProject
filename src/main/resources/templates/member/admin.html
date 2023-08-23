@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자페이지</title>
-<link rel="stylesheet" href="../css/default.css">
 <script src="../js/jquery-3.6.0.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -133,6 +132,19 @@
         </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
-    <script src="../js/admin_page.js"></script>
+    <script>
+        const tabs = $(".admin-page-select>li");
+        tabs.on("click", function () {
+            tabs.removeClass("active-tab");
+            $(this).addClass("active-tab");
+            const tabcontent = $(".admin-page-content");
+            tabcontent.hide();
+            const index = tabs.index(this);
+            tabcontent.eq(index).show();
+        });
+        $(function () {
+            tabs.eq(0).click();
+        });
+    </script>
 </body>
 </html>
