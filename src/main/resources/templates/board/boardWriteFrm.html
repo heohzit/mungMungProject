@@ -2,13 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>커뮤니티 수정</title>
-<script src="/js/jquery-3.6.0.js"></script>
+<title>커뮤니티 글쓰기</title>
+
 </head>
 <body>
+<th:block th:include="common/mung_header"></th:block>
 <script src="/summernote/summernote-lite.js"></script>
-	<script src="/summernote/lang/summernote-ko-KR.js"></script>
-	<link rel="stylesheet" href="/summernote/summernote-lite.css">
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
+<link rel="stylesheet" href="/summernote/summernote-lite.css">
     <div class="page-content">
         <div class="page-title">커뮤니티 작성</div>
         <form action="/board/write" method="post" enctype="multipart/form-data">
@@ -21,8 +22,12 @@
                 </tr>
                 <tr>
                     <th>작성자</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>대표사진</th>
                     <td>
-                       
+                    <input type="file" name="imageFile" accept=".jpg,.png,.jpeg">
                     </td>
                 </tr>
                 <tr>
@@ -39,6 +44,7 @@
             </table>
         </form>
     </div>
+    <th:block th:include="common/mung_footer"></th:block>
     <script>
     $("#boardContent").summernote({
 		height : 400,

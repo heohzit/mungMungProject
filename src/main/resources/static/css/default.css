@@ -1,4 +1,4 @@
-/* 사용 폰트 */
+/* �궗�슜 �룿�듃 */
 @font-face{
     font-family: kotra-hope;
     src: url(../font/KotraHope.otf);
@@ -39,7 +39,7 @@
 }
 
 
-/* 폰트 클래스 */
+/* �룿�듃 �겢�옒�뒪 */
 .f-title{
     font-family: kotra-hope;
 }
@@ -63,7 +63,7 @@
 }
 
 
-/* 글씨색 */
+/* 湲��뵪�깋 */
 .fc-1{
     color: #04909f;
 }
@@ -72,7 +72,7 @@
 }
 
 
-/* 배경색 */
+/* 諛곌꼍�깋 */
 .bg-1{
     background-color: #04909f;
 }
@@ -80,7 +80,7 @@
     background-color: #9ed2dc;
 }
 
-/* 버튼 디자인 */
+/* 踰꾪듉 �뵒�옄�씤 */
 .btn{
     border: none;
     height: 45px;
@@ -112,8 +112,8 @@
     cursor: pointer;
 }
 
-/* input 디자인 */
-/* input 댓글작성용 */
+/* input �뵒�옄�씤 */
+/* input �뙎湲��옉�꽦�슜 */
 .input-form {
     width: 100%;
     display: block;
@@ -425,4 +425,30 @@ textarea.input-form {
     width: 80%;
     padding: 2rem 0.5rem;
     text-align: center;
+}
+
+
+
+
+
+.posting-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.posting-wrap .posting-item {
+  cursor:pointer;
+  box-sizing: border-box;
+  width: calc(100% / 3);
+  padding: 20px;
+}
+.posting-wrap .posting-item .posting-img img {
+  width: 100%;
+  height: 300px;
+}
+.posting-wrap .posting-item .posting-content {
+  width: 80%;
+  margin: 0 auto;
+}
+.posting-wrap .posting-item:hover {
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
 }
