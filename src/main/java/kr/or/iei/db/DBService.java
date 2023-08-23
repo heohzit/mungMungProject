@@ -7,16 +7,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ApiService {
+public class DBService {
 	@Autowired
-	ApiDao apiDao;
+	DBDao DBDao;
 	
 	@Transactional
-	public int insertApi(ArrayList<Api> list) {
+	public int insertApi(ArrayList<DB> list) {
 		// TODO Auto-generated method stub
 		int result = 0;
 		for(int i=0;i<list.size();i++) {
-			int serviceInsert = apiDao.insertApi(list.get(i));
+			int serviceInsert = DBDao.insertApi(list.get(i));
 			if(serviceInsert>0) {
 				result++;				
 			} else {

@@ -17,9 +17,9 @@ import com.google.gson.JsonParser;
 
 @Controller
 @RequestMapping(value = "/db")
-public class ApiController {
+public class DBController {
 	@Autowired
-	ApiService apiService;
+	DBService DBService;
 	
 	@GetMapping(value = "/apiControl12313154")
 	public String apiControl() {
@@ -29,7 +29,7 @@ public class ApiController {
 		int facilityCase = 4; 
 		
 		try {
-			ArrayList<Api> list = new ArrayList<Api>();
+			ArrayList<DB> list = new ArrayList<DB>();
 			int count = 0;
 			for(int i=1;i<510;i++) {
 				String result = Jsoup.connect(url)
@@ -161,7 +161,7 @@ public class ApiController {
 					count++;
 					
 	/////////////////데이터 삽입///////////////////////////////////////////////////////////////////////				
-					Api api = new Api();
+					DB api = new DB();
 					api.setFacilityAddr(facilityAddr);
 					api.setFacilityCase(facilityCase);
 					api.setFacilityHomepage(facilityHomepage);
@@ -190,7 +190,7 @@ public class ApiController {
 			System.out.println(count);
 			
 			///////apiService로 전달//////////////
-			int result1 = apiService.insertApi(list);
+			int result1 = DBService.insertApi(list);
 			if(result1>0) {
 				System.out.println("성공"+result1);
 			} else {
