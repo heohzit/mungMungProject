@@ -28,11 +28,10 @@
                 <li class="mid-list" th:each="facility : ${facilityList}">
                     <a href="#">
                         <div class="list-img-box">
-                            <img src="/img/test_img.png">
+                            <img th:src="${facility.facilityFilepath}">
                         </div>
                         <div class="list-text-box">
                             <ul>
-                                <li><h4 th:text="${facility.facilityRegion}"></h4></li>
                                 <li><h4 th:text="${facility.facilityName}"></h4></li>
                             </ul>
                         </div>
