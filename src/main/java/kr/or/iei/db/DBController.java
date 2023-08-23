@@ -18,7 +18,7 @@ import kr.or.iei.EmailSender;
 
 @Controller
 @RequestMapping(value = "/db")
-public class ApiController {
+public class DBController {
 
 	
 	@GetMapping(value = "/apiControl")
