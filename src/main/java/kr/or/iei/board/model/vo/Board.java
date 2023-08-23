@@ -17,5 +17,5 @@ public class Board {
 	private String boardWriteDate;
 	private int boardReadCount;
 	private String memberId;
-	private List fileList;
+	private String boardFilepath;
 }

@@ -19,8 +19,6 @@ public class NoticeService {
 		int numPerPage = 10;
 		int end = reqPage * numPerPage;
 		int start = end-numPerPage+1;
-		System.out.println(start);
-		System.out.println(end);
 		List noticeList = noticeDao.selectNoticeList(start,end);
 		
 		//공지사항 총 게시글
