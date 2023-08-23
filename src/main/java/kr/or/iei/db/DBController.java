@@ -3,16 +3,19 @@ package kr.or.iei.db;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
 
 
 @Controller
@@ -21,7 +24,7 @@ public class DBController {
 	@Autowired
 	DBService DBService;
 	
-	@GetMapping(value = "/apiControl12313154")
+	@GetMapping(value = "/apiControl")
 	public String apiControl() {
 		System.out.println("잘뜨는지 확인점");
 		String url = "https://www.pettravel.kr/api/detailSeqPart.do";
@@ -32,13 +35,14 @@ public class DBController {
 			ArrayList<DB> list = new ArrayList<DB>();
 			int count = 0;
 			for(int i=1;i<510;i++) {
-				String result = Jsoup.connect(url)
-						.data("partCode", partCode)
-						.data("contentNum", Integer.toString(i))
+			String result = Jsoup.connect(url)
+					.data("partCode", partCode)
+					.data("contentNum", Integer.toString(i))
 						.ignoreContentType(true)	//응답형식을 무시함(문자열로 받아서 직접 편집하기 위해)
 						.get()						//get요청
 						.text()						//받은 데이터를 문자열로 변환
 						;
+
 				//문자열 -> json
 				JsonArray array = (JsonArray)JsonParser.parseString(result);
 //				System.out.println("array : "+array);
@@ -47,12 +51,7 @@ public class DBController {
 //				System.out.println("resultList : "+resultList);
 				System.out.println("i : "+ i);
 
-				
-				
-///////////////////데이터 추출////////////////////////////////////////////////////////////////////////////////
-				
-				
-				
+///////////////////데이터 추출////////////////////////////////////////////////////////////////////////////////	
 				if(resultList.size() == 2) {	//값이 정상적으로 들어있는 경우 2, error : 1
 					JsonObject resultList2 = resultList.get("resultList").getAsJsonObject();
 //					System.out.println("resultList2 : "+resultList2);
@@ -196,12 +195,10 @@ public class DBController {
 			} else {
 				System.out.println("실패");
 			}
-
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "/facility/tourDetail";
 	}
-	
 }
