@@ -27,18 +27,92 @@
                 <div class="pay-box">
                     <table class="pay-box-tbl">
                         <tr>
-                            <th>일정 선택</th>
-                            <td>
-                                <input type="date">
+                            <th class="pay-box-tbl-th">일정 선택</th>
+                            <td class="pay-box-tbl-td">
+                                <table class="calendar">
+                                    <tr>
+                                        <th colspan="7" class="title">
+                                            <span>yyyy-mm-dd</span>
+                                            <span>~</span>
+                                            <span>yyyy-mm-dd</span>
+                                        </th>
+                                    </tr>
+                                    <tr class="week">
+                                        <th class="day">일</th>
+                                        <th class="day">월</th>
+                                        <th class="day">화</th>
+                                        <th class="day">수</th>
+                                        <th class="day">목</th>
+                                        <th class="day">금</th>
+                                        <th class="day">토</th>
+                                    </tr>
+                                    <tr> <!-- 달력 첫번째 줄-->
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days">1</td>
+                                        <td class="calendar_days">2</td>
+                                    </tr>
+                                    <tr> <!-- 달력 두번째 줄-->
+                                        <td class="calendar_days">3</td>
+                                        <td class="calendar_days">4</td>
+                                        <td class="calendar_days">5</td>
+                                        <td class="calendar_days">6</td>
+                                        <td class="calendar_days">7</td>
+                                        <td class="calendar_days">8</td>
+                                        <td class="calendar_days">9</td>
+                                    </tr>
+                                    <tr> <!-- 달력 세번째 줄-->
+                                        <td class="calendar_days">10</td>
+                                        <td class="calendar_days">11</td>
+                                        <td class="calendar_days">12</td>
+                                        <td class="calendar_days">13</td>
+                                        <td class="calendar_days">14</td>
+                                        <td class="calendar_days">15</td>
+                                        <td class="calendar_days">16</td>
+                                    </tr>
+                                    <tr> <!-- 달력 네번째 줄-->
+                                        <td class="calendar_days">17</td>
+                                        <td class="calendar_days">18</td>
+                                        <td class="calendar_days">19</td>
+                                        <td class="calendar_days">20</td>
+                                        <td class="calendar_days">21</td>
+                                        <td class="calendar_days">22</td>
+                                        <td class="calendar_days">23</td>
+                                    </tr>
+                                    <tr> <!-- 달력 다섯번째 줄-->
+                                        <td class="calendar_days">24</td>
+                                        <td class="calendar_days">25</td>
+                                        <td class="calendar_days">26</td>
+                                        <td class="calendar_days">27</td>
+                                        <td class="calendar_days">28</td>
+                                        <td class="calendar_days">29</td>
+                                        <td class="calendar_days">30</td>
+                                    </tr>
+                                    <tr> <!-- 달력 여섯번째 줄-->
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days"></td>
+                                        <td class="calendar_days"></td>
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
                         <tr>
-                            <th>결제 금액</th>
-                            <td>1,000원</td>
+                            <th class="pay-box-tbl-th">결제 금액</th>
+                            <td class="pay-box-tbl-td">
+                                <span>1,000</span>
+                                <span>원</span>
+                            </td>
                             <input type="hidden" id="price" value="1000">
                         </tr>
                         <tr>
-                            <th colspan="2">
+                            <th colspan="2" class="pay-box-tbl-th">
                                 <button id="payBtn" class="btn bc1">결제하기</button>
                             </th>
                         </tr>

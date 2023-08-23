@@ -1,4 +1,4 @@
-package kr.or.iei.api;
+package kr.or.iei.db;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,12 +7,12 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ApiRowMapper implements RowMapper<Api>{
+public class DBRowMapper implements RowMapper<DB>{
 
 	@Override
-	public Api mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public DB mapRow(ResultSet rs, int rowNum) throws SQLException {
 		// TODO Auto-generated method stub
-		Api api = new Api();
+		DB api = new DB();
 		api.setFacilityNo(rs.getInt("FACILITY_NO"));
 		api.setFacilityWriter(rs.getInt("FACILITY_WRITER"));
 		api.setFacilityRegion(rs.getInt("FACILITY_REGION"));
