@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.or.iei.facility.model.dao.FacilityDao;
+import kr.or.iei.facility.model.vo.Facility;
 import kr.or.iei.facility.model.vo.FacilityListData;
 
 @Service
@@ -20,6 +21,16 @@ public class FacilityService {
 		int endNum = reqPage * numPerPage;
 		int startNum = endNum - numPerPage + 1;
 		List facilityList = facilityDao.selectTourList(startNum, endNum);
+		// 게시물리스트에 filepath 추가
+		for(int i = 0; i < facilityList.size(); i++) {
+			Object facilityObj = facilityList.get(i);
+			Facility facilityFacility = (Facility)facilityObj;
+			int facilityNo = facilityFacility.getFacilityNo();
+			String facilityFilepath = facilityDao.selectFacilityFile(facilityNo);
+			facilityFacility.setFacilityFilepath(facilityFilepath);
+		}
+		
+		
 		
 		// 2. 페이지 내비게이션 생성
 		// 총 게시물 수 DB에서 조회해서 가져옴
@@ -40,7 +51,7 @@ public class FacilityService {
 		// 페이지 내비게이션 번호가 1이 아닌 경우에만 이전버튼 활성화
 		if(pageNo != 1) {
 			pageNavi += "<li>";
-			pageNavi += "<a class='page-btn' href='/facility/list?reqPage=" + (pageNo-1) + "'>";
+			pageNavi += "<a class='page-btn' href='/facility/tourList?reqPage="+(pageNo-1)+"'>";
 			pageNavi += "<span class='material-icons'>arrow_back_ios_new</span>";
 			pageNavi += "</a>";
 			pageNavi += "</li>";
@@ -51,13 +62,13 @@ public class FacilityService {
 		for(int i = 0; i < pageNaviSize; i++) {
 			if(pageNo == reqPage) {
 				pageNavi += "<li>";
-				pageNavi += "<a class='page-btn select-page' href='/facility/list?reqPage=" + pageNo + "'>";
+				pageNavi += "<a class='page-btn select-page' href='/facility/tourList?reqPage="+pageNo+"'>";
 				pageNavi += pageNo;
 				pageNavi += "</a>";
 				pageNavi += "</li>";
 			}else {
 				pageNavi += "<li>";
-				pageNavi += "<a class='page-btn' href='/facility/list?reqPage=" + pageNo + "'>";
+				pageNavi += "<a class='page-btn' href='/facility/tourList?reqPage="+pageNo+"'>";
 				pageNavi += pageNo;
 				pageNavi += "</a>";
 				pageNavi += "</li>";
@@ -71,13 +82,14 @@ public class FacilityService {
 		// 페이지 내비게이션 번호가 총 페이지 수보다 크지 않은 경우만 다음버튼 활성화
 		if(pageNo <= totalPage) {
 			pageNavi += "<li>";
-			pageNavi += "<a class='page-btn' href='/facility/list?reqPage=" + pageNo + "'>";
+			pageNavi += "<a class='page-btn' href='/facility/tourList?reqPage="+pageNo+"'>";
 			pageNavi += "<span class='material-icons'>arrow_forward_ios</span>";
 			pageNavi += "</a>";
 			pageNavi += "</li>";
 		}
 		
 		pageNavi += "</ul>";
+		
 		
 		// 게시물과 페이지 내비게이션을 1개의 객체로 통합
 		FacilityListData fld = new FacilityListData(facilityList, pageNavi);

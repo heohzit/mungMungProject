@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.or.iei.facility.model.service.FacilityService;
+import kr.or.iei.facility.model.vo.Facility;
 import kr.or.iei.facility.model.vo.FacilityListData;
 
 @Controller

@@ -23,4 +23,5 @@ public class Facility {
 	private String facilityMajor;
 	private String facilityPrice;
 	private String facilityNotice;
+	private String facilityFilepath;
 }
