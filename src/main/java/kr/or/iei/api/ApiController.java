@@ -2,7 +2,6 @@ package kr.or.iei.api;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +19,12 @@ public class ApiController {
 	@Autowired
 	ApiService apiService;
 	
-	@GetMapping(value = "/apiControl")
+	@GetMapping(value = "/apiControl12313154")
 	public String apiControl() {
 		System.out.println("잘뜨는지 확인점");
 		String url = "https://www.pettravel.kr/api/detailSeqPart.do";
-		String partCode = "PC04";
-		
+		String partCode = "PC04";	/*분야코드 변경*/
+		int facilityCase = 4; 
 		
 		try {
 			ArrayList<Api> list = new ArrayList<Api>();
@@ -56,7 +55,7 @@ public class ApiController {
 					JsonObject resultList2 = resultList.get("resultList").getAsJsonObject();
 //					System.out.println("resultList2 : "+resultList2);
 					
-					int facilityCase = 4; 
+					
 					String contentSeq = resultList2.get("contentSeq").getAsString();
 					
 					String facilityName = resultList2.get("title").getAsString();
