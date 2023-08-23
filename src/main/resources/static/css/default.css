@@ -234,6 +234,9 @@ textarea.input-form {
 .page-content-mid{
     margin: 30px 0;
 }
+.page-content-bottom{
+    margin-bottom: 30px;
+}
 .mid-list-wrap{
     overflow: hidden;
     margin-bottom: 10px;
@@ -380,5 +383,46 @@ textarea.input-form {
 }
 .admin-tbl td{
     padding: 1rem 0.5rem;
+    text-align: center;
+}
+
+.pay-content-wrap{
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+.product-box{
+    width: 50%;
+    float: left;
+}
+.pay-box{
+    width: 50%;
+    float: left;
+}
+.pay-img-box, .pay-name-box{
+    width: 95%;
+    margin: 30px auto;
+    text-align: center;
+}
+.pay-img-box>img{
+    width: 70%;
+    padding: 1rem;
+}
+.pay-name-box>h3{
+    width: 70%;
+    padding: 1rem;
+    margin: 50px auto;
+}
+.pay-box-tbl{
+    border-collapse: collapse;
+}
+.pay-box-tbl th{
+    width: 20%;
+    padding: 2rem 0.5rem;
+}
+.pay-box-tbl td{
+    width: 80%;
+    padding: 2rem 0.5rem;
     text-align: center;
 }

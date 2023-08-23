@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>커뮤니티</title>
+<script src="/js/jquery-3.6.0.js"></script>
+</head>
+<body>
+	<div class="page-content">
+		<div class="page-title">사진게시판<span th:text="${totalCount}"></span></div>
+		<a href="/board/writeFrm">글쓰기</a>
+		<div class="photoWrapper posting-wrap">
+			
+		</div>
+		<!-- 
+			totalCount : 게시물 총 숫자
+			currentCount : 현재 게시물을 몇개 봤는지
+			value : 다음 더보기할때 시작번호
+		-->
+		<button class="btn bc4 bs4" id="more-btn"
+			th:totalCount="${totalCount}"
+			currentCount="0"
+			value="1"
+		>더보기</button>
+	</div>
+	
+	<script>
+		$("#more-btn").on("click",function(){
+			//추가로 가져올 게시물 시작번호
+			const start =$(this).val();
+			//한번 더보기 누를때 추가로 가지고올 게시물 수
+			const amount =5;
+			const end = Number(start)+amount-1;
+			$.ajax({
+				url : "/board/more",
+				type : "post",
+				data : {start:start,end:end},
+				success : function(data){
+					for(let i=0;i<data.length;i++){
+						const board = data[i];
+						
+						const div = $("<div>");
+						div.addClass("posting-item");
+						//<div class="posting-item"></div>
+						
+						
+						const imgDiv = $("<div>");
+						imgDiv.addClass("posting-img");
+						//<div class="posting-img"></div>
+						const img = $("<img>");
+						img.attr("src","/board/"+board.filepath);
+						//<img src="파일경로">
+						imgDiv.append(img);
+						/*
+						<div class="posting-img">
+							<img src="파일경로">
+						</div>
+						*/
+						
+						
+						const contentDiv = $("<div>");
+						contentDiv.addClass("posting-contentDiv");
+						//<div class="posting-contentDiv"></div>
+						const title =$("<p>");
+						title.text(board.boardTitle);
+						//<p>글제목</p>
+						contentDiv.append(title);
+						/*
+						<div class="posting-contentDiv">
+							<p>글제목</p>
+						</div>
+						*/
+						
+						div.append(imgDiv).append(contentDiv);
+						/*
+						<div class="posting-item">
+							<div class="posting-img">
+								<img src="파일경로">
+							</div>
+							<div class="posting-contentDiv">
+								<p>글제목</p>
+							</div>
+						</div>
+						*/
+						$(".boardWrapper").append(div);
+					}
+					
+					
+					//새로 읽어온 Photo를 화면에 추가 완료
+					//-> 더보기를 한번 더 눌렀을때 읽어온 이후값을 조회하기 위한 준비
+					const currentVal =Number($("#more-btn").val());
+					$("#more-btn").val(currentVal+amount);
+					//currentCount 변경
+					const currentCount = Number($("#more-btn").attr("currentCount"));
+					const changeCount = currentCount+data.length;
+					$("#more-btn").attr("currentCount",changeCount);
+					
+					const totalCount = Number($("#more-btn").attr("totalCount"));
+					if(totalCount == changeCount){
+						$("#more-btn").remove();
+					}
+					
+				}
+			
+			})
+		});
+		
+		$("#more-btn").click();
+	</script>
+</body>
+</html>

@@ -40,5 +40,26 @@ public class MemberController {
 	public String login() {
 		return "member/login";
 	}
+
+	@PostMapping(value="/signup")
+		public String signup(Member member, Model model){
+		int result = memberService.insertMember(member);
+		if(result>0) {
+			model.addAttribute("title", "가입 완료");
+			model.addAttribute("msg", "회원가입이 완료되었습니다.");
+			model.addAttribute("icon", "success");
+			model.addAttribute("loc", "/");
+		}else {
+			model.addAttribute("title", "가입 실패");
+			model.addAttribute("msg", "입력하신 정보를 다시 확인해주세요.");
+			model.addAttribute("icon", "error");
+			model.addAttribute("loc", "/");
+		}
+		return "common/msg";
+	}
+	@GetMapping(value="/signup")
+	public String signup() {
+		return "member/signup";
+	}
 	
 }
