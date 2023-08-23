@@ -7,12 +7,12 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DBRowMapper implements RowMapper<DB>{
+public class DBRowMapper implements RowMapper<Facility>{
 
 	@Override
-	public DB mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public Facility mapRow(ResultSet rs, int rowNum) throws SQLException {
 		// TODO Auto-generated method stub
-		DB api = new DB();
+		Facility api = new Facility();
 		api.setFacilityNo(rs.getInt("FACILITY_NO"));
 		api.setFacilityWriter(rs.getInt("FACILITY_WRITER"));
 		api.setFacilityRegion(rs.getInt("FACILITY_REGION"));

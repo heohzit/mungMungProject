@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>관광지</title>
-<link rel="stylesheet" href="../css/default.css">
 <script src="../js/jquery-3.6.0.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -35,8 +34,6 @@
                             <ul>
                                 <li><h4 th:text="${facility.facilityRegion}"></h4></li>
                                 <li><h4 th:text="${facility.facilityName}"></h4></li>
-                                <li th:text="${facility.facilityAddr}"></li>
-                                <li th:text="${facility.facilityPhone}"></li>
                             </ul>
                         </div>
                     </a>
@@ -44,33 +41,7 @@
             </ul>
         </div>
         <div class="page-content-bottom">
-            <ul class="pagination">
-                <li>
-                    <a href="#" class="page-btn">
-                        <span class="material-icons">arrow_back_ios_new</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn select-page">1</a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn">2</a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn">3</a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn">4</a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn">5</a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn">
-                        <span class="material-icons">arrow_forward_ios</span>
-                    </a>
-                </li>
-            </ul>
+            <div id="pageNavi" th:utext="${pageNavi}"></div>
         </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
