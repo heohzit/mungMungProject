@@ -22,5 +22,9 @@ public class MemberService {
 		return result;
 
 	}
+	public Member selectOneMember(String checkId) {
+		Member m = memberDao.selectOneMember(checkId);
+		return null;
+	}
 
 }

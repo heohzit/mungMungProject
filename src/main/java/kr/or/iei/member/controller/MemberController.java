@@ -61,5 +61,14 @@ public class MemberController {
 	public String signup() {
 		return "member/signup";
 	}
-	
+	@GetMapping(value="/ajaxCheckId")
+	public String ajaxCheckId(String memberId) {
+		Member m = memberService.selectOneMember(memberId);
+		if(m == null) {
+			return "0";
+		}else {
+			return "1";
+		}
+	}
+
 }
