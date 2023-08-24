@@ -35,7 +35,7 @@ public class FacilityDao {
 		List list = jdbc.query(query, facilityRowMapper, facilityNo);
 		
 		return (Facility)list.get(0);
-
+	}
 	public String selectFacilityFile(int facilityNo) {
 		String query = "select facility_filepath from facility_file where facility_file_no = (select min(facility_file_no) from facility_file where facility_no = ?)";
 		try {
