@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,9 +33,14 @@ public class NoticeController {
 	private FileUtil fileUtil;
 	
 	//공지사항 리스트
-	@GetMapping(value="list")
-	public String noticeList (int reqPage , Model model) {
-		NoticeListData nld = noticeService.selectNoticeList(reqPage);
+	@GetMapping(value="/list")
+	public String noticeList (int reqPage , Model model,String searchType , String searchName) {
+		NoticeListData nld;
+		if(searchType != null || searchName != null) {
+			nld = noticeService.selectNoticeList(reqPage,searchType,searchName);
+		}else {
+			nld = noticeService.selectNoticeList(reqPage);
+		}
 		model.addAttribute("noticeList", nld.getNoticeList());
 		model.addAttribute("pageNavi", nld.getPageNavi());
 		return "notice/noticeList";
@@ -70,7 +76,7 @@ public class NoticeController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		return "/editor/"+filepath;
+		return "/notice/"+filepath;
 	}
 	//공지사항 보기
 	@GetMapping(value = "view")
@@ -95,12 +101,13 @@ public class NoticeController {
 		}
 	}
 		
-	//공지사항 수정
+	//공지사항 수정폼
 	@GetMapping(value="updateFrm")
 	public String updateFrm(int noticeNo , Model model) {
+		//공지사항 해당 번호가져오기
 		Notice n = noticeService.getNotice(noticeNo);
 		model.addAttribute("n", n);
-		return "notice/updateFrm";
+		return "notice/noticeUpdateFrm";
 	}
 	
 	//공지사항 수정
@@ -114,5 +121,6 @@ public class NoticeController {
 		}
 	}
 	
-
+	//공지사항 검색
+	
 }

@@ -443,7 +443,7 @@ textarea.input-form {
 .posting-wrap .posting-item {
   cursor:pointer;
   box-sizing: border-box;
-  width: calc(100% / 3);
+  width: calc(100% / 4);
   padding: 20px;
 }
 .posting-wrap .posting-item .posting-img img {

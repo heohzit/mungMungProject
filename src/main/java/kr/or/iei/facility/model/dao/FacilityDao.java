@@ -49,4 +49,28 @@ public class FacilityDao {
 		int totalCount = jdbc.queryForObject(query, Integer.class, searchName);
 		return totalCount;
 	}
+
+	public List selectHotelList(int startNum, int endNum) {
+		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 2) n) where rnum between ? and ?";
+		List list = jdbc.query(query, facilityRowMapper, startNum, endNum);
+		return list;
+	}
+
+	public int selectHotelListTotalCount() {
+		String query = "select count(*) from facility where facility_case = 2";
+		int totalCount = jdbc.queryForObject(query, Integer.class);
+		return totalCount;
+	}
+
+	public List selectSearchHotelList(int startNum, int endNum, String searchName) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 2 and facility_name like '%'||?||'%') n) where rnum between ? and ?";
+		List list = jdbc.query(query, facilityRowMapper, searchName, startNum, endNum);
+		return list;
+	}
+
+	public int selectSearchHotelListTotalCount(String searchName) {
+		String query = "select count(*) from facility where facility_case = 2 and facility_name like '%'||?||'%'";
+		int totalCount = jdbc.queryForObject(query, Integer.class, searchName);
+		return totalCount;
+	}
 }

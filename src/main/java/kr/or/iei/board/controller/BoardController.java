@@ -17,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 import kr.or.iei.FileUtil;
 import kr.or.iei.board.model.service.BoardService;
 import kr.or.iei.board.model.vo.Board;
+import kr.or.iei.board.model.vo.BoardComment;
+import kr.or.iei.board.model.vo.BoardViewData;
 
 @Controller
 @RequestMapping(value="/board")
@@ -25,11 +27,10 @@ public class BoardController {
     private BoardService boardService;
     @Value("${file.root}")
 	private String root;
-	
 	@Autowired
 	private FileUtil fileUtil;
     
-	//커뮤니티 리스트
+	//커뮤니티 리스트 
     @GetMapping(value="/list")
     public String boardList(Model model) {
         int totalCount = boardService.totalCount();
@@ -46,7 +47,7 @@ public class BoardController {
     //커뮤니티 작성,썸네일 파일
   	@PostMapping(value="write")
   	public String boardWrite(Board b,MultipartFile imageFile){
-  		String savepath = root+"photo/";
+  		String savepath = root+"boardmain/";
 		String filepath = fileUtil.getFilepath(savepath, imageFile.getOriginalFilename());
 		b.setBoardFilepath(filepath);
 		File upFile = new File(savepath+filepath);
@@ -80,7 +81,7 @@ public class BoardController {
   		return "/board/"+filepath;
   	}
   	
-	//커뮤니티 사진
+	//커뮤니티 더보기버튼 사진
 	@ResponseBody
 	@PostMapping(value="more")
 	public List more(int start , int end) {
@@ -88,12 +89,14 @@ public class BoardController {
 		return boardList;
 	}
 	
-	//커뮤니티 보기
+	//커뮤니티 상세보기
 	@GetMapping(value = "view")
 	public String boardView(int boardNo, Model model) {
-		Board b = boardService.selectOneNotice(boardNo);
-		if (b != null) {
-			model.addAttribute("b",b);
+		BoardViewData bvd = boardService.selectOneNotice(boardNo);
+		if (bvd != null) {
+			model.addAttribute("b",bvd.getB());
+			model.addAttribute("commentList",bvd.getCommentList());
+			model.addAttribute("reCommentList",bvd.getReCommentList());
 			return "board/boardView";
 		} else {
 			return "board/boardList";
@@ -101,9 +104,45 @@ public class BoardController {
 	}
 	
 	//커뮤니티 삭제
+	@GetMapping(value="delete")
+	public String deleteBoard(int boardNo) {
+		int result = boardService.deleteBoard(boardNo);
+		if (result != 0) {
+			return "board/boardList";
+		} else {
+			return "board/boardList";
+		}
+	}
+	
+	//커뮤니티 수정 폼
+	@GetMapping(value="updateFrm")
+	public String updateFrm(int boardNo , Model model) {
+		//커뮤니티 해당번호 가져오기
+		Board b = boardService.getBoard(boardNo);
+		model.addAttribute("b", b);
+		return "board/boardUpdateFrm";
+	}
 	
 	//커뮤니티 수정
+	@PostMapping(value="update")
+	public String update(Board b) {
+		int result = boardService.updateBoard(b);
+		if(result>0) {
+			return "board/boardUpdateFrm";	
+		}else {
+			return "board/boardUpdateFrm";
+		}
+	}
 	
-	
+	//커뮤니티 댓글쓰기
+	@PostMapping(value="/insertComment")
+	public String insertComment(BoardComment bc, Model model) {
+		int result = boardService.insertComment(bc);
+		if(result>0) {
+			return "board/boardList";
+		}else {
+			return "board/boardList";
+		}
+	}
 
 }
