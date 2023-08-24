@@ -29,6 +29,13 @@ public class FacilityDao {
 		return totalCount;
 	}
 
+	public Facility selectOneTour(int facilityNo) {
+		// TODO Auto-generated method stub
+		String query = "select * from facility where facility_no = ?";
+		List list = jdbc.query(query, facilityRowMapper, facilityNo);
+		
+		return (Facility)list.get(0);
+	}
 	public String selectFacilityFile(int facilityNo) {
 		String query = "select facility_filepath from facility_file where facility_file_no = (select min(facility_file_no) from facility_file where facility_no = ?)";
 		try {

@@ -30,7 +30,10 @@
     height: 40px;
     line-height: 40px;
     border-bottom: 1px solid rgb(216, 216, 216);
-    margin: 20px 0;
+   	margin: 20px 0;
+}
+.tour-content>.content-wrap:first-child>.content-title{
+   margin-bottom: 23px;
 }
 .content-detail{
     font-size: 16px;
@@ -68,7 +71,7 @@ p{
 .icons{
     margin: 0px 10px;
 }
-/*버튼인데 다음에 만들게요*/
+/*踰꾪듉�씤�뜲 �떎�쓬�뿉 留뚮뱾寃뚯슂*/
 .more-btn{
     display: block;
     width: 100%;

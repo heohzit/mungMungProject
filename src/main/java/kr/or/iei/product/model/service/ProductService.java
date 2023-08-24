@@ -26,4 +26,9 @@ public class ProductService {
 			return 0;			
 		}
 	}
+
+	public Product selectOneProduct(int productNo) {
+		Product p = productDao.selectOneProduct(productNo);
+		return p;
+	}
 }

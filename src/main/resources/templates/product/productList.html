@@ -22,7 +22,7 @@
 				<div class="productlist">
 					<ul th:each="product : ${productList}">
 						<li class="product">
-                     		<a href="#">
+                     		<a th:href="@{/product/view(productNo=${product.productNo})}">
                         		<div class="img-box">
                             		<img th:src="'/productmain/'+${product.productFilepath}"><!-- 이미지크기는 250*250 -->
                             		<h3 th:text="${product.productName}"></h3>

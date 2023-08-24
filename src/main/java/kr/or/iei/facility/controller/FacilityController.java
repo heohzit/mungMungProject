@@ -18,7 +18,9 @@ public class FacilityController {
 	public FacilityService facilityService;
 	
 	@GetMapping(value = "/tourDetail")
-	public String tourDetail() {
+	public String tourDetail(int facilityNo, Model model) {
+		Facility facility = facilityService.selectOneTour(facilityNo);
+		model.addAttribute("f",facility);
 		return "facility/tourDetail";
 	}
 		
@@ -84,6 +86,7 @@ public class FacilityController {
 		return "facility/activityList";
 	}
 	
+
 	@PostMapping(value="/insertFacility")
 	public String insertFacility(Facility f, Model model) {
 		int result = facilityService.insertFacility(f);
