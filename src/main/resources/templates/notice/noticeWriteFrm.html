@@ -12,9 +12,12 @@
 	<link rel="stylesheet" href="/summernote/summernote-lite.css">
 	
     <div class="page-content">
-        <div class="page-title">공지사항 작성</div>
+      	<div class="page-title">
+			<h1>공지사항 작성</h1>
+		</div>
+		<div class="page-content-mid">
         <form action="/notice/write" method="post" enctype="multipart/form-data">
-            <table>
+            <table class="insert-table">
                 <tr>
                     <th>제목</th>
                     <td>
@@ -22,9 +25,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>작성자</th>
-                    <td>
-                       
+                    <th >작성자</th>
+                    <td>         
                         <input  type="hidden" name="memberId">
                     </td>
                 </tr>
@@ -41,6 +43,7 @@
                 </tr>
             </table>
         </form>
+        </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
     <script>

@@ -35,6 +35,7 @@
 				</td>
             </tr>
         </table>
+        
         <div class="btn1" th:if="${session.m != null}">
 	        <a th:href="@{/board/delete(boardNo=${b.boardNo})}">삭제하기</a>
 	        <a th:href="@{/board/updateFrm(boardNo=${b.boardNo})}">수정하기</a>

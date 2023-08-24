@@ -18,12 +18,25 @@ public class BoardDao {
     @Autowired
     private BoardCommentRowMapper boardCommentRowMapper;
     
-    //커뮤니티 전체 게시글 수
-    public int totalCount() {
-    	String query = "select count(*) from board";
-		int totalCount = jdbc.queryForObject(query, Integer.class);
-		return totalCount;
-    }
+    //커뮤니티 리스트
+    public List selectBoardList(int start, int end) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from board order by 1 desc)n)where rnum between ? and ?";
+		List boardList = jdbc.query(query, boardRowMapper,start,end);
+		return boardList;
+	}
+    
+    //커뮤니티 총 게시글
+	public int selectBoardTotalNum() {
+		String query = "select count(*) from board";
+		int totalNum = jdbc.queryForObject(query, Integer.class);
+		return totalNum;
+	}
+
+	public List boardList() {
+		String query = "select * from (select rownum as rnum , n.* from (select * from board order by 1 desc)n)";
+		List boardList = jdbc.query(query, boardRowMapper);
+		return boardList;
+	}
     
     //커뮤니티 작성
 	public int insertBoard(Board b) {
@@ -49,7 +62,7 @@ public class BoardDao {
 	}
 	
 	//커뮤니티 상세보기
-	public Board selectOneNotice(int boardNo) {
+	public Board selectOneBoard(int boardNo) {
 		//String query = "select * from notice join member on (member_no = notice_writer) where notice_no = ?";
 		String query = "select * from board where board_no = ?";
 		List list = jdbc.query(query, boardRowMapper,boardNo);
@@ -57,7 +70,7 @@ public class BoardDao {
 	}
 	
 	//커뮤니티 삭제
-	public int deleteNotice(int boardNo) {
+	public int deleteBoard(int boardNo) {
 		String query = "delete from board where board_no = ?";
 		Object[] params = {boardNo};
 		int result = jdbc.update(query,params);
@@ -130,18 +143,6 @@ public class BoardDao {
 		String query = "select * from (select rownum as rnum , n.* from (select * from board where board_content like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
 		List boardList = jdbc.query(query, boardRowMapper,searchName,start,end);
 		return boardList;
-	}
-
-	public List selectBoardList(int start, int end) {
-		String query = "select * from (select rownum as rnum , n.* from (select * from notice order by 1 desc)n)where rnum between ? and ?";
-		List boardList = jdbc.query(query, boardRowMapper,start,end);
-		return boardList;
-	}
-
-	public int selectNoticeTotalNum() {
-		String query = "select count(*) from board";
-		int totalNum = jdbc.queryForObject(query, Integer.class);
-		return totalNum;
 	}
 
 	
