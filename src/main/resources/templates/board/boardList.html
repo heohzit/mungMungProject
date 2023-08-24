@@ -34,7 +34,7 @@
 	<script>
 		$("#more-btn").on("click",function(){
 			const start =$(this).val();
-			const amount =5;
+			const amount =4;
 			const end = Number(start)+amount-1;
 			$.ajax({
 				url : "/board/more",
@@ -53,7 +53,7 @@
 						atab.attr("href","/board/view?boardNo="+board.boardNo);
 						
 						const img = $("<img>");
-						img.attr("src","/board/"+board.boardFilepath);
+						img.attr("src","/boardmain/"+board.boardFilepath);
 						atab.append(img);
 						imgDiv.append(atab);
 						
