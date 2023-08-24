@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.or.iei.facility.model.service.FacilityService;
@@ -85,4 +86,21 @@ public class FacilityController {
 		return "facility/activityList";
 	}
 	
+
+	@PostMapping(value="/insertFacility")
+	public String insertFacility(Facility f, Model model) {
+		int result = facilityService.insertFacility(f);
+		if(result > 0) {
+			model.addAttribute("title", "시설 등록 완료");
+			model.addAttribute("msg", "시설 등록이 완료되었습니다.");
+			model.addAttribute("icon", "success");
+			model.addAttribute("loc", "/");
+		}else {
+			model.addAttribute("title", "시설 등록 실패");
+			model.addAttribute("msg", "시스템 관리자에게 문의하세요.");
+			model.addAttribute("icon", "error");
+			model.addAttribute("loc", "/facility/insertFrm");
+		}
+		return "common/msg";
+	}
 }

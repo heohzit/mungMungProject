@@ -5,8 +5,10 @@ import org.springframework.stereotype.Service;
 import kr.or.iei.board.model.dao.BoardDao;
 import kr.or.iei.board.model.vo.Board;
 import kr.or.iei.board.model.vo.BoardComment;
+import kr.or.iei.board.model.vo.BoardListData;
 import kr.or.iei.board.model.vo.BoardViewData;
 import kr.or.iei.notice.model.vo.Notice;
+import kr.or.iei.notice.model.vo.NoticeListData;
 
 @Service
 public class BoardService {
@@ -84,5 +86,79 @@ public class BoardService {
 		int result = boardDao.insertComment(bc);
 		return result;
 	}
-
-}
+	
+	//커뮤니티 댓글 수정
+	public int updateCommnet(BoardComment bc) {
+		int result = boardDao.updateComment(bc);
+		return result;
+	}
+	
+	//커뮤니티 댓글 삭제
+	public int deleteComment(int boardCommentNo) {
+		int result = boardDao.deleteComment(boardCommentNo);
+		return result;
+	}
+	
+	//커뮤니티 검색 리스트 화면
+	public BoardListData searchBoardList(int reqPage, String searchType, String searchName) {
+		int numPerPage = 10;
+		int end = reqPage * numPerPage;
+		int start = end-numPerPage+1;
+		List boardList;
+	    if ("title".equals(searchType)) {
+	    	boardList = boardDao.searchBoardTitle(start, end, searchName);
+	    } else if ("writer".equals(searchType)) {
+	    	boardList = boardDao.searchBoardWriter(start, end, searchName);
+	    } else if ("content".equals(searchType)) {
+	    	boardList = boardDao.searchBoardContent(start, end, searchName);
+	    } else {
+	    	boardList = boardDao.selectBoardList(start, end);
+	    }
+		
+		
+		//커뮤니티 총 게시글
+		int totalCount = boardDao.selectNoticeTotalNum();
+		int totalPage = totalCount%numPerPage == 0 ? totalCount/numPerPage : totalCount/numPerPage+1;
+		
+		int pageNaviSize =5;
+		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
+		String pageNavi ="<ul>";
+		pageNavi ="<ul>";
+		if(pageNo !=1) {
+			pageNavi +="<li>";
+			pageNavi +="<a href='/notice/list?reqPage="+(pageNo-1)+"'>";
+			pageNavi +="<span class='material-icons-outlined'>navigate_before</span>";
+			pageNavi +="</a>";
+			pageNavi +="</li>";
+		}
+		for(int i=0;i<pageNaviSize;i++) {
+			if(pageNo == reqPage) {
+				pageNavi +="<li>";
+				pageNavi +="<a href='/notice/list?reqPage="+(pageNo)+"'>";
+				pageNavi += pageNo;
+				pageNavi += "</a>";
+				pageNavi += "</li>";
+			}else {
+				pageNavi +="<li>";
+				pageNavi +="<a href='/board/searchList?reqPage="+(pageNo)+"'>";
+				pageNavi += pageNo;
+				pageNavi += "</a>";
+				pageNavi += "</li>";
+			}
+			pageNo++;
+			if(pageNo>totalPage) {
+				break;
+			}
+		}		
+			if(pageNo <= totalPage) {
+				pageNavi +="<li>";
+				pageNavi +="<a href='/board/searchList?reqPage="+(pageNo)+"'>";
+				pageNavi +="<span class='material-icons-outlined'>navigate_next</span>";
+				pageNavi +="</a>";
+				pageNavi +="</li>";
+			}
+			pageNavi +="</ul>";
+			BoardListData bld = new BoardListData(boardList, pageNavi);
+			return bld;
+		}
+	}
