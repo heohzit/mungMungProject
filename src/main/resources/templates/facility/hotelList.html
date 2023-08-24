@@ -2,21 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>관광지</title>
+<title>숙박</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-	<th:block th:include="common/mung_header"></th:block>
+    <th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
         <div class="page-title">
-            <h1>관광지</h1>
+            <h1>숙박</h1>
         </div>
         <div class="page-content-top">
             <div>
                 <a href="/facility/insertFrm" class="btn bc1">등록하기</a>
             </div>
             <div>
-                <form action="/facility/searchTourList">
+                <form action="/facility/searchHotelList">
                     <input type="text" class="input-form1" name="searchName">
                     <input type="hidden" name="reqPage" value="1">
                     <button type="button" class="btn bc1">검색</button>
@@ -26,7 +26,7 @@
         <div class="page-content-mid">
             <ul class="mid-list-wrap">
                 <li class="mid-list" th:each="facility : ${facilityList}">
-                    <a th:href="@{/facility/tourDetail(facilityNo=${facility.facilityNo})}">
+                    <a href="#">
                         <div class="list-img-box">
                             <th:block th:if="${facility.facilityFilepath != null}">
                                 <img th:src="${facility.facilityFilepath}">

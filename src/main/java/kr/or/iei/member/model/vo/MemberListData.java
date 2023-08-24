@@ -1,4 +1,4 @@
-package kr.or.iei.board.model.vo;
+package kr.or.iei.member.model.vo;
 
 import java.util.List;
 
@@ -6,10 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-public class BoardListData {
-	private List boardList;
+public class MemberListData {
+	private List memberList;
 	private String pageNavi;
 }

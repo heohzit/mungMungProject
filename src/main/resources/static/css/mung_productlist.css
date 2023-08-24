@@ -80,6 +80,8 @@
 }
 
 .product{
+	width:250px;
+	height:350px;
     padding: 10px 0px 10px 39px;
     list-style: none;
     float: left;
@@ -89,7 +91,7 @@
     text-decoration: none;
     
 }
-.img-box{
+.img-box>img{
     border: 1px solid lightgray;
     border-radius: 10px;
 }

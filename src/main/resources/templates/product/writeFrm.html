@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>멍 패키지 등록</title>
+</head>
+<body>
+	<th:block th:include="common/mung_header"></th:block>
+<script src="/summernote/summernote-lite.js"></script>
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
+<link rel="stylesheet" href="/summernote/summernote-lite.css">
+<link rel="stylesheet" href="../css/mung_write.css">
+		<form action="/product/write" method="post" enctype="multipart/form-data">
+			<!-- 전체를 감싸는  -->
+    <div class="productwrite-wrap">
+        <div class="write_top">
+            <h1>패키지 등록</h1>
+        </div>
+        <div class="write-content">
+            <table class="insert-product">
+                <tr>
+                    <th>
+                        <div class="pcw">
+                            <label for="productName">패키지 이름</label>
+                        </div>
+                    </th>
+                    <td>
+                        <input type="text" name="productName" id="productName" class="pci">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="pcw">
+                            <label for="productPrice">패키지 가격</label>
+                        </div>
+                    </th>
+                    <td>
+                        <input type="text" name="productPrice" id="productPrice" class="pci">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="pcw">
+                            <label for="productStart">예약 가능 시작일</label>
+                        </div>
+                    </th>
+                    <td>
+                        <input type="date" min="2023-09-01" max="2024-09-01" name="productStart" id="productStart" class="pci">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="pcw">
+                            <label for="productEnd">예약 가능 마감일</label>
+                        </div>
+                    </th>
+                    <td>
+                        <input type="date" min="2023-09-01" max="2024-09-01" name="productEnd" id="productEnd" class="pci">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="pcw">
+                            <label for="productDay">패키지 기간일</label>
+                        </div>
+                    </th>
+                    <td>
+                        <input type="number" name="productDay" id="productDay" class="pci">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="pcw">
+                            <label for="productStock">패키지 재고 수량</label>
+                        </div>
+                    </th>
+                    <td>
+                        <input type="number" name="productStock" id="productStock" class="pci">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="pcw">
+                            <label for="productImg">패키지 썸네일 </label>
+                    <span>(이미지 크기는 250*250만 가능합니다 )</span>
+                            
+                        </div>
+                    </th>
+                    <td>
+                        <input type="file" name="productImg" id="productImg" class="pci" accept=".jpg,.png,.jpeg">
+                    	
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="pcw-0">
+                            <label for="productContent">패키지 내용</label>
+                        </div>
+                    </th>
+                    <td>
+                    	<input style="display: none;" type="file" name="upfile" multiple>
+                        <textarea name="productContent" id="productContent"></textarea>
+                    </td>
+                    
+                </tr>
+            </table>
+            <div class="btn-box">
+                <button type="submit" class="btn2 bc1">등록</button>
+            </div>
+        </div>
+    </div>
+		</form>
+	<th:block th:include="common/mung_footer"></th:block>
+	<script>
+    $("#productContent").summernote({
+		height : 545,
+		lang :"ko-KR",
+		callbacks :{
+			onImageUpload : function(files){
+				uploadImage(files[0],this);
+			}
+		}
+	});
+	function uploadImage(file,editor){
+		const form = new FormData();
+		
+		form.append("file",file);
+		$.ajax({
+			url : "/product/editor",
+			type : "post",
+			data : form,
+			processData : false,
+			contentType : false,
+			success : function(data){
+				$(editor).summernote("insertImage",data);			
+			}
+		});
+	}
+    </script>
+</body>
+</html>

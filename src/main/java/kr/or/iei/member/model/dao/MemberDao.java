@@ -34,12 +34,39 @@ public class MemberDao {
 
 	}
 
-	public Member selectOneMember(String checkId) {
+	public Member selectOneMember(String memberId) {
 		String query = "select * from member where member_id=?";
-		List list = jdbc.query(query, memberRowMapper,checkId);
+		List list = jdbc.query(query, memberRowMapper,memberId);
 		if(list.isEmpty()) {
 			return null;
 		}
 		return (Member)list.get(0);
+	}
+
+	public int updateMember(Member member) {
+		//query,Object = 바꿀 내용 순서대로 작성
+		String query = "update member set member_pw=?, member_phone=?, member_name=? where member_id=?";
+		Object [] params = {member.getMemberPw(),member.getMemberPhone(),member.getMemberName(),member.getMemberId()};
+		int result = jdbc.update(query,params);
+		return result;
+	}
+
+	public int deleteMember(int memberNo) {
+		String query = "delete from member where member_no=?";
+		Object[] params = {memberNo};
+		int result = jdbc.update(query,params);
+		return result;
+	}
+
+	public List selectAllMember(int startNum, int endNum) {
+		String query = "select * from (select rownum as rnum, n.* from (select * from member order by 1) n) where rnum between ? and ?";
+		List list = jdbc.query(query, memberRowMapper, startNum, endNum);
+		return list;
+	}
+
+	public int selectAllMembertTotalCount() {
+		String query = "select count(*) from member";
+		int totalCount = jdbc.queryForObject(query, Integer.class);
+		return totalCount;
 	}
 }
