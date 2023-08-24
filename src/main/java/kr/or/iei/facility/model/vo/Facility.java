@@ -1,4 +1,4 @@
-package kr.or.iei.db;
+package kr.or.iei.facility.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class DB {
+public class Facility {
 	private int facilityNo;
 	private int facilityWriter;
 	private int facilityRegion;
@@ -23,4 +23,5 @@ public class DB {
 	private String facilityMajor;
 	private String facilityPrice;
 	private String facilityNotice;
+	private String facilityFilepath;
 }

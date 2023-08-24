@@ -24,7 +24,7 @@ public class EmailSender {
 		boolean result = false;
 		try {
 			helper.setSentDate(new Date());
-			helper.setFrom(new InternetAddress("areum6321@gmail.com","KH 당산 A 클래스"));
+			helper.setFrom(new InternetAddress("lar@naver.com","강원도 멍멍 탐험대"));
 			helper.setTo(receiver);
 			helper.setSubject(mailTitle);
 			helper.setText(mailContent,true);
@@ -46,17 +46,13 @@ public class EmailSender {
 		MimeMessage message = sender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message);
 		
-		//영어 대/소문자/숫자 8자리 랜덤코드 생성
 		StringBuffer sb = new StringBuffer();
 		
 		Random r = new Random();
 		
 		for(int i=0;i<8;i++) {
-			// 0 ~ 9 : r.nextInt(10);//0부터 매개변수 갯수 중 랜덤 수 1개
-			// A ~ Z : (char)(r.nextInt(26)+65);
-			// a ~ z : (char)(r.nextInt(26)+97);
 			
-			int flag = r.nextInt(3);//0:숫자 / 1:대문자 / 2:소문자
+			int flag = r.nextInt(3);
 			if(flag == 0) {
 				int num = r.nextInt(10);
 				sb.append(num);
@@ -71,9 +67,9 @@ public class EmailSender {
 		
 		try {
 			helper.setSentDate(new Date());
-			helper.setFrom(new InternetAddress("areum6321@gmail.com","KH 당산 a 클래스"));
+			helper.setFrom(new InternetAddress("lar@naver.com","강원도 멍멍 탐험대"));
 			helper.setTo(email);
-			helper.setSubject("인증메일입니다.");
+			helper.setSubject("인증 메일입니다.");
 			helper.setText("<h1>안녕하세요</h1>"+"<h3>인증번호는 [<span style='color:red;'>"+sb.toString()+"</span>]입니다.</h3>",true);
 			sender.send(message);
 		} catch (UnsupportedEncodingException e) {
