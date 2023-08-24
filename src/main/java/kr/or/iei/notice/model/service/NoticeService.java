@@ -14,13 +14,11 @@ public class NoticeService {
 	@Autowired
 	private NoticeDao noticeDao;
 	
-	//공지사항 리스트
 	public NoticeListData selectNoticeList(int reqPage) {
 		int numPerPage = 10;
 		int end = reqPage * numPerPage;
 		int start = end-numPerPage+1;
-		List noticeList = noticeDao.selectNoticeList(start,end);
-		
+		List noticeList = noticeList = noticeDao.selectNoticeList(start, end);
 		//공지사항 총 게시글
 		int totalCount = noticeDao.selectNoticeTotalNum();
 		int totalPage = totalCount%numPerPage == 0 ? totalCount/numPerPage : totalCount/numPerPage+1;
@@ -63,11 +61,74 @@ public class NoticeService {
 				pageNavi +="</li>";
 			}
 			pageNavi +="</ul>";
-			
-			NoticeListData nld = new NoticeListData(noticeList,pageNavi);
+			NoticeListData nld = new NoticeListData(noticeList, pageNavi);
 			return nld;
+
 		}
 	
+	//공지사항 리스트
+	public NoticeListData selectNoticeList(int reqPage,String searchType, String searchName) {
+		int numPerPage = 10;
+		int end = reqPage * numPerPage;
+		int start = end-numPerPage+1;
+		List noticeList;
+	    if ("title".equals(searchType)) {
+	        noticeList = noticeDao.searchNoticeTitle(start, end, searchName);
+	    } else if ("writer".equals(searchType)) {
+	        noticeList = noticeDao.searchNoticeWriter(start, end, searchName);
+	    } else if ("content".equals(searchType)) {
+	        noticeList = noticeDao.searchNoticeContent(start, end, searchName);
+	    } else {
+	        noticeList = noticeDao.selectNoticeList(start, end);
+	    }
+		
+		
+		//공지사항 총 게시글
+		int totalCount = noticeDao.selectNoticeTotalNum();
+		int totalPage = totalCount%numPerPage == 0 ? totalCount/numPerPage : totalCount/numPerPage+1;
+		
+		int pageNaviSize =5;
+		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
+		String pageNavi ="<ul>";
+		pageNavi ="<ul>";
+		if(pageNo !=1) {
+			pageNavi +="<li>";
+			pageNavi +="<a href='/notice/list?reqPage="+(pageNo-1)+"'>";
+			pageNavi +="<span class='material-icons-outlined'>navigate_before</span>";
+			pageNavi +="</a>";
+			pageNavi +="</li>";
+		}
+		for(int i=0;i<pageNaviSize;i++) {
+			if(pageNo == reqPage) {
+				pageNavi +="<li>";
+				pageNavi +="<a href='/notice/list?reqPage="+(pageNo)+"'>";
+				pageNavi += pageNo;
+				pageNavi += "</a>";
+				pageNavi += "</li>";
+			}else {
+				pageNavi +="<li>";
+				pageNavi +="<a href='/notice/list?reqPage="+(pageNo)+"'>";
+				pageNavi += pageNo;
+				pageNavi += "</a>";
+				pageNavi += "</li>";
+			}
+			pageNo++;
+			if(pageNo>totalPage) {
+				break;
+			}
+		}		
+			if(pageNo <= totalPage) {
+				pageNavi +="<li>";
+				pageNavi +="<a href='/notice/list?reqPage="+(pageNo)+"'>";
+				pageNavi +="<span class='material-icons-outlined'>navigate_next</span>";
+				pageNavi +="</a>";
+				pageNavi +="</li>";
+			}
+			pageNavi +="</ul>";
+			NoticeListData nld = new NoticeListData(noticeList, pageNavi);
+			return nld;
+		}
+
 	//공지사항 보기
 	public Notice selectOneNotice(int noticeNo) {
 		//공지사항 조회수
@@ -102,7 +163,6 @@ public class NoticeService {
 
 	public Notice getNotice(int noticeNo) {
 		Notice n = noticeDao.selectOneNotice(noticeNo);
-		
 		return n;
 	}
 
@@ -114,5 +174,8 @@ public class NoticeService {
 			return 0;
 		}
 	}
+
+
+
 
 }

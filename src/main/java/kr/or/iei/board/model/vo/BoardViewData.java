@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class BoardListData {
-	private List boardList;
-	private String pageNavi;
+public class BoardViewData {
+	private Board b;
+	private List commentList;
+	private List reCommentList;
 }

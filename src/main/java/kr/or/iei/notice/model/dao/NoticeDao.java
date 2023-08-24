@@ -66,10 +66,31 @@ public class NoticeDao {
 	
 	//공지사항 수정
 	public int updateNotice(Notice n) {
-		String query = "update notice set notice_title=? where notice_no =?";
-		Object[] params = {n.getNoticeTitle(),n.getNoticeNo()};
+		String query = "update notice set notice_title=? ,notice_content=? where notice_no =?";
+		Object[] params = {n.getNoticeTitle(),n.getNoticeContent(),n.getNoticeNo()};
 		int result = jdbc.update(query,params);
 		return result;
+	}
+	
+	//제목 검색
+	public List searchNoticeTitle(int start, int end, String searchName) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from notice where notice_title like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
+		List noticeList = jdbc.query(query, noticeRowMapper,searchName,start,end);
+		return noticeList;
+	}
+	
+	//작성자 검색
+	public List searchNoticeWriter(int start, int end, String searchName) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from notice notice_Writer like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
+		List noticeList = jdbc.query(query, noticeRowMapper,searchName,start,end);
+		return noticeList;
+	}
+	
+	//내용 검색
+	public List searchNoticeContent(int start, int end, String searchName) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from notice notice_Content like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
+		List noticeList = jdbc.query(query, noticeRowMapper,searchName,start,end);
+		return noticeList;
 	}
 	
 

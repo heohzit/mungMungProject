@@ -28,16 +28,16 @@
             </tr>
             <tr>
                 <th>내용</th>
-                 <td>
+                <td>
 					<div class="boardContent" th:utext="${b.boardContent}"></div>
-
-                  </td>
+				</td>
             </tr>
         </table>
         <div class="btn1">
 	        <a th:href="@{/board/delete(boardNo=${b.boardNo})}">삭제하기</a>
 	        <a th:href="@{/board/updateFrm(boardNo=${b.boardNo})}">수정하기</a>
 		</div>
+		<!-- 댓글입력 -->
 		<div class="inputCommentBox">
 			<form action="/board/insertComment" method="post">
 				<ul>
@@ -45,14 +45,17 @@
 						<span class="material-icons">댓글</span>
 					</li>
 					<li>
+						<input type="hidden" name="boardCommentWriter" th:value="${b.boardNo}">
+						<input type="hidden" name="boardNo" th:value="${b.boardNo}">
 						<textarea name="boardCommentContent" class="input-form"></textarea>
 					</li>
 					<li>
-					<button type="submit" class="btn bc1 bs4">등록</button>
+						<button type="submit" class="btn bc1 bs4">등록</button>
 					</li>
 				</ul>
 			</form>
 		</div>
+		
     </div>
 <th:block th:include="common/mung_footer"></th:block>
 </body>
