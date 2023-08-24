@@ -197,6 +197,12 @@ textarea.input-form {
 .input-form2:focus{
     box-shadow: 0 0 0 0.1rem #eee;
 }
+.input-form3:focus{
+    box-shadow: 0 0 0 0.1rem #eee;
+}
+.input-form4:focus{
+    box-shadow: 0 0 0 0.1rem #eee;
+}
 .insert-select:focus{
     box-shadow: 0 0 0 0.1rem #eee;
 }

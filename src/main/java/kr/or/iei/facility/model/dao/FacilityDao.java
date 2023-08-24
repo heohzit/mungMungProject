@@ -7,6 +7,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import kr.or.iei.facility.model.vo.Facility;
 import kr.or.iei.facility.model.vo.FacilityRowMapper;
 
 @Repository
@@ -120,5 +121,12 @@ public class FacilityDao {
 		String query = "select count(*) from facility where facility_case = 4 and facility_name like '%'||?||'%'";
 		int totalCount = jdbc.queryForObject(query, Integer.class, searchName);
 		return totalCount;
+	}
+
+	public int insertFacility(Facility f) {
+		String query = "insert into facility values(facility_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		Object[] params = {f.getFacilityWriter(), f.getFacilityRegion(), f.getFacilityCase(), f.getFacilityName(), f.getFacilityPhone(), f.getFacilityAddr(), f.getFacilityLat(), f.getFacilityLng(), f.getFacilityTime(), f.getFacilityHomepage(), f.getFacilityInfo(), f.getFacilityMajor(), f.getFacilityPrice(), f.getFacilityNotice()};
+		int result = jdbc.update(query, params);
+		return result;
 	}
 }
