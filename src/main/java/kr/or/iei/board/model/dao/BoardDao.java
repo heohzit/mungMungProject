@@ -75,7 +75,7 @@ public class BoardDao {
 	//커뮤니티 댓글쓰기
 	public int insertComment(BoardComment bc) {
 		String query = "insert into board_comment values(board_comment_seq.nextval,?,?,to_char(sysdate,'yyyy-mm-dd'),?,?)";
-		String boardCommentRefNo = bc.getBoardCommentRefNo()==0?null:String.valueOf(bc.getBoardCommentNo());
+		String boardCommentRefNo = bc.getBoardCommentRefNo()==0?null:String.valueOf(bc.getBoardCommentRefNo());
 		Object[] params = {bc.getBoardCommentWriter(),bc.getBoardCommentContent(),bc.getBoardNo(),boardCommentRefNo};
 		int result = jdbc.update(query,params);
 		return result;
@@ -94,4 +94,55 @@ public class BoardDao {
 		List list = jdbc.query(query, boardCommentRowMapper,boardNo);
 		return list;
 	}
+
+	//커뮤니티 댓글 수정
+	public int updateComment(BoardComment bc) {
+		String query = "update board_comment set board_comment_content=? where board_comment_no=?";
+		Object[] params = {bc.getBoardCommentContent(),bc.getBoardCommentNo()};
+		int result = jdbc.update(query,params);
+		return result;
+	}
+	
+	//커뮤니티 댓글 삭제
+	public int deleteComment(int boardCommentNo) {
+		String query = "delete from board_comment where board_comment_no=?";
+		Object[] params = {boardCommentNo};
+		int result = jdbc.update(query,params);
+		return  result;
+	}
+	
+	//제목 검색
+	public List searchBoardTitle(int start, int end, String searchName) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from board where board_title like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
+		List boardList = jdbc.query(query, boardRowMapper,searchName,start,end);
+		return boardList;
+	}
+	
+	//작성자 검색
+	public List searchBoardWriter(int start, int end, String searchName) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from board where board_writer like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
+		List boardList = jdbc.query(query, boardRowMapper,searchName,start,end);
+		return boardList;
+	}
+	
+	//내용 검색
+	public List searchBoardContent(int start, int end, String searchName) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from board where board_content like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
+		List boardList = jdbc.query(query, boardRowMapper,searchName,start,end);
+		return boardList;
+	}
+
+	public List selectBoardList(int start, int end) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from notice order by 1 desc)n)where rnum between ? and ?";
+		List boardList = jdbc.query(query, boardRowMapper,start,end);
+		return boardList;
+	}
+
+	public int selectNoticeTotalNum() {
+		String query = "select count(*) from board";
+		int totalNum = jdbc.queryForObject(query, Integer.class);
+		return totalNum;
+	}
+
+	
 }

@@ -19,8 +19,10 @@ import kr.or.iei.FileUtil;
 import kr.or.iei.board.model.service.BoardService;
 import kr.or.iei.board.model.vo.Board;
 import kr.or.iei.board.model.vo.BoardComment;
+import kr.or.iei.board.model.vo.BoardListData;
 import kr.or.iei.board.model.vo.BoardViewData;
 import kr.or.iei.member.model.vo.Member;
+import kr.or.iei.notice.model.vo.NoticeListData;
 
 @Controller
 @RequestMapping(value="/board")
@@ -31,7 +33,7 @@ public class BoardController {
 	private String root;
 	@Autowired
 	private FileUtil fileUtil;
-    
+	
 	//커뮤니티 리스트 
     @GetMapping(value="/list")
     public String boardList(Model model,@SessionAttribute(required=false) Member m) {
@@ -40,14 +42,23 @@ public class BoardController {
         return "board/boardList";
     }
     
+    //커뮤니티 검색 리스트 화면
+  	@GetMapping(value="/searchList")
+  	public String noticeList (int reqPage , Model model,String searchType , String searchName) {
+  		BoardListData bld = boardService.searchBoardList(reqPage,searchType,searchName);
+  		model.addAttribute("boardList", bld.getBoardList());
+  		model.addAttribute("pageNavi", bld.getPageNavi());
+  		return "board/boardSearchList";
+  	}
+    
     //커뮤니티 작성 폼
-    @GetMapping(value="writeFrm")
+    @GetMapping(value="/writeFrm")
     public String writeFrm() {
         return "board/boardWriteFrm";
     }
     
     //커뮤니티 작성,썸네일 파일
-  	@PostMapping(value="write")
+  	@PostMapping(value="/write")
   	public String boardWrite(Board b,MultipartFile imageFile){
   		String savepath = root+"boardmain/";
 		String filepath = fileUtil.getFilepath(savepath, imageFile.getOriginalFilename());
@@ -61,7 +72,7 @@ public class BoardController {
 		}
   		int result = boardService.insertBoard(b);
   		if(result>0) {
-  			return "board/boardList";			
+  			return "redirect:/board/list";		
   		}else {
   			return "notice/noticeWriteFrm";	
   		}
@@ -69,7 +80,7 @@ public class BoardController {
   	
   	//커뮤니티 썸머노트
   	@ResponseBody
-  	@PostMapping (value="editor",produces ="plain/text;charset=utf-8")
+  	@PostMapping (value="/editor",produces ="plain/text;charset=utf-8")
   	public String editorUpload(MultipartFile file) {
   		String savepath = root+"board/";
   		String filepath = fileUtil.getFilepath(savepath, file.getOriginalFilename());
@@ -85,14 +96,14 @@ public class BoardController {
   	
 	//커뮤니티 더보기버튼 사진
 	@ResponseBody
-	@PostMapping(value="more")
+	@PostMapping(value="/more")
 	public List more(int start , int end) {
 		List boardList = boardService.selectPhotoList(start,end);
 		return boardList;
 	}
 	
 	//커뮤니티 상세보기
-	@GetMapping(value = "view")
+	@GetMapping(value = "/view")
 	public String boardView(int boardNo, Model model,@SessionAttribute(required=false) Member m) {
 		BoardViewData bvd = boardService.selectOneNotice(boardNo);
 		if (bvd != null) {
@@ -106,7 +117,7 @@ public class BoardController {
 	}
 	
 	//커뮤니티 삭제
-	@GetMapping(value="delete")
+	@GetMapping(value="/delete")
 	public String deleteBoard(int boardNo) {
 		int result = boardService.deleteBoard(boardNo);
 		if (result != 0) {
@@ -117,7 +128,7 @@ public class BoardController {
 	}
 	
 	//커뮤니티 수정 폼
-	@GetMapping(value="updateFrm")
+	@GetMapping(value="/updateFrm")
 	public String updateFrm(int boardNo , Model model) {
 		//커뮤니티 해당번호 가져오기
 		Board b = boardService.getBoard(boardNo);
@@ -126,7 +137,7 @@ public class BoardController {
 	}
 	
 	//커뮤니티 수정
-	@PostMapping(value="update")
+	@PostMapping(value="/update")
 	public String update(Board b) {
 		int result = boardService.updateBoard(b);
 		if(result>0) {
@@ -146,5 +157,37 @@ public class BoardController {
 			return "board/boardList";
 		}
 	}
-
+	//커뮤니티 댓글 수정
+	@PostMapping (value="updateCommnet")
+	public String updateCommnet(BoardComment bc , Model model) {
+		int result = boardService.updateCommnet(bc);
+		if(result>0) {
+			model.addAttribute("title", "수정완료");
+			model.addAttribute("msg", "댓글이 수정되었습니다.");
+			model.addAttribute("icon", "success");
+		}else {
+			model.addAttribute("title", "수정실패");
+			model.addAttribute("msg", "댓글 수정에 실패했습니다.");
+			model.addAttribute("icon", "error");
+		}
+		model.addAttribute("loc","/board/view?boardNo="+bc.getBoardNo());
+		return "common/msg";
+	}
+	
+		//커뮤니티 댓글 삭제
+		@GetMapping (value="deleteComment")
+		public String deleteComment(int boardCommentNo, int boardNo,Model model) {
+			int result = boardService.deleteComment(boardCommentNo);
+			if(result>0) {
+				model.addAttribute("title", "삭제완료");
+				model.addAttribute("msg", "댓글이 삭제되었습니다.");
+				model.addAttribute("icon", "success");
+			}else {
+				model.addAttribute("title", "삭제실패");
+				model.addAttribute("msg", "댓글 삭제가 실패했습니다.");
+				model.addAttribute("icon", "error");
+			}
+			model.addAttribute("loc","/board/view?boardNo="+boardNo);
+			return "common/msg";	
+		}
 }
