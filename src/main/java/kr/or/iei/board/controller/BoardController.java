@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.or.iei.FileUtil;
@@ -19,6 +20,7 @@ import kr.or.iei.board.model.service.BoardService;
 import kr.or.iei.board.model.vo.Board;
 import kr.or.iei.board.model.vo.BoardComment;
 import kr.or.iei.board.model.vo.BoardViewData;
+import kr.or.iei.member.model.vo.Member;
 
 @Controller
 @RequestMapping(value="/board")
@@ -32,7 +34,7 @@ public class BoardController {
     
 	//커뮤니티 리스트 
     @GetMapping(value="/list")
-    public String boardList(Model model) {
+    public String boardList(Model model,@SessionAttribute(required=false) Member m) {
         int totalCount = boardService.totalCount();
         model.addAttribute("totalCount", totalCount);
         return "board/boardList";
@@ -91,7 +93,7 @@ public class BoardController {
 	
 	//커뮤니티 상세보기
 	@GetMapping(value = "view")
-	public String boardView(int boardNo, Model model) {
+	public String boardView(int boardNo, Model model,@SessionAttribute(required=false) Member m) {
 		BoardViewData bvd = boardService.selectOneNotice(boardNo);
 		if (bvd != null) {
 			model.addAttribute("b",bvd.getB());
