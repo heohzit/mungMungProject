@@ -39,13 +39,13 @@ public class ProductController {
 			return "product/writeFrm";
 	}
 	@PostMapping(value = "/write")
-	public String productWrite(Product p,MultipartFile productFilepath) {
-		String savepath = root+"photo/";
-		String filepath = fileUtil.getFilepath(savepath, productFilepath.getOriginalFilename());
-		p.setProductFilpath(filepath);
+	public String productWrite(Product p,MultipartFile productImg) {
+		String savepath = root+"productmain/";
+		String filepath = fileUtil.getFilepath(savepath, productImg.getOriginalFilename());
+		p.setProductFilepath(filepath);
 		File upFile = new File(savepath+filepath);
 		try {
-			productFilepath.transferTo(upFile);
+			productImg.transferTo(upFile);
 		} catch (IllegalStateException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

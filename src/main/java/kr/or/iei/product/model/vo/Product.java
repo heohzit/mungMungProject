@@ -16,5 +16,5 @@ public class Product {
 	private String productStart;
 	private String productEnd;
 	private int productDay;
-	private String productFilpath;
+	private String productFilepath;
 }
