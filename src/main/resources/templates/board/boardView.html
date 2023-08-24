@@ -33,19 +33,19 @@
 				</td>
             </tr>
         </table>
-        <div class="btn1">
+        <div class="btn1" th:if="${session.m != null}">
 	        <a th:href="@{/board/delete(boardNo=${b.boardNo})}">삭제하기</a>
 	        <a th:href="@{/board/updateFrm(boardNo=${b.boardNo})}">수정하기</a>
 		</div>
 		<!-- 댓글입력 -->
-		<div class="inputCommentBox">
+		<div class="inputCommentBox" th:if="${session.m != null}">
 			<form action="/board/insertComment" method="post">
 				<ul>
 					<li>
 						<span class="material-icons">댓글</span>
 					</li>
 					<li>
-						<input type="hidden" name="boardCommentWriter" th:value="${b.boardNo}">
+						<input type="hidden" name="boardCommentWriter" th:value="${session.m.memberNo}">
 						<input type="hidden" name="boardNo" th:value="${b.boardNo}">
 						<textarea name="boardCommentContent" class="input-form"></textarea>
 					</li>
@@ -55,7 +55,29 @@
 				</ul>
 			</form>
 		</div>
-		
+		<!-- 댓글보기 -->
+		<div>
+			<th:block th:each="cl : ${commentList}">
+				<ul>
+					<li>
+						<p>		
+							<span th:text="${cl.memberId}"></span>				
+							<span th:text="${cl.boardCommentWriteDate}"></span>
+						</p>
+							<p th:text="${cl.boardCommentContent}"></p>
+						<p>
+							<th:block th:if="${session.m!=null}">
+								<th:block th:if="${session.m.memberId==cl.memberId}">
+									<a href="#">수정</a>
+									<a href="#">삭제</a>
+								</th:block>
+								<a href="#">답글달기</a>
+							</th:block>
+						</p>
+					</li>
+				</ul>
+			</th:block>
+		</div>
     </div>
 <th:block th:include="common/mung_footer"></th:block>
 </body>
