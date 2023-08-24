@@ -29,7 +29,7 @@
                         <th style="width: 15%;">회원등급</th>
                         <th style="width: 15%;">가입일</th>
                     </tr>
-                    <tr th:each="m : ${list}">
+                    <tr th:each="m : ${memberList}">
                         <td th:text="${m.memberNo}"></td>
                         <td th:text="${m.memberId}"></td>
                         <td th:text="${m.memberName}"></td>
@@ -44,6 +44,9 @@
                         <td th:text="${m.enrollDate}"></td>
                     </tr>
                 </table>
+                <div class="page-content-bottom">
+                    <div id="pageNavi" th:utext="${pageNavi}"></div>
+                </div>
             </div>
             <div class="admin-page-content">
                 <table class="admin-tbl">
@@ -88,43 +91,15 @@
                             <button class="btn bc1">확정</button>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="admin-tbl-tr-btn">
                         <td colspan="9">
                             <button class="btn bc1">선택회원취소확정</button>
                         </td>
                     </tr>
-                </table>
+                </table>                
             </div>
         </div>
-        <div class="page-content-bottom">
-            <ul class="pagination">
-                <li>
-                    <a href="#" class="page-btn">
-                        <span class="material-icons">arrow_back_ios_new</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn select-page">1</a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn">2</a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn">3</a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn">4</a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn">5</a>
-                </li>
-                <li>
-                    <a href="#" class="page-btn">
-                        <span class="material-icons">arrow_forward_ios</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <div class="page-content-bottom"></div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
     <script>

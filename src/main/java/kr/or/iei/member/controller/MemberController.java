@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.Member;
+import kr.or.iei.member.model.vo.MemberListData;
 
 @Controller
 @RequestMapping(value="/member")
@@ -120,9 +121,10 @@ public class MemberController {
 	}
 	
 	@GetMapping(value="/admin")
-	public String admin(Model model) {
-		List list = memberService.selectAllMember();
-		model.addAttribute("list", list);
+	public String admin(Model model, int reqPage) {
+		MemberListData mld = memberService.selectAllMember(reqPage);
+		model.addAttribute("memberList", mld.getMemberList());
+		model.addAttribute("pageNavi", mld.getPageNavi());
 		return "/member/admin";
 	}
 }
