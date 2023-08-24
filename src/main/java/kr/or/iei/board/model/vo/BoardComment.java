@@ -14,4 +14,5 @@ public class BoardComment {
 	private String boardCommentWriteDate;
 	private int boardNo;
 	private int boardCommentRefNo;
+	private String memberId;
 }
