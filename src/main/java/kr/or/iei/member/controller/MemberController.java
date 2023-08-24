@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.Member;
@@ -42,6 +43,12 @@ public class MemberController {
 		return "member/login";
 	}
 
+	@GetMapping(value="/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+		}
+	
 	@PostMapping(value="/signup")
 		public String signup(Member member, Model model){
 		int result = memberService.insertMember(member);
@@ -76,4 +83,39 @@ public class MemberController {
 	public String mypage() {
 		return "member/mypage";
 	}
+	@PostMapping(value="/update")
+	public String update(Member member, Model model, @SessionAttribute(required = false) Member m) {
+		int result = memberService.updateMember(member);
+		if(result>0) {
+			m.setMemberPw(member.getMemberPw());
+			m.setMemberPhone(member.getMemberPhone());
+			m.setMemberName(member.getMemberName());
+			
+			model.addAttribute("title", "정보 수정 완료");
+			model.addAttribute("msg", "회원정보 수정 완료되었습니다.");
+			model.addAttribute("icon", "success");
+			model.addAttribute("loc", "/member/mypage");	
+		}else {
+			model.addAttribute("title", "정보 수정 실패");
+			model.addAttribute("msg", "정보를 다시 입력해주세요.");
+			model.addAttribute("icon", "error");
+			model.addAttribute("loc", "/");
+		}
+		return "common/msg";
+	}
+	@GetMapping(value="/delete")
+	public String delete(Model model, @SessionAttribute(required = false)Member m) {
+		 int result = memberService.deleteMember(m.getMemberNo());
+		 if(result>0) {
+			return "redirect:/member/logout";
+		}else {
+			model.addAttribute("title", "로그아웃 실패");
+			model.addAttribute("msg", "마이페이지로 이동합니다.");
+			model.addAttribute("icon", "warning");
+			model.addAttribute("loc", "/member/mypage");	
+		}
+		 return "common/msg";
+	}
+
+
 }

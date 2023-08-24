@@ -49,4 +49,76 @@ public class FacilityDao {
 		int totalCount = jdbc.queryForObject(query, Integer.class, searchName);
 		return totalCount;
 	}
+
+	public List selectHotelList(int startNum, int endNum) {
+		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 2) n) where rnum between ? and ?";
+		List list = jdbc.query(query, facilityRowMapper, startNum, endNum);
+		return list;
+	}
+
+	public int selectHotelListTotalCount() {
+		String query = "select count(*) from facility where facility_case = 2";
+		int totalCount = jdbc.queryForObject(query, Integer.class);
+		return totalCount;
+	}
+
+	public List selectSearchHotelList(int startNum, int endNum, String searchName) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 2 and facility_name like '%'||?||'%') n) where rnum between ? and ?";
+		List list = jdbc.query(query, facilityRowMapper, searchName, startNum, endNum);
+		return list;
+	}
+
+	public int selectSearchHotelListTotalCount(String searchName) {
+		String query = "select count(*) from facility where facility_case = 2 and facility_name like '%'||?||'%'";
+		int totalCount = jdbc.queryForObject(query, Integer.class, searchName);
+		return totalCount;
+	}
+
+	public List selectCafeList(int startNum, int endNum) {
+		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 1) n) where rnum between ? and ?";
+		List list = jdbc.query(query, facilityRowMapper, startNum, endNum);
+		return list;
+	}
+
+	public int selectCafeListTotalCount() {
+		String query = "select count(*) from facility where facility_case = 1";
+		int totalCount = jdbc.queryForObject(query, Integer.class);
+		return totalCount;
+	}
+
+	public List selectSearchCafeList(int startNum, int endNum, String searchName) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 1 and facility_name like '%'||?||'%') n) where rnum between ? and ?";
+		List list = jdbc.query(query, facilityRowMapper, searchName, startNum, endNum);
+		return list;
+	}
+
+	public int selectSearchCafeListTotalCount(String searchName) {
+		String query = "select count(*) from facility where facility_case = 1 and facility_name like '%'||?||'%'";
+		int totalCount = jdbc.queryForObject(query, Integer.class, searchName);
+		return totalCount;
+	}
+
+	public List selectActivityList(int startNum, int endNum) {
+		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 4) n) where rnum between ? and ?";
+		List list = jdbc.query(query, facilityRowMapper, startNum, endNum);
+		return list;
+	}
+
+	public int selectActivityListTotalCount() {
+		String query = "select count(*) from facility where facility_case = 4";
+		int totalCount = jdbc.queryForObject(query, Integer.class);
+		return totalCount;
+	}
+
+	public List selectSearchActivityList(int startNum, int endNum, String searchName) {
+		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 4 and facility_name like '%'||?||'%') n) where rnum between ? and ?";
+		List list = jdbc.query(query, facilityRowMapper, searchName, startNum, endNum);
+		return list;
+	}
+
+	public int selectSearchActivityListTotalCount(String searchName) {
+		String query = "select count(*) from facility where facility_case = 4 and facility_name like '%'||?||'%'";
+		int totalCount = jdbc.queryForObject(query, Integer.class, searchName);
+		return totalCount;
+	}
 }

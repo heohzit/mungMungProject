@@ -40,7 +40,7 @@
                         <div class="input-wrap">
                             <label for="memberName">이름</label>
                             <input type="text" name="memberName" id="memberName" class="input-form"
-                                th:value="${session.m.memberName}" disabled>
+                                th:value="${session.m.memberName}">
                         </div>
                         <div class="input-wrap">
                             <label for="memberPhone">전화번호</label>
@@ -52,6 +52,14 @@
                             <input type="text" name="memberEmail" id="memberEmail" class="input-form"
                                 th:value="${session.m.memberEmail}">
                         </div>
+                        <div class="input-wrap">
+							<label for="memberName">등급</label>
+							<!-- 관리자/정회원-->
+							<th:block th:switch="${session.m.memberLevel}">
+							<input th:case="1" type="text" name="memberLevel" id="memberLevel" class="input-form" value="관리자" disabled>
+							<input th:case="2" type="text" name="memberLevel" id="memberLevel" class="input-form" value="정회원" disabled>
+							</th:block>
+						</div>
                         <div class="input-wrap">
                             <label for="enrollDate">가입일</label>
                             <input type="text" name="enrollDate" id="enrollDate" class="input-form"

@@ -22,9 +22,19 @@ public class MemberService {
 		return result;
 
 	}
-	public Member selectOneMember(String checkId) {
-		Member m = memberDao.selectOneMember(checkId);
-		return null;
+	public Member selectOneMember(String memberId) {
+		Member m = memberDao.selectOneMember(memberId);
+		return m;
+	}
+	@Transactional
+	public int updateMember(Member member) {
+		int result = memberDao.updateMember(member);
+		return result;
+	}
+	@Transactional
+	public int deleteMember(int memberNo) {
+		int result = memberDao.deleteMember(memberNo);
+		return result;
 	}
 
 }

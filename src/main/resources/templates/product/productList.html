@@ -24,7 +24,7 @@
 						<li class="product">
                      		<a href="#">
                         		<div class="img-box">
-                            		<img src="../img/product-list/테스트.png"><!-- 이미지크기는 250*250 -->
+                            		<img th:src="${product.productFilepath}"><!-- 이미지크기는 250*250 -->
                             		<h3 th:text="${product.productName}"></h3>
                         		</div>
                      		</a>
