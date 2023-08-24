@@ -29,7 +29,12 @@
                 <li class="mid-list" th:each="facility : ${facilityList}">
                     <a href="#">
                         <div class="list-img-box">
-                            <img th:src="${facility.facilityFilepath}">
+                            <th:block th:if="${facility.facilityFilepath != null}">
+                                <img th:src="${facility.facilityFilepath}">
+                            </th:block>
+                            <th:block th:if="${facility.facilityFilepath == null}">
+                                <img src="/img/test_img.png">
+                            </th:block>
                         </div>
                         <div class="list-text-box">
                             <ul>
