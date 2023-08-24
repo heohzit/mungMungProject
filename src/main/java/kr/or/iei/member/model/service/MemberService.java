@@ -22,8 +22,8 @@ public class MemberService {
 		return result;
 
 	}
-	public Member selectOneMember(String checkId) {
-		Member m = memberDao.selectOneMember(checkId);
+	public Member selectOneMember(String memberId) {
+		Member m = memberDao.selectOneMember(memberId);
 		return null;
 	}
 	@Transactional

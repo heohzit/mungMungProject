@@ -34,9 +34,9 @@ public class MemberDao {
 
 	}
 
-	public Member selectOneMember(String checkId) {
+	public Member selectOneMember(String memberId) {
 		String query = "select * from member where member_id=?";
-		List list = jdbc.query(query, memberRowMapper,checkId);
+		List list = jdbc.query(query, memberRowMapper,memberId);
 		if(list.isEmpty()) {
 			return null;
 		}
