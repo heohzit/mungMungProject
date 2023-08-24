@@ -12,10 +12,7 @@
     border: 1px solid #ccc;   
     width: 650px;
 }
-.input-wrap{
-	padding-top: 20px;
-}
-<!--
+
 .input-form{
     height: 50px;
     width: 200px;
@@ -25,8 +22,9 @@
     padding: 0 15px;
     border-radius: 5px;
     border: 1px solid rgb(221, 221, 221);
-}
--->
+} 
+
+
 .einput-form{
 	display: inline-block;
    	height: 50px;
