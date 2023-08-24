@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.or.iei.facility.model.service.FacilityService;
+import kr.or.iei.facility.model.vo.Facility;
 import kr.or.iei.facility.model.vo.FacilityListData;
 
 @Controller
@@ -16,7 +17,9 @@ public class FacilityController {
 	public FacilityService facilityService;
 	
 	@GetMapping(value = "/tourDetail")
-	public String tourDetail() {
+	public String tourDetail(int facilityNo, Model model) {
+		Facility facility = facilityService.selectOneTour(facilityNo);
+		model.addAttribute("f",facility);
 		return "facility/tourDetail";
 	}
 		
@@ -81,4 +84,5 @@ public class FacilityController {
 		model.addAttribute("pageNavi", fld.getPageNavi());
 		return "facility/activityList";
 	}
+	
 }

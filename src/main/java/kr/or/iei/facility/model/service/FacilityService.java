@@ -96,7 +96,34 @@ public class FacilityService {
 		
 		return fld;
 	}
-
+	public Facility selectOneTour(int facilityNo) {
+		// TODO Auto-generated method stub
+		Facility facility = facilityDao.selectOneTour(facilityNo);
+		//소개
+		facility.setFacilityInfo(facility.getFacilityInfo().replaceAll("\\* ", "<br>\\* "));
+		facility.setFacilityInfo(facility.getFacilityInfo().replaceFirst("<br>\\* ", "\\* "));
+		//주요시설
+		facility.setFacilityMajor(facility.getFacilityMajor().replaceAll("- ", "<br>- "));
+		facility.setFacilityMajor(facility.getFacilityMajor().replaceFirst("<br>- ", "- "));
+		//이용요금
+		facility.setFacilityPrice(facility.getFacilityPrice().replaceAll("- ", "<br>- "));
+		facility.setFacilityPrice(facility.getFacilityPrice().replaceFirst("<br>- ", "- "));
+		
+		facility.setFacilityPrice(facility.getFacilityPrice().replaceAll("\\[", "<br><br>\\["));
+		facility.setFacilityPrice(facility.getFacilityPrice().replaceFirst("<br><br>\\[", "\\["));
+		
+		facility.setFacilityPrice(facility.getFacilityPrice().replaceAll("\\]-", "\\]<br>-"));
+				
+		facility.setFacilityPrice(facility.getFacilityPrice().replaceAll("\\* ", "<br>\\* "));
+		facility.setFacilityPrice(facility.getFacilityPrice().replaceFirst("<br>\\* ", "<br><br>\\* "));
+		//주의사항
+		facility.setFacilityNotice(facility.getFacilityNotice().replaceAll("- ", "<br>- "));
+		facility.setFacilityNotice(facility.getFacilityNotice().replaceFirst("<br>- ", "- "));
+		
+		facility.setFacilityNotice(facility.getFacilityNotice().replaceAll("\\* ", "<br>\\* "));
+		facility.setFacilityNotice(facility.getFacilityNotice().replaceFirst("<br>\\* ", "<br><br>\\* "));
+		return facility;
+	}
 	public FacilityListData selectSearchTourList(int reqPage, String searchName) {
 				// 1. 한 페이지당 게시물 수 설정
 				int numPerPage = 12;

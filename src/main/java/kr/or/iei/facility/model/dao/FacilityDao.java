@@ -7,6 +7,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import kr.or.iei.facility.model.vo.Facility;
 import kr.or.iei.facility.model.vo.FacilityRowMapper;
 
 @Repository
@@ -27,6 +28,13 @@ public class FacilityDao {
 		int totalCount = jdbc.queryForObject(query, Integer.class);
 		return totalCount;
 	}
+
+	public Facility selectOneTour(int facilityNo) {
+		// TODO Auto-generated method stub
+		String query = "select * from facility where facility_no = ?";
+		List list = jdbc.query(query, facilityRowMapper, facilityNo);
+		
+		return (Facility)list.get(0);
 
 	public String selectFacilityFile(int facilityNo) {
 		String query = "select facility_filepath from facility_file where facility_file_no = (select min(facility_file_no) from facility_file where facility_no = ?)";
