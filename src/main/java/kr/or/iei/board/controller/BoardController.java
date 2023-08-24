@@ -22,7 +22,6 @@ import kr.or.iei.board.model.vo.BoardComment;
 import kr.or.iei.board.model.vo.BoardListData;
 import kr.or.iei.board.model.vo.BoardViewData;
 import kr.or.iei.member.model.vo.Member;
-import kr.or.iei.notice.model.vo.NoticeListData;
 
 @Controller
 @RequestMapping(value="/board")
@@ -34,22 +33,28 @@ public class BoardController {
 	@Autowired
 	private FileUtil fileUtil;
 	
-	//커뮤니티 리스트 
-    @GetMapping(value="/list")
-    public String boardList(Model model,@SessionAttribute(required=false) Member m) {
-        int totalCount = boardService.totalCount();
-        model.addAttribute("totalCount", totalCount);
-        return "board/boardList";
-    }
+	//커뮤니티 리스트
+	@GetMapping(value="/list")
+	public String boardList (int reqPage , Model model,String searchType , String searchName) {
+		BoardListData bld;
+		if(searchType != null || searchName != null) {
+			bld = boardService.selectBoardList(reqPage,searchType,searchName);
+		}else {
+			bld = boardService.selectBoardList(reqPage);
+		}
+		model.addAttribute("boardList", bld.getBoardList());
+		model.addAttribute("pageNavi", bld.getPageNavi());
+		return "board/boardList";
+	}
     
     //커뮤니티 검색 리스트 화면
-  	@GetMapping(value="/searchList")
-  	public String noticeList (int reqPage , Model model,String searchType , String searchName) {
-  		BoardListData bld = boardService.searchBoardList(reqPage,searchType,searchName);
-  		model.addAttribute("boardList", bld.getBoardList());
-  		model.addAttribute("pageNavi", bld.getPageNavi());
-  		return "board/boardSearchList";
-  	}
+//  	@GetMapping(value="/searchList")
+//  	public String boardList (int reqPage , Model model,String searchType , String searchName) {
+//  		BoardListData bld = boardService.searchBoardList(reqPage,searchType,searchName);
+//  		model.addAttribute("boardList", bld.getBoardList());
+//  		model.addAttribute("pageNavi", bld.getPageNavi());
+//  		return "board/boardSearchList";
+//  	}
     
     //커뮤니티 작성 폼
     @GetMapping(value="/writeFrm")
@@ -74,7 +79,7 @@ public class BoardController {
   		if(result>0) {
   			return "redirect:/board/list";		
   		}else {
-  			return "notice/noticeWriteFrm";	
+  			return "board/boardWriteFrm";	
   		}
   	}
   	
@@ -94,18 +99,18 @@ public class BoardController {
   		return "/board/"+filepath;
   	}
   	
-	//커뮤니티 더보기버튼 사진
-	@ResponseBody
-	@PostMapping(value="/more")
-	public List more(int start , int end) {
-		List boardList = boardService.selectPhotoList(start,end);
-		return boardList;
-	}
+//	//커뮤니티 더보기버튼 사진
+//	@ResponseBody
+//	@PostMapping(value="/more")
+//	public List more(int start , int end) {
+//		List boardList = boardService.selectBoardList(start,end);
+//		return boardList;
+//	}
 	
 	//커뮤니티 상세보기
 	@GetMapping(value = "/view")
 	public String boardView(int boardNo, Model model,@SessionAttribute(required=false) Member m) {
-		BoardViewData bvd = boardService.selectOneNotice(boardNo);
+		BoardViewData bvd = boardService.selectOneBoard(boardNo);
 		if (bvd != null) {
 			model.addAttribute("b",bvd.getB());
 			model.addAttribute("commentList",bvd.getCommentList());

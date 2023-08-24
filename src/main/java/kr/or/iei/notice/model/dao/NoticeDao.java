@@ -32,6 +32,13 @@ public class NoticeDao {
 		return totalNum;
 	}
 	
+	//공지사항 총 게시글 (검색)
+	public int selectSearchNoticeTotalNum(String searchType, String searchName) {
+		String query = "select count(*) from notice";
+		int totalNum = jdbc.queryForObject(query, Integer.class);
+		return totalNum;
+	}
+	
 	//공지사항 보기 
 	public Notice selectOneNotice(int noticeNo) {
 		//String query = "select * from notice join member on (member_no = notice_writer) where notice_no = ?";
@@ -81,16 +88,37 @@ public class NoticeDao {
 	
 	//작성자 검색
 	public List searchNoticeWriter(int start, int end, String searchName) {
-		String query = "select * from (select rownum as rnum , n.* from (select * from notice notice_Writer like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum , n.* from (select * from notice where notice_writer like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
 		List noticeList = jdbc.query(query, noticeRowMapper,searchName,start,end);
 		return noticeList;
 	}
 	
 	//내용 검색
 	public List searchNoticeContent(int start, int end, String searchName) {
-		String query = "select * from (select rownum as rnum , n.* from (select * from notice notice_Content like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum , n.* from (select * from notice where notice_content like '%'||?||'%' order by 1 desc)n)where rnum between ? and ?";
 		List noticeList = jdbc.query(query, noticeRowMapper,searchName,start,end);
 		return noticeList;
+	}
+	
+	//제목 검색 총 수
+	public int searchNoticeTitleTotalNum(String searchName) {
+		String query = "select count(*) from notice where notice_title like '%'||?||'%'";
+		int totalCount = jdbc.queryForObject(query, Integer.class,searchName);
+		return totalCount;
+	}
+	
+	//작성자 검색 총 수
+	public int searchNoticeWriterTotalNum(String searchName) {
+		String query = "select count(*) from notice where notice_writer like '%'||?||'%'";
+		int totalCount = jdbc.queryForObject(query, Integer.class,searchName);
+		return totalCount;
+	}
+	
+	//내용 검색 총 수
+	public int searchNoticeContentTotalNum(String searchName) {
+		String query = "select count(*) from notice where notice_content like '%'||?||'%'";
+		int totalCount = jdbc.queryForObject(query, Integer.class,searchName);
+		return totalCount;
 	}
 	
 

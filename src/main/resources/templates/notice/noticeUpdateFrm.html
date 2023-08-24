@@ -13,7 +13,10 @@
 	<link rel="stylesheet" href="/summernote/summernote-lite.css">
 	
     <div class="page-content">
-        <div class="page-title">공지사항 수정</div>
+        <div class="page-title">
+			<h1>공지사항 수정</h1>
+		</div>
+		<div class="page-content-mid">
         <form action="/notice/update" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
@@ -41,6 +44,7 @@
                 </tr>
             </table>
         </form>
+        </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
      <script>
