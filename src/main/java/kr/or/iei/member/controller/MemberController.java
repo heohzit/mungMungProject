@@ -1,5 +1,7 @@
 package kr.or.iei.member.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,6 +118,11 @@ public class MemberController {
 		}
 		 return "common/msg";
 	}
-
-
+	
+	@GetMapping(value="/admin")
+	public String admin(Model model) {
+		List list = memberService.selectAllMember();
+		model.addAttribute("list", list);
+		return "/member/admin";
+	}
 }

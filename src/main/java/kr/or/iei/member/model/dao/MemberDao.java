@@ -57,4 +57,10 @@ public class MemberDao {
 		int result = jdbc.update(query,params);
 		return result;
 	}
+
+	public List selectAllMember() {
+		String query = "select * from member order by 1";
+		List list = jdbc.query(query, memberRowMapper);
+		return list;
+	}
 }
