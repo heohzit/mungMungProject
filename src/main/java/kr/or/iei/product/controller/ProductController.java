@@ -52,7 +52,7 @@ public class ProductController {
 		}
 		int result = productService.insertProduct(p);
 		if(result>0) {
-			return "product/productList";
+			return "redirect:/product/list";
 		}else {
 			return "product/writeFrm";
 		}
@@ -71,4 +71,14 @@ public class ProductController {
   			}
   		return "/product/"+filepath;
   	}
+	@GetMapping(value = "/view")
+	public String productView(int productNo ,Model model) {
+		Product p = productService.selectOneProduct(productNo);
+		if(p != null) {
+			model.addAttribute("p", p);
+			return "product/productView";
+		}else {
+			return "product/productList";
+		}
+	}
 }

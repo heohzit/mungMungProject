@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>관광지</title>
-<script src="../js/jquery-3.6.0.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -27,7 +26,7 @@
         <div class="page-content-mid">
             <ul class="mid-list-wrap">
                 <li class="mid-list" th:each="facility : ${facilityList}">
-                    <a href="#">
+                    <a th:href="@{/facility/tourDetail(facilityNo=${facility.facilityNo})}">
                         <div class="list-img-box">
                             <th:block th:if="${facility.facilityFilepath != null}">
                                 <img th:src="${facility.facilityFilepath}">

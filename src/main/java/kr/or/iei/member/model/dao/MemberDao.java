@@ -57,4 +57,16 @@ public class MemberDao {
 		int result = jdbc.update(query,params);
 		return result;
 	}
+
+	public List selectAllMember(int startNum, int endNum) {
+		String query = "select * from (select rownum as rnum, n.* from (select * from member order by 1) n) where rnum between ? and ?";
+		List list = jdbc.query(query, memberRowMapper, startNum, endNum);
+		return list;
+	}
+
+	public int selectAllMembertTotalCount() {
+		String query = "select count(*) from member";
+		int totalCount = jdbc.queryForObject(query, Integer.class);
+		return totalCount;
+	}
 }
