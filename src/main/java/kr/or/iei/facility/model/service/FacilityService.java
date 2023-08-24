@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.iei.facility.model.dao.FacilityDao;
 import kr.or.iei.facility.model.vo.Facility;
@@ -703,6 +704,12 @@ public class FacilityService {
 		FacilityListData fld = new FacilityListData(facilityList, pageNavi);
 		
 		return fld;
+	}
+
+	@Transactional
+	public int insertFacility(Facility f) {
+		int result = facilityDao.insertFacility(f);
+		return result;
 	}
 
 }

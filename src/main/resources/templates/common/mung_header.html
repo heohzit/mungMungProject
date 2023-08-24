@@ -23,10 +23,10 @@
             </div>
             <!-- 로그인 시  -->
             <div class="header_signin"> <!-- css 적용을 위해 div 클래스는 같은걸 썻어요  -->
-                <a href="#" th:if="${session.m != null}"><button type="button" name="signin" class="header_btn">로그아웃</button></a>
+                <a href="/member/logout" th:if="${session.m != null}"><button type="button" name="signin" class="header_btn">로그아웃</button></a>
             </div>
             <div class="header_login">
-                <a href="#" th:if="${session.m != null}"><button type="button" name="login" class="header_btn">마이페이지</button></a>
+                <a href="/member/mypage" th:if="${session.m != null}"><button type="button" name="login" class="header_btn">마이페이지</button></a>
             </div>
         </div>
         <!--메뉴 navi탭 영역-->
