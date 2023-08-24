@@ -362,14 +362,15 @@ textarea.input-form {
     transition-duration: 0.5s;
     font-size: 16px;
     border-radius: 5px;
-    background-color: #04909f;
-    color: #fff;
+    background-color: #fff;
+    color: #04909f;
     border: 2px solid #04909f;
     cursor: pointer;
 }
-.admin-page-select>li.active-tab{
-    background-color: #1F6E8C;
-    border: 2px solid #1F6E8C;    
+.admin-page-active-tab{
+    background-color: #04909f;
+    color: #fff;
+    border: 2px solid #04909f;  
 }
 
 .admin-tbl{

@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자페이지</title>
-<script src="../js/jquery-3.6.0.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -30,23 +29,19 @@
                         <th style="width: 15%;">회원등급</th>
                         <th style="width: 15%;">가입일</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>admin</td>
-                        <td>관리자</td>
-                        <td>010-1234-5678</td>
-                        <td>admin@gmail.com</td>
-                        <td>관리자</td>
-                        <td>2023-08-22</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>user01</td>
-                        <td>유저1</td>
-                        <td>010-1111-1111</td>
-                        <td>user01@naver.com</td>
-                        <td>회원</td>
-                        <td>2023-08-22</td>
+                    <tr th:each="m : ${list}">
+                        <td th:text="${m.memberNo}"></td>
+                        <td th:text="${m.memberId}"></td>
+                        <td th:text="${m.memberName}"></td>
+                        <td th:text="${m.memberPhone}"></td>
+                        <td th:text="${m.memberEmail}"></td>
+                        <th:block th:if="${m.memberLevel == 1}">
+                            <td th:text="관리자"></td>
+                        </th:block>
+                        <th:block th:if="${m.memberLevel == 2}">
+                            <td th:text="일반회원"></td>
+                        </th:block>
+                        <td th:text="${m.enrollDate}"></td>
                     </tr>
                 </table>
             </div>
@@ -135,8 +130,8 @@
     <script>
         const tabs = $(".admin-page-select>li");
         tabs.on("click", function () {
-            tabs.removeClass("active-tab");
-            $(this).addClass("active-tab");
+            tabs.removeClass("admin-page-active-tab");
+            $(this).addClass("admin-page-active-tab");
             const tabcontent = $(".admin-page-content");
             tabcontent.hide();
             const index = tabs.index(this);

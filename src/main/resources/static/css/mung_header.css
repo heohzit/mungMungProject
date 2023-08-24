@@ -365,14 +365,15 @@ textarea.input-form {
     transition-duration: 0.5s;
     font-size: 16px;
     border-radius: 5px;
-    background-color: #04909f;
-    color: #fff;
+    background-color: #fff;
+    color: #04909f;
     border: 2px solid #04909f;
     cursor: pointer;
 }
-.admin-page-select>li.active-tab{
-    background-color: #1F6E8C;
-    border: 2px solid #1F6E8C;    
+.admin-page-select>li.admin-page-active-tab{
+    background-color: #04909f;
+    color: #fff;
+    border: 2px solid #04909f;    
 }
 
 .admin-tbl{
@@ -452,7 +453,7 @@ textarea.input-form {
 
 
 /**************헤더 영역*****************/
-}
+
 .header-top{
     width: 100%;
     border-bottom: 1px solid lightgray;
