@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>식음료</title>
+<title>체험</title>
 <script src="../js/jquery-3.6.0.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -10,14 +10,14 @@
     <th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
         <div class="page-title">
-            <h1>식음료</h1>
+            <h1>체험</h1>
         </div>
         <div class="page-content-top">
             <div>
                 <a href="/facility/insertFrm" class="btn bc1">등록하기</a>
             </div>
             <div>
-                <form action="/facility/searchCafeList">
+                <form action="/facility/searchActivityList">
                     <input type="text" class="input-form1" name="searchName">
                     <input type="hidden" name="reqPage" value="1">
                     <button type="button" class="btn bc1">검색</button>

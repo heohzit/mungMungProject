@@ -53,4 +53,32 @@ public class FacilityController {
 		model.addAttribute("pageNavi", fld.getPageNavi());
 		return "facility/hotelList";
 	}
+	@GetMapping(value="/cafeList")
+	public String cafeList(Model model, int reqPage) {
+		FacilityListData fld = facilityService.selectCafeList(reqPage);
+		model.addAttribute("facilityList", fld.getFacilityList());
+		model.addAttribute("pageNavi", fld.getPageNavi());
+		return "facility/cafeList";
+	}	
+	@GetMapping(value="/searchCafeList")
+	public String searchCafeList(Model model, int reqPage, String searchName) {
+		FacilityListData fld = facilityService.selectSearchCafeList(reqPage, searchName);
+		model.addAttribute("facilityList", fld.getFacilityList());
+		model.addAttribute("pageNavi", fld.getPageNavi());
+		return "facility/cafeList";
+	}
+	@GetMapping(value="/activityList")
+	public String activityList(Model model, int reqPage) {
+		FacilityListData fld = facilityService.selectActivityList(reqPage);
+		model.addAttribute("facilityList", fld.getFacilityList());
+		model.addAttribute("pageNavi", fld.getPageNavi());
+		return "facility/activityList";
+	}	
+	@GetMapping(value="/searchActivityList")
+	public String searchActivityList(Model model, int reqPage, String searchName) {
+		FacilityListData fld = facilityService.selectSearchActivityList(reqPage, searchName);
+		model.addAttribute("facilityList", fld.getFacilityList());
+		model.addAttribute("pageNavi", fld.getPageNavi());
+		return "facility/activityList";
+	}
 }
