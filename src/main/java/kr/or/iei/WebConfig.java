@@ -15,11 +15,15 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addResourceHandler("/**")
 			.addResourceLocations("classpath:templates/","classpath:/static/");
 		
+		registry.addResourceHandler("/boardmain/**")
+		.addResourceLocations("file:///C:/Temp/upload/boardmain/");
+		
 		registry.addResourceHandler("/board/**")
 		.addResourceLocations("file:///C:/Temp/upload/board/");
+		
+		registry.addResourceHandler("/notice/**")
+		.addResourceLocations("file:///C:/Temp/upload/notice/");
 
-		registry.addResourceHandler("/editor/**")
-		.addResourceLocations("file:///C:/Temp/upload/editor/");
 	}
 
 
