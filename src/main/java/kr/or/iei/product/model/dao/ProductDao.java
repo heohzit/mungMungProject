@@ -28,4 +28,10 @@ public class ProductDao {
 		int result = jdbc.update(query,params);
 		return result;
 	}
+
+	public Product selectOneProduct(int productNo) {
+		String query = "select * from product where product_no=?";
+		List list = jdbc.query(query, productRowMapper,productNo);
+		return (Product)list.get(0);
+	}
 }
