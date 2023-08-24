@@ -52,7 +52,7 @@ public class ProductController {
 		}
 		int result = productService.insertProduct(p);
 		if(result>0) {
-			return "product/productList";
+			return "redirect:/product/list";
 		}else {
 			return "product/writeFrm";
 		}
