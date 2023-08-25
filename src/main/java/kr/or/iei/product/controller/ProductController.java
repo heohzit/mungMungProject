@@ -85,6 +85,7 @@ public class ProductController {
 	@GetMapping(value="/pay")
 	public String pay() {
 		return "product/pay";
+	}
 
 	@GetMapping(value = "/delete")
 	public String deleteProduct(int productNo , Model model) {
