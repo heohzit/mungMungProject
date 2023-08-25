@@ -24,8 +24,8 @@
 </head>
 <style>
 .swiper {
-  width: 660px;
-  height: 440px;
+  width: 600px;
+  height: 300px;
 }
 .swiper-button-next {
   /* https://www.flaticon.com/free-icon/back_5544140?term=previous+button&page=1&position=7&origin=search&related_id=5544140 */
@@ -64,12 +64,11 @@
             <!-- Slider main container -->
             <div class="swiper">
                 <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                ...
+                <div class="swiper-wrapper" >
+	                <!-- Slides -->
+	                <div class="swiper-slide" th:each="fImage : ${f.facilityFilepathArr}">
+						<img th:src="${fImage.facilityFilepath}" style="width: 100%; height: 100%">
+					</div>           
                 </div>
                 <!-- If we need pagination -->
                 <!-- <div class="swiper-pagination"></div> -->
@@ -130,11 +129,33 @@
     
     <script>
         // 지도api
+        
 		var mapOptions = {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
-            zoom: 10
+	        center: new naver.maps.LatLng('[[${f.facilityLat}]]', '[[${f.facilityLng}]]'),
+            //center: new naver.maps.LatLng(37.3595704, 127.105399),
+            zoom: 16
         };
         var map = new naver.maps.Map('map', mapOptions);
+        const marker = new naver.maps.Marker({
+			position : new naver.maps.LatLng('[[${f.facilityLat}]]', '[[${f.facilityLng}]]'),
+			map : map
+		});
+		let contentString = [
+			"<div class='iw_inner'>",
+			" 	<h3>"+'[[${f.facilityName}]]'+"</h3>",
+			"   <p>"+'[[${f.facilityAddr}]]'+"</p>",
+			"</div>"
+		].join("");
+		//marker에 클릭이벤트 추가
+	
+		let infoWindow = new naver.maps.InfoWindow({
+			content : contentString
+		});
+		infoWindow.open(map, marker);
+		
+
+	
+        
         //찜하기(파라미터 상품번호)
         function wish(obj){
             const wishBtn = $(obj);
@@ -147,12 +168,22 @@
         	delBtn.text("turned_in_not");
             delBtn.attr("onclick","wish(this);");
         }
+        //시설이미지
+        //$(".swiper-wrapper")
+        
         //이미지 슬라이드
         const swiper = new Swiper('.swiper', {
         // Optional parameters
         direction: 'horizontal',
         loop: true,
-
+        effect: 'coverflow',
+        slidesPerView: '3',	//보여지는 개수
+        spaceBetween: '-230',
+        allowTouchMove : false,
+        //자동슬라이드
+        autoplay: {
+            delay: 1000,
+          },
         // If we need pagination
         pagination: {
             el: '.swiper-pagination',
@@ -168,6 +199,15 @@
         scrollbar: {
             el: '.swiper-scrollbar',
         },
+        //효과
+        coverflowEffect: {
+            rotate: 0,
+            depth: 60,
+            slideShadows: true,
+            modifier:2,
+            stretch: 500
+          },
+        
         });
 	</script>
     <th:block th:include="common/mung_footer"></th:block>

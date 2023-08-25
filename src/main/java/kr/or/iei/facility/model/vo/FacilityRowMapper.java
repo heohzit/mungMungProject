@@ -27,6 +27,8 @@ public class FacilityRowMapper implements RowMapper<Facility>{
 		f.setFacilityRegion(rs.getInt("facility_region"));
 		f.setFacilityTime(rs.getString("facility_time"));
 		f.setFacilityWriter(rs.getInt("facility_writer"));
+//		f.setFacilityFilepath(rs.getString("facility_filepath"));
+		
 		return f;
 	}
 

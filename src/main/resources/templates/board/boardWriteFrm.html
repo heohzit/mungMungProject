@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>커뮤니티 글쓰기</title>
+<title>커뮤니티 작성</title>
 
 </head>
 <body>
@@ -11,9 +11,12 @@
 <script src="/summernote/lang/summernote-ko-KR.js"></script>
 <link rel="stylesheet" href="/summernote/summernote-lite.css">
     <div class="page-content">
-        <div class="page-title">커뮤니티 작성</div>
+        <div class="page-title">
+			<h1>커뮤니티 작성</h1>
+		</div>
+		<div class="page-content-mid">
         <form action="/board/write" method="post" enctype="multipart/form-data">
-            <table>
+            <table class="insert-table">
                 <tr>
                     <th>제목</th>
                     <td>
@@ -22,7 +25,10 @@
                 </tr>
                 <tr>
                     <th>작성자</th>
-                    <td></td>
+                    <td>	
+                    	<input type="text" name="boardWriterview" th:value="${session.m.memberId}" disabled>
+                    	<input type="hidden" name="boardWriter" th:value="${session.m.memberNo}">
+                    </td>
                 </tr>
                 <tr>
                     <th>대표사진</th>
@@ -32,7 +38,6 @@
                 </tr>
                 <tr>
                     <td>
-                    	<input style="display: none;" type="file" name="upfile" multiple>
                         <textarea id="boardContent" name="boardContent"></textarea>
                     </td>
                 </tr>
@@ -43,6 +48,7 @@
                 </tr>
             </table>
         </form>
+        </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
     <script>

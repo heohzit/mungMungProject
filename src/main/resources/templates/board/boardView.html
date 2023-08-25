@@ -9,8 +9,11 @@
 <body>
 <th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
-        <div class="page-title">커뮤니티 상세보기</div>
+        <div class="page-title">
+			<h1>커뮤니티</h1>
+		</div>
         <button onclick = "imgAlert()"> Image Alert </button>
+        <div class="page-content-mid">
         <table>
             <tr>
             	<th>제목</th>
@@ -35,8 +38,9 @@
 				</td>
             </tr>
         </table>
+        </div>
         
-        <div class="btn1" th:if="${session.m != null}">
+        <div class="btn1" th:if="${session.m != null && session.m.memberNo == b.boardWriter}">
 	        <a th:href="@{/board/delete(boardNo=${b.boardNo})}">삭제하기</a>
 	        <a th:href="@{/board/updateFrm(boardNo=${b.boardNo})}">수정하기</a>
 		</div>
