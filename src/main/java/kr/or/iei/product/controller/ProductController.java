@@ -97,4 +97,39 @@ public class ProductController {
 		}
 		return"common/msg";
 	}
+	@GetMapping(value = "/updateFrm")
+	public String updateFrm(int productNo , Model model) {
+		Product p = productService.getProduct(productNo);
+		model.addAttribute("p", p );
+		return "product/productUpdateFrm";
+	}
+	
+	@PostMapping(value = "/update")
+	public String update(Product p , Model model,MultipartFile productUpdateImg) {
+		String savepath = root+"productmain/";
+		if(!productUpdateImg.isEmpty()) {
+			String filepath = fileUtil.getFilepath(savepath, productUpdateImg.getOriginalFilename());
+			p.setProductFilepath(filepath);
+			File upFile = new File(savepath+filepath);
+			
+		try {
+			productUpdateImg.transferTo(upFile);
+		} catch (IllegalStateException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		 }
+		}
+		int result = productService.updateProduct(p);
+		if(result>0) {
+			model.addAttribute("title", "수정완료");
+			model.addAttribute("msg", "패키지가 수정되었습니다");
+			model.addAttribute("icon", "success");	
+		}else {
+			model.addAttribute("title", "수정실패");
+			model.addAttribute("msg", "수정에 실패하였습니다 ");
+			model.addAttribute("icon", "error");
+		}
+		model.addAttribute("loc", "/product/view?productNo="+p.getProductNo());
+		return "common/msg";
+	}
 }

@@ -40,4 +40,18 @@ public class ProductService {
 			return 0;
 		}
 	}
+
+	public Product getProduct(int productNo) {
+		Product p = productDao.selectOneProduct(productNo);
+		return p;
+	}
+
+	public int updateProduct(Product p) {
+		int result = productDao.updateProduct(p);
+		if(result > 0) {
+			return result;
+		}else {
+			return 0;
+		}
+	}
 }

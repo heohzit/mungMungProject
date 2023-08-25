@@ -14,15 +14,15 @@
 		</div>
 		<div class="page-content-top">
 		<a href="/board/writeFrm" th:if="${session.m != null}">글쓰기</a>
-            <form action="/board/list" method="get" id="formsearch">
+            <form action="/board/searchBoardList" method="get" id="formsearch">
 	            <input type="hidden" name="reqPage" id="reqPage">
 	            <select name="searchType">
 	                <option value="title">제목</option>
 	                <option value="writer">작성자</option>
 	                <option value="content">내용</option>
 	            </select>
-            <input type="text" name="searchName" placeholder="검색어를 입력해주세요.">
-            <button id="searchBtn">검색</button>
+            <input type="text" name="searchName" id="sch1" placeholder="검색어를 입력해주세요.">
+            <button id="searchBtn" class="btn bc1">검색</button>
             </form>
         </div>
          <div class="page-content-mid">
@@ -39,7 +39,7 @@
                 <td th:text="${board.boardNo}" id="boardNo"></td>
                 <td><img th:src="'/boardmain/'+${board.boardFilepath}" style="width: 200px; height: 200px"></td>
                 <td th:text="${board.boardTitle}"></td>
-                <td th:text="${board.boardWriter}"></td>
+                <td th:text="${board.memberId}"></td>
                 <td th:text="${board.boardReadCount}"></td>
                 <td th:text="${board.boardWriteDate}"></td>
            	</tr>	
@@ -114,6 +114,10 @@
 	*/	
 		$("#searchBtn").on("click",function(){
 			$("#reqPage").val(1);
+			if($("#sch1").val()==""){
+			      alert("검색어를 입력해주세요.");
+			      return false;
+			   }
 		});
 	</script>
 </body>
