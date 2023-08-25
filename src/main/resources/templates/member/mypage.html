@@ -23,53 +23,50 @@
                 <div class="content-wrap">
                     <div class="tabcontent">
                         <h4>회원정보</h4>
-                        <div class="input-wrap">
-                            <label for="memberNo">회원번호</label>
-                            <input type="text" name="memberNo" id="memberNo" class="input-form"
-                                th:value="${session.m.memberNo}" readonly>
-                        </div>
-                        <div class="input-wrap">
-                            <label for="memberId">아이디</label>
-                            <input type="text" name="memberId" id="memberId" class="input-form"
-                                th:value="${session.m.memberId}">
-                        </div>
-                        <div class="input-wrap">
-                            <label for="memberPw">비밀번호</label>
-                            <input type="text" name="memberPw" id="memberPw" class="input-form"
-                                th:value="${session.m.memberPw}">
-                        </div>
-                        <div class="input-wrap">
-                            <label for="memberName">이름</label>
-                            <input type="text" name="memberName" id="memberName" class="input-form"
-                                th:value="${session.m.memberName}">
-                        </div>
-                        <div class="input-wrap">
-                            <label for="memberPhone">전화번호</label>
-                            <input type="text" name="memberPhone" id="memberPhone" class="input-form"
-                                th:value="${session.m.memberPhone}">
-                        </div>
-                        <div class="input-wrap">
-                            <label for="memberAddr">이메일</label>
-                            <input type="text" name="memberEmail" id="memberEmail" class="input-form"
-                                th:value="${session.m.memberEmail}">
-                        </div>
-                        <div class="input-wrap">
-							<label for="memberName">등급</label>
-							<!-- 관리자/정회원-->
-							<th:block th:switch="${session.m.memberLevel}">
-							<input th:case="1" type="text" name="memberLevel" id="memberLevel" class="input-form" value="관리자" disabled>
-							<input th:case="2" type="text" name="memberLevel" id="memberLevel" class="input-form" value="정회원" disabled>
-							</th:block>
-						</div>
-                        <div class="input-wrap">
-                            <label for="enrollDate">가입일</label>
-                            <input type="text" name="enrollDate" id="enrollDate" class="input-form"
-                                th:value="${session.m.enrollDate}" disabled>
-                        </div>
-                        <div class="btn-box">
-                            <button type="submit" class="updateBtn">정보수정</button>
-                            <a th:if="${session.m.memberLevel != 1}" href="/member/delete" class="deleteBtn">회원탈퇴</a>
-                            <a th:if="${session.m.memberLevel == 1}" href="/member/admin?reqPage=1" class="adminBtn">회원정보</a>
+                        <br><hr><br>
+                        <div class="member-info">
+                            <div class="input-wrap">
+                                <label for="memberNo">회원번호</label>
+                                <input type="text" name="memberNo" id="memberNo" class="input-form"
+                                    th:value="${session.m.memberNo}" disabled>
+                            </div>
+                            <div class="input-wrap">
+                                <label for="memberId">아이디</label>
+                                <input type="text" name="memberId" id="memberId" class="input-form"
+                                    th:value="${session.m.memberId}" disabled>
+                            </div>
+                            <div class="input-wrap">
+                                <label for="memberPw">비밀번호</label>
+                                <input type="text" name="memberPw" id="memberPw" class="input-form"
+                                    th:value="${session.m.memberPw}">
+                            </div>
+                            <div class="input-wrap">
+                                <label for="memberName">이름</label>
+                                <input type="text" name="memberName" id="memberName" class="input-form"
+                                    th:value="${session.m.memberName}" disabled>
+                            </div>
+                            <div class="input-wrap">
+                                <label for="memberPhone">전화번호</label>
+                                <input type="text" name="memberPhone" id="memberPhone" class="input-form"
+                                    th:value="${session.m.memberPhone}">
+                            </div>
+                            <div class="input-wrap">
+                                <label for="memberAddr">이메일</label>
+                                <input type="text" name="memberEmail" id="memberEmail" class="input-form"
+                                    th:value="${session.m.memberEmail}">
+                            </div>
+                            <div class="input-wrap">
+                                <label for="enrollDate">가입일</label>
+                                <input type="text" name="enrollDate" id="enrollDate" class="input-form"
+                                    th:value="${session.m.enrollDate}" disabled>
+                            </div>
+                            <div class="btn-box">
+                                <button type="submit" class="updatebtn">정보수정</button>
+                                <a th:if="${session.m.memberLevel != 1}" href="/member/delete"
+                                    class="memberbtn">회원탈퇴</a>
+                                <a th:if="${session.m.memberLevel == 1}" href="/member/admin?reqPage=1"
+                                    class="memberbtn">회원관리</a>
+                            </div>
                         </div>
                     </div>
 
