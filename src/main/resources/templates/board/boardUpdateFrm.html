@@ -13,7 +13,9 @@
 	<link rel="stylesheet" href="/summernote/summernote-lite.css">
 	
     <div class="page-content">
-        <div class="page-title">커뮤니티 수정</div>
+       	<div class="page-title">
+			<h1>커뮤니티 수정</h1>
+		</div>
         <form action="/board/update" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
@@ -32,9 +34,11 @@
                 <tr>
                     <th>대표사진</th>
                     <td>       	
-                    	<input type="hidden" name="boardFilepath" th:value="${b.boardFilepath}">
-                    	<span th:text="${b.boardFilepath}"></span>
-                    	<input type="file" name="addFile" accept=".jpg,.png,.jpeg">
+						<div class="filebox">
+						    <input class="upload-name" th:value="${b.boardFilepath}">
+						    <label for="file">사진 변경</label> 
+						    <input type="file" id="file">
+						</div>
                     </td>
                 </tr>
                 <tr>
@@ -51,6 +55,31 @@
         </form>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
+     <style>
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+.filebox label {
+    color: #fff;
+    vertical-align: middle;
+    background-color: #999;
+    cursor: pointer;
+    height: 25px;
+}
+.filebox .upload-name {
+    display: inline-block;
+    height: 20px;
+    vertical-align: middle;
+    width: 185px;
+    color: #999;
+}
+
+</style>
      <script>
     $("#boardContent").summernote({
 		height : 400,
@@ -77,6 +106,11 @@
 			}
 		});
 	}
+	
+	$("#file").on('change',function(){
+		  var fileName = $("#file").val();
+		  $(".upload-name").val(fileName);
+		});
     </script>    
 </body>
 </html>
