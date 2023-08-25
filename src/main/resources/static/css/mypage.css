@@ -70,7 +70,6 @@
     cursor: pointer;
 
 }
-/* 踰꾪듉 遺�遺� 異붽� */
 .memberbtn{
     background-color: rgb(158, 210, 220);
     color: white;
@@ -133,6 +132,7 @@ td {
     width: 80px;
     border: 1px solid #cbcbcb;
     color: white;
+    cursor: pointer;
 }
 
 .free-list>table {
