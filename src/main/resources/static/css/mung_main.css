@@ -61,7 +61,9 @@
     background-color:rgb(4, 144, 159) ;
     overflow: hidden;
 }
-
+.notice{
+	overflow: hidden;
+}
 .notice-text{
     width: 300px;
     padding: 20px;
@@ -80,12 +82,15 @@
 }
 .notice-list{
     width: 800px;
-    height: 30px;
-    padding: 30px;
+    padding: 20px 50px 20px 0px;
     float: left;
+}
+.notice-content{
+	height: 40px;
     background-color: white;
 }
-.notice-list>p{
+.notice-content>p{
+    padding: 7px;
     font-size: 20px;
 }
 .search{
@@ -107,7 +112,8 @@
     float: left;
 }
 #search{
-    height: 50px;
+    padding: 10px;
+    height: 25px;
     font-size: 20px;
     border: 2px solid rgb(158, 210, 220);
     border-radius: 5px;
@@ -118,12 +124,14 @@
 
     border: none;
     width: 90px;
-    height: 50px;
+    height: 47px;
     font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 3px;
     background-color: rgb(158, 210, 220);
-    color: white;
+    color: aliceblue;
     border-radius: 5px;
-
+	cursor:pointer;
 }
 /************************이미지 위 소개글 **********************/
 .top-bottom{

@@ -121,6 +121,15 @@ td {
     width: 200px;
 }
 
+.cbtn{
+	background-color: darkgrey;
+    border-radius: 4px;
+    height: 40px;
+    width: 80px;
+    border: 1px solid #cbcbcb;
+    color: white;
+}
+
 .free-list>table {
     margin: 0 auto;
     font-family: ns-m;
@@ -179,5 +188,10 @@ td {
     color: white;
     text-align: left;
     text-decoration: none;
+}
+/* 찜한 여행지 */
+.product-list li{
+    list-style: none;
+    float: left;
 }
 
