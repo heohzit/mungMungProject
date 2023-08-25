@@ -68,7 +68,7 @@
                         <div class="btn-box">
                             <button type="submit" class="updateBtn">정보수정</button>
                             <a th:if="${session.m.memberLevel != 1}" href="/member/delete" class="deleteBtn">회원탈퇴</a>
-                            <a th:if="${session.m.memberLevel == 1}" href="/member/admin?reqPage=1" class="adminBtn">관리자페이지</a>
+                            <a th:if="${session.m.memberLevel == 1}" href="/member/admin?reqPage=1" class="adminBtn">회원정보</a>
                         </div>
                     </div>
 

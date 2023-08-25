@@ -1,3 +1,38 @@
+// 일정 예약
+$("[name=daterange]").daterangepicker({
+    "autoApply": true,
+    "maxSpan": {
+        "days": $("input[name=productDay]").val()
+    },
+    "locale": {
+        "format": "YYYY/MM/DD",
+        "separator": " ~ ",
+        "applyLabel": "확인",
+        "cancelLabel": "취소",
+        "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
+        "monthNames": ["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+        "firstDay": 0
+    },
+    "showCustomRangeLabel": false,
+    "alwaysShowCalendars": true,
+    "parentEl": "pay-box-tbl-td",        
+    "minDate": $("input[name=productStart]").val(),
+    "maxDate": $("input[name=productEnd]").val(),
+    "startDate": $("input[name=productStart]").val(),
+    "endDate": $("input[name=productStart]").val() + $("input[name=productDay]").val(),
+    "opens": "left",
+    "drops": "down",
+    "buttonClasses": "btn bc1"            
+}, function(start, end, label) {
+    console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+    const dateDiff = (end - start) / (1000*60*60*24);
+    if(dateDiff < $("input[name=productDay]").val()){
+        console.log(false);
+    }else{
+        console.log(true);
+    }
+});
+
 // 결제api
 $("#payBtn").on("click", function(){
     const price = $("#price").val();
@@ -22,4 +57,3 @@ $("#payBtn").on("click", function(){
         }
     });
 });
-

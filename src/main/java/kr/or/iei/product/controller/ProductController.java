@@ -81,4 +81,9 @@ public class ProductController {
 			return "product/productList";
 		}
 	}
+	
+	@GetMapping(value="/pay")
+	public String pay() {
+		return "product/pay";
+	}
 }
