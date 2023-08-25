@@ -26,7 +26,7 @@
             </form>
         </div>
          <div class="page-content-mid">
-		<table class="boardWrapper posting-wrap">
+		<table class="boardWrapper posting-wrap" id="tableview">
 			 <tr>
                 <th>번호</th>
                 <th>대표사진</th>
@@ -51,14 +51,14 @@
 	</div>
 	<th:block th:include="common/mung_footer"></th:block>
 	<script>
-	
-	$("#trview").click(function(){
-		const boardNo = $(this).find("td:first-child").text();
-		console.log(boardNo);
-		$(location).attr("href", "/board/view?boardNo="+boardNo);
-	})
 
+	$("#tableview #trview").on("click", function(){
+		const view = ($(this).children().eq(0).text());
+		$(location).attr("href","/board/view?boardNo="+view);
+	})
+	
 	/*
+	
 		$("#more-btn").on("click",function(){
 			const start =$(this).val();
 			const amount =4;

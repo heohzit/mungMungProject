@@ -38,8 +38,8 @@
         </table>
         </div>
         <div class="btn1">
-	        <a th:href="@{/notice/delete(noticeNo=${n.noticeNo})}" th:if="${session.m!=null && session.m.memberLevel==1}">삭제하기</a>
 	        <a th:href="@{/notice/updateFrm(noticeNo=${n.noticeNo})}" th:if="${session.m!=null && session.m.memberLevel==1}">수정하기</a>
+	        <a th:href="@{/notice/delete(noticeNo=${n.noticeNo})}" th:if="${session.m!=null && session.m.memberLevel==1}" onClick="alert('공지사항을 삭제하시겠습니까?')">삭제하기</a>
 		</div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
