@@ -32,12 +32,14 @@
 }
 
 .tabcontent {
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     padding: 30px 0px;
     display: none;
 }
-
+.tabcontent>h4{
+	padding-left : 30px;
+}
 /*
 .tabcontent.active-content{
     display: block;
@@ -53,7 +55,10 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
+.member-info{
+	width: 95%;
+	margin: 0 auto;
+}
 .updatebtn{
     background-color: #04909f;
     color: white;
@@ -65,7 +70,7 @@
     cursor: pointer;
 
 }
-/* 버튼 부분 추가 */
+/* 踰꾪듉 遺�遺� 異붽� */
 .memberbtn{
     background-color: rgb(158, 210, 220);
     color: white;
@@ -134,6 +139,7 @@ td {
     margin: 0 auto;
     font-family: ns-m;
     border-collapse: collapse;
+    width: 100%;
 }
 
 .free-list>table th {
@@ -189,7 +195,7 @@ td {
     text-align: left;
     text-decoration: none;
 }
-/* 찜한 여행지 */
+/* 李쒗븳 �뿬�뻾吏� */
 .product-list li{
     list-style: none;
     float: left;
