@@ -127,4 +127,15 @@ public class MemberController {
 		model.addAttribute("pageNavi", mld.getPageNavi());
 		return "/member/admin";
 	}
+	
+	@ResponseBody
+	@GetMapping(value="/searchId")
+	public String ajaxSearchId(String memberName, String memberEmail) {
+		Member m = memberService.selectMemberByNameAndEmail(memberName, memberEmail);
+		if(m != null) {
+			return m.getMemberId();
+		}else {
+			return null;
+		}
+	}
 }
