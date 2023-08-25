@@ -81,4 +81,20 @@ public class ProductController {
 			return "product/productList";
 		}
 	}
+	@GetMapping(value = "/delete")
+	public String deleteProduct(int productNo , Model model) {
+		int result = productService.deleteProduct(productNo);
+		if (result != 0) {
+			model.addAttribute("title", "삭제완료");
+			model.addAttribute("msg", "패키지가 삭제되었습니다.");
+			model.addAttribute("icon", "success");
+			model.addAttribute("loc", "/product/list");
+		}else {
+			model.addAttribute("title", "삭제실패");
+			model.addAttribute("msg", "이미 삭제된 글이거나 삭제 할 수 없는 글입니다");
+			model.addAttribute("icon", "error");
+			model.addAttribute("loc", "/notice/view?productNo="+productNo);	
+		}
+		return"common/msg";
+	}
 }
