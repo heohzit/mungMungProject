@@ -31,4 +31,13 @@ public class ProductService {
 		Product p = productDao.selectOneProduct(productNo);
 		return p;
 	}
+
+	public int deleteProduct(int productNo) {
+		int result = productDao.deleteProduct(productNo);
+		if(result > 0) {
+			return result;
+		}else {
+			return 0;
+		}
+	}
 }
