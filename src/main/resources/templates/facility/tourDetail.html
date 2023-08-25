@@ -24,20 +24,23 @@
 </head>
 <style>
 .swiper {
-  width: 600px;
+  width: 660px;
   height: 300px;
+  
 }
 .swiper-button-next {
   /* https://www.flaticon.com/free-icon/back_5544140?term=previous+button&page=1&position=7&origin=search&related_id=5544140 */
   background: url(../img/next.png) no-repeat;
   background-size: 70% auto;
   background-position: center;
+  margin-top: 15px;
 }
 
 .swiper-button-prev {
   background: url(../img/back.png) no-repeat;
   background-size: 70% auto;
   background-position: center;
+  margin-top: 15px;
 }
 
 .swiper-button-next::after,
@@ -45,10 +48,10 @@
   display: none;
 }
 .swiper-scrollbar {
-  background: var(--swiper-scrollbar-drag-bg-color,rgba(255, 0, 0, 0.1));
+  background: var(--swiper-scrollbar-drag-bg-color,rgba(255, 255, 255, 0.3));
 }
 .swiper-scrollbar-drag{
-  background: var(--swiper-scrollbar-drag-bg-color,rgba(255, 0, 0, 0.5));
+  background: var(--swiper-scrollbar-drag-bg-color,rgba(255, 255, 255, 0.8));
 }
 /* .swiper-pagination-bullet{
   background-color: black;
@@ -63,6 +66,10 @@
         <div class="tour-detail wrap-flex">
             <!-- Slider main container -->
             <div class="swiper">
+            	<div class="tour-title wrap-flex">
+                    <span th:text="${f.facilityName}"></span>
+                    <span class="material-icons flex-left wish" onclick="wish(this);">turned_in_not</span>
+                </div>
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper" >
 	                <!-- Slides -->
@@ -74,17 +81,13 @@
                 <!-- <div class="swiper-pagination"></div> -->
             
                 <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            
+                <div class="swiper-button-prev"></div>      
+            	<div class="swiper-button-next"></div>
                 <!-- If we need scrollbar -->
                 <div class="swiper-scrollbar"></div>
             </div>
             <div class="wrap flex-left">
-                <div class="tour-title wrap-flex">
-                    <span th:text="${f.facilityName}"></span>
-                    <span class="material-icons flex-left wish" onclick="wish(this);">turned_in_not</span>
-                </div>
+                
                 <ul class="tour-info">
                     <li>
                         <div class="list">주소 </div><p th:text="${f.facilityAddr}"></p>
@@ -177,8 +180,9 @@
         direction: 'horizontal',
         loop: true,
         effect: 'coverflow',
-        slidesPerView: '3',	//보여지는 개수
-        spaceBetween: '-230',
+        slidesPerView: '2',	//보여지는 개수
+        spaceBetween: '-100',
+        centeredSlides:true,
         allowTouchMove : false,
         //자동슬라이드
         autoplay: {
@@ -201,11 +205,12 @@
         },
         //효과
         coverflowEffect: {
-            rotate: 0,
-            depth: 60,
+            rotate: 10,
+            depth: 100,
             slideShadows: true,
             modifier:2,
-            stretch: 500
+            //stretch: 500
+           
           },
         
         });

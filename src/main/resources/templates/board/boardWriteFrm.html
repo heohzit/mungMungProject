@@ -20,7 +20,7 @@
                 <tr>
                     <th>제목</th>
                     <td>
-                        <input type="text" name="boardTitle">
+                        <input type="text" name="boardTitle" id="boardTitle">
                     </td>
                 </tr>
                 <tr>
@@ -33,7 +33,7 @@
                 <tr>
                     <th>대표사진</th>
                     <td>
-                    <input type="file" name="imageFile" accept=".jpg,.png,.jpeg">
+                    <input type="file" name="imageFile" accept=".jpg,.png,.jpeg" id="boardFile">
                     </td>
                 </tr>
                 <tr>
@@ -43,7 +43,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="submit">작성완료</button>
+                        <button type="submit" id="writeBtn">작성완료</button>
                     </td>
                 </tr>
             </table>
@@ -76,6 +76,23 @@
 			}
 		});
 	}
+	
+	
+	$("#writeBtn").on("click",function(){
+		if($("#boardTitle").val()==""){
+		      alert("제목을 입력해주세요.");
+		      return false;
+		   }
+		if($("#boardFile").val()==""){
+		      alert("대표사진을 넣어주세요.");
+		      return false;
+		   }
+		if($("#boardContent").val()==""){
+		      alert("내용을 입력해주세요.");
+		      return false;
+		   }
+	});
+
     </script>    
 </body>
 </html>
