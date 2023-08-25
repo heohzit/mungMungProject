@@ -25,19 +25,22 @@
 <style>
 .swiper {
   width: 660px;
-  height: 440px;
+  height: 300px;
+  
 }
 .swiper-button-next {
   /* https://www.flaticon.com/free-icon/back_5544140?term=previous+button&page=1&position=7&origin=search&related_id=5544140 */
   background: url(../img/next.png) no-repeat;
   background-size: 70% auto;
   background-position: center;
+  margin-top: 15px;
 }
 
 .swiper-button-prev {
   background: url(../img/back.png) no-repeat;
   background-size: 70% auto;
   background-position: center;
+  margin-top: 15px;
 }
 
 .swiper-button-next::after,
@@ -45,10 +48,10 @@
   display: none;
 }
 .swiper-scrollbar {
-  background: var(--swiper-scrollbar-drag-bg-color,rgba(255, 0, 0, 0.1));
+  background: var(--swiper-scrollbar-drag-bg-color,rgba(255, 255, 255, 0.3));
 }
 .swiper-scrollbar-drag{
-  background: var(--swiper-scrollbar-drag-bg-color,rgba(255, 0, 0, 0.5));
+  background: var(--swiper-scrollbar-drag-bg-color,rgba(255, 255, 255, 0.8));
 }
 /* .swiper-pagination-bullet{
   background-color: black;
@@ -63,29 +66,28 @@
         <div class="tour-detail wrap-flex">
             <!-- Slider main container -->
             <div class="swiper">
+            	<div class="tour-title wrap-flex">
+                    <span th:text="${f.facilityName}"></span>
+                    <span class="material-icons flex-left wish" onclick="wish(this);">turned_in_not</span>
+                </div>
                 <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                ...
+                <div class="swiper-wrapper" >
+	                <!-- Slides -->
+	                <div class="swiper-slide" th:each="fImage : ${f.facilityFilepathArr}">
+						<img th:src="${fImage.facilityFilepath}" style="width: 100%; height: 100%">
+					</div>           
                 </div>
                 <!-- If we need pagination -->
                 <!-- <div class="swiper-pagination"></div> -->
             
                 <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            
+                <div class="swiper-button-prev"></div>      
+            	<div class="swiper-button-next"></div>
                 <!-- If we need scrollbar -->
                 <div class="swiper-scrollbar"></div>
             </div>
             <div class="wrap flex-left">
-                <div class="tour-title wrap-flex">
-                    <span th:text="${f.facilityName}"></span>
-                    <span class="material-icons flex-left wish" onclick="wish(this);">turned_in_not</span>
-                </div>
+                
                 <ul class="tour-info">
                     <li>
                         <div class="list">주소 </div><p th:text="${f.facilityAddr}"></p>
@@ -130,11 +132,33 @@
     
     <script>
         // 지도api
+        
 		var mapOptions = {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
-            zoom: 10
+	        center: new naver.maps.LatLng('[[${f.facilityLat}]]', '[[${f.facilityLng}]]'),
+            //center: new naver.maps.LatLng(37.3595704, 127.105399),
+            zoom: 16
         };
         var map = new naver.maps.Map('map', mapOptions);
+        const marker = new naver.maps.Marker({
+			position : new naver.maps.LatLng('[[${f.facilityLat}]]', '[[${f.facilityLng}]]'),
+			map : map
+		});
+		let contentString = [
+			"<div class='iw_inner'>",
+			" 	<h3>"+'[[${f.facilityName}]]'+"</h3>",
+			"   <p>"+'[[${f.facilityAddr}]]'+"</p>",
+			"</div>"
+		].join("");
+		//marker에 클릭이벤트 추가
+	
+		let infoWindow = new naver.maps.InfoWindow({
+			content : contentString
+		});
+		infoWindow.open(map, marker);
+		
+
+	
+        
         //찜하기(파라미터 상품번호)
         function wish(obj){
             const wishBtn = $(obj);
@@ -147,12 +171,23 @@
         	delBtn.text("turned_in_not");
             delBtn.attr("onclick","wish(this);");
         }
+        //시설이미지
+        //$(".swiper-wrapper")
+        
         //이미지 슬라이드
         const swiper = new Swiper('.swiper', {
         // Optional parameters
         direction: 'horizontal',
         loop: true,
-
+        effect: 'coverflow',
+        slidesPerView: '2',	//보여지는 개수
+        spaceBetween: '-100',
+        centeredSlides:true,
+        allowTouchMove : false,
+        //자동슬라이드
+        autoplay: {
+            delay: 1000,
+          },
         // If we need pagination
         pagination: {
             el: '.swiper-pagination',
@@ -168,6 +203,16 @@
         scrollbar: {
             el: '.swiper-scrollbar',
         },
+        //효과
+        coverflowEffect: {
+            rotate: 10,
+            depth: 100,
+            slideShadows: true,
+            modifier:2,
+            //stretch: 500
+           
+          },
+        
         });
 	</script>
     <th:block th:include="common/mung_footer"></th:block>

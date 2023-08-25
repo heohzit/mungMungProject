@@ -1,3 +1,6 @@
+
+
+
 @font-face {
     font-family: 'GangwonState';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
@@ -32,8 +35,6 @@
     font-family: ns-regular;
     src: url(../font/NotoSansKR-Regular.otf);
 }
-
-
 *{
     margin: 0;
     padding: 0;
@@ -41,9 +42,6 @@
     color: #1C2B2D;
     list-style-type: none;
     text-decoration: none;
-}
-.productview_wrap{
-	padding:10px;
 }
 
 .productview-top{
@@ -54,30 +52,46 @@
     padding: 10px;
 }
 .productview-top-no{
-    width: 90%;
+    width: 80%;
     float: left;
 
 }
 .productview-top-no>span{
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 600;
 }
 .productview-top-heart{
-    width: 5%;
+    width: 10%;
     float: left;
     cursor: pointer;
+    text-align: right;
 }
 .productview-top-heart>span{
     font-size: 40px;
+
 }
 .productview-top-share{
-    width: 5%;
+    width: 10%;
     float: left;
     cursor: pointer;
 }
 .productview-top-share>span{
     font-size :40px;
 }
+.productview-top-share:hover>span+.share-sub{
+display: block;
+position: absolute;
+
+}
+.share-sub{
+    display: none;
+}
+.share-sub>li{
+    padding-top: 15px;
+    padding-left: 5px;
+    float: left;
+}
+
 /* ****************상세페이지 중간***************** */
 .productview-content{
     margin: 0 auto;
@@ -116,6 +130,51 @@
     background-color: rgb(4, 144, 159);
     color: aliceblue;
     border-radius: 5px;
-    cursor:pointer;
-    
+}
+/* ****************썸머노트 영역 및 관리자용 삭제 수정********************* */
+.productview-main{
+    padding: 20px 10px 20px 10px;
+    margin: 0 auto;
+    width: 1200px;
+}
+.productview-main-content{
+    text-align: center;
+}
+.productview-admin{
+	overflow: hidden;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+.productview-delete{
+    width: 45%;
+    float: left;
+    padding: 10px;
+}
+.productview-delete>a>button{
+    width: 200px;
+    font-size: 18px;
+    font-weight: 600;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(4, 144, 159);
+    color: aliceblue;
+    cursor: pointer;
+}
+.productview-update{
+    float: left;
+    width: 45%;
+    padding: 10px;
+}
+.productview-update>a>button{
+    width: 200px;
+    font-size: 18px;
+    font-weight: 600;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(158, 210, 220);
+    color: lightslategray;
+    cursor: pointer;
 }

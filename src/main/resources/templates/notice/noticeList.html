@@ -15,7 +15,7 @@
         </div>
         <div class="page-content-top">
         	<div>
-            	<a href="/notice/writeFrm" class="btn bc1">글쓰기</a>
+            	<a th:if="${session.m!=null && session.m.memberLevel==1}" href="/notice/writeFrm" class="btn bc1">글쓰기</a>
             </div>
             <div>
 	            <form action="/notice/searchNoticeList" method="get" id="formsearch">
@@ -25,7 +25,7 @@
 		                <option value="writer">작성자</option>
 		                <option value="content">내용</option>
 		            </select>
-	            <input type="text" name="searchName" placeholder="검색어를 입력해주세요." >
+	            <input type="text" name="searchName" id="sch1" placeholder="검색어를 입력해주세요." >
 	            <button id="searchBtn" class="btn bc1">검색</button>
 	            </form>
 	       </div>
@@ -42,7 +42,7 @@
             <tr th:each="notice : ${noticeList}">
                 <td th:text="${notice.noticeNo}"></td>
                 <td><a th:href="@{/notice/view(noticeNo=${notice.noticeNo})}" th:text="${notice.noticeTitle}"></a></td>
-                <td th:text="${notice.noticeWriter}"></td>
+                <td th:text="${notice.memberId}"></td>
                 <td th:text="${notice.noticeReadCount}"></td>
                 <td th:text="${notice.noticeWriteDate}"></td>
             </tr>
@@ -55,8 +55,13 @@
 <th:block th:include="common/mung_footer"></th:block>
 <script>
 	$("#searchBtn").on("click",function(){
-		$("#reqPage").val(1);
+		$("#reqPage").val(1);			   
+		 if($("#sch1").val()==""){
+		      alert("검색어를 입력해주세요.");
+		      return false;
+		   }
 	});
+	
 	
 </script>
 </body>

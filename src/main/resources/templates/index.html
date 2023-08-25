@@ -11,7 +11,6 @@
 	<a href="facility/tourDetail">tourDetail 이동</a>
 	<a href="product/pay">pay로 이동</a>
 	<th:block th:include="common/mung_header"></th:block>
-	
 	<div class="wrap"><!--전체를 감싸는 div-->
         <div class="wrap-top">
             <!-- 메인 페이지 Top영역 
@@ -52,7 +51,9 @@
                         <span>공지사항</span>
                     </div>
                     <div class="notice-list">
-                        <p>테스트</p>
+                        <div class="notice-content">
+                            <p>테스트</p>
+                        </div>
                     </div>
                     
                     <div class="search">
@@ -60,7 +61,8 @@
                             <span class="material-icons">manage_search</span>
                         </div>
                         <div class="search-input">
-                            <input type="text" name="search" id="search" placeholder="검색어를 입력해주세요.">
+                        
+                            <input type="text" name="search" id="search" placeholder="지역명을 입력해주세요.">
                             <button type="submit" class="search-submit">검색하기</button>
                         </div>
                         
@@ -68,15 +70,9 @@
                 </div>
             </div>
             <div class="top-bottom"><!--이미지 위 텍스트 소개글-->
-                <div class="bottom-text1">
-                    <div class="text1">
-                        <span>이제는 여행도</span>
-                    </div>
-                    <div class="text2">반려견과 함께</div>
-                </div>
-                
+            
                 <div class="bottom-img">
-                    <img src="../img/main/제목 없는 디자인.jpg">
+                    <img src="../img/main/메인 화면 이미지.jpg">
                 </div>
             </div>
         </div>

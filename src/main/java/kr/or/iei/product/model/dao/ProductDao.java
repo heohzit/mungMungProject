@@ -34,4 +34,18 @@ public class ProductDao {
 		List list = jdbc.query(query, productRowMapper,productNo);
 		return (Product)list.get(0);
 	}
+
+	public int deleteProduct(int productNo) {
+		String query = "delete from product where product_no = ?";
+		Object[] params = {productNo};
+		int result = jdbc.update(query,params);
+		return result;
+	}
+
+	public int updateProduct(Product p) {
+		String query = "update product set product_name=? ,product_content=? ,product_price=? ,product_Stock=? ,product_start=? ,product_end=? ,product_day=? ,product_filepath=? where product_no=? ";
+		Object[] params = {p.getProductName(),p.getProductContent(),p.getProductPrice(),p.getProductStock(),p.getProductStart(),p.getProductEnd(),p.getProductDay(),p.getProductFilepath(),p.getProductNo()};
+		int result = jdbc.update(query,params);
+		return result;
+	}
 }

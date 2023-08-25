@@ -9,7 +9,6 @@
 <body>
 	<th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
-        <div class=page-title>회원가입</div>
         <div class="menu">
             <div class="content" id="content1">
                 <h4>회원정보입력</h4>
@@ -35,7 +34,7 @@
                             <input type="text" name="memberPhone" id="memberPhone" class="input-form" required>
                         </div>
                         <div class="input-wrap">
-                            <label for="memberEmail">이메일</label>
+                            <label for="memberEmail">이메일</label><br>
                             <input type="hidden" name="memberEmail" id="memberEmail">
                             <input type="text" name="memberEmail1" id="memberEmail1" class="einput-form" required>
                             <span id="ping">@</span>
@@ -49,7 +48,7 @@
                             </select>
                             <button type="button" class="memberbtn" id="sendBtn">전송</button>
                             <div id="auth" style="display:none;">
-                                <input type="text" id="authCode" placeholder="인증번호입력">
+                                <input type="text" id="authCode" placeholder="인증번호 입력">
                                 <button type="button" id="authBtn">인증하기</button>
                                 <span id="authMsg"></span>
                             </div>
@@ -59,8 +58,7 @@
                             <h4>이용약관 확인 및 동의</h4>
                             <div class="content-agree">
                                 <input type="checkbox" name="agree" id="allAgree">
-                                <label for="allAgree">전체동의</label>
-                                <br><br>
+                                <label for="allAgree">전체동의</label><br>
                                 <input type="checkbox" name="agree" id="agree1">
                                 <label for="agree1">개인회원 약관에 동의</label>
                                 <div class="agree-box">
@@ -123,7 +121,7 @@
 
                             <div class="content-agree">
                                 <input type="checkbox" name="agree" id="agree2">
-                                <label for="agree">개인정보 수집 및 이용에 동의</label>
+                                <label for="agree2">개인정보 수집 및 이용에 동의</label>
                                 <div class="agree-box">
                                     <div class="agree-explain">
                                         1. 수집목적 - 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산 - 민원사무 처리 - 재화 또는 서비스 제공 - 추천인
@@ -145,7 +143,7 @@
                                 </div>
                             </div>
                             <div class="submit-btn">
-                                <button type="submit" class="btn-box">회원가입</button>
+                                <button type="submit" class="signbtn">회원가입</button>
                             </div>
                         </div>
                     </div>

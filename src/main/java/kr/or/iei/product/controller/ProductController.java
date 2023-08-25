@@ -85,5 +85,56 @@ public class ProductController {
 	@GetMapping(value="/pay")
 	public String pay() {
 		return "product/pay";
+
+	@GetMapping(value = "/delete")
+	public String deleteProduct(int productNo , Model model) {
+		int result = productService.deleteProduct(productNo);
+		if (result != 0) {
+			model.addAttribute("title", "삭제완료");
+			model.addAttribute("msg", "패키지가 삭제되었습니다.");
+			model.addAttribute("icon", "success");
+			model.addAttribute("loc", "/product/list");
+		}else {
+			model.addAttribute("title", "삭제실패");
+			model.addAttribute("msg", "이미 삭제된 글이거나 삭제 할 수 없는 글입니다");
+			model.addAttribute("icon", "error");
+			model.addAttribute("loc", "/notice/view?productNo="+productNo);	
+		}
+		return"common/msg";
+	}
+	@GetMapping(value = "/updateFrm")
+	public String updateFrm(int productNo , Model model) {
+		Product p = productService.getProduct(productNo);
+		model.addAttribute("p", p );
+		return "product/productUpdateFrm";
+	}
+	
+	@PostMapping(value = "/update")
+	public String update(Product p , Model model,MultipartFile productUpdateImg) {
+		String savepath = root+"productmain/";
+		if(!productUpdateImg.isEmpty()) {
+			String filepath = fileUtil.getFilepath(savepath, productUpdateImg.getOriginalFilename());
+			p.setProductFilepath(filepath);
+			File upFile = new File(savepath+filepath);
+			
+		try {
+			productUpdateImg.transferTo(upFile);
+		} catch (IllegalStateException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		int result = productService.updateProduct(p);
+		if(result>0) {
+			model.addAttribute("title", "수정완료");
+			model.addAttribute("msg", "패키지가 수정되었습니다");
+			model.addAttribute("icon", "success");	
+		}else {
+			model.addAttribute("title", "수정실패");
+			model.addAttribute("msg", "수정에 실패하였습니다 ");
+			model.addAttribute("icon", "error");
+		}
+		model.addAttribute("loc", "/product/view?productNo="+p.getProductNo());
+		return "common/msg";
 	}
 }

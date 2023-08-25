@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
-    <link rel="stylesheet" href="/css/mypage.css">
+    <link rel="stylesheet" href="../css/mypage.css">
 </head>
 <body>
-	<th:block th:include="common/mung_header"></th:block>
+<th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
         <div class="page-title">마이페이지</div>
         <form action="/member/update" method="post">
@@ -17,7 +18,7 @@
                     <li>내가 찜한 여행지</li>
                     <li>예약현황</li>
                     <li>자유게시판</li>
-                    <li>QnA</li>
+                    <li>Q&A</li>
                 </ul>
                 <div class="content-wrap">
                     <div class="tabcontent">
@@ -72,28 +73,140 @@
                         </div>
                     </div>
 
-
                     <div class="tabcontent">
                         <h4>내가 찜한 여행지</h4>
-
-
-                    </div>
+                        <br><hr><br>
+                        <div class="product">
+                                <ul class="product-list">
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소1</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소2</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소3</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소4</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+					</div>
                     <div class="tabcontent">
-                        <h4>예약현황</h4>
+                        <h4>예약정보</h4>
+                        <br>
+                        <hr><br>
+                        <div class="booking-list">
+                            <table>
+                                <tr>
+                                    <th width="200px">예약일</th>
+                                    <th width="200px">예약번호</th>
+                                    <th height="50px" width="400px">패키지정보</th>
+                                    <th width="200px">예약일정</th>
+                                    <th width="200px">금액</th>
+                                    <th width="200px">진행상황</th>
+                                    <th width="200px">예약취소</th>
+                                </tr>
+                                <tr>
+                                    <td>2023-08-01</td>
+                                    <td>1234</td>
+                                    <td><img src="img/">패키지명</td>
+                                    <td>2023-09-28<br>~2023-09-30</td>
+                                    <td>0원</td>
+                                    <td>예약완료</td>
+                                    <td><button type="submit" class="cbtn">예약취소</button></td>
+                                </tr>
+                                <tr>
+                                    <td>2023-08-01</td>
+                                    <td>1234</td>
+                                    <td><img src="img/">패키지명</td>
+                                    <td>2023-09-28<br>~2023-09-30</td>
+                                    <td>0원</td>
+                                    <td>예약완료</td>
+                                    <td><button type="submit" class="cbtn">예약취소</button></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                     <div class="tabcontent">
                         <h4>자유게시판</h4>
+                        <br>
+                        <div class="free-list">
+                            <table>
+                                <tr>
+                                    <th width="50px">No</th>
+                                    <th height="50px" width="800px">제목</th>
+                                    <th width="150px">작성일</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>글제목글제목글제목글제목글제목글제목글제목</td>
+                                    <td>2023-08-01</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>글제목글제목글제목글제목글제목글제목글제목</td>
+                                    <td>2023-08-02</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>글제목글제목글제목글제목글제목글제목글제목</td>
+                                    <td>2023-08-03</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>글제목글제목글제목글제목글제목글제목글제목</td>
+                                    <td>2023-08-04</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>글제목글제목글제목글제목글제목글제목글제목</td>
+                                    <td>2023-08-05</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                     <div class="tabcontent">
-                        <h4>QnA</h4>
+                        <h4>Q&A</h4>
+                        <br><hr><br>
+                        <div class="qnacontent">
+                            <ul class="qna-list">
+                                <li>
+                                    <a href="#">Q. 질문1</a>
+                                    <ul class="a-list">
+                                        <li><a href="#">A. 답변1</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="qna-list">
+                                <li>
+                                    <a href="#">Q. 질문2</a>
+                                    <ul class="a-list">
+                                        <li><a href="#">A. 답변2</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         </form>
     </div>
-    <script src="/js/mypage.js"></script>
     <th:block th:include="common/mung_footer"></th:block>
+    <script src="/js/mypage.js"></script>
 </body>
 
 </html>

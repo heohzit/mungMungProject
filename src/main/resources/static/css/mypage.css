@@ -1,42 +1,44 @@
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: ns-medium;
-    color: #1C2B2D;
+.tab-wrap {
+    width: 1200px;
+    margin: 0 auto;
 }
 
-.tab-wrap{
-    width: 1200px;
-    margin:  0 auto;
-}
-.tabs{
-    margin:  0;
+.tabs {
+    margin: 0;
     padding: 0;
     list-style-type: none;
     overflow: hidden;
 }
-.tabs>li{
+
+.tabs>li {
     float: left;
     width: 240px;
     height: 30px;
     line-height: 30px;
     text-align: center;
     background-color: rgb(158, 210, 220);
-    color:#fff;
+    color: #fff;
+    cursor: pointer;
 }
-.tabs>li.active-tab{
+
+.tabs>li.active-tab {
     background-color: rgb(4, 144, 159);
-    color:#fff;
+    color: #fff;
 }
-.content-wrap{
+
+.content-wrap {
     background-color: white;
 }
-.tabcontent{
-    width: 95%;
+
+.tabcontent {
+    width: 100%;
     margin: 0 auto;
-    padding:  30px 0px;
+    padding: 30px 0px;
     display: none;
+}
+.tabcontent>h4{
+	padding-left : 30px;
 }
 /*
 .tabcontent.active-content{
@@ -53,7 +55,149 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-.btn-box{
-    margin: 30px 0px;
-    text-align: center;
+.member-info{
+	width: 95%;
+	margin: 0 auto;
 }
+.updatebtn{
+    background-color: #04909f;
+    color: white;
+    border-style: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+/* 踰꾪듉 遺�遺� 異붽� */
+.memberbtn{
+    background-color: rgb(158, 210, 220);
+    color: white;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    margin:auto;
+    margin-top: 20px;
+    text-decoration: none;
+    padding: 15px 25px;
+}
+
+td {
+    overflow: hidden;
+    border-collapse: collapse;
+    box-sizing: border-box;
+
+}
+
+
+.booking-list>table {
+    margin: 0 auto;
+    border: 2px solid #cbcbcb;
+    font-family: ns-m;
+    border-collapse: collapse;
+
+}
+
+.booking-list>table th {
+    border: 1px solid #cbcbcb;
+    background-color: lightgray;
+
+}
+
+.booking-list>table td {
+    border: 1px solid #cbcbcb;
+    border-collapse: collapse;
+    height: 200px;
+
+}
+
+.booking-list>table:first-child>tr {
+    text-align: center;
+
+}
+
+.booking-list>table tr {
+    text-align: center;
+
+}
+
+.booking-list img {
+    width: 200px;
+}
+
+.cbtn{
+	background-color: darkgrey;
+    border-radius: 4px;
+    height: 40px;
+    width: 80px;
+    border: 1px solid #cbcbcb;
+    color: white;
+}
+
+.free-list>table {
+    margin: 0 auto;
+    font-family: ns-m;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.free-list>table th {
+    background-color: lightgray;
+
+}
+
+.free-list>table td {
+    border-bottom: 1px solid #cbcbcb;
+    border-collapse: collapse;
+    height: 40px;
+
+}
+
+.free-list>table tr {
+    text-align: center;
+
+}
+/* qna */
+.qnacontent ul{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.qnacontent ul>li>a{
+    display: block;
+    background-color: lightgray;
+    color: white;
+    font-size: 15px; 
+    padding: 20px;
+    border: 1px solid white;   
+}
+
+/* .a-list{
+    display: none;
+} */
+
+.a-list>li>a{
+    background-color: #383838;
+    /* color: #DA4453; */
+
+}
+.qnacontent>ul>li:hover>a{
+    background-color: rgb(158, 210, 220);
+    color: white;
+}
+
+.a-list>li>a{
+    display: block;
+    background-color: #383838;
+    color: white;
+    text-align: left;
+    text-decoration: none;
+}
+/* 李쒗븳 �뿬�뻾吏� */
+.product-list li{
+    list-style: none;
+    float: left;
+}
+

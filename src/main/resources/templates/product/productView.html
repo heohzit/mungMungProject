@@ -23,6 +23,11 @@
             <!-- 공유하기 -->
             <div class="productview-top-share">
                 <span class="material-icons">share</span>
+                <ul class="share-sub">
+                    <li><a href="https://twitter.com/?lang=ko" ><img src="../img/productview/5296516_tweet_twitter_twitter logo_icon.png"</a></li>
+                    <li><a href="https://www.instagram.com/"><img src="../img/productview/6929237_instagram_icon.png"></a></li>
+                    <li><a href="https://ko-kr.facebook.com/"><img src="../img/productview/5365678_fb_facebook_facebook logo_icon.png"</a></li>
+                </ul>
             </div>
         </div>
         <!-- 상세페이지 중간 -->
@@ -50,8 +55,24 @@
                 </div>
             </div>
         </div>
+        <!-- 관리자용 등록에서 넣은 썸머노트 영역 및 삭제 수정 버튼  -->
+        <div class="productview-main">
+            <div class="productview-main-content">
+                <span th:utext="${p.productContent}"></span>
+            </div>
+            <!-- 관리자 로그인시 보이는 삭제 및 수정 버튼  -->
+            <div th:if="${session.m != null && session.m.memberLevel ==1 }" class="productview-admin">
+                <div class="productview-delete">
+                    <a th:href="@{/product/delete(productNo=${p.productNo})}"><button type="button">삭제</button></a>
+                </div>
+                <div class="productview-update">
+                    <a th:href="@{/product/updateFrm(productNo=${p.productNo})}"><button type="button">수정</button></a>
+                </div>
+            </div>
+        </div>
     </div>
-<span th:utext="${p.productContent}"></span>
+
 	<th:block th:include="common/mung_footer"></th:block>
+	<script src="../js/mung_productview.js"></script>
 </body>
 </html>
