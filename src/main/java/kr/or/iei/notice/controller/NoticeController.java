@@ -42,14 +42,14 @@ public class NoticeController {
 		return "notice/noticeList";
 	}
 	
-//	//공지사항 리스트(검색)
-//	@GetMapping(value="/searchNoticeList")
-//	public String searchNoticeList(Model model, int reqPage, String searchType , String searchName) {
-//		NoticeListData nld = noticeService.selectNoticeList(reqPage,searchType,searchName);
-//		model.addAttribute("noticeList", nld.getNoticeList());
-//		model.addAttribute("pageNavi", nld.getPageNavi());
-//		return "notice/noticeList";
-//	}	
+	//공지사항 리스트(검색)
+	@GetMapping(value="/searchNoticeList")
+	public String searchNoticeList(Model model, int reqPage, String searchType , String searchName) {
+		NoticeListData nld = noticeService.selectNoticeList(reqPage,searchType,searchName);
+		model.addAttribute("noticeList", nld.getNoticeList());
+		model.addAttribute("pageNavi", nld.getPageNavi());
+		return "notice/noticeList";
+	}	
 		
 	//공지사항 작성이동
 	@GetMapping(value="writeFrm")
