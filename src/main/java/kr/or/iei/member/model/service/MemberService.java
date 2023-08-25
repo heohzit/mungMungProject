@@ -109,5 +109,8 @@ public class MemberService {
 		
 		return mld;
 	}
-
+	public Member selectMemberByNameAndEmail(String memberName, String memberEmail) {
+		Member m = memberDao.selectMemberByNameAndEmail(memberName, memberEmail);
+		return m;
+	}
 }
