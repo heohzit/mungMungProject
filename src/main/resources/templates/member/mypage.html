@@ -65,7 +65,7 @@
                                 <button type="submit" class="updatebtn">정보수정</button>
                                 <a th:if="${session.m.memberLevel != 1}" href="/member/delete"
                                     class="memberbtn">회원탈퇴</a>
-                                <a th:if="${session.m.memberLevel == 1}" href="/member/admin"
+                                <a th:if="${session.m.memberLevel == 1}" href="/member/admin?reqPage=1"
                                     class="memberbtn">회원관리</a>
                             </div>
                         </div>
@@ -74,6 +74,34 @@
                     <div class="tabcontent">
                         <h4>내가 찜한 여행지</h4>
                         <br><hr><br>
+                        <div class="product">
+                                <ul class="product-list">
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소1</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소2</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소3</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소4</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
 					</div>
                     <div class="tabcontent">
                         <h4>예약정보</h4>
@@ -97,7 +125,7 @@
                                     <td>2023-09-28<br>~2023-09-30</td>
                                     <td>0원</td>
                                     <td>예약완료</td>
-                                    <td><button type="submit">예약취소</button></td>
+                                    <td><button type="submit" class="cbtn">예약취소</button></td>
                                 </tr>
                                 <tr>
                                     <td>2023-08-01</td>
@@ -106,7 +134,7 @@
                                     <td>2023-09-28<br>~2023-09-30</td>
                                     <td>0원</td>
                                     <td>예약완료</td>
-                                    <td><button type="submit">예약취소</button></td>
+                                    <td><button type="submit" class="cbtn">예약취소</button></td>
                                 </tr>
                             </table>
                         </div>
