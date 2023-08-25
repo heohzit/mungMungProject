@@ -7,19 +7,127 @@ import kr.or.iei.board.model.vo.Board;
 import kr.or.iei.board.model.vo.BoardComment;
 import kr.or.iei.board.model.vo.BoardListData;
 import kr.or.iei.board.model.vo.BoardViewData;
-import kr.or.iei.notice.model.vo.Notice;
-import kr.or.iei.notice.model.vo.NoticeListData;
 
 @Service
 public class BoardService {
     @Autowired
     private BoardDao boardDao;
     
-    //커뮤니티 전체 게시글 수
-    public int totalCount() {
-    	int totalCount = boardDao.totalCount();
-    	return 0;
-    }
+  //공지사항 리스트 검색없을때
+  	public BoardListData selectBoardList(int reqPage) {
+  		int numPerPage = 5;
+  		int end = reqPage * numPerPage;
+  		int start = end-numPerPage+1;
+  		List boardList = boardDao.selectBoardList(start, end);
+  		//공지사항 총 게시글
+  		int totalCount = boardDao.selectBoardTotalNum();
+  		int totalPage = totalCount%numPerPage == 0 ? totalCount/numPerPage : totalCount/numPerPage+1;
+  		
+  		int pageNaviSize =5;
+  		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
+  		
+  		String pageNavi ="<ul class='pagination'>";
+  		if(pageNo !=1) {
+  			pageNavi +="<li>";
+  			pageNavi +="<a class='page-btn' href='/board/list?reqPage="+(pageNo-1)+"'>";
+  			pageNavi +="<span class='material-icons'>arrow_back_ios_new</span>";
+  			pageNavi +="</a>";
+  			pageNavi +="</li>";
+  		}
+  		for(int i=0;i<pageNaviSize;i++) {
+  			if(pageNo == reqPage) {
+  				pageNavi +="<li>";
+  				pageNavi +="<a class='page-btn select-page' href='/board/list?reqPage="+(pageNo)+"'>";
+  				pageNavi += pageNo;
+  				pageNavi += "</a>";
+  				pageNavi += "</li>";
+  			}else {
+  				pageNavi +="<li>";
+  				pageNavi +="<a class='page-btn' href='/board/list?reqPage="+(pageNo)+"'>";
+  				pageNavi += pageNo;
+  				pageNavi += "</a>";
+  				pageNavi += "</li>";
+  			}
+  			pageNo++;
+  			if(pageNo>totalPage) {
+  				break;
+  			}
+  		}		
+  			if(pageNo <= totalPage) {
+  				pageNavi +="<li>";
+  				pageNavi +="<a class='page-btn' href='/board/list?reqPage="+(pageNo)+"'>";
+  				pageNavi += "<span class='material-icons'>arrow_forward_ios</span>";
+  				pageNavi +="</a>";
+  				pageNavi +="</li>";
+  			}
+  			pageNavi +="</ul>";
+  			BoardListData bld = new BoardListData(boardList, pageNavi);
+  			return bld;
+
+  		}
+  	
+  	//공지사항 리스트 검색있을때
+  	public BoardListData selectBoardList(int reqPage,String searchType, String searchName) {
+  		int numPerPage = 10;
+  		int end = reqPage * numPerPage;
+  		int start = end-numPerPage+1;
+  		List boardList;
+  	    if ("title".equals(searchType)) {
+  	    	boardList = boardDao.searchBoardTitle(start, end, searchName);
+  	    } else if ("writer".equals(searchType)) {
+  	    	boardList = boardDao.searchBoardWriter(start, end, searchName);
+  	    } else if ("content".equals(searchType)) {
+  	    	boardList = boardDao.searchBoardContent(start, end, searchName);
+  	    } else {
+  	    	boardList = boardDao.selectBoardList(start, end);
+  	    }
+  		
+  		
+  		//공지사항 총 게시글
+  		int totalCount = boardDao.selectBoardTotalNum();
+  		int totalPage = totalCount%numPerPage == 0 ? totalCount/numPerPage : totalCount/numPerPage+1;
+  		
+  		int pageNaviSize =5;
+  		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
+  		String pageNavi ="<ul>";
+  		pageNavi ="<ul>";
+  		if(pageNo !=1) {
+  			pageNavi +="<li>";
+  			pageNavi +="<a href='/board/list?reqPage="+(pageNo-1)+"'>";
+  			pageNavi +="<span class='material-icons-outlined'>navigate_before</span>";
+  			pageNavi +="</a>";
+  			pageNavi +="</li>";
+  		}
+  		for(int i=0;i<pageNaviSize;i++) {
+  			if(pageNo == reqPage) {
+  				pageNavi +="<li>";
+  				pageNavi +="<a href='/board/list?reqPage="+(pageNo)+"'>";
+  				pageNavi += pageNo;
+  				pageNavi += "</a>";
+  				pageNavi += "</li>";
+  			}else {
+  				pageNavi +="<li>";
+  				pageNavi +="<a href='/board/list?reqPage="+(pageNo)+"'>";
+  				pageNavi += pageNo;
+  				pageNavi += "</a>";
+  				pageNavi += "</li>";
+  			}
+  			pageNo++;
+  			if(pageNo>totalPage) {
+  				break;
+  			}
+  		}		
+  			if(pageNo <= totalPage) {
+  				pageNavi +="<li>";
+  				pageNavi +="<a href='/board/list?reqPage="+(pageNo)+"'>";
+  				pageNavi +="<span class='material-icons-outlined'>navigate_next</span>";
+  				pageNavi +="</a>";
+  				pageNavi +="</li>";
+  			}
+  			pageNavi +="</ul>";
+  			BoardListData bld = new BoardListData(boardList, pageNavi);
+  			return bld;
+  		}
     
     //커뮤니티 작성
 	public int insertBoard(Board b) {
@@ -31,19 +139,13 @@ public class BoardService {
 		}
 	}
 	
-	//커뮤니티 사진보기
-	public List selectPhotoList(int start, int end) {
-		List boardList = boardDao.selectPhotoList(start,end);
-		return boardList;
-	}
-	
 	//커뮤니티 상세보기
-	public BoardViewData selectOneNotice(int boardNo) {
+	public BoardViewData selectOneBoard(int boardNo) {
 		//공지사항 조회수
 		int count = boardDao.updateReadCount(boardNo);
 		if(count>0) {
 			//커뮤니티 상세보기
-			Board b = boardDao.selectOneNotice(boardNo);
+			Board b = boardDao.selectOneBoard(boardNo);
 			//커뮤니티 댓글 조회
 			List commentList = boardDao.selectCommentList(boardNo);
 			//커뮤니티 대댓글 조회
@@ -57,7 +159,7 @@ public class BoardService {
 	
 	//커뮤니티 삭제
 	public int deleteBoard(int boardNo) {
-		int result = boardDao.deleteNotice(boardNo);
+		int result = boardDao.deleteBoard(boardNo);
 		if(result > 0) {
 			return result;
 		}else {
@@ -67,7 +169,7 @@ public class BoardService {
 
 	//커뮤니티 해당번호 가져오기
 	public Board getBoard(int boardNo) {
-		Board b = boardDao.selectOneNotice(boardNo);
+		Board b = boardDao.selectOneBoard(boardNo);
 		return b;
 	}
 	
@@ -98,67 +200,5 @@ public class BoardService {
 		int result = boardDao.deleteComment(boardCommentNo);
 		return result;
 	}
-	
-	//커뮤니티 검색 리스트 화면
-	public BoardListData searchBoardList(int reqPage, String searchType, String searchName) {
-		int numPerPage = 10;
-		int end = reqPage * numPerPage;
-		int start = end-numPerPage+1;
-		List boardList;
-	    if ("title".equals(searchType)) {
-	    	boardList = boardDao.searchBoardTitle(start, end, searchName);
-	    } else if ("writer".equals(searchType)) {
-	    	boardList = boardDao.searchBoardWriter(start, end, searchName);
-	    } else if ("content".equals(searchType)) {
-	    	boardList = boardDao.searchBoardContent(start, end, searchName);
-	    } else {
-	    	boardList = boardDao.selectBoardList(start, end);
-	    }
-		
-		
-		//커뮤니티 총 게시글
-		int totalCount = boardDao.selectNoticeTotalNum();
-		int totalPage = totalCount%numPerPage == 0 ? totalCount/numPerPage : totalCount/numPerPage+1;
-		
-		int pageNaviSize =5;
-		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
-		String pageNavi ="<ul>";
-		pageNavi ="<ul>";
-		if(pageNo !=1) {
-			pageNavi +="<li>";
-			pageNavi +="<a href='/notice/list?reqPage="+(pageNo-1)+"'>";
-			pageNavi +="<span class='material-icons-outlined'>navigate_before</span>";
-			pageNavi +="</a>";
-			pageNavi +="</li>";
-		}
-		for(int i=0;i<pageNaviSize;i++) {
-			if(pageNo == reqPage) {
-				pageNavi +="<li>";
-				pageNavi +="<a href='/notice/list?reqPage="+(pageNo)+"'>";
-				pageNavi += pageNo;
-				pageNavi += "</a>";
-				pageNavi += "</li>";
-			}else {
-				pageNavi +="<li>";
-				pageNavi +="<a href='/board/searchList?reqPage="+(pageNo)+"'>";
-				pageNavi += pageNo;
-				pageNavi += "</a>";
-				pageNavi += "</li>";
-			}
-			pageNo++;
-			if(pageNo>totalPage) {
-				break;
-			}
-		}		
-			if(pageNo <= totalPage) {
-				pageNavi +="<li>";
-				pageNavi +="<a href='/board/searchList?reqPage="+(pageNo)+"'>";
-				pageNavi +="<span class='material-icons-outlined'>navigate_next</span>";
-				pageNavi +="</a>";
-				pageNavi +="</li>";
-			}
-			pageNavi +="</ul>";
-			BoardListData bld = new BoardListData(boardList, pageNavi);
-			return bld;
-		}
-	}
+
+}

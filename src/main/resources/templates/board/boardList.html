@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>커뮤니티 리스트</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="../css/default.css">
 </head>
 <body>
 	<th:block th:include="common/mung_header"></th:block>
 	<div class="page-content">
 		<div class="page-title">
-		<h1>사진게시판</h1><span th:text="${totalCount}"></span>
+			<h1>커뮤니티</h1>
 		</div>
 		<div class="page-content-top">
 		<a href="/board/writeFrm" th:if="${session.m != null}">글쓰기</a>
-            <form action="/board/searchList" method="get" id="formsearch">
+            <form action="/board/list" method="get" id="formsearch">
 	            <input type="hidden" name="reqPage" id="reqPage">
 	            <select name="searchType">
 	                <option value="title">제목</option>
@@ -24,18 +25,40 @@
             <button id="searchBtn">검색</button>
             </form>
         </div>
-		<div class="boardWrapper posting-wrap">
-			
+         <div class="page-content-mid">
+		<table class="boardWrapper posting-wrap">
+			 <tr>
+                <th>번호</th>
+                <th>대표사진</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>조회수</th>
+                <th>등록일</th>
+            </tr>
+           	<tr th:each="board : ${boardList}" id="trview" style="cursor: pointer;">
+                <td th:text="${board.boardNo}" id="boardNo"></td>
+                <td><img th:src="'/boardmain/'+${board.boardFilepath}" style="width: 200px; height: 200px"></td>
+                <td th:text="${board.boardTitle}"></td>
+                <td th:text="${board.boardWriter}"></td>
+                <td th:text="${board.boardReadCount}"></td>
+                <td th:text="${board.boardWriteDate}"></td>
+           	</tr>	
+		</table>
 		</div>
-		
-		<button class="btn bc4 bs4" id="more-btn"
-			th:totalCount="${totalCount}"
-			currentCount="0"
-			value="1"
-		>더보기</button>
+		 <div class="page-content-bottom">
+            <div id="pageNavi" th:utext="${pageNavi}"></div>
+        </div>
 	</div>
 	<th:block th:include="common/mung_footer"></th:block>
 	<script>
+	
+	$("#trview").click(function(){
+		const boardNo = $(this).find("td:first-child").text();
+		console.log(boardNo);
+		$(location).attr("href", "/board/view?boardNo="+boardNo);
+	})
+
+	/*
 		$("#more-btn").on("click",function(){
 			const start =$(this).val();
 			const amount =4;
@@ -47,7 +70,7 @@
 				success : function(data){
 					for(let i=0;i<data.length;i++){
 						const board = data[i];					
-						const div = $("<div>");
+						const div = $("<table>");
 						div.addClass("posting-item");	
 						
 						const imgDiv = $("<div>");
@@ -88,10 +111,10 @@
 		
 		$("#more-btn").click();
 		
+	*/	
 		$("#searchBtn").on("click",function(){
 			$("#reqPage").val(1);
 		});
-		
 	</script>
 </body>
 </html>
