@@ -25,18 +25,20 @@
                 <tr>
                     <th>작성자</th>
                     <td>
-                        <input type="hidden" name="boardNo" th:value="${b.boardNo}">
+                        <span th:text="${b.memberId}"></span>
+                        <input type="hidden" name="memberId" th:value="${b.memberId}">
                     </td>
                 </tr>
                 <tr>
                     <th>대표사진</th>
-                    <td>
-                    	<input type="file" name="imageFile" accept=".jpg,.png,.jpeg" >
+                    <td>       	
+                    	<input type="hidden" name="boardFilepath" th:value="${b.boardFilepath}">
+                    	<span th:text="${b.boardFilepath}"></span>
+                    	<input type="file" name="addFile" accept=".jpg,.png,.jpeg">
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <input style="display: none;" type="file" name="upfile" multiple>
+                    <td>                   
                         <textarea id="boardContent" name="boardContent" th:utext="${b.boardContent}"></textarea>
                     </td>
                 </tr>
