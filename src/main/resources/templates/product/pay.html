@@ -8,6 +8,7 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <th:block th:include="common/mung_header"></th:block>
@@ -31,19 +32,24 @@
                         <tr>
                             <th class="pay-box-tbl-th">일정 예약</th>
                             <td class="pay-box-tbl-td">
-                                <input type="text" name="daterange" value=""/>
-                                <input type="hidden" name="productStart" value="2023-08-28">   <!-- th:value로 시작일 입력 -->
-                                <input type="hidden" name="productEnd" value="2023-09-15">   <!-- th:value로 종료일 입력 -->
-                                <input type="hidden" name="productDay" value="2">   <!-- th:value로 기간 입력 -->
+                                <div>
+                                    <span class="material-icons pay-pointer">forward</span>
+                                    <input type="text" name="daterange" value=""/>
+                                    <input type="hidden" name="productStart" th:value="${p.productStart}">
+                                    <input type="hidden" name="productEnd" th:value="${p.productEnd}">
+                                    <input type="hidden" name="productDay" th:value="${p.productDay}-1">                                    
+                                </div>
                             </td>
                         </tr>
                         <tr>
                             <th class="pay-box-tbl-th">결제 금액</th>
-                            <td class="pay-box-tbl-td">                                
-                                <span>1,000</span>  <!-- th:text로 상품가격 입력 -->
-                                <span>원</span>
+                            <td class="pay-box-tbl-td">                         
+                                <span class="pay-box-price" th:text="${#numbers.formatInteger(p.productPrice,3,'COMMA')} + '원'"></span>
                             </td>
-                            <input type="hidden" name="price" id="price" value="1000">   <!-- th:value로 상품가격 입력 -->
+                            <input type="hidden" name="price" id="price" th:value="${p.productPrice}">
+                            <input type="hidden" name="payMemberNo" id="payMemberNo" th:value="${session.m.memberNo}">
+                            <input type="hidden" name="payMemberName" id="payMemberName" th:value="${session.m.memberName}">
+                            <input type="hidden" name="payMemberEmail" id="payMemberEmail" th:value="${session.m.memberEmail}">
                         </tr>
                         <tr>
                             <th colspan="2" class="pay-box-tbl-th">

@@ -83,7 +83,9 @@ public class ProductController {
 	}
 	
 	@GetMapping(value="/pay")
-	public String pay() {
+	public String pay(int productNo, Model model) {
+		Product p = productService.selectOneProduct(productNo);
+		model.addAttribute("p", p);
 		return "product/pay";
 	}
 

@@ -446,11 +446,23 @@ textarea.input-form {
     padding: 1rem 0.5rem;
     text-align: center;
 }
-[name=daterange]{
+.pay-box-tbl-td>div{
+	overflow: hidden;
+	width: 70%;
+	margin: 0 auto;
+}
+.pay-pointer{
+	font-size: 30px;
+	line-height: 40px;
+    height: 40px;
+    float: left;
+}
+input[name=daterange]{
     padding: 0.5rem;
     border-radius: 5px;
     border: 1px solid #ccc;
-    
+    outline: none;
+    float: left;
 }
 
 
