@@ -1,0 +1,180 @@
+
+
+
+@font-face {
+    font-family: 'GangwonState';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: kotra-hope;
+    src: url(../font/KotraHope.otf);
+}
+@font-face {
+    font-family: ns-thin;
+    src: url(../font/NotoSansKR-Thin.otf);
+}
+@font-face {
+    font-family: ns-light;
+    src: url(../font/NotoSansKR-Light.otf);
+}
+@font-face {
+    font-family: ns-medium;
+    src: url(../font/NotoSansKR-Medium.otf);
+}
+@font-face {
+    font-family: ns-bold;
+    src: url(../font/NotoSansKR-Bold.otf);
+}
+@font-face {
+    font-family: ns-black;
+    src: url(../font/NotoSansKR-Black.otf);
+}
+@font-face {
+    font-family: ns-regular;
+    src: url(../font/NotoSansKR-Regular.otf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: ns-regular;
+    color: #1C2B2D;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.productview-top{
+    margin: 0 auto;
+    width: 1200px;
+    overflow: hidden;
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+}
+.productview-top-no{
+    width: 80%;
+    float: left;
+
+}
+.productview-top-no>span{
+    font-size: 20px;
+    font-weight: 600;
+}
+.productview-top-heart{
+    width: 10%;
+    float: left;
+    cursor: pointer;
+    text-align: right;
+}
+.productview-top-heart>span{
+    font-size: 40px;
+
+}
+.productview-top-share{
+    width: 10%;
+    float: left;
+    cursor: pointer;
+}
+.productview-top-share>span{
+    font-size :40px;
+}
+.productview-top-share:hover>span+.share-sub{
+display: block;
+position: absolute;
+
+}
+.share-sub{
+    display: none;
+}
+.share-sub>li{
+    padding-top: 15px;
+    padding-left: 5px;
+    float: left;
+}
+
+/* ****************상세페이지 중간***************** */
+.productview-content{
+    margin: 0 auto;
+    width: 1200px;
+    overflow: hidden;
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+}
+.productview-content-top{
+    padding: 10px 0px 10px 0px;
+}
+.productview-mid-text{
+    padding: 10px 0px 10px 0px;
+}
+.productview-content-bottom{
+    padding: 10px 0px 10px 0px;
+}
+.productStock{
+    width: 70%;
+    float: left;
+}
+.productPrice{
+    width: 15%;
+    float: left;
+}
+.reservation{
+    width: 15%;
+    float: left;
+}
+.reservation>a>button{
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    width: 120px;
+    height: 40px;
+    background-color: rgb(4, 144, 159);
+    color: aliceblue;
+    border-radius: 5px;
+}
+/* ****************썸머노트 영역 및 관리자용 삭제 수정********************* */
+.productview-main{
+    padding: 20px 10px 20px 10px;
+    margin: 0 auto;
+    width: 1200px;
+}
+.productview-main-content{
+    text-align: center;
+}
+.productview-admin{
+	overflow: hidden;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+.productview-delete{
+    width: 45%;
+    float: left;
+    padding: 10px;
+}
+.productview-delete>a>button{
+    width: 200px;
+    font-size: 18px;
+    font-weight: 600;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(4, 144, 159);
+    color: aliceblue;
+    cursor: pointer;
+}
+.productview-update{
+    float: left;
+    width: 45%;
+    padding: 10px;
+}
+.productview-update>a>button{
+    width: 200px;
+    font-size: 18px;
+    font-weight: 600;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(158, 210, 220);
+    color: lightslategray;
+    cursor: pointer;
+}

@@ -9,16 +9,18 @@ import org.springframework.stereotype.Repository;
 
 import kr.or.iei.facility.model.vo.Facility;
 import kr.or.iei.facility.model.vo.FacilityImageRowMapper;
+import kr.or.iei.facility.model.vo.FacilityFile;
 import kr.or.iei.facility.model.vo.FacilityRowMapper;
 
 @Repository
 public class FacilityDao {
 	@Autowired
-	public JdbcTemplate jdbc;
-	@Autowired
-	public FacilityRowMapper facilityRowMapper;
+	private JdbcTemplate jdbc;
 	@Autowired
 	public FacilityImageRowMapper facilityImageRowMapper;
+	@Autowired
+	private FacilityRowMapper facilityRowMapper;
+
 
 	public List selectTourList(int startNum, int endNum) {
 		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 3) n) where rnum between ? and ?";
@@ -38,7 +40,7 @@ public class FacilityDao {
 		List list = jdbc.query(query, facilityRowMapper, facilityNo);	
 		return (Facility)list.get(0);
 	}
-	
+
 	public String selectFacilityFile(int facilityNo) {
 		String query = "select facility_filepath from facility_file where facility_file_no = (select min(facility_file_no) from facility_file where facility_no = ?)";
 		try {
@@ -133,10 +135,31 @@ public class FacilityDao {
 		return totalCount;
 	}
 
+
 	public List selectImageFile(int facilityNo) {
 		// TODO Auto-generated method stub
 		String query = "select * from facility_file where facility_no = ?";
 		List list = jdbc.query(query, facilityImageRowMapper ,facilityNo);
 		return list;
+
+	public int insertFacility(Facility f) {
+		String query = "insert into facility values(facility_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		Object[] params = {f.getFacilityWriter(), f.getFacilityRegion(), f.getFacilityCase(), f.getFacilityName(), f.getFacilityPhone(), f.getFacilityAddr(), f.getFacilityLat(), f.getFacilityLng(), f.getFacilityTime(), f.getFacilityHomepage(), f.getFacilityInfo(), f.getFacilityMajor(), f.getFacilityPrice(), f.getFacilityNotice()};
+		int result = jdbc.update(query, params);
+		return result;
+	}
+
+	public int getFacilityNo() {
+		String query = "select max(facility_no) from facility";
+		int facilityNo = jdbc.queryForObject(query, Integer.class);
+		return facilityNo;
+	}
+
+	public int insertFacilityFile(FacilityFile file) {
+		String query = "insert into facility_file values(facility_file_seq.nextval, ?, ?)";
+		Object[] params = {file.getFacilityNo(), file.getFacilityFilepath()};
+		int result = jdbc.update(query, params);
+		return result;
+
 	}
 }

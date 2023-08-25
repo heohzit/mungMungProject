@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NoticeRowMapper implements RowMapper<Notice> {
+public class NoticeSearchRowMapper implements RowMapper<Notice> {
 
 	@Override
 	public Notice mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -18,7 +18,6 @@ public class NoticeRowMapper implements RowMapper<Notice> {
 		n.setNoticeContent(rs.getString("notice_content"));
 		n.setNoticeWriteDate(rs.getString("notice_write_date"));
 		n.setNoticeReadCount(rs.getInt("notice_read_count"));
-		n.setMemberId(rs.getString("member_id"));
 		return n;
 	}
 

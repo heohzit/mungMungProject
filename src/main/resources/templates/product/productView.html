@@ -2,9 +2,77 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>멍 패키지 상세</title>
+ <link rel="stylesheet" href="../css/mung_productview.css">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 </head>
 <body>
+	<th:block th:include="common/mung_header"></th:block>
+	<!-- 전체를 감싸는 div -->
+    <div class="productview_wrap">
+        <!-- 상세 페이지 상단 (패키지 상품 번호 ,찜하기 공유 가져오기  )-->
+        <div class="productview-top">
+            <!-- 패키지 상품번호 -->
+            <div class="productview-top-no">
+                <span>패키지 상품 번호 : <span th:text="${p.productNo}"><!--productNo--></span></span>
+            </div>
+            <!-- 찜하기 -->
+            <div class="productview-top-heart">
+                <span class="material-icons">favorite_border</span>
+            </div>
+            <!-- 공유하기 -->
+            <div class="productview-top-share">
+                <span class="material-icons">share</span>
+                <ul class="share-sub">
+                    <li><a href="https://twitter.com/?lang=ko" ><img src="../img/productview/5296516_tweet_twitter_twitter logo_icon.png"</a></li>
+                    <li><a href="https://www.instagram.com/"><img src="../img/productview/6929237_instagram_icon.png"></a></li>
+                    <li><a href="https://ko-kr.facebook.com/"><img src="../img/productview/5365678_fb_facebook_facebook logo_icon.png"</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 상세페이지 중간 -->
+        <div class="productview-content">
+            <div class="productview-content-top">
+                <h1><span th:text="${p.productName}"><!--productName--></span></h1>
+            </div>
+            <div class="productview-content-mid">
+                <div class="productview-mid-text">
+                    <h3>예약 가능 기간 : <span th:text="${p.productStart}"><!--productStart--></span> 부터 ~ <span th:text="${p.productEnd}"><!--productEnd--></span>까지</h3>
+                </div>
+                <div class="productview-mid-text">
+                    <h3>여행 기간 : <span th:text="${p.productDay}"><!--productDay--></span>일</h3>
+                </div>
+            </div>
+            <div class="productview-content-bottom">
+                <div class="productStock">
+                    <h2>패키지 재고 수량 : <span th:text="${p.productStock}"><!--productStock--></span>개</h2>
+                </div>
+                <div class="productPrice">
+                    <h1><span th:text="${p.productPrice}"><!--productPrice--></span>원</h1>
+                </div>
+                <div class="reservation"><!--예약하기 버튼 -->
+                    <a href="#"><button type="button" >예약하러가기</button></a>
+                </div>
+            </div>
+        </div>
+        <!-- 관리자용 등록에서 넣은 썸머노트 영역 및 삭제 수정 버튼  -->
+        <div class="productview-main">
+            <div class="productview-main-content">
+                <span th:utext="${p.productContent}"></span>
+            </div>
+            <!-- 관리자 로그인시 보이는 삭제 및 수정 버튼  -->
+            <div th:if="${session.m != null && session.m.memberLevel ==1 }" class="productview-admin">
+                <div class="productview-delete">
+                    <a th:href="@{/product/delete(productNo=${p.productNo})}"><button type="button">삭제</button></a>
+                </div>
+                <div class="productview-update">
+                    <a th:href="@{/product/updateFrm(productNo=${p.productNo})}"><button type="button">수정</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+	<th:block th:include="common/mung_footer"></th:block>
+	<script src="../js/mung_productview.js"></script>
 </body>
 </html>

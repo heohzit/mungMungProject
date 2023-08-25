@@ -3,12 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>커뮤니티 상세보기</title>
+<script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="../css/default.css">
 </head>
 <body>
 <th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
-        <div class="page-title">커뮤니티 상세보기</div>
+        <div class="page-title">
+			<h1>커뮤니티</h1>
+		</div>
+        <button onclick = "imgAlert()"> Image Alert </button>
+        <div class="page-content-mid">
         <table>
             <tr>
             	<th>제목</th>
@@ -33,10 +38,13 @@
 				</td>
             </tr>
         </table>
-        <div class="btn1" th:if="${session.m != null}">
+        </div>
+        
+        <div class="btn1" th:if="${session.m != null && session.m.memberNo == b.boardWriter}">
 	        <a th:href="@{/board/delete(boardNo=${b.boardNo})}">삭제하기</a>
 	        <a th:href="@{/board/updateFrm(boardNo=${b.boardNo})}">수정하기</a>
 		</div>
+		
 		<!-- 댓글입력 -->
 		<div class="inputCommentBox" th:if="${session.m != null}">
 			<form action="/board/insertComment" method="post">
@@ -50,13 +58,14 @@
 						<textarea name="boardCommentContent" class="input-form"></textarea>
 					</li>
 					<li>
-						<button type="submit" class="btn bc1 bs4">등록</button>
+						<button type="submit" class="btn">등록</button>
 					</li>
 				</ul>
 			</form>
 		</div>
+		
 		<!-- 댓글보기 -->
-		<div>
+		<div class="CommentBox">
 			<th:block th:each="cl : ${commentList}">
 				<ul>
 					<li>
@@ -64,21 +73,134 @@
 							<span th:text="${cl.memberId}"></span>				
 							<span th:text="${cl.boardCommentWriteDate}"></span>
 						</p>
-							<p th:text="${cl.boardCommentContent}"></p>
+						<p th:text="${cl.boardCommentContent}"></p>
+						<textarea name="boardCommentContent" class="input-form" 
+									style="min-height:96px;display:none;" 
+									th:text="${cl.boardCommentContent}"></textarea>
 						<p>
 							<th:block th:if="${session.m!=null}">
 								<th:block th:if="${session.m.memberId==cl.memberId}">
-									<a href="#">수정</a>
-									<a href="#">삭제</a>
+									<a href="javascript:void(0);" th:onclick="updateComment(this,[[${cl.boardCommentNo}]],[[${b.boardNo}]])">수정</a>
+									<a href="javascript:void(0);" th:onclick="deleteComment(this,[[${cl.boardCommentNo}]],[[${b.boardNo}]])">삭제</a>
 								</th:block>
-								<a href="#">답글달기</a>
+								<a href="javascript:void(0);" class="reCommentShow">답글달기</a>
 							</th:block>
 						</p>
 					</li>
 				</ul>
+				
+				<!-- 대댓글 보기 -->
+				
+				<th:block th:each="rcl : ${reCommentList}">
+					<ul th:if="${cl.boardCommentNo == rcl.boardCommentRefNo}">
+						<li>
+							<p>
+								<span th:text="${rcl.memberId}"></span>				
+								<span th:text="${rcl.boardCommentWriteDate}"></span>
+							</p>
+							<p th:text="${rcl.boardCommentContent}"></p>
+							<textarea name="boardCommentContent" class="input-form" 
+									style="min-height:96px;display:none;" 
+									th:text="${rcl.boardCommentContent}"></textarea>
+							<p>
+							<th:block th:if="${session.m!=null}">
+								<th:block th:if="${session.m.memberId==rcl.memberId}">
+									<a href="javascript:void(0);" th:onclick="updateComment(this,[[${rcl.boardCommentNo}]],[[${b.boardNo}]])">수정</a>
+									<a href="javascript:void(0);" th:onclick="deleteComment(this,[[${rcl.boardCommentNo}]],[[${b.boardNo}]])">삭제</a>
+								</th:block>
+							</th:block>
+						</p>
+						</li>
+					</ul>
+				</th:block>
+				
+				<!-- 대댓글 작성 -->
+				<div class="inputReCommentBox" th:if="${session.m != null}" style="display:none;">
+					<form action="/board/insertComment" method="post">
+						<ul>
+							<li>
+								<span class="material-icons">대댓글</span>
+							</li>
+							<li>
+								<input type="hidden" name="boardCommentWriter" th:value="${session.m.memberNo}">
+								<input type="hidden" name="boardNo" th:value="${b.boardNo}">
+								<input type="hidden" name="boardCommentRefNo" th:value="${cl.boardCommentNo}">
+								<textarea name="boardCommentContent" class="input-form"></textarea>
+							</li>
+							<li>
+								<button type="submit" class="btn">등록</button>
+							</li>
+						</ul>
+					</form>
+				</div>
 			</th:block>
 		</div>
     </div>
 <th:block th:include="common/mung_footer"></th:block>
+<script>
+	//대댓글 보이기
+	$(".reCommentShow").on("click",function(){
+		const index = $(".reCommentShow").index(this);
+		if($(this).text()=="답글달기"){
+			$(".inputReCommentBox").eq(index).show();
+			$(this).text("취소");
+		}else{
+			$(".inputReCommentBox").eq(index).hide();
+			$(this).text("답글달기");
+		}
+	});
+	//댓글 수정
+	function updateComment(obj,boardCommentNo,boardNo){
+		$(obj).parent().prev().prev().hide();
+		$(obj).parent().prev().show();	
+		
+		$(obj).text("수정완료");
+		$(obj).attr("onclick","completeComment(this,"+boardCommentNo+","+boardNo+")");
+		
+		$(obj).next().text("수정취소");
+		$(obj).next().attr("onclick","cancelComment(this,"+boardCommentNo+","+boardNo+")");
+		
+		$(obj).next().next().hide();
+	}
+	//댓글 수정 취소
+	function cancelComment(obj,boardCommentNo,boardNo){
+		$(obj).parent().prev().prev().show();
+		$(obj).parent().prev().hide();
+		$(obj).prev().text("수정");
+		$(obj).prev().attr("onclick","updateComment(this,"+boardCommentNo+","+boardNo+")");
+		$(obj).text("삭제");
+		$(obj).attr("onclick","deleteComment(this,"+boardCommentNo+","+boardNo+")");
+		$(obj).next().show();
+	}
+	//댓글수정하기
+	function completeComment(obj,boardCommentNo,boardNo){
+		const form = $("<form style='display:none' action='/board/updateCommnet' method='post'>");
+		const commentNoInput = $("<input type = 'text' name='boardCommentNo'>");
+		commentNoInput.val(boardCommentNo);
+		const boardNoInput = $("<input type='text' name='boardNo'>");
+		boardNoInput.val(boardNo);
+		const textArea = $(obj).parent().prev().clone();
+		form.append(commentNoInput).append(boardNoInput).append(textArea);
+		$("body").append(form);
+		form.submit();
+	}
+	//댓글삭제
+	function deleteComment(obj,boardCommentNo,boardNo){
+		if(confirm("댓글을 삭제하시겠습니까?")){
+			location.href="/board/deleteComment?boardCommentNo="+boardCommentNo+"&boardNo="+boardNo;
+		}
+	}
+
+	 function imgAlert(){
+         Swal.fire({
+         title: '도토리',
+         text: '우리 강아지가 최고다.',
+         imageUrl: 'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fo4va0%2FbtrEu7z3loc%2Fu0rJPp7gRFnjdO92xD14l1%2Fimg.jpg',
+         imageWidth: 400,
+         imageHeight: 400,
+         imageAlt: 'Custom image',
+         })
+     }
+</script>
 </body>
 </html>

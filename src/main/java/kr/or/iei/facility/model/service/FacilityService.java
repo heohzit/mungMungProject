@@ -5,15 +5,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.iei.facility.model.dao.FacilityDao;
 import kr.or.iei.facility.model.vo.Facility;
+import kr.or.iei.facility.model.vo.FacilityFile;
 import kr.or.iei.facility.model.vo.FacilityListData;
 
 @Service
 public class FacilityService {
 	@Autowired
-	public FacilityDao facilityDao;
+	private FacilityDao facilityDao;
 
 	public FacilityListData selectTourList(int reqPage) {
 		// 1. 한 페이지당 게시물 수 설정
@@ -717,4 +719,21 @@ public class FacilityService {
 	}
 	
 
+	@Transactional
+	public int insertFacility(Facility f, ArrayList<FacilityFile> fileList) {
+		// Facility는 무조건 존재, fileList는 파일이 없는 경우는 null, 있으면 list객체 존재
+		int result = facilityDao.insertFacility(f);
+		
+		// 첨부파일이 있는 경우만 수행
+		if(fileList != null) {
+			// if문 위에서 insert된 facility_no를 조회
+			int facilityNo = facilityDao.getFacilityNo();
+			// fileList에 조회한 facility_no를 붙이고 dao로 보냄
+			for(FacilityFile file : fileList) {
+				file.setFacilityNo(facilityNo);
+				result += facilityDao.insertFacilityFile(file);
+			}
+		}
+		return result;
+	}
 }

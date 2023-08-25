@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>시설 등록하기</title>
+<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=d13jd8cwzp&submodules=geocoder"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
@@ -13,7 +14,7 @@
 		</div>
 		<div class="page-content-top"></div>
 		<div class="page-content-mid">
-			<form action="" method="post">
+			<form action="/facility/insertFacility" method="post" enctype="multipart/form-data">
 				<table class="insert-table">
 					<tr>
 						<th>
@@ -54,9 +55,9 @@
 						<td>
 							<select class="insert-select" name="facilityCase" id="facilityCase" required>
 								<option value>분야</option>
-								<option value="1">관광지</option>
+								<option value="3">관광지</option>
 								<option value="2">숙박</option>
-								<option value="3">식음료</option>
+								<option value="1">식음료</option>
 								<option value="4">체험</option>
 							</select>
 						</td>
@@ -83,10 +84,16 @@
 								<button type="button" class="btn2 bc1" onclick="searchAddr();">주소찾기</button>
 							</div>
 							<div>
-								<input type="text" name="facilityAddr" id="facilityAddr" class="input-form2" readonly required>
+								<input type="text" name="facilityAddr1" id="facilityAddr1" class="input-form2" readonly required>
 							</div>
 							<div>
-								<input type="text" name="facilityAddr" id="detailAddr" class="input-form2">
+								<input type="text" name="facilityAddr2" id="facilityAddr2" class="input-form2">
+							</div>
+							<div>
+								<input type="hidden" name="facilityAddr" id="facilityAddr" value="">
+								<input type="hidden" name="facilityLat" id="facilityLat" value="">
+								<input type="hidden" name="facilityLng" id="facilityLng" value="">
+								<input type="hidden" name="facilityWriter" th:value="${session.m.memberNo}">
 							</div>
 						</td>
 					</tr>
@@ -127,7 +134,7 @@
 							</div>
 						</th>
 						<td>
-							<textarea class="input-form4" name="facilityInfo" id="facilityInfo" required></textarea>
+							<textarea class="input-form4" name="facilityInfo" id="facilityInfo"></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -184,11 +191,29 @@
 			new daum.Postcode({
 				oncomplete: function(data){
 					$("#postcode").val(data.zonecode);
-					$("#facilityAddr").val(data.roadAddress);
-					$("#detailAddr").focus();
+					$("#facilityAddr1").val(data.roadAddress);
+					$("#facilityAddr2").focus();
+
+					const addr = $("#facilityAddr1").val();
+					naver.maps.Service.geocode({
+						address: addr
+					}, function(status, response){
+						const lat = response.result.items[0].point.y;
+						const lng = response.result.items[0].point.x;
+						$("#facilityLat").attr("value", lat);
+						$("#facilityLng").attr("value", lng);
+						console.log($("#facilityLat").val());
+						console.log($("#facilityLng").val());
+					});
 				}
 			}).open();
+			
 		}
+
+		$("#facilityAddr2").on("change", function(){
+			$("#facilityAddr").attr("value", $("#facilityAddr1").val() + " " + $("#facilityAddr2").val());
+			console.log($("#facilityAddr").val());
+		});
 	</script>
 </body>
 </html>

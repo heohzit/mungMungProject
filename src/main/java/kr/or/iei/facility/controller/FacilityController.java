@@ -1,22 +1,35 @@
 package kr.or.iei.facility.controller;
 
+
 import java.util.List;
+import java.io.File;
+import java.io.IOException;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
+import kr.or.iei.FileUtil;
 import kr.or.iei.facility.model.service.FacilityService;
 import kr.or.iei.facility.model.vo.Facility;
+import kr.or.iei.facility.model.vo.FacilityFile;
 import kr.or.iei.facility.model.vo.FacilityListData;
 
 @Controller
 @RequestMapping(value = "/facility")
 public class FacilityController {
 	@Autowired
-	public FacilityService facilityService;
+	private FacilityService facilityService;
+	@Autowired
+	private FileUtil fileUtil;
+	@Value("${file.root}")
+	private String root;
 	
 	@GetMapping(value = "/tourDetail")
 	public String tourDetail(int facilityNo, Model model) {
@@ -88,4 +101,50 @@ public class FacilityController {
 		return "facility/activityList";
 	}
 	
+
+	@PostMapping(value="/insertFacility")
+	public String insertFacility(Facility f, Model model, MultipartFile[] facilityFile) {
+		// 첨부파일을 저장할 ArrayList 선언
+		ArrayList<FacilityFile> fileList = null;
+		if(!facilityFile[0].isEmpty()) {
+			// 첨부파일이 존재하는 경우만 fileList 객체 생성
+			fileList = new ArrayList<FacilityFile>();
+			// 첨부파일을 저장할 폴더 주소 지정
+			String savepath = root + "facility/";
+			
+			for(MultipartFile file : facilityFile) {
+				// 작성자가 업로드한 파일명
+				String filename = file.getOriginalFilename();
+				// 파일주소 생성
+				String filepath = fileUtil.getFilepath(savepath, filename);
+				// 지정한 폴더에 파일 업로드
+				File uploadFile = new File(savepath + filepath);				
+				try {
+					file.transferTo(uploadFile);
+				} catch (IllegalStateException | IOException e) {
+					e.printStackTrace();
+				}
+				// fileList에 첨부파일 저장
+				FacilityFile ff = new FacilityFile();
+				ff.setFacilityFilepath(filepath);
+				fileList.add(ff);
+			}		
+		}
+		
+		// Facility와 fileList를 서비스로 보냄
+		int result = facilityService.insertFacility(f, fileList);
+		
+		if((fileList == null && result == 1) || (fileList != null && result == (fileList.size() + 1))) {
+			model.addAttribute("title", "시설 등록 완료");
+			model.addAttribute("msg", "시설 등록이 완료되었습니다.");
+			model.addAttribute("icon", "success");
+			model.addAttribute("loc", "/");
+		}else {
+			model.addAttribute("title", "시설 등록 실패");
+			model.addAttribute("msg", "시스템 관리자에게 문의하세요.");
+			model.addAttribute("icon", "error");
+			model.addAttribute("loc", "/facility/insertFrm");
+		}
+		return "common/msg";
+	}
 }

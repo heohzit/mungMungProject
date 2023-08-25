@@ -8,7 +8,10 @@
 <body>
 <th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
-        <div class="page-title">공지사항 상세보기</div>
+        <div class="page-title">
+        	<h1>공지사항</h1>
+        </div>
+        <div class="page-content-mid">
         <table>
             <tr>
             	<th>제목</th>
@@ -30,13 +33,13 @@
                 <th>내용</th>
                  <td>
 					<div class="noticeContent" th:utext="${n.noticeContent}"></div>
-
                   </td>
             </tr>
         </table>
+        </div>
         <div class="btn1">
-	        <a th:href="@{/notice/delete(noticeNo=${n.noticeNo})}">삭제하기</a>
-	        <a th:href="@{/notice/updateFrm(noticeNo=${n.noticeNo})}">수정하기</a>
+	        <a th:href="@{/notice/delete(noticeNo=${n.noticeNo})}" th:if="${session.m!=null && session.m.memberLevel==1}">삭제하기</a>
+	        <a th:href="@{/notice/updateFrm(noticeNo=${n.noticeNo})}" th:if="${session.m!=null && session.m.memberLevel==1}">수정하기</a>
 		</div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
