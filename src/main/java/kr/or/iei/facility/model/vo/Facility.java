@@ -1,5 +1,7 @@
 package kr.or.iei.facility.model.vo;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,5 +26,6 @@ public class Facility {
 	private String facilityPrice;
 	private String facilityNotice;
 	private String facilityFilepath;
+	private List facilityFilepathArr;
 
 }

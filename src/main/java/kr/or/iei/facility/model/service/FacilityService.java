@@ -1,5 +1,6 @@
 package kr.or.iei.facility.model.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,6 +123,9 @@ public class FacilityService {
 		
 		facility.setFacilityNotice(facility.getFacilityNotice().replaceAll("\\* ", "<br>\\* "));
 		facility.setFacilityNotice(facility.getFacilityNotice().replaceFirst("<br>\\* ", "<br><br>\\* "));
+		
+		List imgList = facilityDao.selectImageFile(facilityNo);
+		facility.setFacilityFilepathArr(imgList);
 		return facility;
 	}
 	public FacilityListData selectSearchTourList(int reqPage, String searchName) {
@@ -704,5 +708,13 @@ public class FacilityService {
 		
 		return fld;
 	}
+	public List selectImageFile(int facilityNo) {
+		// TODO Auto-generated method stub
+//		List list = facilityDao.selectImageFile(facilityNo);
+//		return list;
+		return null;
+		
+	}
+	
 
 }

@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import kr.or.iei.facility.model.vo.Facility;
+import kr.or.iei.facility.model.vo.FacilityImageRowMapper;
 import kr.or.iei.facility.model.vo.FacilityRowMapper;
 
 @Repository
@@ -16,6 +17,8 @@ public class FacilityDao {
 	public JdbcTemplate jdbc;
 	@Autowired
 	public FacilityRowMapper facilityRowMapper;
+	@Autowired
+	public FacilityImageRowMapper facilityImageRowMapper;
 
 	public List selectTourList(int startNum, int endNum) {
 		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 3) n) where rnum between ? and ?";
@@ -32,10 +35,10 @@ public class FacilityDao {
 	public Facility selectOneTour(int facilityNo) {
 		// TODO Auto-generated method stub
 		String query = "select * from facility where facility_no = ?";
-		List list = jdbc.query(query, facilityRowMapper, facilityNo);
-		
+		List list = jdbc.query(query, facilityRowMapper, facilityNo);	
 		return (Facility)list.get(0);
-
+	}
+	
 	public String selectFacilityFile(int facilityNo) {
 		String query = "select facility_filepath from facility_file where facility_file_no = (select min(facility_file_no) from facility_file where facility_no = ?)";
 		try {
@@ -128,5 +131,12 @@ public class FacilityDao {
 		String query = "select count(*) from facility where facility_case = 4 and facility_name like '%'||?||'%'";
 		int totalCount = jdbc.queryForObject(query, Integer.class, searchName);
 		return totalCount;
+	}
+
+	public List selectImageFile(int facilityNo) {
+		// TODO Auto-generated method stub
+		String query = "select * from facility_file where facility_no = ?";
+		List list = jdbc.query(query, facilityImageRowMapper ,facilityNo);
+		return list;
 	}
 }

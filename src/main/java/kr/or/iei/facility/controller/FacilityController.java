@@ -1,5 +1,7 @@
 package kr.or.iei.facility.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ public class FacilityController {
 	@GetMapping(value = "/tourDetail")
 	public String tourDetail(int facilityNo, Model model) {
 		Facility facility = facilityService.selectOneTour(facilityNo);
+		System.out.println(facility.getFacilityFilepathArr().size());
 		model.addAttribute("f",facility);
 		return "facility/tourDetail";
 	}
