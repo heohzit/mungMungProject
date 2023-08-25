@@ -54,7 +54,29 @@
     box-sizing: border-box;
 }
 
+.updatebtn{
+    background-color: #04909f;
+    color: white;
+    border-style: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
 
+}
+/* 버튼 부분 추가 */
+.memberbtn{
+    background-color: rgb(158, 210, 220);
+    color: white;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    margin:auto;
+    margin-top: 20px;
+    text-decoration: none;
+    padding: 15px 25px;
+}
 
 td {
     overflow: hidden;
