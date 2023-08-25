@@ -1,10 +1,9 @@
 package kr.or.iei.facility.controller;
 
 
-import java.util.List;
 import java.io.File;
 import java.io.IOException;
-
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
