@@ -1,6 +1,45 @@
+@font-face {
+    font-family: 'GangwonState';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: kotra-hope;
+    src: url(../font/KotraHope.otf);
+}
+@font-face {
+    font-family: ns-thin;
+    src: url(../font/NotoSansKR-Thin.otf);
+}
+@font-face {
+    font-family: ns-light;
+    src: url(../font/NotoSansKR-Light.otf);
+}
+@font-face {
+    font-family: ns-medium;
+    src: url(../font/NotoSansKR-Medium.otf);
+}
+@font-face {
+    font-family: ns-bold;
+    src: url(../font/NotoSansKR-Bold.otf);
+}
+@font-face {
+    font-family: ns-black;
+    src: url(../font/NotoSansKR-Black.otf);
+}
+@font-face {
+    font-family: ns-regular;
+    src: url(../font/NotoSansKR-Regular.otf);
+}
+
 *{
     margin: 0;
     padding: 0;
+    font-family: ns-regular;
+    color: #1C2B2D;
+    list-style-type: none;
+    text-decoration: none;
 }
 /*이미지 슬라이드 영역*/
 .Slidesbackground {
@@ -139,18 +178,115 @@
     position: relative;
 
 }
+/* ******************여러 페이지 미리보기 슬라이더 들어갈 영역*****/
+.lodging-logo{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0px 0px 0px;
+    overflow: hidden;
+}
+.lodging-icon{
+    width: 5%;
+    float: left;
+    text-align: center;
+}
+.lodging-icon>span{
+    font-size: 40px;
+    color: rgb(4, 144, 159);
+}
+.lodging-text{
+    width: 95%;
+    float: left;
+}
+.lodging-text>span{
+    font-size: 40px;
+    font-family: kotra-hope;
+    color: rgb(4, 144, 159);
+}
+  .slides>li{
+    list-style-type: none;
+    padding-top: 20px;
 
-.bottom-text1{
-    padding: 100px;
+  }
+  .slides>li>img{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+  
+  /* 보여줄 구간의 높이와 넓이 설정 */
+  #slideShow{
+    width: 1000px;
+    height: 300px;
+    position: relative;
+    margin: 0px auto;
+    overflow: hidden;
+    border-top:  1px solid lightgray;   
+    /*리스트 형식으로 이미지를 일렬로 
+    정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
+    hidden으로 숨겨줘야됨*/
+  }
+  
+  
+  .slides{
     position: absolute;
+    left: 0;
+    top: 0;
+    width: 3000px; /* 슬라이드할 사진과 마진 총 넓이 */
+    transition: left 0.5s ease-out; 
+    /*ease-out: 처음에는 느렸다가 점점 빨라짐*/
+  }
+  
+  /* 첫 번째 슬라이드 가운데에 정렬하기위해
+  첫번째 슬라이드만 margin-left조정 */
+  .slides li:first-child{
+    margin-left: 64px;
+  }
+  
+  /* 슬라이드들 옆으로 정렬 */
+  .slides li:not(:last-child){
+    float: left;
+    margin-right: 64px;
+  }
+  
+  .slides li{
+    float: left;
+  }
+  
+  .controller span{
+    position:absolute;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    padding: 10px 20px;
+    top: 50%;
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+  
+  /* 이전, 다음 화살표에 마우스 커서가 올라가 있을때 */
+  .controller span:hover{
+    background-color: rgba(128, 128, 128, 0.11);
+  }
+  
+  .prev{
+    left: 10px;
+  }
+  
+  /* 이전 화살표에 마우스 커서가 올라가 있을때 
+  이전 화살표가 살짝 왼쪽으로 이동하는 효과*/
+  .prev:hover{
+    transform: translateX(-10px);
+  }
+  
+  .next{
+    right: 10px;
+  }
+  
+  /* 다음 화살표에 마우스 커서가 올라가 있을때 
+  이전 화살표가 살짝 오른쪽으로 이동하는 효과*/
+  .next:hover{
+    transform: translateX(10px);
+  }
 
-}
-.text1{
-    color: aliceblue;
-    font-size: 50px;
-    padding-bottom: 50px;
-}
-.text2{
-    color:darkblue;
-    font-size: 80px;
-}
+
