@@ -518,7 +518,7 @@ float: left;
 .navi>ul>li{
     list-style: none;
     float: left;
-    width: calc(100%/5);
+    width: 342px;
 }
 .navi>ul>li>a{
     display: block;
