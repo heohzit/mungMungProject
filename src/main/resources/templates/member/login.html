@@ -21,9 +21,9 @@
                         <input type="password" name="signPw" id="signPw" class="input-form" placeholder="비밀번호를 입력해주세요.">
 					</div>
                     <div class="link-box">
-						<a href="javascript:" class="modal-open-btn" target="#login-modal">아이디 찾기</a>
+						<a href="javascript:" class="modal-open-btn" target="#id-modal">아이디 찾기</a>
                         <span class="etc">|</span>
-                        <a href="javascript:" class="modal-open-btn" target="#login-modal">비밀번호 찾기</a>
+                        <a href="javascript:" class="modal-open-btn" target="#pw-modal">비밀번호 찾기</a>
 					</div>
                     <div class="btn-box">
                         <button type="submit" class="login">로그인</button>
@@ -33,7 +33,7 @@
         </div>
     </div>
     
-    <div id="login-modal" class="modal-bg">
+    <div id="id-modal" class="modal-bg">
    		<div class="modal-wrap">
        		<div class="modal-head">
        			<h2>아이디 찾기</h2>
@@ -41,12 +41,12 @@
        		</div>
             <hr>
             <div class="input-wrap">
-                <label for="memberName">이름</label>
-                <input type="text" name="memberName" id="memberName">
+                <label for="id_memberName">이름</label>
+                <input type="text" name="memberName" id="id_memberName">
             </div>
             <div class="input-wrap">
-                <label for="memberEmail">이메일</label>
-                <input type="text" name="memberEmail" id="memberEmail">
+                <label for="id_memberEmail">이메일</label>
+                <input type="text" name="memberEmail" id="id_memberEmail">
             </div>
             <div class="modal-foot">
                 <button type="button" class="btn-box" id="searchIdBtn">조회</button>
@@ -54,7 +54,7 @@
         </div>
     </div>
     
-      <div id="login-modal" class="modal-bg">
+      <div id="pw-modal" class="modal-bg">
    		<div class="modal-wrap">
        		<div class="modal-head">
        			<h2>비밀번호 찾기</h2>
@@ -62,12 +62,12 @@
        		</div>
             <hr>
             <div class="input-wrap">
-                <label for="memberName">아이디</label>
-                <input type="text" name="memberId" id="memberId">
+                <label for="pw_memberId">아이디</label>
+                <input type="text" name="memberId" id="pw_memberId">
             </div>
             <div class="input-wrap">
-                <label for="memberEmail">이메일</label>
-                <input type="text" name="memberEmail" id="memberEmail">
+                <label for="pw_memberEmail">이메일</label>
+                <input type="text" name="memberEmail" id="pw_memberEmail">
             </div>
             <div class="modal-foot">
                 <button type="button" class="btn-box" id="searchPwBtn">조회</button>

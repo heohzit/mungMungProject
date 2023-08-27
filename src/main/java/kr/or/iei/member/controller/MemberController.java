@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import kr.or.iei.EmailSender;
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
@@ -22,6 +23,9 @@ import kr.or.iei.member.model.vo.MemberListData;
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private EmailSender emailSender;
+	
 	
 	@PostMapping(value="/signin")
 	public String signIn(String signId, String signPw, Model model, HttpSession session) {
@@ -143,9 +147,10 @@ public class MemberController {
 	public String ajaxSearchPw(String memberId, String memberEmail) {
 		Member m = memberService.selectMemberByIdAndEmail(memberId, memberEmail);
 		if(m != null) {
-			return m.getMemberPw();
+			emailSender.pwMail(m.getMemberPw(), memberEmail);
+			return "1";
 		}else {
-			return null;
+			return "0";
 		}
 	}
 }

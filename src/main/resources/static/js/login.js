@@ -1,6 +1,6 @@
 $("#searchIdBtn").on("click",function(){
-    const memberName = $("#memberName").val();
-    const memberEmail = $("#memberEmail").val();
+    const memberName = $("#id_memberName").val();
+    const memberEmail = $("#id_memberEmail").val();
     $.ajax({
         url : "/member/searchId",
         data : {memberName : memberName, memberEmail : memberEmail},
@@ -19,17 +19,17 @@ $("#searchIdBtn").on("click",function(){
 });
 
 $("#searchPwBtn").on("click",function(){
-    const memberId = $("#memberId").val();
-    const memberEmail = $("#memberEmail").val();
+    const memberId = $("#pw_memberId").val();
+    const memberEmail = $("#pw_memberEmail").val();
     $.ajax({
         url : "/member/searchPw",
         data : {memberId : memberId, memberEmail : memberEmail},
         type : "get",
         success : function(data){
             console.log(data);
-            if(data){
+            if(data == "1"){
          		// 해당 메일로 비밀번호 전송
-         		alert("회원님의 이메일로 " + data + "가 전송되었습니다.");
+         		alert("회원님의 이메일로 비밀번호가 전송되었습니다.");
          	}else{
          		// 해당 정보와 일치하는 비밀번호가 없습니다.
          		alert("해당 정보와 일치하는 비밀번호가 없습니다.");
