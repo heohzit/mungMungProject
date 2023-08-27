@@ -1,5 +1,10 @@
+// 시작시 결제버튼 숨김
+$(function(){
+    $("#payBtn").hide();
+});
+
 // 일정 예약
-$("[name=daterange]").daterangepicker({
+$("input[name=daterange]").daterangepicker({
     "autoApply": true,
     "maxSpan": {
         "days": $("input[name=productDay]").val()
@@ -23,19 +28,20 @@ $("[name=daterange]").daterangepicker({
     "opens": "left",
     "drops": "down",
     "buttonClasses": "btn bc1"            
-}, function(start, end, label) {
-    console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+}, function(start, end) {
     const dateDiff = (end - start) / (1000*60*60*24);
     if(dateDiff < $("input[name=productDay]").val()){
-        console.log(false);
+        alert("일정을 다시 선택해주세요.");
+        $("#payBtn").hide();
     }else{
-        console.log(true);
+        $("#payBtn").show();
     }
 });
 
 // 결제api
 $("#payBtn").on("click", function(){
     const price = $("#price").val();
+    const payMemberNo = $("#payMemberNo").val();
     const d = new Date();
     const date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours() + "" + d.getMinutes() + "" + d.getSeconds();
     IMP.init("imp15740857");
@@ -45,9 +51,9 @@ $("#payBtn").on("click", function(){
         merchant_uid: "상품번호_" + date,	// 상점에서 관리하는 주문번호
         name: "결제 테스트",
         amount: price,	// 결제금액
-        buyer_email: "user01@naver.com",
-        buyer_name: "유저1",
-        buyer_tel: "010-1111-1111"
+        buyer_email: "user04@kakao.com",
+        buyer_name: "유저4",
+        buyer_tel: "010-4444-4444"
     }, function(rsp){
         if(rsp.success){
             alert("결제 성공");

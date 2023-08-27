@@ -51,7 +51,11 @@
                     <h1><span th:text="${p.productPrice}"><!--productPrice--></span>원</h1>
                 </div>
                 <div class="reservation"><!--예약하기 버튼 -->
-                    <a href="#"><button type="button" >예약하러가기</button></a>
+                    <th:block th:if="${session.m != null}">
+                        <a th:href="@{/product/pay(productNo=${p.productNo})}">
+                            <button type="button">예약하러가기</button>
+                        </a>
+                    </th:block>
                 </div>
             </div>
         </div>
