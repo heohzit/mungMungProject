@@ -113,4 +113,8 @@ public class MemberService {
 		Member m = memberDao.selectMemberByNameAndEmail(memberName, memberEmail);
 		return m;
 	}
+	public Member selectMemberByIdAndEmail(String memberId, String memberEmail) {
+		Member m = memberDao.selectMemberByIdAndEmail(memberId, memberEmail);
+		return m;
+	}
 }

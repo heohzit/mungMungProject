@@ -138,4 +138,14 @@ public class MemberController {
 			return null;
 		}
 	}
+	@ResponseBody
+	@GetMapping(value="/searchPw")
+	public String ajaxSearchPw(String memberId, String memberEmail) {
+		Member m = memberService.selectMemberByIdAndEmail(memberId, memberEmail);
+		if(m != null) {
+			return m.getMemberPw();
+		}else {
+			return null;
+		}
+	}
 }
