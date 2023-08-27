@@ -21,9 +21,9 @@
                         <input type="password" name="signPw" id="signPw" class="input-form" placeholder="비밀번호를 입력해주세요.">
 					</div>
                     <div class="link-box">
-						<a href="javascript:" class="modal-open-btn" target="#id-modal">아이디 찾기</a>
+						<a href="javascript:" class="modal-open-btn" target="#login-modal">아이디 찾기</a>
                         <span class="etc">|</span>
-                        <a href="javascript:" class="modal-open-btn" target="#pw-modal">비밀번호 찾기</a>
+                        <a href="javascript:" class="modal-open-btn" target="#login-modal">비밀번호 찾기</a>
 					</div>
                     <div class="btn-box">
                         <button type="submit" class="login">로그인</button>
@@ -33,7 +33,7 @@
         </div>
     </div>
     
-    <div id="id-modal" class="modal-bg">
+    <div id="login-modal" class="modal-bg">
    		<div class="modal-wrap">
        		<div class="modal-head">
        			<h2>아이디 찾기</h2>
@@ -54,7 +54,7 @@
         </div>
     </div>
     
-      <div id="pw-modal" class="modal-bg">
+      <div id="login-modal" class="modal-bg">
    		<div class="modal-wrap">
        		<div class="modal-head">
        			<h2>비밀번호 찾기</h2>
@@ -74,9 +74,7 @@
             </div>
         </div>
     </div>
-    
-    
-	<th:block th:include="common/mung_footer"></th:block>
+    <th:block th:include="common/mung_footer"></th:block>
 	
     <script src="/js/default.js"></script>
     <script src="/js/login.js"></script>
