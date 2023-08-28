@@ -3,26 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 수정</title>
+<link rel="stylesheet" href="../css/noticeList.css">
+
 <script src="/js/jquery-3.6.0.js"></script>
-<link rel="stylesheet" href="../css/default.css">
 </head>
 <body>
-	<th:block th:include="common/mung_header"></th:block>
-	<script src="/summernote/summernote-lite.js"></script>
-	<script src="/summernote/lang/summernote-ko-KR.js"></script>
-	<link rel="stylesheet" href="/summernote/summernote-lite.css">
-	
+<th:block th:include="common/mung_header"></th:block>
+<script src="/summernote/summernote-lite.js"></script>
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
+<link rel="stylesheet" href="/summernote/summernote-lite.css">
+
     <div class="page-content">
         <div class="page-title">
 			<h1>공지사항 수정</h1>
 		</div>
 		<div class="page-content-mid">
         <form action="/notice/update" method="post" enctype="multipart/form-data">
-            <table>
+            <table class="insert-table">
                 <tr>
                     <th>제목</th>
                     <td>
-                        <input type="text" name="noticeTitle" th:value="${n.noticeTitle}">
+                        <input type="text" name="noticeTitle" th:value="${n.noticeTitle}" class="input-form">
                     </td>
                 </tr>
                 <tr>
@@ -33,24 +34,22 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <input style="display: none;" type="file" name="upfile" multiple>
                         <textarea id="noticeContent" name="noticeContent" th:utext="${n.noticeContent}"></textarea>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <button type="submit">수정완료</button>
-                    </td>
-                </tr>
             </table>
+            <div class="btn1" style="padding: 20px">
+            	<button type="submit" class="btn bc1">수정완료</button>
+            </div>
         </form>
         </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
-     <script>
+    <script>
     $("#noticeContent").summernote({
-		height : 400,
+		height : 800,
 		lang :"ko-KR",
 		callbacks :{
 			onImageUpload : function(files){

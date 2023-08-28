@@ -3,59 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <title>커뮤니티 수정</title>
+<link rel="stylesheet" href="../css/noticeList.css">
+
+
 <script src="/js/jquery-3.6.0.js"></script>
-<link rel="stylesheet" href="../css/default.css">
 </head>
 <body>
-	<th:block th:include="common/mung_header"></th:block>
-	<script src="/summernote/summernote-lite.js"></script>
-	<script src="/summernote/lang/summernote-ko-KR.js"></script>
-	<link rel="stylesheet" href="/summernote/summernote-lite.css">
+<th:block th:include="common/mung_header"></th:block>
+<script src="/summernote/summernote-lite.js"></script>
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
+<link rel="stylesheet" href="/summernote/summernote-lite.css">
 	
     <div class="page-content">
        	<div class="page-title">
 			<h1>커뮤니티 수정</h1>
 		</div>
+		<div class="page-content-mid">
         <form action="/board/update" method="post" enctype="multipart/form-data">
-            <table>
+            <table class="insert-table">
                 <tr>
                     <th>제목</th>
-                    <td>
-                        <input type="text" name="boardTitle" th:value="${b.boardTitle}">
+                    <td colspan="3">
+                        <input type="text" name="boardTitle" th:value="${b.boardTitle}" class="input-form">
                     </td>
                 </tr>
                 <tr>
                     <th>작성자</th>
                     <td>
                         <span th:text="${b.memberId}"></span>
-                        <input type="hidden" name="memberId" th:value="${b.memberId}">
+                        <input type="hidden" name="boardNo" th:value="${b.boardNo}">
                     </td>
-                </tr>
-                <tr>
                     <th>대표사진</th>
                     <td>       	
 						<div class="filebox">
-						    <input class="upload-name" th:value="${b.boardFilepath}">
+						    <input class="upload-name" id="boardFile" th:value="${b.boardFilepath}">
 						    <label for="file">사진 변경</label> 
-						    <input type="file" id="file">
+						    <input type="file" id="file" name="addFile">
 						</div>
                     </td>
                 </tr>
                 <tr>
-                    <td>                   
+                    <td colspan="4">                   
                         <textarea id="boardContent" name="boardContent" th:utext="${b.boardContent}"></textarea>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <button type="submit">수정완료</button>
-                    </td>
-                </tr>
             </table>
+            <div class="btn1" style="padding: 20px">
+            	<button type="submit" class="btn bc1">수정완료</button>
+            </div>
         </form>
+        </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
-     <style>
+ <style>
 .filebox input[type="file"] {
     position: absolute;
     width: 0;
@@ -72,17 +72,22 @@
     height: 25px;
 }
 .filebox .upload-name {
+    padding: 0.8rem;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
     display: inline-block;
     height: 20px;
     vertical-align: middle;
-    width: 185px;
+    width: 80%;
     color: #999;
 }
 
 </style>
      <script>
     $("#boardContent").summernote({
-		height : 400,
+		height : 500,
 		lang :"ko-KR",
 		callbacks :{
 			onImageUpload : function(files){

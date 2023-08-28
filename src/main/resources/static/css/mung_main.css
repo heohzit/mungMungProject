@@ -128,7 +128,7 @@
 	height: 40px;
     background-color: white;
 }
-.notice-content>p{
+.notice-content>a{
     padding: 7px;
     font-size: 20px;
 }
@@ -203,31 +203,31 @@
     font-family: kotra-hope;
     color: rgb(4, 144, 159);
 }
-  .slides>li{
+  .slides1>li{
     list-style-type: none;
     padding-top: 20px;
 
   }
-  .slides>li>img{
+  .slides1>li>img{
     border: 1px solid lightgray;
     border-radius: 5px;
   }
   
   /* 보여줄 구간의 높이와 넓이 설정 */
-  #slideShow{
+  #slideShow1{
     width: 1000px;
     height: 400px;
     position: relative;
     margin: 0px auto;
     overflow: hidden;
-    border-top:  1px solid lightgray;   
+    border-top:  1px solid rgb(158, 210, 220);   
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
   }
   
   
-  .slides{
+  .slides1{
     position: absolute;
     left: 0;
     top: 0;
@@ -238,21 +238,21 @@
   
   /* 첫 번째 슬라이드 가운데에 정렬하기위해
   첫번째 슬라이드만 margin-left조정 */
-  .slides li:first-child{
+  .slides1 li:first-child{
     margin-left: 64px;
   }
   
   /* 슬라이드들 옆으로 정렬 */
-  .slides li:not(:last-child){
+  .slides1 li:not(:last-child){
     float: left;
     margin-right: 64px;
   }
   
-  .slides li{
+  .slides1 li{
     float: left;
   }
   
-  .controller span{
+  .controller1 span{
     position:absolute;
     background-color: transparent;
     color: black;
@@ -265,38 +265,40 @@
   }
   
   /* 이전, 다음 화살표에 마우스 커서가 올라가 있을때 */
-  .controller span:hover{
+  .controller1 span:hover{
     background-color: rgba(128, 128, 128, 0.11);
   }
   
-  .prev{
+  .prev1{
     left: 10px;
   }
   
   /* 이전 화살표에 마우스 커서가 올라가 있을때 
   이전 화살표가 살짝 왼쪽으로 이동하는 효과*/
-  .prev:hover{
+  .prev1:hover{
     transform: translateX(-10px);
   }
   
-  .next{
+  .next1{
     right: 10px;
   }
   
   /* 다음 화살표에 마우스 커서가 올라가 있을때 
   이전 화살표가 살짝 오른쪽으로 이동하는 효과*/
-  .next:hover{
+  .next1:hover{
     transform: translateX(10px);
   }
   /************8*** 관광지와 식음료 감싸는 **************************/
 .mid-content{
     width: 1200px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
   /********************** 관광지 영역********************************/
 .travel{
     width: 50%;
+    float: left;
 }
 .travel-logo{
     padding: 20px 0px 0px 0px;
@@ -326,7 +328,7 @@
 
   }
   .slides2>li>a>img{
-    border: 1px solid lightgray;
+    border: 1px solid lightgray);
     border-radius: 10px;
   }
   
@@ -336,7 +338,7 @@
     height: 400px;
     position: relative;
     overflow: hidden;
-    border-top:  1px solid lightgray;   
+    border-top:  1px solid rgb(158, 210, 220);   
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
@@ -405,5 +407,89 @@
     transform: translateX(10px);
   }
   
+  /* ++++++++++++++++++++++++++++패키지 영역++++++++++++++++++++++++++++++ */
+.pakage{
+    width: 50%;
+    float: left;
+}
+.pakage-logo{
+    border-bottom: 1px solid rgb(158, 210, 220);
+    padding: 20px 0px 0px 0px;
+    overflow: hidden;
+}
+.pakage-icon{
+    width: 15%;
+    float: left;
+    text-align: center;
+}
+.pakage-icon>span{
+    font-size: 40px;
+    color: rgb(4, 144, 159);
+}
+.pakage-text{
+    width: 85%;
+    float: left;
+}
+.pakage-text>span{
+    font-size: 40px;
+    font-family: kotra-hope;
+    color: rgb(4, 144, 159);
+}
+.pakage-content{
+    padding: 10px;
+    margin: 0 auto;
+}
+.pakage-img>a>img{
+width: 600px;
+height: 340px;
+}
 
+/* *******************미리보기 밑 부분 멍멍이 자랑이나 멍멍이 식음료부분*********************** */
+
+.wrap-bottom{
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: white;
+}
+.mung{
+    width: 61%;
+}
+.mung-logo{
+    overflow: hidden;
+    border-bottom: 1px solid rgb(158, 210, 220);
+
+}
+.mung-icon{
+    width: 15%;
+    float: left;
+    text-align: center;
+}
+.mung-icon>span{
+    font-size: 40px;
+    color: rgb(4, 144, 159);
+
+}
+.mung-text{
+    width: 85%;
+    float: left;
+}
+.mung-text>span{
+    font-size: 40px;
+    font-family: kotra-hope;
+    color: rgb(4, 144, 159);
+}
+.mung-content{
+    overflow: hidden;
+}
+.mung-content>ul>li{
+    float: left;
+    padding: 20px 10px 20px 20px;
+}
+.mung-content>ul>li>a>img{
+    width: 150px;
+    height: 150px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
 

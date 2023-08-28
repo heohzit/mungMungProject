@@ -48,4 +48,5 @@ public class ProductDao {
 		int result = jdbc.update(query,params);
 		return result;
 	}
+
 }

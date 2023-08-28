@@ -92,6 +92,8 @@
     
 }
 .img-box>img{
+	width: 250px;
+	height: 250px;
     border: 1px solid lightgray;
     border-radius: 10px;
 }

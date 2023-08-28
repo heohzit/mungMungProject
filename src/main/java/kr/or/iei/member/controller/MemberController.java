@@ -79,13 +79,25 @@ public class MemberController {
 	@ResponseBody
 	@GetMapping(value="/ajaxCheckId")
 	public String ajaxCheckId(String memberId) {
-		Member m = memberService.selectOneMember(memberId);
+		Member m = memberService.selectOneMemberId(memberId);
 		if(m == null) {
 			return "0";
 		}else {
 			return "1";
 		}
 	}
+	
+	@ResponseBody
+	@GetMapping(value="/ajaxCheckPw")
+	public String ajaxCheckPw(String memberPw) {
+		Member m = memberService.selectOneMemberPw(memberPw);
+		if(m == null) {
+			return "0";
+		}else {
+			return "1";
+		}
+	}
+	
 	@GetMapping(value="/mypage")
 	public String mypage() {
 		return "member/mypage";

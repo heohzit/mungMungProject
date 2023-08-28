@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>커뮤니티 작성</title>
+<link rel="stylesheet" href="../css/noticeList.css">
+
 
 </head>
 <body>
@@ -10,6 +12,7 @@
 <script src="/summernote/summernote-lite.js"></script>
 <script src="/summernote/lang/summernote-ko-KR.js"></script>
 <link rel="stylesheet" href="/summernote/summernote-lite.css">
+
     <div class="page-content">
         <div class="page-title">
 			<h1>커뮤니티 작성</h1>
@@ -19,41 +22,37 @@
             <table class="insert-table">
                 <tr>
                     <th>제목</th>
-                    <td>
-                        <input type="text" name="boardTitle" id="boardTitle">
+                    <td colspan="3">
+                        <input type="text" name="boardTitle" id="boardTitle" class="input-form">
                     </td>
                 </tr>
                 <tr>
                     <th>작성자</th>
                     <td>	
-                    	<input type="text" name="boardWriterview" th:value="${session.m.memberId}" disabled>
+                    	<input type="text" name="boardWriterview" th:value="${session.m.memberId}" class="input-form" disabled>
                     	<input type="hidden" name="boardWriter" th:value="${session.m.memberNo}">
                     </td>
-                </tr>
-                <tr>
                     <th>대표사진</th>
                     <td>
                     <input type="file" name="imageFile" accept=".jpg,.png,.jpeg" id="boardFile">
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="4">
                         <textarea id="boardContent" name="boardContent"></textarea>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <button type="submit" id="writeBtn">작성완료</button>
-                    </td>
-                </tr>
             </table>
+  			<div class="btn1" style="padding: 20px">
+            	<button type="submit" class="btn bc1">작성완료</button>
+            </div>
         </form>
         </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
     <script>
     $("#boardContent").summernote({
-		height : 400,
+		height : 500,
 		lang :"ko-KR",
 		callbacks :{
 			onImageUpload : function(files){

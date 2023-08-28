@@ -327,7 +327,7 @@ textarea.input-form {
 }
 .insert-table th{
     width: 210px;
-    background-color: #eee;
+    background-color: #04909f;
 }
 .label-wrap{
     text-align: center;
@@ -528,3 +528,7 @@ textarea.input-form {
 .close-icon:hover {
   cursor: pointer;
 }
+
+
+
+
