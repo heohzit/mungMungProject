@@ -8,8 +8,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import kr.or.iei.facility.model.vo.Facility;
-import kr.or.iei.facility.model.vo.FacilityImageRowMapper;
+import kr.or.iei.facility.model.vo.FacilityFavorite;
+import kr.or.iei.facility.model.vo.FacilityFavoriteRowMapper;
 import kr.or.iei.facility.model.vo.FacilityFile;
+import kr.or.iei.facility.model.vo.FacilityImageRowMapper;
 import kr.or.iei.facility.model.vo.FacilityRowMapper;
 
 @Repository
@@ -20,7 +22,8 @@ public class FacilityDao {
 	public FacilityImageRowMapper facilityImageRowMapper;
 	@Autowired
 	private FacilityRowMapper facilityRowMapper;
-
+	@Autowired
+	private FacilityFavoriteRowMapper facilityFavoriteRowMapper;
 
 	public List selectTourList(int startNum, int endNum) {
 		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 3) n) where rnum between ? and ?";
@@ -160,6 +163,28 @@ public class FacilityDao {
 		Object[] params = {file.getFacilityNo(), file.getFacilityFilepath()};
 		int result = jdbc.update(query, params);
 		return result;
+	}
 
+	public int addFavorite(int memberNo, int facilityNo) {
+		// TODO Auto-generated method stub
+		String query = "insert into favorite values(?,?)";
+		int result = jdbc.update(query, memberNo, facilityNo);
+		return result;
+	}
+
+	public int selectFavorite(int facilityNo, int memberNo) {
+		// TODO Auto-generated method stub
+		String query = "select count(*) from favorite where favorite_facility_no = ? and favorite_member_no = ?";
+		Object[] params = {facilityNo, memberNo};
+		int favorite = jdbc.queryForObject(query, Integer.class,params);
+		return favorite;
+	}
+
+	public int removeFavorite(int memberNo, int facilityNo) {
+		// TODO Auto-generated method stub
+		String query ="delete favorite where favorite_facility_no = ? and favorite_member_no = ?";
+		Object[] params = {facilityNo, memberNo};
+		int result = jdbc.update(query, params);
+		return result;
 	}
 }
