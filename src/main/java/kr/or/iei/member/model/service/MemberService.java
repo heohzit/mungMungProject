@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import kr.or.iei.member.model.dao.MemberDao;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
+import kr.or.iei.member.model.vo.MemberProductPay;
+import kr.or.iei.product.model.vo.Product;
 
 @Service
 public class MemberService {
@@ -121,9 +123,9 @@ public class MemberService {
 		Member m = memberDao.selectMemberByIdAndEmail(memberId, memberEmail);
 		return m;
 	}
-	public Member selectOneMember(int memberNo) {
-		Member m = memberDao.selectOneMember(memberNo);
-		return m;
+	public List selectOneMpp(int memberNo) {
+		List list = memberDao.selectOneMpp(memberNo);
+		return list;
 	}
 	
 }

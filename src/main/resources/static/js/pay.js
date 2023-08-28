@@ -3,7 +3,7 @@ $(function(){
     $("#payBtn").hide();
 });
 
-// 일정 예약 api
+// 일정 예약 + 결제
 $("input[name=daterange]").daterangepicker({
     "autoApply": true,
     "maxSpan": {
@@ -37,64 +37,59 @@ $("input[name=daterange]").daterangepicker({
         $("#payBtn").hide();
     }else{
         $("#payBtn").show();
-        $.ajax({
-            url: "/pay/insertPay",
-            type: "get",
-            data: {
-                payStart: payStart,
-                payEnd: payEnd
-            }
-        });
-    }
-});
 
-
-// 결제api
-$("#payBtn").on("click", function(){
-    const payPrice = $("#payPrice").val();
-    const payProductNo = $("#payProductNo").val();
-    const payProductName = $(".pay-name-box>h3").text();
-    const payMemberNo = $("#payMemberNo").val();
-    const payMemberName = $("#payMemberName").val();
-    const payMemberEmail = $("#payMemberEmail").val();
-    const payMemberPhone = $("#payMemberPhone").val();
-    const d = new Date();
-    const payDate = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours() + "" + d.getMinutes() + "" + d.getSeconds();
-    console.log(payDate);
-    const payBuyNo = payProductNo + "_" + payDate;
-    IMP.init("imp15740857");
-    IMP.request_pay({
-        pg: "html5_inicis",
-        pay_method: "card",
-        merchant_uid: payProductNo + "_" + payDate,	// 상점에서 관리하는 주문번호
-        name: payProductName + "_" + payMemberName + "_" + payDate,
-        amount: payPrice,	// 결제금액
-        buyer_email: payMemberEmail,
-        buyer_name: payMemberName,
-        buyer_tel: payMemberPhone
-    }, function(rsp){
-        if(rsp.success){
-            $.ajax({
-                url: "/pay/insertPay",
-                type: "get",
-                data: {
-                    payProductNo: payProductNo,
-                    payMemberNo: payMemberNo,
-                    payPrice: payPrice,
-                    payDate: payDate,
-                    payBuyNo: payBuyNo,
-                    productNo: payProductNo
-                },
-                success: function(data){
-                    if(data > 1){
-                        location.href="/pay/paySuccess";
-                    }else{
-                        location.href="/pay/payError";
-                    }
+        // 결제api
+        $("#payBtn").on("click", function(){
+            const payPrice = $("#payPrice").val();
+            const payProductNo = $("#payProductNo").val();
+            const payProductName = $(".pay-name-box>h3").text();
+            const payMemberNo = $("#payMemberNo").val();
+            const payMemberName = $("#payMemberName").val();
+            const payMemberEmail = $("#payMemberEmail").val();
+            const payMemberPhone = $("#payMemberPhone").val();
+            const date1 = new Date();
+            const date2 = new Date();
+            const payDate = date1.getFullYear() + "_" + (date1.getMonth() + 1) + "_" + date1.getDate() + "_" + date1.getHours() + ":" + date1.getMinutes() + ":" + date1.getSeconds();
+            const payBuyDate = date2.getFullYear() + "" + (date2.getMonth() + 1) + "" + date2.getDate();
+            const payBuyNo = payProductNo + "_" + payMemberNo + "_" + payBuyDate;
+            console.log(payBuyNo);
+            IMP.init("imp15740857");
+            IMP.request_pay({
+                pg: "html5_inicis",
+                pay_method: "card",
+                merchant_uid: payProductNo + "_" + payDate,	// 상점에서 관리하는 주문번호
+                name: payProductName + "_" + payMemberName + "_" + payDate,
+                amount: payPrice,	// 결제금액
+                buyer_email: payMemberEmail,
+                buyer_name: payMemberName,
+                buyer_tel: payMemberPhone
+            }, function(rsp){
+                if(rsp.success){
+                    $.ajax({
+                        url: "/pay/insertPay",
+                        type: "get",
+                        data: {
+                            payProductNo: payProductNo,
+                            payMemberNo: payMemberNo,
+                            payPrice: payPrice,
+                            payDate: payDate,
+                            payBuyNo: payBuyNo,
+                            productNo: payProductNo,
+                            payStart: payStart,
+                            payEnd: payEnd
+                        },
+                        success: function(data){
+                            if(data > 1){
+                                location.href="/pay/paySuccess";
+                            }else{
+                                location.href="/pay/payError";
+                            }
+                        }
+                    });
+                }else{
+                    location.href="/pay/payError";
                 }
             });
-        }else{
-            location.href="/pay/payError";
-        }
-    });
+        });
+    }
 });

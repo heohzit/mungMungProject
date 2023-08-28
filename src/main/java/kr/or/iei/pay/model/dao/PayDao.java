@@ -34,4 +34,16 @@ public class PayDao {
 		Product product = jdbc.queryForObject(query, productRowMapper, productNo);
 		return product;
 	}
+
+	public int cancelPay(int payNo) {
+		String query = "update pay set pay_status = 2 where pay_no = ?";
+		Object[] params = {payNo};
+		int result = jdbc.update(query, params);
+		return result;
+	}
+
+	public Pay checkPayStatus(int payNo) {
+		String query = "";
+		return null;
+	}
 }
