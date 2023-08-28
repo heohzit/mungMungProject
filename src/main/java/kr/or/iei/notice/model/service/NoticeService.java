@@ -182,6 +182,11 @@ public class NoticeService {
 		}
 	}
 
+	public List selectNoticeList() {
+		List noticeList = noticeDao.selectNoticeList();
+		return noticeList;
+	}
+
 
 
 

@@ -36,7 +36,7 @@ public class MemberDao {
 		}
 	}
 
-	public Member selectOneMember(String memberId) {
+	public Member selectOneMemberId(String memberId) {
 		String query = "select * from member where member_id=?";
 		List list = jdbc.query(query, memberRowMapper,memberId);
 		if(list.isEmpty()) {
@@ -44,7 +44,16 @@ public class MemberDao {
 		}
 		return (Member)list.get(0);
 	}
-
+	
+	public Member selectOneMemberPw(String memberPw) {
+		String query = "select * from member where member_pw=?";
+		List list = jdbc.query(query, memberRowMapper,memberPw);
+		if(list.isEmpty()) {
+			return null;
+		}
+		return (Member)list.get(0);
+	}
+	
 	public int updateMember(Member member) {
 		//query,Object = 바꿀 내용 순서대로 작성
 		String query = "update member set member_pw=?, member_phone=?, member_name=? where member_id=?";

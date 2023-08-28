@@ -128,7 +128,7 @@
 	height: 40px;
     background-color: white;
 }
-.notice-content>p{
+.notice-content>a{
     padding: 7px;
     font-size: 20px;
 }

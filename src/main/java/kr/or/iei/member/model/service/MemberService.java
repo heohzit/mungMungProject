@@ -25,8 +25,12 @@ public class MemberService {
 		return result;
 
 	}
-	public Member selectOneMember(String memberId) {
-		Member m = memberDao.selectOneMember(memberId);
+	public Member selectOneMemberId(String memberId) {
+		Member m = memberDao.selectOneMemberId(memberId);
+		return m;
+	}
+	public Member selectOneMemberPw(String memberPw) {
+		Member m = memberDao.selectOneMemberPw(memberPw);
 		return m;
 	}
 	@Transactional
@@ -117,4 +121,5 @@ public class MemberService {
 		Member m = memberDao.selectMemberByIdAndEmail(memberId, memberEmail);
 		return m;
 	}
+	
 }
