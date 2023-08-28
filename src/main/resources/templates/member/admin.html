@@ -9,14 +9,9 @@
     <th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
         <div class="page-title">
-            <h1>관리자페이지</h1>
+            <h1>전체회원정보</h1>
         </div>
-        <div class="page-content-top">
-            <ul class="admin-page-select">
-                <li>전체회원정보</li>
-                <li>결제취소요청 관리</li>
-            </ul>
-        </div>
+        <div class="page-content-top"></div>
         <div class="page-content-mid">
             <div class="admin-page-content">
                 <table class="admin-tbl">
@@ -44,77 +39,12 @@
                         <td th:text="${m.enrollDate}"></td>
                     </tr>
                 </table>
-                <div class="page-content-bottom">
-                    <div id="pageNavi" th:utext="${pageNavi}"></div>
-                </div>
-            </div>
-            <div class="admin-page-content">
-                <table class="admin-tbl">
-                    <tr>
-                        <th style="width: 6%;">선택</th>
-                        <th style="width: 8%;">예약번호</th>
-                        <th style="width: 10%;">아이디</th>
-                        <th style="width: 9%;">이름</th>
-                        <th style="width: 18%;">패키지상품명</th>
-                        <th style="width: 12%;">전화번호</th>
-                        <th style="width: 17%;">이메일</th>
-                        <th style="width: 10%;">결제일</th>
-                        <th style="width: 10%;">취소확정</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>1</td>
-                        <td>user01</td>
-                        <td>유저1</td>
-                        <td>패키지상품1</td>
-                        <td>010-1111-1111</td>
-                        <td>user01@naver.com</td>
-                        <td>2023-08-22</td>
-                        <td>
-                            <button class="btn bc1">확정</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>2</td>
-                        <td>user01</td>
-                        <td>유저1</td>
-                        <td>패키지상품2</td>
-                        <td>010-1111-1111</td>
-                        <td>user01@naver.com</td>
-                        <td>2023-08-23</td>
-                        <td>
-                            <button class="btn bc1">확정</button>
-                        </td>
-                    </tr>
-                    <tr class="admin-tbl-tr-btn">
-                        <td colspan="9">
-                            <button class="btn bc1">선택회원취소확정</button>
-                        </td>
-                    </tr>
-                </table>                
             </div>
         </div>
-        <div class="page-content-bottom"></div>
+        <div class="page-content-bottom">
+            <div id="pageNavi" th:utext="${pageNavi}"></div>
+        </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
-    <script>
-        const tabs = $(".admin-page-select>li");
-        tabs.on("click", function () {
-            tabs.removeClass("admin-page-active-tab");
-            $(this).addClass("admin-page-active-tab");
-            const tabcontent = $(".admin-page-content");
-            tabcontent.hide();
-            const index = tabs.index(this);
-            tabcontent.eq(index).show();
-        });
-        $(function () {
-            tabs.eq(0).click();
-        });
-    </script>
 </body>
 </html>

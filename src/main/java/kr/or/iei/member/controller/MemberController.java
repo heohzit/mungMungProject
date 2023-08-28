@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import kr.or.iei.EmailSender;
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
@@ -22,6 +23,9 @@ import kr.or.iei.member.model.vo.MemberListData;
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private EmailSender emailSender;
+	
 	
 	@PostMapping(value="/signin")
 	public String signIn(String signId, String signPw, Model model, HttpSession session) {
@@ -86,6 +90,23 @@ public class MemberController {
 	public String mypage() {
 		return "member/mypage";
 	}
+	@GetMapping(value="/myFavorite")
+	public String myFavorite() {
+		return "member/myFavorite";
+	}
+	@GetMapping(value="/myReservation")
+	public String myReservation() {
+		return "member/myReservation";
+	}
+	@GetMapping(value="/myBoard")
+	public String myBoard() {
+		return "member/myBoard";
+	}
+	@GetMapping(value="/myQna")
+	public String myQna() {
+		return "member/myQna";
+	}
+	
 	@PostMapping(value="/update")
 	public String update(Member member, Model model, @SessionAttribute(required = false) Member m) {
 		int result = memberService.updateMember(member);
@@ -127,4 +148,28 @@ public class MemberController {
 		model.addAttribute("pageNavi", mld.getPageNavi());
 		return "/member/admin";
 	}
+	
+	@ResponseBody
+	@GetMapping(value="/searchId")
+	public String ajaxSearchId(String memberName, String memberEmail) {
+		Member m = memberService.selectMemberByNameAndEmail(memberName, memberEmail);
+		if(m != null) {
+			return m.getMemberId();
+		}else {
+			return null;
+		}
+	}
+	@ResponseBody
+	@GetMapping(value="/searchPw")
+	public String ajaxSearchPw(String memberId, String memberEmail) {
+		Member m = memberService.selectMemberByIdAndEmail(memberId, memberEmail);
+		if(m != null) {
+			emailSender.pwMail(m.getMemberPw(), memberEmail);
+			return "1";
+		}else {
+			return "0";
+		}
+	}
+	
+
 }

@@ -1,5 +1,6 @@
-.signup-title{
-	
+.page-content>h3{
+	margin-left: 200px;
+	margin-bottom: 5px;
 }
 .menu{
     margin: auto;
@@ -32,7 +33,7 @@
     border-radius: 5px;
 }
 #authBtn{
-	background-color: lightgrey;
+	background-color: #04909f;
     color: white;
     border-style: none;
     width: 60px;
@@ -51,7 +52,7 @@
     margin-top: 10px;
 }
 .memberbtn{
-    background-color: lightgrey;
+    background-color: #04909f;
     color:white;
     border-style: none;
     width: 100px;

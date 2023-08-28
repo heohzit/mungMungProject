@@ -442,24 +442,27 @@ textarea.input-form {
 }
 .pay-box-tbl-td{
     width: 90%;
+    height: 200px;
     padding: 1rem 0.5rem;
     text-align: center;
 }
-.calendar{
-    width: 100%;
-    border: 1px solid #ddd;
+.pay-box-tbl-td>div{
+	overflow: hidden;
+	width: 70%;
+	margin: 0 auto;
 }
-.title{
-    padding: 1rem;
+.pay-pointer{
+	font-size: 30px;
+	line-height: 40px;
+    height: 40px;
+    float: left;
 }
-.calendar td{
-    padding: 1rem 0.5rem;
-}
-.week>th:first-child{
-    color: red;
-}
-.week>th:last-child{
-    color: blue;
+input[name=daterange]{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    float: left;
 }
 
 
@@ -515,7 +518,7 @@ float: left;
 .navi>ul>li{
     list-style: none;
     float: left;
-    width: calc(100%/5);
+    width: 342px;
 }
 .navi>ul>li>a{
     display: block;
@@ -568,15 +571,6 @@ float: left;
 }
 .sub>li>a:hover{
     font-weight: 900;
-}
-.more{
-    position: relative;
-    right: 20px;
-    font-size: 20px;
-    transition-duration: 0.4s;
-}
-.active{
-    transform: rotate(45deg);
 }
 .navi>ul>li:hover>a+.sub{
     display: block;

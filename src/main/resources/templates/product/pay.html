@@ -2,23 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>일정선택 & 결제</title>
-<link rel="stylesheet" href="/static/css/default.css">
-<script src="/static/js/jquery-3.6.0.js"></script>
+<title>결제하기</title>
+<link rel="stylesheet" href="../css/mung_header.css">
+<script src="../js/jquery-3.6.0.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
         <div class="page-title">
-            <h1>일정선택 및 결제</h1>
+            <h1>예약 및 결제</h1>
         </div>
         <div class="page-content-top"></div>
         <div class="page-content-mid">
             <div class="pay-content-wrap">
                 <div class="product-box">
                     <div class="pay-img-box">
-                        <img src="/static/img/pay_test_img.png">
+                        <img src="../img/pay_test_img.png">
                     </div>
                     <div class="pay-name-box">
                         <h3>패키지상품1</h3>
@@ -27,89 +30,27 @@
                 <div class="pay-box">
                     <table class="pay-box-tbl">
                         <tr>
-                            <th class="pay-box-tbl-th">일정 선택</th>
+                            <th class="pay-box-tbl-th">일정 예약</th>
                             <td class="pay-box-tbl-td">
-                                <table class="calendar">
-                                    <tr>
-                                        <th colspan="7" class="title">
-                                            <span>yyyy-mm-dd</span>
-                                            <span>~</span>
-                                            <span>yyyy-mm-dd</span>
-                                        </th>
-                                    </tr>
-                                    <tr class="week">
-                                        <th class="day">일</th>
-                                        <th class="day">월</th>
-                                        <th class="day">화</th>
-                                        <th class="day">수</th>
-                                        <th class="day">목</th>
-                                        <th class="day">금</th>
-                                        <th class="day">토</th>
-                                    </tr>
-                                    <tr> <!-- 달력 첫번째 줄-->
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days">1</td>
-                                        <td class="calendar_days">2</td>
-                                    </tr>
-                                    <tr> <!-- 달력 두번째 줄-->
-                                        <td class="calendar_days">3</td>
-                                        <td class="calendar_days">4</td>
-                                        <td class="calendar_days">5</td>
-                                        <td class="calendar_days">6</td>
-                                        <td class="calendar_days">7</td>
-                                        <td class="calendar_days">8</td>
-                                        <td class="calendar_days">9</td>
-                                    </tr>
-                                    <tr> <!-- 달력 세번째 줄-->
-                                        <td class="calendar_days">10</td>
-                                        <td class="calendar_days">11</td>
-                                        <td class="calendar_days">12</td>
-                                        <td class="calendar_days">13</td>
-                                        <td class="calendar_days">14</td>
-                                        <td class="calendar_days">15</td>
-                                        <td class="calendar_days">16</td>
-                                    </tr>
-                                    <tr> <!-- 달력 네번째 줄-->
-                                        <td class="calendar_days">17</td>
-                                        <td class="calendar_days">18</td>
-                                        <td class="calendar_days">19</td>
-                                        <td class="calendar_days">20</td>
-                                        <td class="calendar_days">21</td>
-                                        <td class="calendar_days">22</td>
-                                        <td class="calendar_days">23</td>
-                                    </tr>
-                                    <tr> <!-- 달력 다섯번째 줄-->
-                                        <td class="calendar_days">24</td>
-                                        <td class="calendar_days">25</td>
-                                        <td class="calendar_days">26</td>
-                                        <td class="calendar_days">27</td>
-                                        <td class="calendar_days">28</td>
-                                        <td class="calendar_days">29</td>
-                                        <td class="calendar_days">30</td>
-                                    </tr>
-                                    <tr> <!-- 달력 여섯번째 줄-->
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days"></td>
-                                        <td class="calendar_days"></td>
-                                    </tr>
-                                </table>
+                                <div>
+                                    <span class="material-icons pay-pointer">forward</span>
+                                    <input type="text" name="daterange" value=""/>
+                                    <input type="hidden" name="productStart" th:value="${p.productStart}">
+                                    <input type="hidden" name="productEnd" th:value="${p.productEnd}">
+                                    <input type="hidden" name="productDay" th:value="${p.productDay}-1">                                    
+                                </div>
                             </td>
                         </tr>
                         <tr>
                             <th class="pay-box-tbl-th">결제 금액</th>
-                            <td class="pay-box-tbl-td">
-                                <span>1,000</span>
-                                <span>원</span>
+                            <td class="pay-box-tbl-td">                         
+                                <span class="pay-box-price" th:text="${#numbers.formatInteger(p.productPrice,3,'COMMA')} + '원'"></span>
                             </td>
-                            <input type="hidden" id="price" value="1000">
+                            <input type="hidden" name="price" id="price" th:value="${p.productPrice}">
+                            <input type="hidden" name="payMemberNo" id="payMemberNo" th:value="${session.m.memberNo}">
+                            <input type="hidden" name="payMemberName" id="payMemberName" th:value="${session.m.memberName}">
+                            <input type="hidden" name="payMemberEmail" id="payMemberEmail" th:value="${session.m.memberEmail}">
+                            <input type="hidden" name="payMemberPhone" id="payMemberPhone" th:value="${session.m.memberPhone}">
                         </tr>
                         <tr>
                             <th colspan="2" class="pay-box-tbl-th">
@@ -123,6 +64,8 @@
         <div class="page-content-bottom"></div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
-    <script src="/static/js/pay.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+    <script src="../js/pay.js"></script>
 </body>
 </html>

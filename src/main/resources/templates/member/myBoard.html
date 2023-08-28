@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="../css/mypage.css">
+</head>
+<body>
+<th:block th:include="common/mung_header"></th:block>
+    <div class="page-content">
+        <div class="page-title">마이페이지</div>
+        <form action="/member/update" method="post">
+            <div class="tab-wrap">
+                <ul class="tabs">
+                    <a href="/member/mypage"><li>회원정보</li></a>
+                    <a href="/member/myFavorite"><li>내가 찜한 여행지</li></a>
+                    <a href="/member/myReservation"><li>예약현황</li></a>
+                    <a href="/member/myBoard"  class="active-tab"><li>자유게시판</li></a>
+                    <a href="/member/myQna"><li>Q&A</li></a>
+                </ul>
+                <div class="content-wrap">
+                    <div class="tabcontent">
+                        <h4>자유게시판</h4>
+                        <br>
+                        <div class="free-list">
+                            <table>
+                                <tr>
+                                    <th width="50px">No</th>
+                                    <th height="50px" width="800px">제목</th>
+                                    <th width="150px">작성일</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>글제목글제목글제목글제목글제목글제목글제목</td>
+                                    <td>2023-08-01</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>글제목글제목글제목글제목글제목글제목글제목</td>
+                                    <td>2023-08-02</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>글제목글제목글제목글제목글제목글제목글제목</td>
+                                    <td>2023-08-03</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>글제목글제목글제목글제목글제목글제목글제목</td>
+                                    <td>2023-08-04</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>글제목글제목글제목글제목글제목글제목글제목</td>
+                                    <td>2023-08-05</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="common/mung_footer"></th:block>
+    <script src="/js/mypage.js"></script>
+</body>
+
+</html>

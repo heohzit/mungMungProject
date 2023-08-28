@@ -18,27 +18,19 @@
             <span class="slideshow-container"><!--슬라이드 -->
                 <div class="Slidesbackground">
                     <div class="mySlides fade">
-                        <div class="mySlides-text">
-                            <span>이게 보이나 ??? 테스트 테스트 응애</span>
-                        </div>
+                        
                         <img src="../img/main/댕댕이와 등산.jpg" class="slideshow-image">
                     </div>
                     <div class="mySlides fade">
-                        <div class="mySlides-text">
-                            <span>이건?????? 어케 사진 위로 띄우지</span>
-                        </div>
+                        
                         <img src="../img/main/댕댕이 헤엄.jpg" class="slideshow-image">
                     </div>
                     <div class="mySlides fade">
-                        <div class="mySlides-text">
-                            <span>아니 같이 바뀌긴하는데</span>
-                        </div>
+                        
                         <img src="../img/main/댕댕이 식사.jpg" class="slideshow-image">
                     </div>
                     <div class="mySlides fade">
-                        <div class="mySlides-text">
-                            <span>어케 사진으로 오게 하죠?</span>
-                        </div>
+                        
                         <img src="../img/main/노을 해변가 댕댕이.jpg" class="slideshow-image">
                     </div>
                 </div>
@@ -60,6 +52,7 @@
                             <span class="material-icons">manage_search</span>
                         </div>
                         <div class="search-input">
+                        
                             <input type="text" name="search" id="search" placeholder="지역명을 입력해주세요.">
                             <button type="submit" class="search-submit">검색하기</button>
                         </div>
@@ -67,28 +60,158 @@
                     </div>
                 </div>
             </div>
-            <div class="top-bottom"><!--이미지 위 텍스트 소개글-->
-                <div class="bottom-text1">
-                    <div class="text1">
-                        <span>이제는 여행도</span>
-                    </div>
-                    <div class="text2">반려견과 함께</div>
-                </div>
-                
+            <div class="top-bottom"><!--소개이미지-->
+            
                 <div class="bottom-img">
-                    <img src="../img/main/제목 없는 디자인.jpg">
+                    <img src="../img/main/메인 화면 이미지.jpg">
                 </div>
             </div>
         </div>
         <div class="wrap-mid">
-            <!-- 메인 페이지 middle영역 
-            숙소 , 체험 ,식음료 미리보기 슬라이드 
-            -->
+ 		<!-- 메인 페이지 middle영역 숙소,체험, 식음료, 관광지-->
+ 			 <div class="lodging">
+                <div class="lodging-logo">
+                    <div class="lodging-icon">
+                        <span class="material-icons">cottage</span>
+                    </div>
+                    <div class="lodging-text">
+                        <span>애견 동반 편안한 숙소</span>
+                    </div>
+                </div>
+                <div id="slideShow">
+                    <ul class="slides"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
+                      <li>
+                        <a href="#">
+                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
+                            <h2>숙소1</h2>
+                            <span>주소 주소</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
+                            <h2>숙소2</h2>
+                            <span>주소 주소</span>
+                        </a>
+                    </li><li>
+                        <a href="#">
+                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
+                            <h2>숙소3</h2>
+                            <span>주소 주소</span>
+                        </a>
+                    </li><li>
+                        <a href="#">
+                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
+                            <h2>숙소4</h2>
+                            <span>주소 주소</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
+                            <h2>숙소5</h2>
+                            <span>주소 주소</span>
+                        </a>
+                    </li><li>
+                        <a href="#">
+                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
+                            <h2>숙소6</h2>
+                            <span>주소 주소</span>
+                        </a>
+                    </li><li>
+                        <a href="#">
+                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
+                            <h2>숙소7</h2>
+                            <span>주소 주소</span>
+                        </a>
+                    </li>
+                    </ul>  
+                    <p class="controller">
+                      <!-- &lang: 왼쪽 방향 화살표
+                      &rang: 오른쪽 방향 화살표 -->
+                      <span class="prev">&lang;</span>  
+                      <span class="next">&rang;</span>
+                    </p>
+                  </div>
+            </div>
+            <div class="mid-content">
+                <div class="travel">
+                    <div class="travel-logo">
+                        <div class="travel-icon">
+                            <span class="material-icons">explore</span>
+                        </div>
+                        <div class="travel-text">
+                            <span>멍멍 명소 관광지</span>
+                        </div>
+                    </div>
+                    <div id="slideShow2">
+                        <ul class="slides2"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
+                        <li>
+                            <a href="#">
+                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
+                                <h2>관광지</h2>
+                                <span>주소 주소</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
+                                <h2>관광지</h2>
+                                <span>주소 주소</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
+                                <h2>관광지</h2>
+                                <span>주소 주소</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
+                                <h2>관광지</h2>
+                                <span>주소 주소</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
+                                <h2>관광지</h2>
+                                <span>주소 주소</span>
+                            </a>
+                        </li>
+
+                        </ul>  
+                        <p class="controller2">
+                        <!-- &lang: 왼쪽 방향 화살표
+                        &rang: 오른쪽 방향 화살표 -->
+                        <span class="prev2">&lang;</span>  
+                        <span class="next2">&rang;</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="pakage">
+                    <div class="pakage-logo">
+                        <div class="pakage-icon">
+                            <span class="material-icons">map</span>
+                        </div>
+                        <div class="pakage-text">
+                            <span>신상 멍멍특가패키지 </span>
+                        </div>
+                    </div>
+                    <div class="pakage-content">
+                        <a href="#">
+                            <div class="pakage-img">
+                                <img src="img/main/패키지 테스트.jpg">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="wrap-bottom">
-            <!-- 메인 페이지 bottom영역
-            동물병원 , 패키지 소개 및 댕댕이 자랑 슬라이드
-            -->
+            <!-- 메인 페이지 bottom영역 동물병원 , 패키지 소개 및 댕댕이 자랑 슬라이드-->
         </div>
     </div>
 	<th:block th:include="common/mung_footer"></th:block>

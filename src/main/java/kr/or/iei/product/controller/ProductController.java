@@ -81,6 +81,14 @@ public class ProductController {
 			return "product/productList";
 		}
 	}
+	
+	@GetMapping(value="/pay")
+	public String pay(int productNo, Model model) {
+		Product p = productService.selectOneProduct(productNo);
+		model.addAttribute("p", p);
+		return "product/pay";
+	}
+
 	@GetMapping(value = "/delete")
 	public String deleteProduct(int productNo , Model model) {
 		int result = productService.deleteProduct(productNo);
@@ -117,7 +125,7 @@ public class ProductController {
 		} catch (IllegalStateException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		 }
+		}
 		}
 		int result = productService.updateProduct(p);
 		if(result>0) {

@@ -10,34 +10,37 @@
     list-style-type: none;
     overflow: hidden;
 }
-
-.tabs>li {
+.tabs>a{
     float: left;
+    display: block;
     width: 240px;
     height: 30px;
     line-height: 30px;
     text-align: center;
     background-color: rgb(158, 210, 220);
-    color: #fff;
     cursor: pointer;
 }
-
-.tabs>li.active-tab {
-    background-color: rgb(4, 144, 159);
+.tabs li {
     color: #fff;
+    display: inline-block;
 }
+.tabs .active-tab{
+    background-color: rgb(4, 144, 159);
+}
+
 
 .content-wrap {
     background-color: white;
 }
 
 .tabcontent {
-    width: 95%;
+    width: 100%;
     margin: 0 auto;
     padding: 30px 0px;
-    display: none;
 }
-
+.tabcontent>h4{
+	padding-left : 30px;
+}
 /*
 .tabcontent.active-content{
     display: block;
@@ -53,7 +56,10 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
+.member-info{
+	width: 95%;
+	margin: 0 auto;
+}
 .updatebtn{
     background-color: #04909f;
     color: white;
@@ -65,7 +71,6 @@
     cursor: pointer;
 
 }
-/* 버튼 부분 추가 */
 .memberbtn{
     background-color: rgb(158, 210, 220);
     color: white;
@@ -128,12 +133,14 @@ td {
     width: 80px;
     border: 1px solid #cbcbcb;
     color: white;
+    cursor: pointer;
 }
 
 .free-list>table {
     margin: 0 auto;
     font-family: ns-m;
     border-collapse: collapse;
+    width: 100%;
 }
 
 .free-list>table th {
@@ -189,7 +196,7 @@ td {
     text-align: left;
     text-decoration: none;
 }
-/* 찜한 여행지 */
+/* 李쒗븳 �뿬�뻾吏� */
 .product-list li{
     list-style: none;
     float: left;

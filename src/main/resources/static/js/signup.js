@@ -25,19 +25,52 @@ $("#sendBtn").on("click",function(){
             console.log(data);
             authCode = data;
             $("#auth").show();
+            authTime();
         }
     });
 });
+		let intervalId = null;
+		function authTime(){
+			$("#timeZone").html("<span id='min'>5</span> : <span id='sec'>00</span>");
+			intervalId = window.setInterval(function(){
+				const min = $("#min").text();
+				const sec = $("#sec").text();
+				if(sec == "00"){
+					if(min == "0"){
+						window.clearInterval(intervalId);
+						authCode = null;
+						$("#authMsg").text("인증 시간이 만료되었습니다.");
+						$("#authMsg").css("color","red");
+						
+					}else{
+						const newMin = Number(min) -1;
+						$("#min").text(newMin);
+						$("#sec").text(59);
+					}
+				
+				}else{
+					const newSec = Number(sec) - 1;
+					if(newSec < 10){
+						$("#sec").text("0"+newSec);
+					}else{
+					$("#sec").text(newSec);
+				}
+			}
+		},1000);
+	}
+	
 $("#authBtn").on("click", function(){
 	if(authCode != null){
 		const inputCode = $("#authCode").val();
 		if(authCode == inputCode){
 			$("#authMsg").text("인증 완료되었습니다.");
 			$("#authMsg").css("color","blue");
+			window.clearInterval(intervalId);
+			$("#timeZone").empty();
 			$("#memberEmail").val(email);
 			console.log($("#memberEmail").val());
 		}else{
-			$("#authMsg").text("인증번호를 확인해주세요.");
+			$("#authMsg").text("인증번호를 다시 확인해주세요.");
 			$("#authMsg").css("color","red");
 		}
 	}
