@@ -102,6 +102,23 @@ public class MemberController {
 	public String mypage() {
 		return "member/mypage";
 	}
+	@GetMapping(value="/myFavorite")
+	public String myFavorite() {
+		return "member/myFavorite";
+	}
+	@GetMapping(value="/myReservation")
+	public String myReservation() {
+		return "member/myReservation";
+	}
+	@GetMapping(value="/myBoard")
+	public String myBoard() {
+		return "member/myBoard";
+	}
+	@GetMapping(value="/myQna")
+	public String myQna() {
+		return "member/myQna";
+	}
+	
 	@PostMapping(value="/update")
 	public String update(Member member, Model model, @SessionAttribute(required = false) Member m) {
 		int result = memberService.updateMember(member);
@@ -165,4 +182,6 @@ public class MemberController {
 			return "0";
 		}
 	}
+	
+
 }
