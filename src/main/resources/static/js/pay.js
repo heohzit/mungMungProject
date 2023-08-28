@@ -3,7 +3,7 @@ $(function(){
     $("#payBtn").hide();
 });
 
-// 일정 예약
+// 일정 예약 api
 $("input[name=daterange]").daterangepicker({
     "autoApply": true,
     "maxSpan": {
@@ -49,6 +49,7 @@ $("#payBtn").on("click", function(){
     const payMemberPhone = $("#payMemberPhone").val();
     const d = new Date();
     const payDate = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours() + "" + d.getMinutes() + "" + d.getSeconds();
+    console.log(payDate);
     const payBuyNo = payProductNo + "_" + payDate;
     IMP.init("imp15740857");
     IMP.request_pay({
@@ -64,7 +65,7 @@ $("#payBtn").on("click", function(){
         if(rsp.success){
             $.ajax({
                 url: "/pay/insertPay",
-                type: "post",
+                type: "get",
                 data: {
                     payProductNo: payProductNo,
                     payMemberNo: payMemberNo,

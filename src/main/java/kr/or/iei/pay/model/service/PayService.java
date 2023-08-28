@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.iei.pay.model.dao.PayDao;
 import kr.or.iei.pay.model.vo.Pay;
+import kr.or.iei.product.model.vo.Product;
 
 @Service
 public class PayService {
@@ -22,5 +23,10 @@ public class PayService {
 	public int updateProductStock(int productNo) {
 		int result = payDao.updateProductStock(productNo);
 		return result;
+	}
+
+	public Product checkStock(int productNo) {
+		Product product = payDao.checkStock(productNo);
+		return product;
 	}
 }
