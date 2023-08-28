@@ -34,6 +34,9 @@ public class ProductController {
 		model.addAttribute("productList", productList);
 		return "product/productList";
 	}
+	
+
+	
 	@GetMapping(value = "/writeFrm")//관리자용 패키지 등록 페이지 이동 양식
 		public String productWriteFrm() {
 			return "product/writeFrm";

@@ -21,10 +21,10 @@
             <div class="pay-content-wrap">
                 <div class="product-box">
                     <div class="pay-img-box">
-                        <img src="../img/pay_test_img.png">
+                        <img th:src="${p.productFilepath}">
                     </div>
                     <div class="pay-name-box">
-                        <h3>패키지상품1</h3>
+                        <h3 th:text="${p.productName}"></h3>
                     </div>
                 </div>
                 <div class="pay-box">
@@ -34,7 +34,7 @@
                             <td class="pay-box-tbl-td">
                                 <div>
                                     <span class="material-icons pay-pointer">forward</span>
-                                    <input type="text" name="daterange" value=""/>
+                                    <input type="text" name="daterange" value="">
                                     <input type="hidden" name="productStart" th:value="${p.productStart}">
                                     <input type="hidden" name="productEnd" th:value="${p.productEnd}">
                                     <input type="hidden" name="productDay" th:value="${p.productDay}-1">                                    
@@ -46,7 +46,8 @@
                             <td class="pay-box-tbl-td">                         
                                 <span class="pay-box-price" th:text="${#numbers.formatInteger(p.productPrice,3,'COMMA')} + '원'"></span>
                             </td>
-                            <input type="hidden" name="price" id="price" th:value="${p.productPrice}">
+                            <input type="hidden" name="payPrice" id="payPrice" th:value="${p.productPrice}">
+                            <input type="hidden" name="payProductNo" id="payProductNo" th:value="${p.productNo}">
                             <input type="hidden" name="payMemberNo" id="payMemberNo" th:value="${session.m.memberNo}">
                             <input type="hidden" name="payMemberName" id="payMemberName" th:value="${session.m.memberName}">
                             <input type="hidden" name="payMemberEmail" id="payMemberEmail" th:value="${session.m.memberEmail}">
