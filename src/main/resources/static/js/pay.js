@@ -30,13 +30,24 @@ $("input[name=daterange]").daterangepicker({
     "buttonClasses": "btn bc1"            
 }, function(start, end) {
     const dateDiff = (end - start) / (1000*60*60*24);
+    const payStart = start.format('YYYY-MM-DD');
+    const payEnd = end.format('YYYY-MM-DD');
     if(dateDiff < $("input[name=productDay]").val()){
         alert("일정을 다시 선택해주세요.");
         $("#payBtn").hide();
     }else{
         $("#payBtn").show();
+        $.ajax({
+            url: "/pay/insertPay",
+            type: "get",
+            data: {
+                payStart: payStart,
+                payEnd: payEnd
+            }
+        });
     }
 });
+
 
 // 결제api
 $("#payBtn").on("click", function(){

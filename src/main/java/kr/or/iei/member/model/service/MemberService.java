@@ -121,5 +121,9 @@ public class MemberService {
 		Member m = memberDao.selectMemberByIdAndEmail(memberId, memberEmail);
 		return m;
 	}
+	public Member selectOneMember(int memberNo) {
+		Member m = memberDao.selectOneMember(memberNo);
+		return m;
+	}
 	
 }

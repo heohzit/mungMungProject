@@ -98,4 +98,10 @@ public class MemberDao {
 		}
 		return (Member)list.get(0);
 	}
+
+	public Member selectOneMember(int memberNo) {
+		String query = "select * from member where member_no = ?";
+		Member m = jdbc.queryForObject(query, memberRowMapper, memberNo);
+		return m;
+	}
 }

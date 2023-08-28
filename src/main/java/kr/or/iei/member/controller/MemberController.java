@@ -107,7 +107,10 @@ public class MemberController {
 		return "member/myFavorite";
 	}
 	@GetMapping(value="/myReservation")
-	public String myReservation() {
+	public String myReservation(int memberNo, Model model) {
+		Member m = memberService.selectOneMember(memberNo);
+		
+		model.addAttribute("m", m);
 		return "member/myReservation";
 	}
 	@GetMapping(value="/myBoard")
