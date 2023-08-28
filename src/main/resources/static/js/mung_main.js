@@ -17,41 +17,44 @@ var slideIndex = 0;
         setTimeout(showSlides, 5000); // 이미지 변경 시간 
     }
     
-    // 숙소 슬라이더
-    const slides = document.querySelector('.slides'); //전체 슬라이드 컨테이너
-const slideImg = document.querySelectorAll('.slides li'); //모든 슬라이드들
-let currentIdx = 0; //현재 슬라이드 index
-const slideCount = slideImg.length; // 슬라이드 개수
-const prev = document.querySelector('.prev'); //이전 버튼
-const next = document.querySelector('.next'); //다음 버튼
-const slideWidth = 300; //한개의 슬라이드 넓이
-const slideMargin = 100; //슬라이드간의 margin 값
+///////////////숙소 슬라이더////////////////////
+
+    const slides1 = document.querySelector('.slides1'); //전체 슬라이드 컨테이너
+const slideImg1 = document.querySelectorAll('.slides1 li'); //모든 슬라이드들
+let currentIdx1 = 0; //현재 슬라이드 index
+const slideCount1 = slideImg1.length; // 슬라이드 개수
+const prev1 = document.querySelector('.prev1'); //이전 버튼
+const next1 = document.querySelector('.next1'); //다음 버튼
+const slideWidth1 = 300; //한개의 슬라이드 넓이
+const slideMargin1 = 100; //슬라이드간의 margin 값
 
 //전체 슬라이드 컨테이너 넓이 설정
-slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
+slides1.style.width = (slideWidth1 + slideMargin1) * slideCount1 + 'px';
 
 function moveSlide1(num) {
-  slides.style.left = -num * 950 + 'px';
-  currentIdx = num;
+  slides1.style.left = -num * 950 + 'px';
+  currentIdx1 = num;
 }
 
-prev.addEventListener('click', function () {
+prev1.addEventListener('click', function () {
   /*첫 번째 슬라이드로 표시 됐을때는 
   이전 버튼 눌러도 아무런 반응 없게 하기 위해 
   currentIdx !==0일때만 moveSlide 함수 불러옴 */
 
-  if (currentIdx !== 0) moveSlide1(currentIdx - 1);
+  if (currentIdx1 !== 0) moveSlide1(currentIdx1 - 1);
 });
 
-next.addEventListener('click', function () {
+next1.addEventListener('click', function () {
   /* 마지막 슬라이드로 표시 됐을때는 
   다음 버튼 눌러도 아무런 반응 없게 하기 위해
   currentIdx !==slideCount - 1 일때만 
   moveSlide 함수 불러옴 */
-  if (currentIdx !== slideCount - 1) {
-    moveSlide1(currentIdx + 1);
+  console.log(1111);
+  if (currentIdx1 !== slideCount1 - 1) {
+    moveSlide1(currentIdx1 + 1);
   }
 });
+
     ///////////////관광지 슬라이더////////////////////
     const slides2 = document.querySelector('.slides2'); //전체 슬라이드 컨테이너
 const slideImg2 = document.querySelectorAll('.slides2 li'); //모든 슬라이드들
