@@ -59,7 +59,7 @@ next1.addEventListener('click', function () {
     const slides2 = document.querySelector('.slides2'); //전체 슬라이드 컨테이너
 const slideImg2 = document.querySelectorAll('.slides2 li'); //모든 슬라이드들
 let currentIdx2 = 0; //현재 슬라이드 index
-const slideCount2 = slideImg.length; // 슬라이드 개수
+const slideCount2 = slideImg2.length; // 슬라이드 개수
 const prev2 = document.querySelector('.prev2'); //이전 버튼
 const next2 = document.querySelector('.next2'); //다음 버튼
 const slideWidth2 = 400; //한개의 슬라이드 넓이
