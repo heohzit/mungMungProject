@@ -42,6 +42,9 @@ $("input[name=daterange]").daterangepicker({
 $("#payBtn").on("click", function(){
     const price = $("#price").val();
     const payMemberNo = $("#payMemberNo").val();
+    const payMemberName = $("#payMemberName").val();
+    const payMemberEmail = $("#payMemberEmail").val();
+    const payMemberPhone = $("#payMemberPhone").val();
     const d = new Date();
     const date = d.getFullYear() + "" + (d.getMonth() + 1) + "" + d.getDate() + "" + d.getHours() + "" + d.getMinutes() + "" + d.getSeconds();
     IMP.init("imp15740857");
@@ -51,9 +54,9 @@ $("#payBtn").on("click", function(){
         merchant_uid: "상품번호_" + date,	// 상점에서 관리하는 주문번호
         name: "결제 테스트",
         amount: price,	// 결제금액
-        buyer_email: "user04@kakao.com",
-        buyer_name: "유저4",
-        buyer_tel: "010-4444-4444"
+        buyer_email: payMemberEmail,
+        buyer_name: payMemberName,
+        buyer_tel: payMemberPhone
     }, function(rsp){
         if(rsp.success){
             alert("결제 성공");
