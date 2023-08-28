@@ -10,22 +10,24 @@
     list-style-type: none;
     overflow: hidden;
 }
-
-.tabs>li {
+.tabs>a{
     float: left;
+    display: block;
     width: 240px;
     height: 30px;
     line-height: 30px;
     text-align: center;
     background-color: rgb(158, 210, 220);
-    color: #fff;
     cursor: pointer;
 }
-
-.tabs>li.active-tab {
-    background-color: rgb(4, 144, 159);
+.tabs li {
     color: #fff;
+    display: inline-block;
 }
+.tabs .active-tab{
+    background-color: rgb(4, 144, 159);
+}
+
 
 .content-wrap {
     background-color: white;
@@ -35,7 +37,6 @@
     width: 100%;
     margin: 0 auto;
     padding: 30px 0px;
-    display: none;
 }
 .tabcontent>h4{
 	padding-left : 30px;
