@@ -107,5 +107,33 @@ $("#memberId").on("change",function(){
 			}
 			//db에서 중복체크(ajax)
 		});
+//비밀번호 정규표현식
+$("#memberPw").on("change",function(){
+			const memberPw = $(this).val();
+			//정규표현식을 통한 유효성 검사(수정필요)
+			const pwReg = /^[a-z0-9]{4,10}$/;
+			if(pwReg.test(memberPw)){
+				$.ajax({
+					//MemberController에 작성
+					url:"/member/ajaxCheckPw",
+					type : "get",
+					data : {memberPw : memberPw},
+					success : function(data){
+					console.log(data);
+						if(data == "0"){
+							$("#ajaxCheckId").text(" " + "사용 가능한 비밀번호입니다.");
+							$("#ajaxCheckId").css("color","blue");
+							$("#memberId").css("border","1px solid blue");
+						}else{
+							$("#ajaxCheckId").text(" " + "비밀번호는 영어/숫자/특수문자 포함해서 4~10글자입니다.");
+							$("#ajaxCheckId").css("color","red");
+							$("#memberId").css("border","1px solid red");
+							
+						}
+					}
+				});
+			}
+		});
+
 
 	
