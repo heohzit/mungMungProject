@@ -216,7 +216,7 @@
   /* 보여줄 구간의 높이와 넓이 설정 */
   #slideShow{
     width: 1000px;
-    height: 300px;
+    height: 400px;
     position: relative;
     margin: 0px auto;
     overflow: hidden;
