@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="../css/mypage.css">
 </head>
 <body>
-
+<th:block th:include="common/mung_header"></th:block>
+    <div class="page-content">
+        <div class="page-title">마이페이지</div>
+        <form action="/member/update" method="post">
+            <div class="tab-wrap">
+                <ul class="tabs">
+                    <a href="/member/mypage"><li>회원정보</li></a>
+                    <a href="/member/myFavorite" class="active-tab"><li>내가 찜한 여행지</li></a>
+                    <a href="/member/myReservation"><li>예약현황</li></a>
+                    <a href="/member/myBoard"><li>자유게시판</li></a>
+                    <a href="/member/myQna"><li>Q&A</li></a>
+                </ul>
+                <div class="content-wrap">
+                    <div class="tabcontent">
+                        <h4>내가 찜한 여행지</h4>
+                        <br><hr><br>
+                        <div class="product">
+                                <ul class="product-list">
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소1</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소2</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소3</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <img src="img/.png">
+                                        <ul class="place-info">
+                                        <li>주소4</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </div>
+					</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="common/mung_footer"></th:block>
+    <script src="/js/mypage.js"></script>
 </body>
+
 </html>

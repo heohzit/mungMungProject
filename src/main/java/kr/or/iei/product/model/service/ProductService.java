@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import kr.or.iei.pay.model.vo.Pay;
 import kr.or.iei.product.model.dao.ProductDao;
 import kr.or.iei.product.model.vo.Product;
 
@@ -18,6 +20,7 @@ public class ProductService {
 		return productList;
 	}
 
+	@Transactional
 	public int insertProduct(Product p) {
 		int result = productDao.insertProduct(p);
 		if(result > 0) {
@@ -32,6 +35,7 @@ public class ProductService {
 		return p;
 	}
 
+	@Transactional
 	public int deleteProduct(int productNo) {
 		int result = productDao.deleteProduct(productNo);
 		if(result > 0) {
@@ -46,6 +50,7 @@ public class ProductService {
 		return p;
 	}
 
+	@Transactional
 	public int updateProduct(Product p) {
 		int result = productDao.updateProduct(p);
 		if(result > 0) {
@@ -54,4 +59,5 @@ public class ProductService {
 			return 0;
 		}
 	}
+
 }
