@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>커뮤니티 리스트</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="../css/default.css">
 <link rel="stylesheet" href="../css/noticeList.css">
 
 </head>
@@ -32,17 +31,18 @@
             </div>
         </div>
        <div class="page-content-mid">
-	        <div class="productlist">
+	        <div class="boardlist">
 				<ul th:each="board : ${boardList}">
 					<li class="board">
 	                     <a th:href="@{/board/view(boardNo=${board.boardNo})}">
 	                        <div class="img-box">
-	                            <img th:src="'/boardmain/'+${board.boardFilepath}" style="width: 150px; height: 150px">
+	                            <img th:src="'/boardmain/'+${board.boardFilepath}" style="width: 250px; height: 250px">
 	                        </div>
 	                        <div>
 	                            <h3 th:text="${board.boardTitle}"></h3>
-	                            <h3 th:text="${board.memberId}"></h3>
-	                            <h3 th:text="${board.boardWriteDate}"></h3>
+	                            <span th:text="${board.memberId}"></span>
+	                            <span>|</span>
+	                            <span th:text="${board.boardWriteDate}" style="color: #aaa"></span>
 	                        </div>
 	                     </a>
 	                 </li>
