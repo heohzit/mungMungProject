@@ -43,7 +43,7 @@
                     </div>
                     <div class="notice-list">
                         <div class="notice-content">
-                            <p>테스트</p>
+                            <a id="noticeListView" th:href="@{/notice/view(noticeNo=${noticeList[0].noticeNo})}" th:text="${noticeList[0].noticeTitle}"></a>
                         </div>
                     </div>
                     
@@ -71,15 +71,17 @@
  		<!-- 메인 페이지 middle영역 숙소,체험, 식음료, 관광지-->
  			 <div class="lodging">
                 <div class="lodging-logo">
+                <a href="/facility/hotelList?reqPage=1">                
                     <div class="lodging-icon">
                         <span class="material-icons">cottage</span>
                     </div>
                     <div class="lodging-text">
-                        <span>애견 동반 편안한 숙소</span>
+                        <span>애견 동반 추천 숙소</span>
                     </div>
+                </a>
                 </div>
-                <div id="slideShow">
-                    <ul class="slides"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
+                <div id="slideShow1">
+                    <ul class="slides1"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
                       <li>
                         <a href="#">
                             <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
@@ -126,59 +128,61 @@
                         </a>
                     </li>
                     </ul>  
-                    <p class="controller">
+                    <p class="controller1">
                       <!-- &lang: 왼쪽 방향 화살표
                       &rang: 오른쪽 방향 화살표 -->
-                      <span class="prev">&lang;</span>  
-                      <span class="next">&rang;</span>
+                      <span class="prev1">&lang;</span>  
+                      <span class="next1">&rang;</span>
                     </p>
                   </div>
             </div>
             <div class="mid-content">
                 <div class="travel">
                     <div class="travel-logo">
+                    <a href="/facility/tourList?reqPage=1">
                         <div class="travel-icon">
                             <span class="material-icons">explore</span>
                         </div>
                         <div class="travel-text">
                             <span>멍멍 명소 관광지</span>
-                        </div>
+                        </div>                    
+                    </a>
                     </div>
                     <div id="slideShow2">
                         <ul class="slides2"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
                         <li>
                             <a href="#">
                                 <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h2>관광지</h2>
-                                <span>주소 주소</span>
+                                <h3>관광지</h3>
+                                
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
                                 <h2>관광지</h2>
-                                <span>주소 주소</span>
+                                
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
                                 <h2>관광지</h2>
-                                <span>주소 주소</span>
+                                
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
                                 <h2>관광지</h2>
-                                <span>주소 주소</span>
+                                
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
                                 <h2>관광지</h2>
-                                <span>주소 주소</span>
+                                
                             </a>
                         </li>
 
@@ -201,9 +205,9 @@
                         </div>
                     </div>
                     <div class="pakage-content">
-                        <a href="#">
-                            <div class="pakage-img">
-                                <img src="img/main/패키지 테스트.jpg">
+                        <a th:href="@{/product/view(productNo=${productList[0].productNo})}">
+                            <div class="pakage-img" >
+                                <img th:src="'/productmain/'+${productList[0].productFilepath}">
                             </div>
                         </a>
                     </div>

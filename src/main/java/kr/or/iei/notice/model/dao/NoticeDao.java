@@ -117,6 +117,12 @@ public class NoticeDao {
 		int totalCount = jdbc.queryForObject(query, Integer.class,searchName);
 		return totalCount;
 	}
+
+	public List selectNoticeList() {
+		String query = "select * from notice";
+		List list = jdbc.query(query, noticeSearchRowMapper);
+		return list;
+	}
 	
 
 
