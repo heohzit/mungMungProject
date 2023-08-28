@@ -30,7 +30,7 @@ const slideMargin = 100; //슬라이드간의 margin 값
 //전체 슬라이드 컨테이너 넓이 설정
 slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
 
-function moveSlide(num) {
+function moveSlide1(num) {
   slides.style.left = -num * 950 + 'px';
   currentIdx = num;
 }
@@ -40,7 +40,7 @@ prev.addEventListener('click', function () {
   이전 버튼 눌러도 아무런 반응 없게 하기 위해 
   currentIdx !==0일때만 moveSlide 함수 불러옴 */
 
-  if (currentIdx !== 0) moveSlide(currentIdx - 1);
+  if (currentIdx !== 0) moveSlide1(currentIdx - 1);
 });
 
 next.addEventListener('click', function () {
@@ -49,7 +49,7 @@ next.addEventListener('click', function () {
   currentIdx !==slideCount - 1 일때만 
   moveSlide 함수 불러옴 */
   if (currentIdx !== slideCount - 1) {
-    moveSlide(currentIdx + 1);
+    moveSlide1(currentIdx + 1);
   }
 });
     ///////////////관광지 슬라이더////////////////////
@@ -65,7 +65,7 @@ const slideMargin2 = 140; //슬라이드간의 margin 값
 //전체 슬라이드 컨테이너 넓이 설정
 slides2.style.width = (slideWidth2 + slideMargin2) * slideCount2 + 'px';
 
-function moveSlide(num) {
+function moveSlide2(num) {
   slides2.style.left = -num * 370+ 'px';
   currentIdx2 = num;
 }
@@ -75,7 +75,7 @@ prev2.addEventListener('click', function () {
   이전 버튼 눌러도 아무런 반응 없게 하기 위해 
   currentIdx !==0일때만 moveSlide 함수 불러옴 */
 
-  if (currentIdx2 !== 0) moveSlide(currentIdx2 - 1);
+  if (currentIdx2 !== 0) moveSlide2(currentIdx2 - 1);
 });
 
 next2.addEventListener('click', function () {
@@ -84,6 +84,6 @@ next2.addEventListener('click', function () {
   currentIdx !==slideCount - 1 일때만 
   moveSlide 함수 불러옴 */
   if (currentIdx2 !== slideCount2 - 1) {
-    moveSlide(currentIdx2 + 1);
+    moveSlide2(currentIdx2 + 1);
   }
 });
