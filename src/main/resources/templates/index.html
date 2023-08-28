@@ -43,7 +43,7 @@
                     </div>
                     <div class="notice-list">
                         <div class="notice-content">
-                            <p>테스트</p>
+                            <a id="noticeListView" th:href="@{/notice/view(noticeNo=${noticeList[0].noticeNo})}" th:text="${noticeList[0].noticeTitle}"></a>
                         </div>
                     </div>
                     
@@ -201,9 +201,9 @@
                         </div>
                     </div>
                     <div class="pakage-content">
-                        <a href="#">
+                        <a th:href="@{/product/view(productNo=${productList[0].productNo})}">
                             <div class="pakage-img" >
-                                <img src="img/main/패키지 테스트.jpg">
+                                <img th:src="'/productmain/'+${productList[0].productFilepath}">
                             </div>
                         </a>
                     </div>
