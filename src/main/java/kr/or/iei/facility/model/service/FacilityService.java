@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.iei.facility.model.dao.FacilityDao;
 import kr.or.iei.facility.model.vo.Facility;
+import kr.or.iei.facility.model.vo.FacilityFavorite;
 import kr.or.iei.facility.model.vo.FacilityFile;
 import kr.or.iei.facility.model.vo.FacilityListData;
 
@@ -99,7 +100,7 @@ public class FacilityService {
 		
 		return fld;
 	}
-	public Facility selectOneTour(int facilityNo) {
+	public Facility selectOneTour(int facilityNo, int memberNo) {
 		// TODO Auto-generated method stub
 		Facility facility = facilityDao.selectOneTour(facilityNo);
 		//소개
@@ -127,6 +128,8 @@ public class FacilityService {
 		facility.setFacilityNotice(facility.getFacilityNotice().replaceFirst("<br>\\* ", "<br><br>\\* "));
 		
 		List imgList = facilityDao.selectImageFile(facilityNo);
+		int favorite = facilityDao.selectFavorite(facilityNo, memberNo);
+		facility.setFavorite(favorite);
 		facility.setFacilityFilepathArr(imgList);
 		return facility;
 	}
@@ -734,6 +737,19 @@ public class FacilityService {
 				result += facilityDao.insertFacilityFile(file);
 			}
 		}
+		return result;
+	}
+	@Transactional
+	public int addFavorite(int memberNo, int facilityNo) {
+		// TODO Auto-generated method stub
+		int result = facilityDao.addFavorite(memberNo, facilityNo);
+		return result;
+	}
+	@Transactional
+	public int removeFavorite(int memberNo, int facilityNo) {
+		// TODO Auto-generated method stub
+		int result = facilityDao.removeFavorite(memberNo, facilityNo);
+		System.out.println("삭제 성공함? 1: yes/ 2: no");
 		return result;
 	}
 }

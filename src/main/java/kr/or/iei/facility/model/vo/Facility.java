@@ -27,5 +27,6 @@ public class Facility {
 	private String facilityNotice;
 	private String facilityFilepath;
 	private List facilityFilepathArr;
+	private int favorite;
 
 }

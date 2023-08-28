@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>커뮤니티 상세보기</title>
-<link rel="stylesheet" href="../css/default.css">
 <link rel="stylesheet" href="../css/noticeList.css">
 
 
 <script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
@@ -18,7 +18,7 @@
 		</div>
         <button onclick = "imgAlert()"> Image Alert </button>
         <div class="page-content-mid">
-        <table>
+        <table class="insert-table">
             <tr>
             	<th>제목</th>
                 <td colspan="5" th:text="${b.boardTitle}"></td>
@@ -38,35 +38,35 @@
             </tr>
         </table>
         </div>
+        <div class="btn1" style="height: 70px">
+        	<a href="/board/list?reqPage=1" class="btn bc1" style="float: right;">목록</a>
+        </div>
         
-        <div class="btn1" th:if="${session.m != null && session.m.memberNo == b.boardWriter}">
+        <div class="btn1" style="height: 70px" th:if="${session.m != null && session.m.memberNo == b.boardWriter}">
 	        <a th:href="@{/board/updateFrm(boardNo=${b.boardNo})}" class="btn bc1">수정하기</a>
 	        <a th:href="@{/board/delete(boardNo=${b.boardNo})}" onClick="alert('게시글을 삭제하시겠습니까?')" class="btn bc1">삭제하기</a>
 		</div>
+		
 		<!-- 댓글입력 -->
 		<div class="inputCommentBox" th:if="${session.m != null}">
 			<form action="/board/insertComment" method="post">
-				<ul>
-					<li>
-						<span class="material-icons">댓글</span>
-					</li>
-					<li>
-						<input type="hidden" name="boardCommentWriter" th:value="${session.m.memberNo}">
-						<input type="hidden" name="boardNo" th:value="${b.boardNo}">
-						<textarea name="boardCommentContent" class="input-form" id="boardCommentContent"></textarea>
-					</li>
-					<li>
-						<button type="submit" class="btn" id="commentBtn">등록</button>
-					</li>
-				</ul>
+				<div class="div1">
+					<span class="material-icons icons">pets</span>댓글을 입력해주세요.
+				</div>
+				<div class="div2">
+					<input type="hidden" name="boardCommentWriter" th:value="${session.m.memberNo}">
+					<input type="hidden" name="boardNo" th:value="${b.boardNo}">
+					<textarea name="boardCommentContent"  class="comment-form" id="boardCommentContent"></textarea>						
+					<button type="submit" class="btn bc1" id="commentBtn">등록</button>					
+				</div>
 			</form>
 		</div>
 		
 		<!-- 댓글보기 -->
-		<div class="CommentBox">
+		<div class="commentBox">
 			<th:block th:each="cl : ${commentList}">
-				<ul>
-					<li>
+				<div class="div1">
+						<span class="material-icons">account_box</span>
 						<p>		
 							<span th:text="${cl.memberId}"></span>				
 							<span th:text="${cl.boardCommentWriteDate}"></span>
@@ -84,13 +84,16 @@
 								<a href="javascript:void(0);" class="reCommentShow">답글달기</a>
 							</th:block>
 						</p>
-					</li>
-				</ul>
+				</div>
 				
 				<!-- 대댓글 보기 -->
 				
 				<th:block th:each="rcl : ${reCommentList}">
 					<ul th:if="${cl.boardCommentNo == rcl.boardCommentRefNo}">
+						<li>
+							<span class="material-icons">subdirectory_arrow_right</span>
+							<span class="material-icons">account_box</span>
+						</li>
 						<li>
 							<p>
 								<span th:text="${rcl.memberId}"></span>				
@@ -113,28 +116,42 @@
 				</th:block>
 				
 				<!-- 대댓글 작성 -->
-				<div class="inputReCommentBox" th:if="${session.m != null}" style="display:none;">
+				<div class="inputReCommentBox" th:if="${session.m != null}" style="display: none;">
 					<form action="/board/insertComment" method="post">
-						<ul>
-							<li>
-								<span class="material-icons">대댓글</span>
-							</li>
-							<li>
-								<input type="hidden" name="boardCommentWriter" th:value="${session.m.memberNo}">
-								<input type="hidden" name="boardNo" th:value="${b.boardNo}">
-								<input type="hidden" name="boardCommentRefNo" th:value="${cl.boardCommentNo}">
-								<textarea name="boardCommentContent" class="input-form"  id="boardReCommentContent"></textarea>
-							</li>
-							<li>
-								<button type="submit" class="btn" id="reCommentBtn">등록</button>
-							</li>
-						</ul>
+						<div class="div1">
+							<span class="material-icons icons">pets</span>답글
+						</div>
+						<div class="div2">
+							<input type="hidden" name="boardCommentWriter" th:value="${session.m.memberNo}">
+							<input type="hidden" name="boardNo" th:value="${b.boardNo}">
+							<input type="hidden" name="boardCommentRefNo" th:value="${cl.boardCommentNo}">
+							<textarea name="boardCommentContent" class="comment-form"  id="boardReCommentContent" ></textarea>
+							<button type="submit" class="btn bc1" id="reCommentBtn">등록</button>				
+						</div>
 					</form>
 				</div>
 			</th:block>
 		</div>
     </div>
 <th:block th:include="common/mung_footer"></th:block>
+<style>
+	.div1{
+		border-bottom: 1px solid #aaa;
+	}
+	.div2{
+		height: 100px;
+		border-bottom: 1px solid #aaa;
+		padding-top: 15px;
+	}
+	.div2>textarea{
+		width: 800px;
+		height: 80px;
+		resize: none;
+	}
+	.btn2>button{
+
+	}
+</style>
 <script>
 	//대댓글 보이기
 	$(".reCommentShow").on("click",function(){
