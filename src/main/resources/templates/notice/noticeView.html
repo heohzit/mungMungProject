@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>공지사항 상세보기</title>
 <link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/noticeList.css">
+
 </head>
 <body>
 <th:block th:include="common/mung_header"></th:block>
@@ -15,31 +17,26 @@
         <table>
             <tr>
             	<th>제목</th>
-                <td th:text="${n.noticeTitle}"></td>
+                <td colspan="5" th:text="${n.noticeTitle}"></td>
             </tr>
             <tr>
                 <th>작성자</th>
                 <td th:text="${n.memberId}"></td>
-            </tr>
-            <tr>
                 <th>작성일</th>
                 <td th:text="${n.noticeWriteDate}"></td>
-            </tr>
-             <tr>
-                <th>조회수</th>
+                 <th>조회수</th>
                 <td th:text="${n.noticeReadCount}"></td>
             </tr>
             <tr>
-                <th>내용</th>
-                 <td>
-					<div class="noticeContent" th:utext="${n.noticeContent}"></div>
-                  </td>
+               	<td colspan="6">
+				<div class="noticeContent" th:utext="${n.noticeContent}"></div>
+            	</td>
             </tr>
         </table>
         </div>
         <div class="btn1">
-	        <a th:href="@{/notice/updateFrm(noticeNo=${n.noticeNo})}" th:if="${session.m!=null && session.m.memberLevel==1}">수정하기</a>
-	        <a th:href="@{/notice/delete(noticeNo=${n.noticeNo})}" th:if="${session.m!=null && session.m.memberLevel==1}" onClick="alert('공지사항을 삭제하시겠습니까?')">삭제하기</a>
+	        <a th:href="@{/notice/updateFrm(noticeNo=${n.noticeNo})}" class="btn bc1" th:if="${session.m!=null && session.m.memberLevel==1}">수정하기</a>
+	        <a th:href="@{/notice/delete(noticeNo=${n.noticeNo})}" class="btn bc1" th:if="${session.m!=null && session.m.memberLevel==1}" onClick="alert('공지사항을 삭제하시겠습니까?')">삭제하기</a>
 		</div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
