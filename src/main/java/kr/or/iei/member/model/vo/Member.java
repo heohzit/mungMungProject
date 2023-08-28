@@ -16,4 +16,5 @@ public class Member {
 	private int memberLevel;
 	private String enrollDate;
 	private String memberName;
+	 
 }
