@@ -454,6 +454,7 @@ height: 340px;
 }
 .mung{
     width: 61%;
+    float: left;
 }
 .mung-logo{
     overflow: hidden;
@@ -491,5 +492,39 @@ height: 340px;
     height: 150px;
     border: 1px solid lightgray;
     border-radius: 5px;
+}
+
+/*  */
+.eat{
+    padding-left: 20px;
+    width: 30%;
+    float: left;
+}
+.eat-logo{
+    overflow: hidden;
+    border-bottom: 1px solid rgb(158, 210, 220);
+
+}
+.eat-icon{
+    width: 15%;
+    float: left;
+    text-align: center;
+}
+.eat-icon>span{
+    font-size: 40px;
+    color: rgb(4, 144, 159);
+
+}
+.eat-text{
+    width: 85%;
+    float: left;
+}
+.eat-text>span{
+    font-size: 40px;
+    font-family: kotra-hope;
+    color: rgb(4, 144, 159);
+}
+.Slidesbackground2{
+    padding-top: 10px;
 }
 
