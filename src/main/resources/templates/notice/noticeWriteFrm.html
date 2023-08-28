@@ -4,12 +4,16 @@
 <meta charset="UTF-8">
 <title>공지사항 작성</title>
 <link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/noticeList.css">
+
+<script src="/js/jquery-3.6.0.js"></script>
 </head>
 <body>
-	<th:block th:include="common/mung_header"></th:block>
-    <script src="/summernote/summernote-lite.js"></script>
-	<script src="/summernote/lang/summernote-ko-KR.js"></script>
-	<link rel="stylesheet" href="/summernote/summernote-lite.css">
+<th:block th:include="common/mung_header"></th:block>
+<script src="/summernote/summernote-lite.js"></script>
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
+<link rel="stylesheet" href="/summernote/summernote-lite.css">
+
     <div class="page-content">
       	<div class="page-title">
 			<h1>공지사항 작성</h1>
@@ -20,34 +24,27 @@
                 <tr>
                     <th>제목</th>
                     <td>
-                        <input type="text" name="noticeTitle">
-                    </td>
-                </tr>
-                <tr>
-                    <th >작성자</th>
-                    <td>         
+                        <input type="text" name="noticeTitle" class="input-form">
                         <input type="hidden" name="noticeWriter" th:value="${session.m.memberNo}">
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                     	<input style="display: none;" type="file" name="upfile" multiple>
                         <textarea id="noticeContent" name="noticeContent"></textarea>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <button type="submit">작성완료</button>
-                    </td>
-                </tr>
             </table>
+            <div class="btn1" style="padding: 20px">
+            	<button type="submit" class="btn bc1">작성완료</button>
+            </div>
         </form>
         </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
     <script>
     $("#noticeContent").summernote({
-		height : 400,
+		height : 800,
 		lang :"ko-KR",
 		callbacks :{
 			onImageUpload : function(files){
