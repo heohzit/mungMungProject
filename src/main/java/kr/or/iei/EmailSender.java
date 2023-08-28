@@ -69,8 +69,8 @@ public class EmailSender {
 			helper.setSentDate(new Date());
 			helper.setFrom(new InternetAddress("lar@naver.com","강원도 멍멍 탐험대"));
 			helper.setTo(email);
-			helper.setSubject("인증 메일입니다.");
-			helper.setText("<h1>안녕하세요</h1>"+"<h3>인증번호는 [<span style='color:red;'>"+sb.toString()+"</span>] 입니다.</h3>",true);
+			helper.setSubject("이메일 인증 메일입니다.");
+			helper.setText("<h3>안녕하세요.</h3>"+"<h3>강원도 멍멍 탐험대의 이메일 인증번호는 [<span style='color:red;'>"+sb.toString()+"</span>] 입니다.</h3>"+"<h3>감사합니다.</h3>",true);
 			sender.send(message);
 		} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
@@ -90,8 +90,8 @@ public class EmailSender {
 			helper.setSentDate(new Date());
 			helper.setFrom(new InternetAddress("lar@naver.com","강원도 멍멍 탐험대"));
 			helper.setTo(memberEmail);
-			helper.setSubject("비밀번호");
-			helper.setText("<h1>안녕하세요</h1>"+"<h3>비밀번호는 [<span style='color:red;'>"+memberPw+"</span>] 입니다.</h3>",true);
+			helper.setSubject("비밀번호 확인 메일입니다.");
+			helper.setText("<h3>안녕하세요.</h3>"+"<h3>강원도 멍멍 탐험대의 가입된 회원님의 비밀번호는 [<span style='color:red;'>"+memberPw+"</span>] 입니다.</h3>"+"<h3>감사합니다.</h3>",true);
 			sender.send(message);
 		} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
