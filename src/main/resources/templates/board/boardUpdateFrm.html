@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>커뮤니티 수정</title>
-<link rel="stylesheet" href="../css/default.css">
 <link rel="stylesheet" href="../css/noticeList.css">
 
 
@@ -32,14 +31,14 @@
                     <th>작성자</th>
                     <td>
                         <span th:text="${b.memberId}"></span>
-                        <input type="hidden" name="memberId" th:value="${b.memberId}">
+                        <input type="hidden" name="boardNo" th:value="${b.boardNo}">
                     </td>
                     <th>대표사진</th>
                     <td>       	
 						<div class="filebox">
-						    <input class="upload-name" th:value="${b.boardFilepath}">
+						    <input class="upload-name" id="boardFile" th:value="${b.boardFilepath}">
 						    <label for="file">사진 변경</label> 
-						    <input type="file" id="file">
+						    <input type="file" id="file" name="addFile">
 						</div>
                     </td>
                 </tr>

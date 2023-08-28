@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 상세보기</title>
-<link rel="stylesheet" href="../css/default.css">
 <link rel="stylesheet" href="../css/noticeList.css">
 
 </head>
@@ -14,7 +13,7 @@
         	<h1>공지사항</h1>
         </div>
         <div class="page-content-mid">
-        <table>
+        <table class="insert-table">
             <tr>
             	<th>제목</th>
                 <td colspan="5" th:text="${n.noticeTitle}"></td>
@@ -33,6 +32,9 @@
             	</td>
             </tr>
         </table>
+        </div>
+        <div class="btn1">
+        	<a href="/notice/list?reqPage=1" class="btn bc1"  style="float: right;">목록</a>
         </div>
         <div class="btn1">
 	        <a th:href="@{/notice/updateFrm(noticeNo=${n.noticeNo})}" class="btn bc1" th:if="${session.m!=null && session.m.memberLevel==1}">수정하기</a>
