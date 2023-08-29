@@ -48,18 +48,21 @@
 		</div>
 		
 		<!-- 댓글입력 -->
+		<div style="border-bottom: 5px solid #ccc;">
+			<h3><img src="../img/board/icon-dog.png" style="width: 50px;">의견을 남겨주세요.</h3>
+		</div>
 		<div class="inputCommentBox" th:if="${session.m != null}">
 			<form action="/board/insertComment" method="post">
 				<ul>
 				<li>
-					<span class="material-icons" style="font-size: 50px">account_box</span>
+					<img src="../img/board/icon-speech.png" style="width: 70px;">
 				</li>
 				<li>
 					<input type="hidden" name="boardCommentWriter" th:value="${session.m.memberNo}">
 					<input type="hidden" name="boardNo" th:value="${b.boardNo}">
 					<textarea name="boardCommentContent"  class="input-form" id="boardCommentContent"></textarea>
 				</li>
-				<li>						
+				<li style="margin-left: 50px; margin-top: 20px;">						
 					<button type="submit" class="btn bc1" id="commentBtn">등록</button>
 				</li>
 				</ul>					
@@ -71,7 +74,7 @@
 			<th:block th:each="cl : ${commentList}">
 				<ul class="posting-comment">
 					<li>
-						<span class="material-icons" style="font-size: 50px">account_box</span>
+						<img src="../img/board/icon-comment.png" style="width: 50px;">
 					</li>
 					<li>
 						<p class="comment-info">		
@@ -97,8 +100,8 @@
 				<th:block th:each="rcl : ${reCommentList}">
 					<ul class="posting-comment reply" th:if="${cl.boardCommentNo == rcl.boardCommentRefNo}">
 						<li>
-							<span class="material-icons">subdirectory_arrow_right</span>
-							<span class="material-icons" style="font-size: 50px">account_box</span>
+							<img src="../img/board/icon-right.png" style="width: 50px;">
+							<img src="../img/board/icon-comment.png" style="width: 50px;">
 						</li>
 						<li>
 							<p class="comment-info">
@@ -125,8 +128,8 @@
 				<div class="inputCommentBox inputReCommentBox" th:if="${session.m != null}" style="display: none;">
 					<form action="/board/insertComment" method="post">
 						<ul>
-						<li>
-								<span class="material-icons">subdirectory_arrow_right</span>
+							<li>
+								<img src="../img/board/icon-right.png" style="width: 50px;">
 							</li>
 						<li>
 							<input type="hidden" name="boardCommentWriter" th:value="${session.m.memberNo}">
@@ -134,7 +137,7 @@
 							<input type="hidden" name="boardCommentRefNo" th:value="${cl.boardCommentNo}">
 							<textarea name="boardCommentContent" class="input-form"  id="boardReCommentContent" ></textarea>
 						</li>
-						<li>
+						<li style="margin-left: 50px; margin-top: 20px;">
 							<button type="submit" class="btn bc1" id="reCommentBtn">등록</button>			
 						</li>	
 						</ul>
