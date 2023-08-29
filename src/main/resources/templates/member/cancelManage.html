@@ -39,7 +39,10 @@
                         <td th:text="${c.memberEmail}"></td>
                         <td th:text="${c.payDate}"></td>
                         <td>
-                            <button class="btn bc1">확정</button>
+                            <form action="/pay/deletePay">
+                                <button type="submit" class="btn bc1">확정</button>
+                                <input type="hidden" name="payNo" id="payNo" th:value="${c.payNo}">
+                            </form>
                         </td>
                     </tr>
                 </table>

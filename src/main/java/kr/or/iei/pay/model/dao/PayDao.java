@@ -42,4 +42,11 @@ public class PayDao {
 		int result = jdbc.update(query, params);
 		return result;
 	}
+
+	public int deletePay(int payNo) {
+		String query = "delete from pay where pay_no = ?";
+		Object[] params = {payNo};
+		int result = jdbc.update(query, params);
+		return result;
+	}
 }

@@ -12,10 +12,10 @@
 </head>
 <body>
 <th:block th:include="common/mung_header"></th:block>
-    <div class="page-content">
-        <div class="page-title">
+        <div class="color-head">
 			<h1>커뮤니티</h1>
 		</div>
+    <div class="page-content">
         <button onclick = "imgAlert()"> Image Alert </button>
         <div class="page-content-mid">
         <table class="insert-table">
@@ -29,7 +29,7 @@
                  <th>작성일</th>
                 <td th:text="${b.boardWriteDate}"></td>
                  <th>조회수</th>
-                <td th:text="${b.boardReadCount}"></td>
+                <td style="width: 10%" th:text="${b.boardReadCount}"></td>
             </tr>
             <tr>
             	<td colspan="6">
