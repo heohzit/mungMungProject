@@ -752,4 +752,8 @@ public class FacilityService {
 		System.out.println("삭제 성공함? 1: yes/ 2: no");
 		return result;
 	}
+	public List selectHotelList() {
+		List hotelList = facilityDao.selectHotelList();
+		return hotelList;
+	}
 }

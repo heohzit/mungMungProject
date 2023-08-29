@@ -187,4 +187,10 @@ public class FacilityDao {
 		int result = jdbc.update(query, params);
 		return result;
 	}
+
+	public List selectHotelList() {
+		String query = "select * from facility where facility_case = 4";
+		List list = jdbc.query(query, facilityRowMapper);
+		return list;
+	}
 }
