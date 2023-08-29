@@ -52,11 +52,11 @@
                         </div>
                         <div class="search-select">
                         <select name="searchType" class="sel-search">
-                        	<option value="">선택해주세요</option>
+                        	<option value="">선택</option>
 		                	<option value="TourList">관광지</option>
 		                	<option value="HotelList">숙박</option>
 		                	<option value="CafeList">식음료</option>
-		                	<option value="activityList">체험</option>
+		                	<option value="ActivityList">체험</option>
 		            	</select>
                         </div>
                         <div class="search-input">
@@ -311,8 +311,8 @@
 				                	$(".search-main").attr("action","/facility/searchHotelList")
 				                } else if($(this).val() == "CafeList"){
 				                	$(".search-main").attr("action","/facility/searchCafeList")
-				                } else if($(this).val() == "activityList"){
-				                	$(".search-main").attr("action","/facility/searchactivityList")
+				                } else if($(this).val() == "ActivityList"){
+				                	$(".search-main").attr("action","/facility/searchActivityList")
 				                }
 				            });
 				        </script>

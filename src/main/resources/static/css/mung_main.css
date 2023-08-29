@@ -121,12 +121,16 @@
 }
 .notice-list{
     width: 800px;
-    padding: 20px 50px 20px 0px;
+    padding: 25px 50px 20px 0px;
     float: left;
+}
+#noticeListView{
+	font-size:25px;
 }
 .notice-content{
 	height: 40px;
     background-color: white;
+    border-radius: 5px;
 }
 .notice-content>a{
     padding: 7px;
@@ -134,7 +138,7 @@
 }
 .search{
     float: left;
-    padding-top: 15px;
+    padding-top: 20px;
     padding-left:  20px;
     overflow: hidden;
 
@@ -149,6 +153,19 @@
 }
 .search-input{
     float: left;
+}
+.search-select{
+	float : left;
+	padding : 0px 5px 0px 5px;
+}
+.sel-search{
+	width:100px;
+	height:47px;
+	font-size:20px;
+	border-radius:30px;
+	text-align:center;
+	color:rgb(1, 78, 200);
+	font-weight: bold;
 }
 #searchName{
     padding: 10px;
@@ -166,7 +183,7 @@
     height: 47px;
     font-size: 20px;
     font-weight: 600;
-    padding-bottom: 3px;
+ 
     background-color: rgb(78, 146, 240);
     color: aliceblue;
     border-radius: 5px;
