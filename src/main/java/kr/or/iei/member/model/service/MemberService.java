@@ -12,8 +12,6 @@ import kr.or.iei.facility.model.vo.FacilityFavorite;
 import kr.or.iei.member.model.dao.MemberDao;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
-import kr.or.iei.member.model.vo.MemberProductPay;
-import kr.or.iei.product.model.vo.Product;
 
 @Service
 public class MemberService {
