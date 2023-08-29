@@ -211,7 +211,7 @@ textarea.input-form {
 
 .page-content{
     width: 1200px;
-    margin: 200px auto;
+    margin: 0px auto;
 }
 .page-title{
     margin: 10px;
@@ -222,7 +222,6 @@ textarea.input-form {
     line-height: 150px;
 }
 .page-content-top{
-    border-top: 1px solid #ccc;
     overflow: hidden;
     height: 100px;
 }
@@ -324,7 +323,7 @@ textarea.input-form {
 }
 .insert-table th{
     width: 210px;
-    background-color: #eee;
+    background-color: rgb(243, 244, 248);
 }
 .label-wrap{
     text-align: center;
@@ -578,3 +577,17 @@ float: left;
     display: block;
 }
 /****************************************************/
+
+.color-head{
+	height: 240px;
+	background: rgb(78,146,240);
+background: linear-gradient(180deg, rgba(78,146,240,0.896796218487395) 0%, rgba(255,255,255,1) 100%);
+}
+.color-head>h1{
+    text-align: center;
+  	height: 150px;
+  	line-height: 150px;
+  	color: #fff;
+  	font-size: 40px;
+  	font-family: GangwonState;
+}

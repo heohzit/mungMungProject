@@ -10,10 +10,11 @@
 </head>
 <body>  
 <th:block th:include="common/mung_header"></th:block>
+		<div class="color-head">
+			<h1>공지사항</h1>
+		</div>
     <div class="page-content">
-        <div class="page-title">
-        	<h1>공지사항</h1>
-        </div>
+
         <div class="page-content-top">
         	<div>
             	<a th:if="${session.m!=null && session.m.memberLevel==1}" href="/notice/writeFrm" class="btn bc1">글쓰기</a>
