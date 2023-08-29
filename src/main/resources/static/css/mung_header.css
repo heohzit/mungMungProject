@@ -578,7 +578,6 @@ float: left;
 /****************************************************/
 
 .color-head{
-	height: 240px;
 	background: rgb(78,146,240);
 background: linear-gradient(180deg, rgba(78,146,240,0.896796218487395) 0%, rgba(255,255,255,1) 100%);
 }
