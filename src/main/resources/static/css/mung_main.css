@@ -154,7 +154,7 @@
     padding: 10px;
     height: 25px;
     font-size: 20px;
-    border: 2px solid #7baefe;
+    border: 2px solid rgb(78, 146, 240);
     border-radius: 5px;
     outline: none;
     
@@ -167,7 +167,7 @@
     font-size: 20px;
     font-weight: 600;
     padding-bottom: 3px;
-    background-color: #7baefe;
+    background-color: rgb(78, 146, 240);
     color: aliceblue;
     border-radius: 5px;
 	cursor:pointer;
@@ -220,7 +220,7 @@
     position: relative;
     margin: 0px auto;
     overflow: hidden;
-    border-top:  1px solid #7baefe;  
+    border-top:  1px solid rgb(78, 146, 240);
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
@@ -338,7 +338,7 @@
     height: 400px;
     position: relative;
     overflow: hidden;
-    border-top:  1px solid #7baefe;
+    border-top:  1px solid rgb(78, 146, 240);
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
@@ -413,7 +413,7 @@
     float: left;
 }
 .pakage-logo{
-    border-bottom: 1px solid #7baefe;
+    border-bottom: 1px solid rgb(78, 146, 240);
     padding: 20px 0px 0px 0px;
     overflow: hidden;
 }
@@ -458,7 +458,7 @@ height: 340px;
 }
 .mung-logo{
     overflow: hidden;
-    border-bottom: 1px solid #7baefe;
+    border-bottom: 1px solid rgb(78, 146, 240);
 
 }
 .mung-icon{
@@ -502,8 +502,7 @@ height: 340px;
 }
 .eat-logo{
     overflow: hidden;
-    border-bottom: 1px solid #7baefe;
-
+    border-bottom: 1px solid rgb(78, 146, 240);
 }
 .eat-icon{
     width: 15%;

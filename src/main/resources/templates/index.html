@@ -60,7 +60,12 @@
                         <div class="search-input">
                         <form action="/facility/searchTourList" th:if="${searchType == TourList }">
                         	<input type="hidden" name="reqPage" value="1">
-                            <input type="text" name="searchName" id="searchName" placeholder="지역명을 입력해주세요.">
+                            <input type="text" name="searchName" id="searchName" placeholder="검색어를 입력해주세요.">
+                            <button type="submit" class="search-submit">검색하기</button>
+                        </form>
+                        <form action="/facility/searchHotelList" th:if="${searchType == HotelList }">
+                        	<input type="hidden" name="reqPage" value="1">
+                            <input type="text" name="searchName" id="searchName" placeholder="검색어를 입력해주세요.">
                             <button type="submit" class="search-submit">검색하기</button>
                         </form>
                         </div>
