@@ -6,7 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import kr.or.iei.facility.model.vo.Facility;
+import kr.or.iei.facility.model.vo.FacilityFavorite;
 import kr.or.iei.member.model.vo.Member;
+import kr.or.iei.member.model.vo.MemberLikeListRowMapper;
+import kr.or.iei.member.model.vo.MemberListData;
+import kr.or.iei.member.model.vo.MemberProductPay;
+import kr.or.iei.member.model.vo.MemberProductPayRowMapper;
 import kr.or.iei.member.model.vo.MemberRowMapper;
 
 @Repository
@@ -16,6 +22,10 @@ public class MemberDao {
 	private JdbcTemplate jdbc;
 	@Autowired
 	private MemberRowMapper memberRowMapper;
+	@Autowired
+	private MemberProductPayRowMapper memberProductPayRowMapper;
+	@Autowired
+	private MemberLikeListRowMapper memberLikeListRowMapper;
 	
 	public Member selectOneMember(String signId, String signPw) {
 		String query = "select * from member where member_id = ? and member_pw = ?";
@@ -98,4 +108,18 @@ public class MemberDao {
 		}
 		return (Member)list.get(0);
 	}
+
+	public List selectOneMpp(int memberNo) {
+		String query = "select * from member join pay on (member_no = pay_member_no) join product on (pay_product_no = product_no) where member_no = ?";
+		List list = jdbc.query(query, memberProductPayRowMapper, memberNo);
+		return list;
+	}
+
+
+	public List selectAllMpp() {
+		String query = "select * from member join pay on (member_no = pay_member_no) join product on (pay_product_no = product_no) where pay_status = 2";
+		List list = jdbc.query(query, memberProductPayRowMapper);
+		return list;
+
+	
 }

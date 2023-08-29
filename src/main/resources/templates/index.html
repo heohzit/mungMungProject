@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 </head>
 <body>
-	<a href="facility/tourDetail">tourDetail 이동</a>
 	<th:block th:include="common/mung_header"></th:block>
 	<div class="wrap"><!--전체를 감싸는 div-->
         <div class="wrap-top">
@@ -51,12 +50,22 @@
                         <div class="search-icon">
                             <span class="material-icons">manage_search</span>
                         </div>
-                        <div class="search-input">
-                        
-                            <input type="text" name="search" id="search" placeholder="지역명을 입력해주세요.">
-                            <button type="submit" class="search-submit">검색하기</button>
+                        <div class="search-select">
+                        <select name="searchType" class="sel-search">
+                        	<option value="">선택</option>
+		                	<option value="TourList">관광지</option>
+		                	<option value="HotelList">숙박</option>
+		                	<option value="CafeList">식음료</option>
+		                	<option value="ActivityList">체험</option>
+		            	</select>
                         </div>
-                        
+                        <div class="search-input">
+	                        <form  class="search-main">
+	                        	<input type="hidden" name="reqPage" value="1">
+	                            <input type="text" name="searchName" id="searchName" placeholder="검색어를 입력해주세요.">
+	                            <button type="submit" class="search-submit">검색하기</button>
+	                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -256,9 +265,56 @@
                     </ul>  
                 </div>
             </div>
+            <div class="eat">
+                <div class="eat-logo">
+                    <a href="#">
+                        <div class="eat-icon">
+                            <span class="material-icons">pets</span>
+                        </div>
+                        <div class="eat-text">
+                            <span>멍멍 식당 카페 </span>
+                        </div>
+                    </a>
+                </div>
+                <span class="slideshow-container2"><!--슬라이드 -->
+                    <div class="Slidesbackground2">
+                        <div class="mySlides2 fade">
+                            
+                            <img src="../img/main/댕댕이와 등산.jpg" class="slideshow-image">
+                        </div>
+                        <div class="mySlides2 fade">
+                            
+                            <img src="../img/main/댕댕이 헤엄.jpg" class="slideshow-image">
+                        </div>
+                        <div class="mySlides2 fade">
+                            
+                            <img src="../img/main/댕댕이 식사.jpg" class="slideshow-image">
+                        </div>
+                        <div class="mySlides2 fade">
+                            
+                            <img src="../img/main/노을 해변가 댕댕이.jpg" class="slideshow-image">
+                        </div>
+                    </div>
+                </span>
+            </div>
         </div>
     </div>
 	<th:block th:include="common/mung_footer"></th:block>
     <script src="../js/mung_main.js"></script>
+                         <script>
+				            // 제이쿼리 change 함수
+				            $(".sel-search").change(function(){
+				                
+				                if($(this).val() == "TourList"){
+				                	$(".search-main").attr("action","/facility/searchTourList")
+				                } else if($(this).val() == "HotelList"){
+				                	$(".search-main").attr("action","/facility/searchHotelList")
+				                } else if($(this).val() == "CafeList"){
+				                	$(".search-main").attr("action","/facility/searchCafeList")
+				                } else if($(this).val() == "ActivityList"){
+				                	$(".search-main").attr("action","/facility/searchActivityList")
+				                }
+				            });
+				        </script>
 </body>
 </html>

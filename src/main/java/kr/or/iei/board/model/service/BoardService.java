@@ -15,7 +15,7 @@ public class BoardService {
     
   //공지사항 리스트 검색없을때
   	public BoardListData selectBoardList(int reqPage) {
-  		int numPerPage = 5;
+  		int numPerPage = 8;
   		int end = reqPage * numPerPage;
   		int start = end-numPerPage+1;
   		List boardList = boardDao.selectBoardList(start, end);

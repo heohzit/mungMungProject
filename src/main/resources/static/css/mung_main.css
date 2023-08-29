@@ -97,7 +97,7 @@
 .top-mid{
     width: 100%;
     height: 100%;
-    background-color:rgb(4, 144, 159) ;
+    background-color:rgb(1, 78, 200);
     overflow: hidden;
 }
 .notice{
@@ -121,12 +121,16 @@
 }
 .notice-list{
     width: 800px;
-    padding: 20px 50px 20px 0px;
+    padding: 25px 50px 20px 0px;
     float: left;
+}
+#noticeListView{
+	font-size:25px;
 }
 .notice-content{
 	height: 40px;
     background-color: white;
+    border-radius: 5px;
 }
 .notice-content>a{
     padding: 7px;
@@ -134,7 +138,7 @@
 }
 .search{
     float: left;
-    padding-top: 15px;
+    padding-top: 20px;
     padding-left:  20px;
     overflow: hidden;
 
@@ -150,11 +154,24 @@
 .search-input{
     float: left;
 }
-#search{
+.search-select{
+	float : left;
+	padding : 0px 5px 0px 5px;
+}
+.sel-search{
+	width:100px;
+	height:47px;
+	font-size:20px;
+	border-radius:30px;
+	text-align:center;
+	color:rgb(1, 78, 200);
+	font-weight: bold;
+}
+#searchName{
     padding: 10px;
     height: 25px;
     font-size: 20px;
-    border: 2px solid rgb(158, 210, 220);
+    border: 2px solid rgb(78, 146, 240);
     border-radius: 5px;
     outline: none;
     
@@ -166,8 +183,8 @@
     height: 47px;
     font-size: 20px;
     font-weight: 600;
-    padding-bottom: 3px;
-    background-color: rgb(158, 210, 220);
+ 
+    background-color: rgb(78, 146, 240);
     color: aliceblue;
     border-radius: 5px;
 	cursor:pointer;
@@ -192,7 +209,7 @@
 }
 .lodging-icon>span{
     font-size: 40px;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .lodging-text{
     width: 95%;
@@ -201,7 +218,7 @@
 .lodging-text>span{
     font-size: 40px;
     font-family: kotra-hope;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
   .slides1>li{
     list-style-type: none;
@@ -220,7 +237,7 @@
     position: relative;
     margin: 0px auto;
     overflow: hidden;
-    border-top:  1px solid rgb(158, 210, 220);   
+    border-top:  1px solid rgb(78, 146, 240);
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
@@ -311,7 +328,7 @@
 }
 .travel-icon>span{
     font-size: 40px;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .travel-text{
     width: 85%;
@@ -320,7 +337,7 @@
 .travel-text>span{
     font-size: 40px;
     font-family: kotra-hope;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
   .slides2>li{
     list-style-type: none;
@@ -338,7 +355,7 @@
     height: 400px;
     position: relative;
     overflow: hidden;
-    border-top:  1px solid rgb(158, 210, 220);   
+    border-top:  1px solid rgb(78, 146, 240);
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
@@ -413,7 +430,7 @@
     float: left;
 }
 .pakage-logo{
-    border-bottom: 1px solid rgb(158, 210, 220);
+    border-bottom: 1px solid rgb(78, 146, 240);
     padding: 20px 0px 0px 0px;
     overflow: hidden;
 }
@@ -424,7 +441,7 @@
 }
 .pakage-icon>span{
     font-size: 40px;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .pakage-text{
     width: 85%;
@@ -433,7 +450,7 @@
 .pakage-text>span{
     font-size: 40px;
     font-family: kotra-hope;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .pakage-content{
     padding: 10px;
@@ -454,10 +471,11 @@ height: 340px;
 }
 .mung{
     width: 61%;
+    float: left;
 }
 .mung-logo{
     overflow: hidden;
-    border-bottom: 1px solid rgb(158, 210, 220);
+    border-bottom: 1px solid rgb(78, 146, 240);
 
 }
 .mung-icon{
@@ -467,7 +485,7 @@ height: 340px;
 }
 .mung-icon>span{
     font-size: 40px;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 
 }
 .mung-text{
@@ -477,7 +495,7 @@ height: 340px;
 .mung-text>span{
     font-size: 40px;
     font-family: kotra-hope;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .mung-content{
     overflow: hidden;
@@ -491,5 +509,38 @@ height: 340px;
     height: 150px;
     border: 1px solid lightgray;
     border-radius: 5px;
+}
+
+/*  */
+.eat{
+    padding-left: 20px;
+    width: 30%;
+    float: left;
+}
+.eat-logo{
+    overflow: hidden;
+    border-bottom: 1px solid rgb(78, 146, 240);
+}
+.eat-icon{
+    width: 15%;
+    float: left;
+    text-align: center;
+}
+.eat-icon>span{
+    font-size: 40px;
+    color: rgb(1, 78, 200);
+
+}
+.eat-text{
+    width: 85%;
+    float: left;
+}
+.eat-text>span{
+    font-size: 40px;
+    font-family: kotra-hope;
+    color: rgb(1, 78, 200);
+}
+.Slidesbackground2{
+    padding-top: 10px;
 }
 

@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.or.iei.EmailSender;
+import kr.or.iei.facility.model.vo.Facility;
+import kr.or.iei.facility.model.vo.FacilityFavorite;
+import kr.or.iei.facility.model.vo.FacilityListData;
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
@@ -107,7 +110,9 @@ public class MemberController {
 		return "member/myFavorite";
 	}
 	@GetMapping(value="/myReservation")
-	public String myReservation() {
+	public String myReservation(int memberNo, Model model) {
+		List list = memberService.selectOneMpp(memberNo);
+		model.addAttribute("mppList", list);
 		return "member/myReservation";
 	}
 	@GetMapping(value="/myBoard")
@@ -118,6 +123,14 @@ public class MemberController {
 	public String myQna() {
 		return "member/myQna";
 	}
+	//찜한 여행지
+	@GetMapping(value="/likeList")
+	public String likeList(Member member, Facility facility, FacilityFavorite facilityfavorite, Model model) {
+		MemberListData mld = memberService.selectLikeList(member, facility, facilityfavorite, model);
+		model.addAttribute("MemberList", mld.getMemberList());
+		return "member/myFavorite";
+	}
+	
 	
 	@PostMapping(value="/update")
 	public String update(Member member, Model model, @SessionAttribute(required = false) Member m) {
@@ -183,5 +196,10 @@ public class MemberController {
 		}
 	}
 	
-
+	@GetMapping(value = "/cancelManage")
+	public String cancelManage(Model model) {
+		List list = memberService.selectAllMpp();
+		model.addAttribute("cancelList", list);
+		return "/member/cancelManage";
+	}
 }

@@ -61,7 +61,7 @@
 .pcw{
     width: 400px;
     height: 60px;
-    background-color: rgb(4, 144, 159);
+    background-color: rgb(1, 78, 200);
 }
 .pcw>label{
     font-size: 30px;
@@ -73,13 +73,13 @@
     font-size: 20px;
     padding-left: 20px;
     border: none;
-    border-bottom: 2px solid rgb(4, 144, 159);
+    border-bottom: 2px solid rgb(1, 78, 200);
     outline: none;
 }
 .pcw-0{
     width: 400px;
     height: 600px;
-    background-color: rgb(4, 144, 159);
+    background-color: rgb(1, 78, 200);
 }
 .pcw-0>label{
     font-size: 30px;

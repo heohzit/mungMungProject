@@ -7,11 +7,16 @@
 </head>
 <body>
     <th:block th:include="common/mung_header"></th:block>
+<div class="color-head">
+	<h1>관리자페이지</h1>
+</div>
     <div class="page-content">
-        <div class="page-title">
-            <h1>전체회원정보</h1>
+        <div class="page-content-top">
+            <div class="admin-page-select">
+                <a href="/member/admin?reqPage=1" class="admin-page-active-tab">전체회원정보</a>
+                <a href="/member/cancelManage">결제취소요청 관리</a>
+            </div>
         </div>
-        <div class="page-content-top"></div>
         <div class="page-content-mid">
             <div class="admin-page-content">
                 <table class="admin-tbl">
@@ -38,7 +43,7 @@
                         </th:block>
                         <td th:text="${m.enrollDate}"></td>
                     </tr>
-                </table>
+                </table>                
             </div>
         </div>
         <div class="page-content-bottom">

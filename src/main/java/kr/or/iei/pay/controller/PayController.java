@@ -56,4 +56,35 @@ public class PayController {
 		model.addAttribute("loc", "/product/list");
 		return "common/msg";
 	}
+	
+	@GetMapping(value = "/cancelPay")
+	public String cancelPay(int payNo, int memberNo, Model model) {
+		int result = payService.cancelPay(payNo);
+		if (result > 0) {
+			model.addAttribute("title", "취소요청성공");
+			model.addAttribute("msg", "취소 요청이 완료되었습니다.");
+			model.addAttribute("icon", "success");
+			model.addAttribute("loc", "/member/myReservation?memberNo=" + memberNo);
+		} else {
+			model.addAttribute("title", "취소요청실패");
+			model.addAttribute("msg", "취소 요청이 실패했습니다. 잠시 후 다시 시도해주세요.");
+			model.addAttribute("icon", "error");
+			model.addAttribute("loc", "/member/myReservation?memberNo=" + memberNo);
+		}
+		return "common/msg";
+	}
+	
+	@GetMapping(value = "/deletePay")
+	public String deletePay(int payNo, Model model) {
+		int result = payService.deletePay(payNo);
+		if (result > 0) {
+			return "redirect:/member/cancelManage";
+		}else {
+			model.addAttribute("title", "취소확정실패");
+			model.addAttribute("msg", "취소 확정이 실패했습니다. 잠시 후 다시 시도해주세요.");
+			model.addAttribute("icon", "error");
+			model.addAttribute("loc", "/member/cancelManage");
+			return "common/msg";
+		}
+	}
 }

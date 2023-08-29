@@ -8,10 +8,11 @@
 </head>
 <body>
 <th:block th:include="common/mung_header"></th:block>
+		<div class="color-head">
+			<h1>공지사항</h1>
+		</div>
     <div class="page-content">
-        <div class="page-title">
-        	<h1>공지사항</h1>
-        </div>
+
         <div class="page-content-mid">
         <table class="insert-table">
             <tr>
@@ -24,7 +25,7 @@
                 <th>작성일</th>
                 <td th:text="${n.noticeWriteDate}"></td>
                  <th>조회수</th>
-                <td th:text="${n.noticeReadCount}"></td>
+                <td style="width: 10%" th:text="${n.noticeReadCount}"></td>
             </tr>
             <tr>
                	<td colspan="6">

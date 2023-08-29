@@ -73,7 +73,7 @@ body {
 
 
 .fc-1{
-    color: #04909f;
+    color: rgb(1, 78, 200);
 }
 .fc-2{
     color: #9ed2dc;
@@ -82,7 +82,7 @@ body {
 
 
 .bg-1{
-    background-color: #04909f;
+    background-color: rgb(1, 78, 200);
 }
 .bg-2{
     background-color: #9ed2dc;
@@ -110,13 +110,13 @@ body {
     border-radius: 5px;
 }
 .bc1{
-    background-color: #04909f;
+    background-color: rgb(1, 78, 200);
     color: #fff;
-    border: 2px solid #04909f;
+    border: 2px solid rgb(1, 78, 200);
 }
 .bc1:hover{
-    background-color: #1F6E8C;
-    border: 2px solid #1F6E8C;
+    background-color: rgb(1, 78, 200);
+    border: 2px solid rgb(1, 78, 200);
     cursor: pointer;
 }
 .bc11 {
@@ -216,7 +216,7 @@ textarea.input-form {
 
 .page-content{
     width: 1200px;
-    margin: 30px auto;
+    margin: 0px auto;
 }
 .page-title{
     margin-bottom: 30px;
@@ -225,7 +225,6 @@ textarea.input-form {
     text-align: center;
 }
 .page-content-top{
-    border-top: 1px solid #ccc;
     overflow: hidden;
     height: 100px;
 }
@@ -314,12 +313,11 @@ textarea.input-form {
     line-height: 40px;
 }
 .select-page{
-    background-color: #04909f;
+    background-color: rgb(1, 78, 200);
     color: #fff;
 }
 
 .insert-table{
-    border: 1px solid #ccc;
     border-collapse: collapse;
 }
 .insert-table tr{
@@ -327,7 +325,7 @@ textarea.input-form {
 }
 .insert-table th{
     width: 210px;
-    background-color: #04909f;
+    background-color: rgb(243,244,248);
 }
 .label-wrap{
     text-align: center;
@@ -378,13 +376,13 @@ textarea.input-form {
     border-radius: 5px;
     background-color: #fff;
     color: #04909f;
-    border: 2px solid #04909f;
+    border: 2px solid rgb(1, 78, 200);
     cursor: pointer;
 }
 .admin-page-active-tab{
-    background-color: #04909f;
+    background-color: rgb(1, 78, 200);
     color: #fff;
-    border: 2px solid #04909f;  
+    border: 2px solid rgb(1, 78, 200);  
 }
 
 .admin-tbl{
