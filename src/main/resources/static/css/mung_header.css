@@ -374,15 +374,13 @@ textarea.input-form {
     border: none;
     box-sizing: border-box;
     transition-duration: 0.5s;    
-    background-color: #fff;
-    border: 2px solid rgb(1, 78, 200);
-    color: rgb(1, 78, 200);
+    background-color: rgb(78, 146, 240);
+    color: #fff;
     cursor: pointer;
 }
 .page-content-top>.admin-page-select>a.admin-page-active-tab{
     background-color: rgb(1, 78, 200);
-    color: #fff;
-    border: 2px solid rgb(1, 78, 200);    
+    color: #fff;  
 }
 
 .admin-tbl{

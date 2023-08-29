@@ -9,9 +9,6 @@ import org.springframework.stereotype.Repository;
 import kr.or.iei.facility.model.vo.Facility;
 import kr.or.iei.facility.model.vo.FacilityFavorite;
 import kr.or.iei.member.model.vo.Member;
-import kr.or.iei.member.model.vo.MemberLikeListRowMapper;
-import kr.or.iei.member.model.vo.MemberListData;
-import kr.or.iei.member.model.vo.MemberProductPay;
 import kr.or.iei.member.model.vo.MemberProductPayRowMapper;
 import kr.or.iei.member.model.vo.MemberRowMapper;
 

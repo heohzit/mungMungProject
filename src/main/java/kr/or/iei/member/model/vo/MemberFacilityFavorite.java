@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class MemberLikeList {
+public class MemberFacilityFavorite {
 	private int memberNo;
 	private String memberId;
 	private String memberPw;
