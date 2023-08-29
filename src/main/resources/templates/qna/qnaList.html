@@ -44,7 +44,8 @@
                 <td th:text="${qna.qnaNo}"></td>
                 <td><a th:href="@{/qna/view(qnaNo=${qna.qnaNo})}" th:text="${qna.qnaTitle}"></a></td>
                 <td th:text="${qna.memberId}"></td>
-                <td th:text="${qna.qnaAnswerCase}"></td>
+                <td th:if="${qna.qnaAnswerCase == 1}">미답변</td>
+                <td th:if="${qna.qnaAnswerCase == 2}">답변완료</td>
                 <td th:text="${qna.qnaWriteDate}"></td>
             </tr>
         </table>

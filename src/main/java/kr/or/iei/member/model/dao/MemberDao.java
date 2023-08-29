@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import kr.or.iei.facility.model.vo.Facility;
-import kr.or.iei.facility.model.vo.FacilityFavorite;
 import kr.or.iei.member.model.vo.Member;
+import kr.or.iei.member.model.vo.MemberListData;
 import kr.or.iei.member.model.vo.MemberProductPayRowMapper;
 import kr.or.iei.member.model.vo.MemberRowMapper;
 
@@ -21,8 +20,6 @@ public class MemberDao {
 	private MemberRowMapper memberRowMapper;
 	@Autowired
 	private MemberProductPayRowMapper memberProductPayRowMapper;
-	@Autowired
-	private MemberLikeListRowMapper memberLikeListRowMapper;
 	
 	public Member selectOneMember(String signId, String signPw) {
 		String query = "select * from member where member_id = ? and member_pw = ?";

@@ -42,7 +42,7 @@ public class QnaController {
 			return "qna/qnaWriteFrm";	
 		}	
 		
-		@PostMapping(value="write")
+		@PostMapping(value="/write")
 		public String noticeWrite(Qna q,Model model){	
 			int result = qnaService.insertQna(q);
 			if(result>0) {
@@ -58,7 +58,7 @@ public class QnaController {
 			return "common/msg";
 		}
 		
-		@GetMapping(value = "view")
+		@GetMapping(value = "/view")
 		public String qnaView(int qnaNo, Model model) {
 			Qna q = qnaService.selectOneQna(qnaNo);
 			if (q != null) {
@@ -73,7 +73,7 @@ public class QnaController {
 			}
 		}
 		@ResponseBody
-		@PostMapping (value="editor",produces ="plain/text;charset=utf-8")
+		@PostMapping (value="/editor",produces ="plain/text;charset=utf-8")
 		public String editorUpload(MultipartFile file) {
 			String savepath = root+"qna/";
 			String filepath = fileUtil.getFilepath(savepath, file.getOriginalFilename());
@@ -88,7 +88,7 @@ public class QnaController {
 		}
 		
 		//공지사항 삭제
-		@GetMapping(value="delete")
+		@GetMapping(value="/delete")
 		public String deleteQna(int qnaNo , Model model) {
 			int result = qnaService.deleteQna(qnaNo);
 			if (result != 0) {
@@ -104,14 +104,14 @@ public class QnaController {
 			}
 			return "common/msg";
 		}
-		@GetMapping(value="updateFrm")
+		@GetMapping(value="/updateFrm")
 		public String updateFrm(int qnaNo, Model model) {
 			Qna q = qnaService.getNotice(qnaNo);
 			model.addAttribute("q", q);
 			return "qna/qnaUpdateFrm";
 		}	
 		
-		@PostMapping(value="update")
+		@PostMapping(value="/update")
 		public String update(Qna q,Model model) {
 			int result = qnaService.updateQna(q);
 			if(result>0) {
@@ -126,5 +126,20 @@ public class QnaController {
 			model.addAttribute("loc","/qna/view?qnaNo="+q.getQnaNo());
 			return "common/msg";
 		}
-	
+		
+		@PostMapping (value = "/answer")
+		public String answer(int qnaNo, String qnaAnswer, Model model) {
+			int result = qnaService.answer(qnaNo, qnaAnswer);
+			if(result>0) {
+				model.addAttribute("title", "수정완료");
+				model.addAttribute("msg", "게시글이 수정되었습니다");
+				model.addAttribute("icon", "success");					
+			}else {
+				model.addAttribute("title", "수정실패");
+				model.addAttribute("msg", "관리자에게 문의하세요");
+				model.addAttribute("icon", "error");	
+			}
+			model.addAttribute("loc","/qna/view?qnaNo="+qnaNo);
+			return "common/msg";
+		}
 }

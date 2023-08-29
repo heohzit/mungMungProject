@@ -8,6 +8,7 @@
   href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
 />
 
+<script src="../../static/js/jquery-3.6.0.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <title>test</title>
 </head>
@@ -64,8 +65,19 @@
     <!-- If we need scrollbar -->
     <div class="swiper-scrollbar"></div>
   </div>
+  <textarea name="" id="a" cols="30" rows="10"></textarea>
+  <button id="ab">클릭</button>
+
+
+
 </body>
 <script>
+  $("#ab").on("click", function(){
+    const ab = $("#a").val();
+    console.log(ab);
+  });
+
+
     const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
