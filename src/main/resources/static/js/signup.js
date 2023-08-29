@@ -100,7 +100,7 @@ $("#memberId").on("change",function(){
 					}
 				});
 			}else{
-				$("#ajaxCheckId").text(" " + "아이디는 영어소문자/숫자 4~10글자입니다.");
+				$("#ajaxCheckId").text(" " + "영문 소문자/숫자 4~10글자 이내로 입력해주세요.");
 				$("#ajaxCheckId").css("color","red");
 				$(this).css("border","1px solid red");
 				
@@ -108,25 +108,25 @@ $("#memberId").on("change",function(){
 			//db에서 중복체크(ajax)
 		});
 
-//비밀번호 : 영어소문자+대문자+숫자로 8~12글자
+//비밀번호
 const checkArr =[false,false,false,false,false,false,false,false];
 const memberArr = ["user01","user02","user"];
 const comment1 = $(".comment1");
 const comment2 = $(".comment2");
 $("#memberPw").on("change",function(){
-    const pwReg = /^[a-zA-Z0-9]{8,12}$/;
+    const pwReg = /^[a-z0-9\d$@$!%*?&]{4,10}$/;
     const inputPw = $(this).val();
     const check = pwReg.test(inputPw);
     if(check){
         //정규표현식 만족한 경우
         //중복체크
-        comment1.text("사용 가능한 비밀번호 입니다.")
+        comment1.text(" " + "사용 가능한 비밀번호입니다.")
         comment1.css("color","blue");
         $(this).css("border","1px solid blue");
         checkArr[1] = true;
     }else{
         //정규표현식 만족하지 못한 경우
-        comment1.text("영문 대/소문자/ 숫자로 8글자~12글자 내로 입력하시오.")
+        comment1.text(" " + "영문 소문자/숫자/특수문자 4글자~10글자 이내로 입력해주세요.");
         comment1.css("color","red");
         $(this).css("border","1px solid red");
         checkArr[1] = false;
@@ -135,22 +135,22 @@ $("#memberPw").on("change",function(){
         pwDupCheck();
     }
 });
-//비밀번호확인 : 비밀번호와 같은지
+//비밀번호확인 
 $("#memberPwRe").on("change",function(){
     pwDupCheck();
 });
 
 function pwDupCheck(){
-    //비밀번호확인 : 비밀번호와 같은지
+    //비밀번호확인 
     const inputPw = $("#memberPw").val();
     const inputPwRe = $("#memberPwRe").val();
     if(inputPw == inputPwRe){
-        comment2.text("비밀번호와 동일합니다.")
+        comment2.text(" " +"비밀번호와 일치합니다.")
         comment2.css("color","blue");
         $("#memberPwRe").css("border","1px solid blue");
         checkArr[2] = true;
     }else{
-        comment2.text("비밀번호와 동일하지 않습니다.")
+        comment2.text(" " +"비밀번호와 일치하지 않습니다.")
         comment2.css("color","red");
         $("#memberPwRe").css("border","1px solid red");
         checkArr[2] = false;
