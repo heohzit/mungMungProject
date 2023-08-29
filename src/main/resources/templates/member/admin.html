@@ -12,10 +12,10 @@
 </div>
     <div class="page-content">
         <div class="page-content-top">
-            <ul class="admin-page-select">
-                <li>전체회원정보</li>
-                <li>결제취소요청 관리</li>
-            </ul>
+            <div class="admin-page-select">
+                <a href="/member/admin?reqPage=1" class="admin-page-active-tab">전체회원정보</a>
+                <a href="/member/cancelManage">결제취소요청 관리</a>
+            </div>
         </div>
         <div class="page-content-mid">
             <div class="admin-page-content">
@@ -43,33 +43,13 @@
                         </th:block>
                         <td th:text="${m.enrollDate}"></td>
                     </tr>
-                </table>
-                <div id="pageNavi" th:utext="${pageNavi}"></div>
-            </div>
-            <div class="admin-page-content">
-                <table class="admin-tbl">
-                    <tr>
-                        
-                    </tr>
-                </table>
+                </table>                
             </div>
         </div>
-        <div class="page-content-bottom"></div>
+        <div class="page-content-bottom">
+            <div id="pageNavi" th:utext="${pageNavi}"></div>
+        </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
-    <script>
-        const tabs = $(".admin-page-select>li");
-        tabs.on("click", function () {
-            tabs.removeClass("active-tab");
-            $(this).addClass("active-tab");
-            const tabcontent = $(".admin-page-content");
-            tabcontent.hide();
-            const index = tabs.index(this);
-            tabcontent.eq(index).show();
-        });
-        $(function () {
-            tabs.eq(0).click();
-        });
-    </script>
 </body>
 </html>
