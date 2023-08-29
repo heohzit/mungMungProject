@@ -78,4 +78,13 @@ public class QnaService {
 			return q;
 	}
 
+	public int deleteQna(int qnaNo) {
+		int result = qnaDao.deleteQna(qnaNo);
+		if(result > 0) {
+			return result;
+		}else {
+			return 0;
+		}
+	}
+
 }
