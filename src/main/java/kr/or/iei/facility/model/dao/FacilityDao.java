@@ -187,4 +187,10 @@ public class FacilityDao {
 		int result = jdbc.update(query, params);
 		return result;
 	}
+
+	public int selectFavoriteListTotalCount(int memberNo) {
+		String query = "select count(*) from favorite where favorite_member_no = ?";
+		int totalCount = jdbc.queryForObject(query, Integer.class, memberNo);
+		return totalCount;
+	}
 }

@@ -18,7 +18,7 @@
                 <a href="/member/mypage">
                     <li>회원정보</li>
                 </a>
-                <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo})}">
+                <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=${1})}">
                     <li>내가 찜한 여행지</li>
                 </a>
                 <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}" class="active-tab">

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/mypage.css">
 </head>
 <body>
@@ -17,7 +18,7 @@
             <div class="tab-wrap">
                 <ul class="tabs">
                     <a href="/member/mypage"><li>회원정보</li></a>
-                    <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo})}" class="active-tab"><li>내가 찜한 여행지</li></a>
+                    <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=${1})}" class="active-tab"><li>내가 찜한 여행지</li></a>
                     <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li>예약현황</li></a>
                     <a href="/member/myBoard"><li>자유게시판</li></a>
                     <a href="/member/myQna"><li>Q&A</li></a>
@@ -27,20 +28,23 @@
                         <h4>내가 찜한 여행지</h4>
                         <br><hr><br>
                         <ul class="mid-list-wrap">
-                            <li class="mid-list">
-                                <a th:href="@{/facility/tourDetail(facilityNo=${})}">
+                            <li class="mid-list" th:each="favorite : ${favoriteList}">
+                                <a th:href="@{/facility/tourDetail(facilityNo=${favorite.facilityNo})}">
                                     <div class="list-img-box">
-                                        <th:block>
-
+                                        <th:block th:if="${favorite.facilityFilepath != null}">
+                                            <img th:src="${favorite.facilityFilepath}">
                                         </th:block>
-                                        <th:block>
-                                            
+                                        <th:block th:if="${favorite.facilityFilepath == null}" th:switch="${favorite.facilityCase}">
+                                            <img th:case="1" src="/img/cafe_img.jpg">
+                                            <img th:case="2" src="/img/hotel_img.jpg">
+                                            <img th:case="3" src="/img/tour_img.jpg">
+                                            <img th:case="4" src="/img/activity_img.jpg">
                                         </th:block>
                                     </div>
                                     <div class="list-text-box">
                                         <ul>
                                             <li>
-                                                <h4></h4>
+                                                <h4 th:text="${favorite.facilityName}"></h4>
                                             </li>
                                         </ul>
                                     </div>
@@ -49,7 +53,9 @@
                         </ul>
 					</div>
                 </div>
-                <div class="page-content-bottom"></div>
+                <div class="page-content-bottom">
+                    <div id="pageNavi" th:utext="${pageNavi}"></div>
+                </div>
             </div>
         </form>
     </div>
