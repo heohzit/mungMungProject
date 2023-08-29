@@ -44,4 +44,18 @@ public class QnaDao {
 		return (Qna)list.get(0);
 	}
 
+	public int deleteQna(int qnaNo) {
+		String query = "delete from qna where qna_no = ?";
+		Object[] params = {qnaNo};
+		int result = jdbc.update(query,params);
+		return result;
+	}
+
+	public int updateQna(Qna q) {
+		String query = "update qna set qna_title=?, qna_content=?, QNA_CASE = ?, QNA_WRITE_DATE=to_char(sysdate,'yyyy-mm-dd') where qna_no = ?";
+		Object[] params = {q.getQnaTitle(), q.getQnaContent(), q.getQnaCase(), q.getQnaNo()};
+		int result = jdbc.update(query,params);
+		return result;
+	}
+
 }

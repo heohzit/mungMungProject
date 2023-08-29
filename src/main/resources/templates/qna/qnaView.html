@@ -42,6 +42,24 @@
 	        <a th:href="@{/qna/updateFrm(qnaNo=${q.qnaNo})}" class="btn bc1">수정하기</a>
 	        <a th:href="@{/qna/delete(qnaNo=${q.qnaNo})}" onClick="alert('게시글을 삭제하시겠습니까?')" class="btn bc1">삭제하기</a>
 		</div>
+		<!-- 댓글 입력창 -->
+		<div class="inputCommentBox" th:if="${session.m != null}">
+			<form action="/notice/insertComment" method="post">
+				<ul>
+					<li>
+						<span class="material-icons">account_box</span>
+					</li>
+					<li>
+						<input th:value="${session.m.memberId}">
+						<input name="noticeRef">
+						<textarea name="noticeCommentContent" class="input-form"></textarea>
+					</li>
+					<li>
+						<button type="submit" class="btn bc1 bs4">등록</button>
+					</li>
+				</ul>
+			</form>
+		</div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
 </body>

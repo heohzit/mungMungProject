@@ -78,4 +78,27 @@ public class QnaService {
 			return q;
 	}
 
+	public int deleteQna(int qnaNo) {
+		int result = qnaDao.deleteQna(qnaNo);
+		if(result > 0) {
+			return result;
+		}else {
+			return 0;
+		}
+	}
+
+	public Qna getNotice(int qnaNo) {
+		Qna q = qnaDao.selectOneQna(qnaNo);
+		return q;
+	}
+
+	public int updateQna(Qna q) {
+		int result = qnaDao.updateQna(q);
+		if(result > 0) {
+			return result;
+		}else {
+			return 0;
+		}
+	}
+
 }
