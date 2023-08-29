@@ -121,5 +121,5 @@ public class MemberDao {
 		List list = jdbc.query(query, memberProductPayRowMapper);
 		return list;
 
-	
+	}	
 }
