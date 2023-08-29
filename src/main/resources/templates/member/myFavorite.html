@@ -17,7 +17,7 @@
             <div class="tab-wrap">
                 <ul class="tabs">
                     <a href="/member/mypage"><li>회원정보</li></a>
-                    <a href="/member/myFavorite" class="active-tab"><li>내가 찜한 여행지</li></a>
+                    <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo})}" class="active-tab"><li>내가 찜한 여행지</li></a>
                     <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li>예약현황</li></a>
                     <a href="/member/myBoard"><li>자유게시판</li></a>
                     <a href="/member/myQna"><li>Q&A</li></a>
@@ -26,36 +26,30 @@
                     <div class="tabcontent">
                         <h4>내가 찜한 여행지</h4>
                         <br><hr><br>
-                        <div class="product">
-                                <ul class="product-list">
-                                    <li>
-                                        <img src="img/.png">
-                                        <ul class="place-info">
-                                        <li>주소1</li>
+                        <ul class="mid-list-wrap">
+                            <li class="mid-list">
+                                <a th:href="@{/facility/tourDetail(facilityNo=${})}">
+                                    <div class="list-img-box">
+                                        <th:block>
+
+                                        </th:block>
+                                        <th:block>
+                                            
+                                        </th:block>
+                                    </div>
+                                    <div class="list-text-box">
+                                        <ul>
+                                            <li>
+                                                <h4></h4>
+                                            </li>
                                         </ul>
-                                    </li>
-                                    <li>
-                                        <img src="img/.png">
-                                        <ul class="place-info">
-                                        <li>주소2</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <img src="img/.png">
-                                        <ul class="place-info">
-                                        <li>주소3</li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <img src="img/.png">
-                                        <ul class="place-info">
-                                        <li>주소4</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
 					</div>
                 </div>
+                <div class="page-content-bottom"></div>
             </div>
         </form>
     </div>
