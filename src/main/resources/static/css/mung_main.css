@@ -132,7 +132,7 @@
     padding: 7px;
     font-size: 20px;
 }
-.searchName{
+.search{
     float: left;
     padding-top: 15px;
     padding-left:  20px;
@@ -150,7 +150,7 @@
 .search-input{
     float: left;
 }
-#search{
+#searchName{
     padding: 10px;
     height: 25px;
     font-size: 20px;
