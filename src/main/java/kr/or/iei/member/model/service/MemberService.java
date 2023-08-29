@@ -127,5 +127,4 @@ public class MemberService {
 		List list = memberDao.selectOneMpp(memberNo);
 		return list;
 	}
-	
 }
