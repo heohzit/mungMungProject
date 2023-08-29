@@ -18,7 +18,10 @@
 	margin-top: 200px;
     width: 100%;
     border-top: 1px solid lightgray;
-
+}
+.footer_text{
+    width: 1200px;
+    margin: 0 auto;
 }
 .footer_text>ul>li{
     padding: 8px;
@@ -27,13 +30,17 @@
     color: gray;
 }
 .footer_logo{
-    padding: 20px;
     background-color: rgb(1, 78, 200);
+    padding: 20px;
 }
-.footer_logo>a{
+.footer_logo_wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+.footer_logo_wrap>a{
     text-decoration: none;
 }
-.footer_logo>a>span{
+.footer_logo_wrap>a>span{
     font-size: 50px;
     color: aliceblue;
     font-family: KOTRAHOPE;
