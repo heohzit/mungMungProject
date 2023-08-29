@@ -58,4 +58,11 @@ public class QnaDao {
 		return result;
 	}
 
+	public int answer(int qnaNo, String qnaAnswer) {
+		String query = "update qna set qna_answer = ?, QNA_ANSWER_CASE =2 where qna_no = ?";
+		Object[] params = {qnaAnswer, qnaNo};
+		int result = jdbc.update(query,params);
+		return result;
+	}
+
 }

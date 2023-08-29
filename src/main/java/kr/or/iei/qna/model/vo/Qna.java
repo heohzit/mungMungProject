@@ -15,5 +15,11 @@ public class Qna {
 	private String qnaContent;
 	private String qnaWriteDate;
 	private int qnaAnswerCase;
+	private String qnaAnswer;
+	
 	private String memberId;
+	
+	public String setQnaAnswer() {
+	return qnaAnswer.replaceAll("\r\n", "<br>");
+	}
 }
