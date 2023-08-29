@@ -111,7 +111,8 @@ $("#memberId").on("change",function(){
 //비밀번호 : 영어소문자+대문자+숫자로 8~12글자
 const checkArr =[false,false,false,false,false,false,false,false];
 const memberArr = ["user01","user02","user"];
-const comment = $(".comment");
+const comment1 = $(".comment1");
+const comment2 = $(".comment2");
 $("#memberPw").on("change",function(){
     const pwReg = /^[a-zA-Z0-9]{8,12}$/;
     const inputPw = $(this).val();
@@ -119,18 +120,18 @@ $("#memberPw").on("change",function(){
     if(check){
         //정규표현식 만족한 경우
         //중복체크
-        comment.eq(1).text("사용 가능한 비밀번호 입니다.")
-        comment.eq(1).css("color","blue");
+        comment1.text("사용 가능한 비밀번호 입니다.")
+        comment1.css("color","blue");
         $(this).css("border","1px solid blue");
         checkArr[1] = true;
     }else{
         //정규표현식 만족하지 못한 경우
-        $(this).next().text("영문 대/소문자/ 숫자로 8글자~12글자 내로 입력하시오.")
-        comment.eq(1).css("color","red");
+        comment1.text("영문 대/소문자/ 숫자로 8글자~12글자 내로 입력하시오.")
+        comment1.css("color","red");
         $(this).css("border","1px solid red");
         checkArr[1] = false;
     }
-    if(comment.eq(2).text() != ""){
+    if(comment1.text() != ""){
         pwDupCheck();
     }
 });
@@ -144,13 +145,13 @@ function pwDupCheck(){
     const inputPw = $("#memberPw").val();
     const inputPwRe = $("#memberPwRe").val();
     if(inputPw == inputPwRe){
-        comment.eq(2).text("비밀번호와 동일합니다.")
-        comment.eq(2).css("color","blue");
+        comment2.text("비밀번호와 동일합니다.")
+        comment2.css("color","blue");
         $("#memberPwRe").css("border","1px solid blue");
         checkArr[2] = true;
     }else{
-        comment.eq(2).text("비밀번호와 동일하지 않습니다.")
-        comment.eq(2).css("color","red");
+        comment2.text("비밀번호와 동일하지 않습니다.")
+        comment2.css("color","red");
         $("#memberPwRe").css("border","1px solid red");
         checkArr[2] = false;
     }

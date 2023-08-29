@@ -29,4 +29,10 @@ public class PayService {
 		Product product = payDao.checkStock(productNo);
 		return product;
 	}
+
+	public int cancelPay(int payNo) {
+		int result = payDao.cancelPay(payNo);
+		return result;
+	}
+
 }

@@ -66,15 +66,18 @@
 		<div class="commentBox">
 			<th:block th:each="cl : ${commentList}">
 				<div class="div1">
-						<span class="material-icons">account_box</span>
+						<span class="material-icons" style="font-size: 50px">account_box</span>
 						<p>		
 							<span th:text="${cl.memberId}"></span>				
 							<span th:text="${cl.boardCommentWriteDate}"></span>
 						</p>
+						<div class="div3">
 						<p th:text="${cl.boardCommentContent}"></p>
 						<textarea name="boardCommentContent" class="input-form" 
 									style="min-height:96px;display:none;" 
 									th:text="${cl.boardCommentContent}"></textarea>
+						</div>
+						<div class="div3">
 						<p>
 							<th:block th:if="${session.m!=null}">
 								<th:block th:if="${session.m.memberId==cl.memberId}">
@@ -84,17 +87,15 @@
 								<a href="javascript:void(0);" class="reCommentShow">답글달기</a>
 							</th:block>
 						</p>
+						</div>
 				</div>
-				
 				<!-- 대댓글 보기 -->
-				
 				<th:block th:each="rcl : ${reCommentList}">
-					<ul th:if="${cl.boardCommentNo == rcl.boardCommentRefNo}">
-						<li>
-							<span class="material-icons">subdirectory_arrow_right</span>
-							<span class="material-icons">account_box</span>
-						</li>
-						<li>
+					<div th:if="${cl.boardCommentNo == rcl.boardCommentRefNo}">
+						<div class="div1">
+							<span class="material-icons" style="font-size: 50px">subdirectory_arrow_right</span>
+							<span class="material-icons" style="font-size: 50px">account_box</span>
+						</div>
 							<p>
 								<span th:text="${rcl.memberId}"></span>				
 								<span th:text="${rcl.boardCommentWriteDate}"></span>
@@ -111,8 +112,7 @@
 								</th:block>
 							</th:block>
 						</p>
-						</li>
-					</ul>
+					</div>
 				</th:block>
 				
 				<!-- 대댓글 작성 -->
@@ -140,7 +140,6 @@
 	}
 	.div2{
 		height: 100px;
-		border-bottom: 1px solid #aaa;
 		padding-top: 15px;
 	}
 	.div2>textarea{
@@ -148,8 +147,11 @@
 		height: 80px;
 		resize: none;
 	}
-	.btn2>button{
-
+	.div1>p>span{
+		float: left;
+	}
+	.div3>p{
+		float: right;
 	}
 </style>
 <script>

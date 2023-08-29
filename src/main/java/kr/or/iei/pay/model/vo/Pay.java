@@ -15,4 +15,6 @@ public class Pay {
 	private String payDate;
 	private int payStatus;
 	private String payBuyNo;
+	private String payStart;
+	private String payEnd;
 }
