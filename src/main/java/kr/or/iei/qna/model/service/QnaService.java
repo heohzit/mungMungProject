@@ -87,4 +87,18 @@ public class QnaService {
 		}
 	}
 
+	public Qna getNotice(int qnaNo) {
+		Qna q = qnaDao.selectOneQna(qnaNo);
+		return q;
+	}
+
+	public int updateQna(Qna q) {
+		int result = qnaDao.updateQna(q);
+		if(result > 0) {
+			return result;
+		}else {
+			return 0;
+		}
+	}
+
 }
