@@ -121,12 +121,16 @@
 }
 .notice-list{
     width: 800px;
-    padding: 20px 50px 20px 0px;
+    padding: 25px 50px 20px 0px;
     float: left;
+}
+#noticeListView{
+	font-size:25px;
 }
 .notice-content{
 	height: 40px;
     background-color: white;
+    border-radius: 5px;
 }
 .notice-content>a{
     padding: 7px;
@@ -134,7 +138,7 @@
 }
 .search{
     float: left;
-    padding-top: 15px;
+    padding-top: 20px;
     padding-left:  20px;
     overflow: hidden;
 
@@ -149,6 +153,19 @@
 }
 .search-input{
     float: left;
+}
+.search-select{
+	float : left;
+	padding : 0px 5px 0px 5px;
+}
+.sel-search{
+	width:100px;
+	height:47px;
+	font-size:20px;
+	border-radius:30px;
+	text-align:center;
+	color:rgb(1, 78, 200);
+	font-weight: bold;
 }
 #searchName{
     padding: 10px;
@@ -166,7 +183,7 @@
     height: 47px;
     font-size: 20px;
     font-weight: 600;
-    padding-bottom: 3px;
+ 
     background-color: rgb(78, 146, 240);
     color: aliceblue;
     border-radius: 5px;
@@ -439,9 +456,10 @@
     padding: 10px;
     margin: 0 auto;
 }
-.pakage-img>a>img{
+.pakage-img>img{
 width: 600px;
 height: 340px;
+border-radius: 5%;
 }
 
 /* *******************미리보기 밑 부분 멍멍이 자랑이나 멍멍이 식음료부분*********************** */

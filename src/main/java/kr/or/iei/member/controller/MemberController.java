@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.or.iei.EmailSender;
+import kr.or.iei.facility.model.vo.Facility;
+import kr.or.iei.facility.model.vo.FacilityFavorite;
 import kr.or.iei.facility.model.vo.FacilityListData;
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.Member;
@@ -121,7 +123,7 @@ public class MemberController {
 	public String myQna() {
 		return "member/myQna";
 	}
-	
+
 	@PostMapping(value="/update")
 	public String update(Member member, Model model, @SessionAttribute(required = false) Member m) {
 		int result = memberService.updateMember(member);

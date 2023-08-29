@@ -109,5 +109,5 @@ var slideIndex2 = 0;
         }
         slides2[slideIndex2 - 1].style.display = "block";
     
-        setTimeout(showSlides2, 1000); // 이미지 변경 시간 
+        setTimeout(showSlides2, 5000); // 이미지 변경 시간 
     }

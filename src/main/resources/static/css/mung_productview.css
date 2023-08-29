@@ -52,7 +52,7 @@
     padding: 10px;
 }
 .productview-top-no{
-    width: 80%;
+    width: 95%;
     float: left;
 
 }
@@ -60,18 +60,9 @@
     font-size: 20px;
     font-weight: 600;
 }
-.productview-top-heart{
-    width: 10%;
-    float: left;
-    cursor: pointer;
-    text-align: right;
-}
-.productview-top-heart>span{
-    font-size: 40px;
 
-}
 .productview-top-share{
-    width: 10%;
+    width: 5%;
     float: left;
     cursor: pointer;
 }

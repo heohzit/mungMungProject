@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
+import kr.or.iei.facility.model.vo.Facility;
+import kr.or.iei.facility.model.vo.FacilityFavorite;
 import kr.or.iei.member.model.dao.MemberDao;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
@@ -127,8 +130,10 @@ public class MemberService {
 		List list = memberDao.selectOneMpp(memberNo);
 		return list;
 	}
+
 	public List selectAllMpp() {
 		List list = memberDao.selectAllMpp();
 		return list;
 	}
+
 }
