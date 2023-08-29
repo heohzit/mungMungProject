@@ -18,6 +18,7 @@
                 <a href="/member/mypage">
                     <li>회원정보</li>
                 </a>
+                <th:block th:if="${session.m.memberLevel != 1}">
                 <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo})}">
                     <li>내가 찜한 여행지</li>
                 </a>
@@ -30,6 +31,7 @@
                 <a href="/member/myQna">
                     <li>Q&A</li>
                 </a>
+                </th:block>
             </ul>
             <div class="content-wrap">
                 <div class="tabcontent">
