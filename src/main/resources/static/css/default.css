@@ -216,7 +216,7 @@ textarea.input-form {
 
 .page-content{
     width: 1200px;
-    margin: 30px auto;
+    margin: 0px auto;
 }
 .page-title{
     margin-bottom: 30px;
@@ -225,7 +225,6 @@ textarea.input-form {
     text-align: center;
 }
 .page-content-top{
-    border-top: 1px solid #ccc;
     overflow: hidden;
     height: 100px;
 }
