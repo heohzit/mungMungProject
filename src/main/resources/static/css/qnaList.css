@@ -1,0 +1,52 @@
+.sel-search{
+    float: left;
+    height: 35px;
+    margin-right: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.insert-table th,
+.insert-table td {
+  padding: 1rem;
+  text-align: center;
+}
+
+ #option{
+	width: 200px;
+}
+#qnaCase{
+	width: 100%;
+}
+
+.btn1{
+	text-align: center;
+}
+
+
+
+.boardlist{
+    text-align: center;
+    overflow: hidden;
+}
+
+.board{
+    padding: 10px 0px 10px 39px;
+    list-style: none;
+    float: left;
+}
+.board>a{
+    display: block;
+    text-decoration: none;
+    
+}
+.img-box>img{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.img-box>img:hover {
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+

@@ -120,6 +120,8 @@ public class MemberDao {
 		String query = "select * from member join pay on (member_no = pay_member_no) join product on (pay_product_no = product_no) where pay_status = 2";
 		List list = jdbc.query(query, memberProductPayRowMapper);
 		return list;
+
 	}
-	
-}
+}	
+
+

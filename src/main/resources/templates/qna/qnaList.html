@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>공지사항</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="../css/noticeList.css">
+
+<script src="/js/jquery-3.6.0.js"></script>
+</head>
+<body>  
+<th:block th:include="common/mung_header"></th:block>
+    <div class="page-content">
+        <div class="page-title">
+        	<h1>Q&A</h1>
+        </div>
+        <div class="page-content-top">
+        	<div>
+            	<a th:if="${session.m!=null}" href="/qna/writeFrm" class="btn bc1">글쓰기</a>
+            </div>
+            <div>
+	            <form action="/notice/searchNoticeList" method="get" id="formsearch">
+		            <input type="hidden" name="reqPage" id="reqPage">
+		            <select name="searchType" class="sel-search">
+                        <option value="title">제목</option>
+		                <option value="writer">작성자</option>
+		                <option value="content">내용</option>
+		            </select>
+                    <input type="text" class="input-form1" name="searchName" id="sch1" placeholder="검색어를 입력해주세요." >
+                    <button id="searchBtn" class="btn bc1">검색</button>
+	            </form>
+	       </div>
+        </div>
+        <div class="page-content-mid">
+        <table class="insert-table">
+            <tr class="tr-2">
+                <th style="width: 7%;">번호</th>
+                <th style="width: 50%;">제목</th>
+                <th style="width: 10%;">작성자</th>
+                <th style="width: 7%;">답변</th>
+                <th style="width: 15%;">등록일</th>
+            </tr>
+            <tr th:each="qna : ${qnaList}" class="tr-1">
+                <td th:text="${qna.qnaNo}"></td>
+                <td><a th:href="@{/qna/view(qnaNo=${qna.qnaNo})}" th:text="${qna.qnaTitle}"></a></td>
+                <td th:text="${qna.memberId}"></td>
+                <td th:text="${qna.qnaAnswerCase}"></td>
+                <td th:text="${qna.qnaWriteDate}"></td>
+            </tr>
+        </table>
+        </div>
+        <div class="page-content-bottom">
+            <div id="pageNavi" th:utext="${pageNavi}"></div>
+        </div>
+    </div>
+<th:block th:include="common/mung_footer"></th:block>
+<script>
+	$("#searchBtn").on("click",function(){
+		$("#reqPage").val(1);			   
+		 if($("#sch1").val()==""){
+		      alert("검색어를 입력해주세요.");
+		      return false;
+		   }
+	});
+	
+	
+</script>
+</body>
+</html>
