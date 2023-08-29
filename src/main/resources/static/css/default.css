@@ -319,7 +319,6 @@ textarea.input-form {
 }
 
 .insert-table{
-    border: 1px solid #ccc;
     border-collapse: collapse;
 }
 .insert-table tr{
@@ -327,7 +326,7 @@ textarea.input-form {
 }
 .insert-table th{
     width: 210px;
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(243,244,248);
 }
 .label-wrap{
     text-align: center;

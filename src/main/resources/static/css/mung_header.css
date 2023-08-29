@@ -485,7 +485,7 @@ float: left;
     text-decoration: none;
 }
 .logo>a>span{
-    color: rgb(1, 78, 200);
+    color: rgb(78, 146, 240);
     font-family: kotra-hope;
     font-size: 80px;
 }
@@ -556,7 +556,7 @@ float: left;
 }
 .sub>li>a:hover{
 	font-size:21px;
-	background-color: #7baefe;
+	background-color: rgb(78, 146, 240);
 }
 .sub>li>a{
     display: block;

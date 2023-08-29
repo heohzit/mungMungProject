@@ -1,9 +1,10 @@
 .sel-search{
     float: left;
-    height: 35px;
+    width: 80px;
+    height: 45px;
     margin-right: 10px;
-    margin-top: 5px;
     border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 table th,
@@ -43,4 +44,15 @@ table td {
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
+.notice-table{
+	width: 100%;
+    border-collapse: collapse;
+}
+.notice-table tr{
+    border-bottom: 1px solid #ccc;
+}
+.notice-table th{
+    width: 210px;
+    background-color: rgb(243,244,248);
+}
 
