@@ -456,9 +456,10 @@
     padding: 10px;
     margin: 0 auto;
 }
-.pakage-img>a>img{
+.pakage-img>img{
 width: 600px;
 height: 340px;
+border-radius: 5%;
 }
 
 /* *******************미리보기 밑 부분 멍멍이 자랑이나 멍멍이 식음료부분*********************** */
