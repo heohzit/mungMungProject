@@ -374,7 +374,6 @@ textarea.input-form {
     border: none;
     box-sizing: border-box;
     transition-duration: 0.5s;    
-    border-radius: 5px;
     background-color: #fff;
     border: 2px solid rgb(1, 78, 200);
     color: rgb(1, 78, 200);

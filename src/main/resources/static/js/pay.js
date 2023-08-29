@@ -52,7 +52,6 @@ $("input[name=daterange]").daterangepicker({
             const payDate = date1.getFullYear() + "_" + (date1.getMonth() + 1) + "_" + date1.getDate() + "_" + date1.getHours() + ":" + date1.getMinutes() + ":" + date1.getSeconds();
             const payBuyDate = date2.getFullYear() + "" + (date2.getMonth() + 1) + "" + date2.getDate();
             const payBuyNo = payProductNo + "_" + payMemberNo + "_" + payBuyDate;
-            console.log(payBuyNo);
             IMP.init("imp15740857");
             IMP.request_pay({
                 pg: "html5_inicis",

@@ -35,4 +35,9 @@ public class PayService {
 		return result;
 	}
 
+	public int deletePay(int payNo) {
+		int result = payDao.deletePay(payNo);
+		return result;
+	}
+
 }
