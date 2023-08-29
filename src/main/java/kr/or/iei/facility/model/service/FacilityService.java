@@ -752,4 +752,15 @@ public class FacilityService {
 		System.out.println("삭제 성공함? 1: yes/ 2: no");
 		return result;
 	}
+	public List selectHotelList() {
+		List hotelList = facilityDao.selectHotelList();
+		for(int i = 0; i < hotelList.size(); i++) {
+			Object facilityObj = hotelList.get(i);
+			Facility facilityFacility = (Facility)facilityObj;
+			int facilityNo = facilityFacility.getFacilityNo();
+			String facilityFilepath = facilityDao.selectFacilityFile(facilityNo);
+			facilityFacility.setFacilityFilepath(facilityFilepath);
+		}
+		return hotelList;
+	}
 }

@@ -119,7 +119,7 @@ public class NoticeDao {
 	}
 
 	public List selectNoticeList() {
-		String query = "select * from notice";
+		String query = "select * from notice order by 1 desc";
 		List list = jdbc.query(query, noticeSearchRowMapper);
 		return list;
 	}

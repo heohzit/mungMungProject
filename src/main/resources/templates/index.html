@@ -91,49 +91,13 @@
                 </div>
                 <div id="slideShow1">
                     <ul class="slides1"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
-                      <li>
-                        <a href="#">
-                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                            <h2>숙소1</h2>
-                            <span>주소 주소</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                            <h2>숙소2</h2>
-                            <span>주소 주소</span>
-                        </a>
-                    </li><li>
-                        <a href="#">
-                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                            <h2>숙소3</h2>
-                            <span>주소 주소</span>
-                        </a>
-                    </li><li>
-                        <a href="#">
-                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                            <h2>숙소4</h2>
-                            <span>주소 주소</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                            <h2>숙소5</h2>
-                            <span>주소 주소</span>
-                        </a>
-                    </li><li>
-                        <a href="#">
-                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                            <h2>숙소6</h2>
-                            <span>주소 주소</span>
-                        </a>
-                    </li><li>
-                        <a href="#">
-                            <img src="../img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                            <h2>숙소7</h2>
-                            <span>주소 주소</span>
+                      <li th:each=" hotelList : ${hotelList}">
+                        <a th:href="@{/facility/tourDetail(facilityNo=${hotelList.facilityNo})}">
+                            <img th:src="${hotelList.facilityFilepath}" style="width: 252px; height: 252px;"><!--시설중 숙소로 이미지 가져오기-->
+                            
+                            
+                            <h3 th:text="${hotelList.facilityName}"></h3>
+                            
                         </a>
                     </li>
                     </ul>  

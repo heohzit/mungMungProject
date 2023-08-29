@@ -192,5 +192,10 @@ public class FacilityDao {
 		String query = "select count(*) from favorite where favorite_member_no = ?";
 		int totalCount = jdbc.queryForObject(query, Integer.class, memberNo);
 		return totalCount;
+
+	public List selectHotelList() {
+		String query = "select * from facility where facility_case = 4";
+		List list = jdbc.query(query, facilityRowMapper);
+		return list;
 	}
 }
