@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.or.iei.EmailSender;
+import kr.or.iei.facility.model.vo.FacilityListData;
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
@@ -184,6 +185,4 @@ public class MemberController {
 			return "0";
 		}
 	}
-	
-
 }
