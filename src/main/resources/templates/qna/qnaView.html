@@ -16,7 +16,9 @@
         <table class="insert-table">
             <tr>
             	<th>문의유형</th>
-                <td colspan="1" th:text="${q.qnaCase}"></td>
+                <td colspan="1" th:if="${q.qnaCase == 1}">예약/취소</td>
+                <td colspan="1" th:if="${q.qnaCase == 2}">패키지상품</td>
+                <td colspan="1" th:if="${q.qnaCase == 3}">기타</td>
             	<th>제목</th>
                 <td colspan="4" th:text="${q.qnaTitle}"></td>
             </tr>
@@ -26,7 +28,8 @@
                 <th>작성일</th>
                 <td th:text="${q.qnaWriteDate}"></td>
                  <th>답변상태</th>
-                <td th:text="${q.qnaAnswerCase}"></td>
+                <td th:if="${q.qnaAnswerCase == 1}">미답변</td>
+                <td th:if="${q.qnaAnswerCase == 2}">답변완료</td>
             </tr>
             <tr>
                	<td colspan="6">
@@ -38,27 +41,40 @@
         <div class="btn1">
         	<a href="/qna/list?reqPage=1" class="btn bc1"  style="float: right;">목록</a>
         </div>
-        <div class="btn1" style="height: 70px" th:if="${session.m != null && session.m.memberNo == q.qnaWriter}">
+        <div class="btn1" style="height: 70px" th:if="${session.m != null && session.m.memberNo == q.qnaWriter &&q.qnaAnswerCase==1}">
 	        <a th:href="@{/qna/updateFrm(qnaNo=${q.qnaNo})}" class="btn bc1">수정하기</a>
 	        <a th:href="@{/qna/delete(qnaNo=${q.qnaNo})}" onClick="alert('게시글을 삭제하시겠습니까?')" class="btn bc1">삭제하기</a>
 		</div>
-		<!-- 댓글 입력창 -->
-		<div class="inputCommentBox" th:if="${session.m != null}">
-			<form action="/notice/insertComment" method="post">
-				<ul>
+		<!-- 답변양식 -->
+		<div class="inputCommentBox" th:if="${session.m != null && session.m.memberLevel == 1 && q.qnaAnswerCase==1}" style="width: 100%; margin: 0">
+		<div style="border-bottom: 5px solid #ccc;">
+			<h3><img src="../img/board/icon-dog.png" style="width: 50px;">답변을 작성해 주세요.</h3>
+		</div>
+			<form action="/qna/answer" method="post">
+				<ul style="margin-top: 50px;">
 					<li>
-						<span class="material-icons">account_box</span>
+						<img alt="" src="../img/answer.png" style="width: 50%; padding-bottom: 50px; ">
 					</li>
-					<li>
-						<input th:value="${session.m.memberId}">
-						<input name="noticeRef">
-						<textarea name="noticeCommentContent" class="input-form"></textarea>
+					<li style="width: 100%">
+						<input type="hidden" name="qnaNo" th:value="${q.qnaNo}">
+						<textarea name="qnaAnswer"  class="input-form" style="height: 200px;"></textarea>
 					</li>
-					<li>
-						<button type="submit" class="btn bc1 bs4">등록</button>
-					</li>
-				</ul>
+				</ul>					
+						<button type="submit" class="btn bc1" id="commentBtn" style="margin-top: 50px;">답변 등록</button>
 			</form>
+		</div>
+		
+		<!-- 답변불러오기 -->
+		<div class="inputCommentBox" th:if="${q.qnaAnswerCase==2}" style="width: 100%; margin: 0">
+			<div style="border-bottom: 5px solid #ccc;">
+			<h3><img src="../img/board/icon-dog.png" style="width: 50px;"> 답변</h3>
+			</div>
+			<ul style="margin-top: 50px;">
+				<li style="width: 100%">
+					<input type="hidden" name="qnaNo" th:value="${q.qnaNo}">
+					<div th:utext="${q.qnaAnswer}" class="input-form" style="min-height: 150px; background-color: white;"></div>
+				</li>
+			</ul>	
 		</div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>

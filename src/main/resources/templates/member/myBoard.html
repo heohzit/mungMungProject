@@ -14,12 +14,14 @@
 </div>
     <div class="page-content">
     	<div class="tab-wrap">
-        	<ul class="tabs">
-               <a href="/member/mypage"><li>회원정보</li></a>
-               <a href="/member/myFavorite"><li>내가 찜한 여행지</li></a>
-               <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li>예약현황</li></a>
-               <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo})}" class="active-tab"><li>자유게시판</li></a>
-               <a href="/member/myQna"><li>Q&A</li></a>
+                <ul class="tabs">
+                    <a href="/member/mypage"><li>회원정보</li></a>
+                    <th:block th:if="${session.m.memberLevel != 1}">
+                    <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=${1})}"><li>내가 찜한 여행지</li></a>
+                    <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li>예약현황</li></a>
+                    <a href="/member/myBoard" class="active-tab"><li>자유게시판</li></a>
+                    <a href="/member/myQna"><li>Q&A</li></a>
+                    </th:block>
            	</ul>
               <div class="content-wrap">
 			<div class="page-content-mid">
@@ -44,7 +46,6 @@
 			</div>
        </div>
      </div>
-
     <th:block th:include="common/mung_footer"></th:block>
 </body>
 

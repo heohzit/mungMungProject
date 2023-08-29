@@ -225,6 +225,7 @@
 
   }
   .slides1>li>img{
+  	width:250px
     border: 1px solid lightgray;
     border-radius: 5px;
   }

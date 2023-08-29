@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import kr.or.iei.facility.model.vo.Facility;
-import kr.or.iei.facility.model.vo.FacilityFavorite;
 import kr.or.iei.member.model.vo.Member;
+import kr.or.iei.member.model.vo.MemberListData;
+import kr.or.iei.member.model.vo.MemberFacilityFavoriteRowMapper;
 import kr.or.iei.member.model.vo.MemberProductPayRowMapper;
 import kr.or.iei.member.model.vo.MemberRowMapper;
 
@@ -21,6 +21,9 @@ public class MemberDao {
 	private MemberRowMapper memberRowMapper;
 	@Autowired
 	private MemberProductPayRowMapper memberProductPayRowMapper;
+	@Autowired
+	private MemberFacilityFavoriteRowMapper memberFacilityFavoriteRowMapper;
+
 	
 	public Member selectOneMember(String signId, String signPw) {
 		String query = "select * from member where member_id = ? and member_pw = ?";
@@ -116,6 +119,12 @@ public class MemberDao {
 		List list = jdbc.query(query, memberProductPayRowMapper);
 		return list;
 
+	}
+
+	public List selectFavoriteList(int memberNo, int startNum, int endNum) {
+		String query = "select * from (select rownum as rnum, n.* from (select * from member join favorite on (member_no = favorite_member_no) join facility on (favorite_facility_no = facility_no) where member_no = ?) n) where rnum between ? and ?";
+		List list = jdbc.query(query, memberFacilityFavoriteRowMapper, memberNo, startNum, endNum);
+		return list;
 	}
 }	
 
