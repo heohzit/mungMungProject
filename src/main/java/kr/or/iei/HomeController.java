@@ -30,7 +30,7 @@ public class HomeController {
 //	패키지최신 가져오기
 		List productList = productService.selectProductList();
 		model.addAttribute("productList", productList);
-		
+// 숙소 가져오기
 		List hotelList = facilityService.selectHotelList();
 		model.addAttribute("hotelList", hotelList);
 		
