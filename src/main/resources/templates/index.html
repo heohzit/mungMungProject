@@ -51,10 +51,18 @@
                         <div class="search-icon">
                             <span class="material-icons">manage_search</span>
                         </div>
+                        <select name="searchType" class="sel-search">
+		                	<option value="TourList">관광지</option>
+		                	<option value="HotelList">숙박</option>
+		                	<option value="CafeList">식음료</option>
+		                	<option value="activityList">체험</option>
+		            	</select>
                         <div class="search-input">
-                        
-                            <input type="text" name="search" id="search" placeholder="지역명을 입력해주세요.">
+                        <form action="/facility/searchTourList" th:if="${searchType == TourList }">
+                        	<input type="hidden" name="reqPage" value="1">
+                            <input type="text" name="searchName" id="searchName" placeholder="지역명을 입력해주세요.">
                             <button type="submit" class="search-submit">검색하기</button>
+                        </form>
                         </div>
                         
                     </div>

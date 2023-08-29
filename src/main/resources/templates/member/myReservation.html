@@ -69,9 +69,11 @@
                                         <td th:text="취소완료"></td>
                                     </th:block>
                                     <td>
-                                        <button type="submit" class="cbtn">예약취소</button>
-                                        <input type="hidden" name="payNo" id="payNo" th:value="${mpp.payNo}">
-                                        <input type="hidden" name="memberNo" id="memberNo" th:value="${session.m.memberNo}">
+                                        <th:block th:if="${mpp.payStatus == 1}">
+                                            <button type="submit" class="cbtn">예약취소</button>
+                                            <input type="hidden" name="payNo" id="payNo" th:value="${mpp.payNo}">
+                                            <input type="hidden" name="memberNo" id="memberNo" th:value="${session.m.memberNo}">
+                                        </th:block>
                                     </td>
                                 </form>
                             </tr>

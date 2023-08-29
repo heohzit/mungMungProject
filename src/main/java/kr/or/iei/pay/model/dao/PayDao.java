@@ -15,6 +15,7 @@ public class PayDao {
 	@Autowired
 	private ProductRowMapper productRowMapper;
 
+
 	public int insertPay(Pay p) {
 		String query = "insert into pay values(pay_seq.nextval, ?, ?, ?, ?, 1, ?, ?, ?)";
 		Object[] params = {p.getPayProductNo(), p.getPayMemberNo(), p.getPayPrice(), p.getPayDate(), p.getPayBuyNo(), p.getPayStart(), p.getPayEnd()};
@@ -40,10 +41,5 @@ public class PayDao {
 		Object[] params = {payNo};
 		int result = jdbc.update(query, params);
 		return result;
-	}
-
-	public Pay checkPayStatus(int payNo) {
-		String query = "";
-		return null;
 	}
 }

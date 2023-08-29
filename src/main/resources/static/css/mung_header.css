@@ -387,6 +387,7 @@ textarea.input-form {
 .admin-tbl{
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 50px;
 }
 .admin-tbl tr{
     border-bottom: 1px solid #ccc;
