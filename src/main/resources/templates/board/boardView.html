@@ -50,35 +50,39 @@
 		<!-- 댓글입력 -->
 		<div class="inputCommentBox" th:if="${session.m != null}">
 			<form action="/board/insertComment" method="post">
-				<div class="div1">
-					<span class="material-icons icons">pets</span>댓글을 입력해주세요.
-				</div>
-				<div class="div2">
+				<ul>
+				<li>
+					<span class="material-icons" style="font-size: 50px">account_box</span>
+				</li>
+				<li>
 					<input type="hidden" name="boardCommentWriter" th:value="${session.m.memberNo}">
 					<input type="hidden" name="boardNo" th:value="${b.boardNo}">
-					<textarea name="boardCommentContent"  class="comment-form" id="boardCommentContent"></textarea>						
-					<button type="submit" class="btn bc1" id="commentBtn">등록</button>					
-				</div>
+					<textarea name="boardCommentContent"  class="input-form" id="boardCommentContent"></textarea>
+				</li>
+				<li>						
+					<button type="submit" class="btn bc1" id="commentBtn">등록</button>
+				</li>
+				</ul>					
 			</form>
 		</div>
 		
 		<!-- 댓글보기 -->
 		<div class="commentBox">
 			<th:block th:each="cl : ${commentList}">
-				<div class="div1">
+				<ul class="posting-comment">
+					<li>
 						<span class="material-icons" style="font-size: 50px">account_box</span>
-						<p>		
+					</li>
+					<li>
+						<p class="comment-info">		
 							<span th:text="${cl.memberId}"></span>				
 							<span th:text="${cl.boardCommentWriteDate}"></span>
 						</p>
-						<div class="div3">
-						<p th:text="${cl.boardCommentContent}"></p>
+						<p class="comment-content" th:text="${cl.boardCommentContent}"></p>
 						<textarea name="boardCommentContent" class="input-form" 
 									style="min-height:96px;display:none;" 
 									th:text="${cl.boardCommentContent}"></textarea>
-						</div>
-						<div class="div3">
-						<p>
+						<p class="comment-link"> 
 							<th:block th:if="${session.m!=null}">
 								<th:block th:if="${session.m.memberId==cl.memberId}">
 									<a href="javascript:void(0);" th:onclick="updateComment(this,[[${cl.boardCommentNo}]],[[${b.boardNo}]])">수정</a>
@@ -87,24 +91,25 @@
 								<a href="javascript:void(0);" class="reCommentShow">답글달기</a>
 							</th:block>
 						</p>
-						</div>
-				</div>
+					</li>
+					</ul>
 				<!-- 대댓글 보기 -->
 				<th:block th:each="rcl : ${reCommentList}">
-					<div th:if="${cl.boardCommentNo == rcl.boardCommentRefNo}">
-						<div class="div1">
-							<span class="material-icons" style="font-size: 50px">subdirectory_arrow_right</span>
+					<ul class="posting-comment reply" th:if="${cl.boardCommentNo == rcl.boardCommentRefNo}">
+						<li>
+							<span class="material-icons">subdirectory_arrow_right</span>
 							<span class="material-icons" style="font-size: 50px">account_box</span>
-						</div>
-							<p>
+						</li>
+						<li>
+							<p class="comment-info">
 								<span th:text="${rcl.memberId}"></span>				
 								<span th:text="${rcl.boardCommentWriteDate}"></span>
 							</p>
-							<p th:text="${rcl.boardCommentContent}"></p>
+							<p class="comment-content" th:text="${rcl.boardCommentContent}"></p>
 							<textarea name="boardCommentContent" class="input-form" 
 									style="min-height:96px;display:none;" 
 									th:text="${rcl.boardCommentContent}"></textarea>
-							<p>
+							<p class="comment-link">
 							<th:block th:if="${session.m!=null}">
 								<th:block th:if="${session.m.memberId==rcl.memberId}">
 									<a href="javascript:void(0);" th:onclick="updateComment(this,[[${rcl.boardCommentNo}]],[[${b.boardNo}]])">수정</a>
@@ -112,22 +117,27 @@
 								</th:block>
 							</th:block>
 						</p>
-					</div>
+						</li>
+					</ul>
 				</th:block>
 				
 				<!-- 대댓글 작성 -->
-				<div class="inputReCommentBox" th:if="${session.m != null}" style="display: none;">
+				<div class="inputCommentBox inputReCommentBox" th:if="${session.m != null}" style="display: none;">
 					<form action="/board/insertComment" method="post">
-						<div class="div1">
-							<span class="material-icons icons">pets</span>답글
-						</div>
-						<div class="div2">
+						<ul>
+						<li>
+								<span class="material-icons">subdirectory_arrow_right</span>
+							</li>
+						<li>
 							<input type="hidden" name="boardCommentWriter" th:value="${session.m.memberNo}">
 							<input type="hidden" name="boardNo" th:value="${b.boardNo}">
 							<input type="hidden" name="boardCommentRefNo" th:value="${cl.boardCommentNo}">
-							<textarea name="boardCommentContent" class="comment-form"  id="boardReCommentContent" ></textarea>
-							<button type="submit" class="btn bc1" id="reCommentBtn">등록</button>				
-						</div>
+							<textarea name="boardCommentContent" class="input-form"  id="boardReCommentContent" ></textarea>
+						</li>
+						<li>
+							<button type="submit" class="btn bc1" id="reCommentBtn">등록</button>			
+						</li>	
+						</ul>
 					</form>
 				</div>
 			</th:block>
@@ -135,36 +145,26 @@
     </div>
 <th:block th:include="common/mung_footer"></th:block>
 <style>
-	.div1{
-		border-bottom: 1px solid #aaa;
-	}
-	.div2{
-		height: 100px;
-		padding-top: 15px;
-	}
-	.div2>textarea{
-		width: 800px;
-		height: 80px;
-		resize: none;
-	}
-	.div1>p>span{
-		float: left;
-	}
-	.div3>p{
-		float: right;
-	}
+.comment-info{
+	display:flex;
+}
+
 </style>
 <script>
+function loginMsg(){
+	alert("로그인 후 이용해 주세요");
+}
 	//대댓글 보이기
 	$(".reCommentShow").on("click",function(){
 		const index = $(".reCommentShow").index(this);
 		if($(this).text()=="답글달기"){
-			$(".inputReCommentBox").eq(index).show();
 			$(this).text("취소");
 		}else{
-			$(".inputReCommentBox").eq(index).hide();
 			$(this).text("답글달기");
 		}
+			$(".inputReCommentBox").eq(index).toggle();
+			$(".inputReCommentBox").eq(index).find("textarea").focus();
+		
 	});
 	//댓글 수정
 	function updateComment(obj,boardCommentNo,boardNo){

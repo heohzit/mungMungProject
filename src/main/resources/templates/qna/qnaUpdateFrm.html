@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Q&A 작성</title>
+<link rel="stylesheet" href="../css/qnaList.css">
+
+<script src="/js/jquery-3.6.0.js"></script>
+</head>
+<body>
+<th:block th:include="common/mung_header"></th:block>
+<script src="/summernote/summernote-lite.js"></script>
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
+<link rel="stylesheet" href="/summernote/summernote-lite.css">
+
+    <div class="page-content">
+      	<div class="page-title">
+			<h1>Q&A 작성</h1>
+		</div>
+		<div class="page-content-mid">
+        <form action="/qna/update" method="post" enctype="multipart/form-data">
+            <table class="insert-table">
+                <tr>
+                	<th>문의 유형</th>
+                	<td id="option">
+						<select th:value="${q.qnaCase}" name="qnaCase" id="select" class="input-form">
+				            <option value="1">예약/취소</option>
+				            <option value="2">패키지상품</option>
+				            <option value="3">기타</option>
+				        </select>
+                	</td>
+                    <th>제목</th>
+                    <td>
+                        <input type="text" name="qnaTitle" th:value="${q.qnaTitle}" class="input-form">
+                        <input type="hidden" name="qnaNo" th:value="${q.qnaNo}">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">       
+                        <textarea id="qnaContent" name="qnaContent" th:utext="${q.qnaContent}"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <div class="btn1" style="padding: 20px">
+            	<button type="submit" class="btn bc1">수정완료</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    <th:block th:include="common/mung_footer"></th:block>
+    <script>
+    
+    $("#qnaContent").summernote({
+		height : 500,
+		lang :"ko-KR",
+		callbacks :{
+			onImageUpload : function(files){
+				uploadImage(files[0],this);
+			}
+		}
+	});
+	function uploadImage(file,editor){
+		const form = new FormData();
+		
+		form.append("file",file);
+		$.ajax({
+			url : "/qna/editor",
+			type : "post",
+			data : form,
+			processData : false,
+			contentType : false,
+			success : function(data){
+				$(editor).summernote("insertImage",data);			
+			}
+		});
+	}
+    </script>    
+</body>
+</html>
