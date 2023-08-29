@@ -52,24 +52,20 @@
                             <span class="material-icons">manage_search</span>
                         </div>
                         <select name="searchType" class="sel-search">
+                        	<option value="">선택해주세요</option>
 		                	<option value="TourList">관광지</option>
 		                	<option value="HotelList">숙박</option>
 		                	<option value="CafeList">식음료</option>
 		                	<option value="activityList">체험</option>
 		            	</select>
+		            	
                         <div class="search-input">
-                        <form action="/facility/searchTourList" th:if="${searchType == TourList }">
-                        	<input type="hidden" name="reqPage" value="1">
-                            <input type="text" name="searchName" id="searchName" placeholder="검색어를 입력해주세요.">
-                            <button type="submit" class="search-submit">검색하기</button>
-                        </form>
-                        <form action="/facility/searchHotelList" th:if="${searchType == HotelList }">
-                        	<input type="hidden" name="reqPage" value="1">
-                            <input type="text" name="searchName" id="searchName" placeholder="검색어를 입력해주세요.">
-                            <button type="submit" class="search-submit">검색하기</button>
-                        </form>
+	                        <form  class="search-main">
+	                        	<input type="hidden" name="reqPage" value="1">
+	                            <input type="text" name="searchName" id="searchName" placeholder="검색어를 입력해주세요.">
+	                            <button type="submit" class="search-submit">검색하기</button>
+	                        </form>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -305,5 +301,20 @@
     </div>
 	<th:block th:include="common/mung_footer"></th:block>
     <script src="../js/mung_main.js"></script>
+                         <script>
+				            // 제이쿼리 change 함수
+				            $(".sel-search").change(function(){
+				                
+				                if($(this).val() == "TourList"){
+				                	$(".search-main").attr("action","/facility/searchTourList")
+				                } else if($(this).val() == "HotelList"){
+				                	$(".search-main").attr("action","/facility/searchHotelList")
+				                } else if($(this).val() == "CafeList"){
+				                	$(".search-main").attr("action","/facility/searchCafeList")
+				                } else if($(this).val() == "activityList"){
+				                	$(".search-main").attr("action","/facility/searchactivityList")
+				                }
+				            });
+				        </script>
 </body>
 </html>
