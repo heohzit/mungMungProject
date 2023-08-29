@@ -17,7 +17,7 @@
     height: 30px;
     line-height: 30px;
     text-align: center;
-    background-color: rgb(158, 210, 220);
+    background-color: rgb(78, 146, 240);
     cursor: pointer;
 }
 .tabs li {
@@ -25,7 +25,7 @@
     display: inline-block;
 }
 .tabs .active-tab{
-    background-color: rgb(4, 144, 159);
+    background-color: rgb(1, 78, 200);
 }
 
 
@@ -61,7 +61,7 @@
 	margin: 0 auto;
 }
 .updatebtn{
-    background-color: #04909f;
+    background-color: rgb(1, 78, 200);
     color: white;
     border-style: none;
     width: 100px;
@@ -72,7 +72,7 @@
 
 }
 .memberbtn{
-    background-color: rgb(158, 210, 220);
+    background-color: rgb(78, 146, 240);
     color: white;
     border-radius: 4px;
     font-size: 15px;
@@ -185,7 +185,7 @@ td {
 
 }
 .qnacontent>ul>li:hover>a{
-    background-color: rgb(158, 210, 220);
+    background-color: rgb(78, 146, 240);
     color: white;
 }
 

@@ -70,16 +70,16 @@
 
 /* 글씨색 */
 .fc-1{
-    color: #04909f;
+    color: rgb(1, 78, 200);
 }
 .fc-2{
-    color: #9ed2dc;
+    color: rgb(1, 78, 200);
 }
 
 
 /* 배경색 */
 .bg-1{
-    background-color: #04909f;
+    background-color: rgb(1, 78, 200);
 }
 .bg-2{
     background-color: #9ed2dc;
@@ -107,13 +107,13 @@
     border-radius: 5px;
 }
 .bc1{
-    background-color: #04909f;
+    background-color: rgb(1, 78, 200);
     color: #fff;
-    border: 2px solid #04909f;
+    border: 2px solid rgb(1, 78, 200);
 }
 .bc1:hover{
-    background-color: #1F6E8C;
-    border: 2px solid #1F6E8C;
+    background-color: rgb(1, 78, 200);
+    border: 2px solid rgb(1, 78, 200);
     cursor: pointer;
 }
 
@@ -311,7 +311,7 @@ textarea.input-form {
     line-height: 40px;
 }
 .select-page{
-    background-color: #04909f;
+    background-color: rgb(1, 78, 200);
     color: #fff;
 }
 
@@ -375,13 +375,13 @@ textarea.input-form {
     border-radius: 5px;
     background-color: #fff;
     color: #04909f;
-    border: 2px solid #04909f;
+    border: 2px solid rgb(1, 78, 200);
     cursor: pointer;
 }
 .admin-page-select>li.admin-page-active-tab{
-    background-color: #04909f;
+    background-color: rgb(1, 78, 200);
     color: #fff;
-    border: 2px solid #04909f;    
+    border: 2px solid rgb(1, 78, 200);    
 }
 
 .admin-tbl{
@@ -485,7 +485,7 @@ float: left;
     text-decoration: none;
 }
 .logo>a>span{
-    color: rgb(4, 144, 159);
+    color: rgb(78, 146, 240);
     font-family: kotra-hope;
     font-size: 80px;
 }
@@ -503,7 +503,7 @@ float: left;
     font-size: 18px;
     font-weight: 550;
     border: none;
-    background-color: rgb(4, 144, 159);
+    background-color: rgb(1, 78, 200);
     color: aliceblue;
     border-radius: 5px;
     cursor: pointer;
@@ -532,7 +532,7 @@ float: left;
     color: black;
 }
 .navi>ul>li:hover{
-    background-color: rgb(158, 210, 220);
+    background-color: rgb(1, 78, 200);
 }
 .navi>ul>li:hover>a{
     font-weight: 900;
@@ -541,7 +541,7 @@ float: left;
 }
 /************헤더 서브 메뉴 탭 영역**************/
 .sub{
-    background-color: rgb(158, 210, 220);
+    background-color: rgb(1, 78, 200);
 	z-index: 1000;
     position: absolute;
     list-style-type: none;
@@ -556,7 +556,7 @@ float: left;
 }
 .sub>li>a:hover{
 	font-size:21px;
-	
+	background-color: rgb(78, 146, 240);
 }
 .sub>li>a{
     display: block;
