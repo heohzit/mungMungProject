@@ -356,29 +356,31 @@ textarea.input-form {
 }
 
 
-.admin-page-select{
-    width: 400px;
+.page-content-top>div.admin-page-select{
+    float: none;
     margin: 20px auto;
     overflow: hidden;
+    width: 400px;
 }
-.admin-page-select>li{
-    margin: 0 auto;
-    float: left;
+.page-content-top>div.admin-page-select>a{
+    display: block;
     width: 200px;
     height: 45px;
-    line-height: 40px;
+    line-height: 45px;
+    font-size: 16px;
+    float: left;
+    margin: 0 auto;   
     text-align: center;
     border: none;
     box-sizing: border-box;
-    transition-duration: 0.5s;
-    font-size: 16px;
+    transition-duration: 0.5s;    
     border-radius: 5px;
     background-color: #fff;
-    color: #04909f;
     border: 2px solid rgb(1, 78, 200);
+    color: rgb(1, 78, 200);
     cursor: pointer;
 }
-.admin-page-select>li.admin-page-active-tab{
+.page-content-top>.admin-page-select>a.admin-page-active-tab{
     background-color: rgb(1, 78, 200);
     color: #fff;
     border: 2px solid rgb(1, 78, 200);    
