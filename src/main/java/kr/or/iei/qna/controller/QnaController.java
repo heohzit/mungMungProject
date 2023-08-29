@@ -86,5 +86,24 @@ public class QnaController {
 				}
 			return "/qna/"+filepath;
 		}
+		
+		//공지사항 삭제
+		@GetMapping(value="delete")
+		public String deleteQna(int qnaNo , Model model) {
+			int result = qnaService.deleteQna(qnaNo);
+			if (result != 0) {
+				model.addAttribute("title", "삭제완료");
+				model.addAttribute("msg", "게시글이 삭제되었습니다.");
+				model.addAttribute("icon", "success");
+				model.addAttribute("loc", "/qna/list?reqPage=1");
+			} else {
+				model.addAttribute("title", "삭제실패");
+				model.addAttribute("msg", "관리자에게 문의하세요");
+				model.addAttribute("icon", "error");
+				model.addAttribute("loc", "/qna/view?qnaNo="+qnaNo);		
+			}
+			return "common/msg";
+		}
+			
 	
 }

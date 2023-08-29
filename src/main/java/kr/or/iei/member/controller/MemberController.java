@@ -123,9 +123,7 @@ public class MemberController {
 	public String myQna() {
 		return "member/myQna";
 	}
-	
-	
-	
+
 	@PostMapping(value="/update")
 	public String update(Member member, Model model, @SessionAttribute(required = false) Member m) {
 		int result = memberService.updateMember(member);

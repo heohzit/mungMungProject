@@ -44,4 +44,11 @@ public class QnaDao {
 		return (Qna)list.get(0);
 	}
 
+	public int deleteQna(int qnaNo) {
+		String query = "delete from qna where qna_no = ?";
+		Object[] params = {qnaNo};
+		int result = jdbc.update(query,params);
+		return result;
+	}
+
 }
