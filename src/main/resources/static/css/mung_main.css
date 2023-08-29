@@ -97,7 +97,7 @@
 .top-mid{
     width: 100%;
     height: 100%;
-    background-color:rgb(4, 144, 159) ;
+    background-color:rgb(1, 78, 200);
     overflow: hidden;
 }
 .notice{
@@ -154,7 +154,7 @@
     padding: 10px;
     height: 25px;
     font-size: 20px;
-    border: 2px solid rgb(158, 210, 220);
+    border: 2px solid #7baefe;
     border-radius: 5px;
     outline: none;
     
@@ -167,7 +167,7 @@
     font-size: 20px;
     font-weight: 600;
     padding-bottom: 3px;
-    background-color: rgb(158, 210, 220);
+    background-color: #7baefe;
     color: aliceblue;
     border-radius: 5px;
 	cursor:pointer;
@@ -192,7 +192,7 @@
 }
 .lodging-icon>span{
     font-size: 40px;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .lodging-text{
     width: 95%;
@@ -201,7 +201,7 @@
 .lodging-text>span{
     font-size: 40px;
     font-family: kotra-hope;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
   .slides1>li{
     list-style-type: none;
@@ -220,7 +220,7 @@
     position: relative;
     margin: 0px auto;
     overflow: hidden;
-    border-top:  1px solid rgb(158, 210, 220);   
+    border-top:  1px solid #7baefe;  
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
@@ -311,7 +311,7 @@
 }
 .travel-icon>span{
     font-size: 40px;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .travel-text{
     width: 85%;
@@ -320,7 +320,7 @@
 .travel-text>span{
     font-size: 40px;
     font-family: kotra-hope;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
   .slides2>li{
     list-style-type: none;
@@ -338,7 +338,7 @@
     height: 400px;
     position: relative;
     overflow: hidden;
-    border-top:  1px solid rgb(158, 210, 220);   
+    border-top:  1px solid #7baefe;
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
@@ -413,7 +413,7 @@
     float: left;
 }
 .pakage-logo{
-    border-bottom: 1px solid rgb(158, 210, 220);
+    border-bottom: 1px solid #7baefe;
     padding: 20px 0px 0px 0px;
     overflow: hidden;
 }
@@ -424,7 +424,7 @@
 }
 .pakage-icon>span{
     font-size: 40px;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .pakage-text{
     width: 85%;
@@ -433,7 +433,7 @@
 .pakage-text>span{
     font-size: 40px;
     font-family: kotra-hope;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .pakage-content{
     padding: 10px;
@@ -458,7 +458,7 @@ height: 340px;
 }
 .mung-logo{
     overflow: hidden;
-    border-bottom: 1px solid rgb(158, 210, 220);
+    border-bottom: 1px solid #7baefe;
 
 }
 .mung-icon{
@@ -468,7 +468,7 @@ height: 340px;
 }
 .mung-icon>span{
     font-size: 40px;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 
 }
 .mung-text{
@@ -478,7 +478,7 @@ height: 340px;
 .mung-text>span{
     font-size: 40px;
     font-family: kotra-hope;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .mung-content{
     overflow: hidden;
@@ -502,7 +502,7 @@ height: 340px;
 }
 .eat-logo{
     overflow: hidden;
-    border-bottom: 1px solid rgb(158, 210, 220);
+    border-bottom: 1px solid #7baefe;
 
 }
 .eat-icon{
@@ -512,7 +512,7 @@ height: 340px;
 }
 .eat-icon>span{
     font-size: 40px;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 
 }
 .eat-text{
@@ -522,7 +522,7 @@ height: 340px;
 .eat-text>span{
     font-size: 40px;
     font-family: kotra-hope;
-    color: rgb(4, 144, 159);
+    color: rgb(1, 78, 200);
 }
 .Slidesbackground2{
     padding-top: 10px;
