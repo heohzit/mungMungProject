@@ -35,8 +35,4 @@ public class PayService {
 		return result;
 	}
 
-	public Pay checkPayStatus(int payNo) {
-		Pay pay = payDao.checkPayStatus(payNo);
-		return null;
-	}
 }
