@@ -185,4 +185,11 @@ public class MemberController {
 			return "0";
 		}
 	}
+	
+	@GetMapping(value = "/cancelManage")
+	public String cancelManage(Model model) {
+		List list = memberService.selectAllMpp();
+		model.addAttribute("cancelList", list);
+		return "/member/cancelManage";
+	}
 }

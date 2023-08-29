@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>관리자페이지</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <th:block th:include="common/mung_header"></th:block>
+    <div class="page-content">
+        <div class="page-title">
+            <h1>관리자페이지</h1>
+        </div>
+        <div class="page-content-top">
+            <div class="admin-page-select">
+                <a href="/member/admin?reqPage=1">전체회원정보</a>
+                <a href="/member/cancelManage" class="admin-page-active-tab">결제취소요청 관리</a>
+            </div>
+        </div>
+        <div class="page-content-mid">
+            <div class="admin-page-content">
+                <table class="admin-tbl">
+                    <tr>
+                        <th style="width: 11%;">주문번호</th>
+                        <th style="width: 10%;">아이디</th>
+                        <th style="width: 7%;">이름</th>
+                        <th style="width: 20%;">패키지상품명</th>
+                        <th style="width: 12%;">전화번호</th>
+                        <th style="width: 17%;">이메일</th>
+                        <th style="width: 13%;">결제일</th>
+                        <th style="width: 10%;">취소확정</th>
+                    </tr>
+                    <tr th:each="c : ${cancelList}">
+                        <td th:text="${c.payBuyNo}"></td>
+                        <td th:text="${c.memberId}"></td>
+                        <td th:text="${c.memberName}"></td>
+                        <td th:text="${c.productName}"></td>
+                        <td th:text="${c.memberPhone}"></td>
+                        <td th:text="${c.memberEmail}"></td>
+                        <td th:text="${c.payDate}"></td>
+                        <td>
+                            <button class="btn bc1">확정</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="page-content-bottom"></div>
+    </div>
+    <th:block th:include="common/mung_footer"></th:block>
+</body>
+</html>
