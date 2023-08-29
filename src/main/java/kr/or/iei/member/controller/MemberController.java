@@ -123,13 +123,7 @@ public class MemberController {
 	public String myQna() {
 		return "member/myQna";
 	}
-	//찜한 여행지
-	@GetMapping(value="/likeList")
-	public String likeList(Member member, Facility facility, FacilityFavorite facilityfavorite, Model model) {
-		MemberListData mld = memberService.selectLikeList(member, facility, facilityfavorite, model);
-		model.addAttribute("MemberList", mld.getMemberList());
-		return "member/myFavorite";
-	}
+	
 	
 	
 	@PostMapping(value="/update")
