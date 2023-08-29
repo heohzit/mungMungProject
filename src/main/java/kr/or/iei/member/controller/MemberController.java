@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.or.iei.EmailSender;
 import kr.or.iei.member.model.service.MemberService;
+import kr.or.iei.member.model.vo.FavoriteListData;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
 
@@ -103,7 +104,10 @@ public class MemberController {
 		return "member/mypage";
 	}
 	@GetMapping(value="/myFavorite")
-	public String myFavorite() {
+	public String myFavorite(int memberNo, int reqPage, Model model) {
+		FavoriteListData fld = memberService.selectFavoriteList(memberNo, reqPage);
+		model.addAttribute("favoriteList", fld.getFavoriteList());
+		model.addAttribute("pageNavi", fld.getPageNavi());
 		return "member/myFavorite";
 	}
 	@GetMapping(value="/myReservation")

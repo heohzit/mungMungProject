@@ -17,10 +17,12 @@
             <div class="tab-wrap">
                 <ul class="tabs">
                     <a href="/member/mypage" class="active-tab"><li>회원정보</li></a>
-                    <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo})}"><li>내가 찜한 여행지</li></a>
+                    <th:block th:if="${session.m.memberLevel != 1}">
+                    <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=${1})}"><li>내가 찜한 여행지</li></a>
                     <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li>예약현황</li></a>
                     <a href="/member/myBoard"><li>자유게시판</li></a>
                     <a href="/member/myQna"><li>Q&A</li></a>
+                    </th:block>
                 </ul>
                 <div class="content-wrap">
                     <div class="tabcontent">
@@ -38,7 +40,7 @@
                                     th:value="${session.m.memberId}" readonly>
                             </div>
                             <div class="input-wrap">
-                                <label for="memberPw">비밀번호</label>
+                                <label for="memberPw">비밀번호<span class="comment"></span></label>
                                 <input type="text" name="memberPw" id="memberPw" class="input-form"
                                     th:value="${session.m.memberPw}">
                             </div>
@@ -76,6 +78,7 @@
         </form>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
+    <script src="/js/mypage.js"></script>
 </body>
 
 </html>

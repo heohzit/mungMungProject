@@ -754,6 +754,13 @@ public class FacilityService {
 	}
 	public List selectHotelList() {
 		List hotelList = facilityDao.selectHotelList();
+		for(int i = 0; i < hotelList.size(); i++) {
+			Object facilityObj = hotelList.get(i);
+			Facility facilityFacility = (Facility)facilityObj;
+			int facilityNo = facilityFacility.getFacilityNo();
+			String facilityFilepath = facilityDao.selectFacilityFile(facilityNo);
+			facilityFacility.setFacilityFilepath(facilityFilepath);
+		}
 		return hotelList;
 	}
 }
