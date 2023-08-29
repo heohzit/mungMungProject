@@ -42,7 +42,7 @@
     font-size: 14px;   
 }
 
-.btn-box>button{
+.login{
     border: 1px solid black;
     background-color: rgb(1, 78, 200);
     color: white;
