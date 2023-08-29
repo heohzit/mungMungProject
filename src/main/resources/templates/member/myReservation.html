@@ -11,59 +11,76 @@
 <th:block th:include="common/mung_header"></th:block>
     <div class="page-content">
         <div class="page-title">마이페이지</div>
-        <form action="/member/update" method="post">
-            <div class="tab-wrap">
-                <ul class="tabs">
-                   <a href="/member/mypage"><li>회원정보</li></a>
-                    <a href="/member/myFavorite"><li>내가 찜한 여행지</li></a>
-                    <a href="/member/myReservation" class="active-tab"><li>예약현황</li></a>
-                    <a href="/member/myBoard"><li>자유게시판</li></a>
-                    <a href="/member/myQna"><li>Q&A</li></a>
-                </ul>
-                <div class="content-wrap">
-                    
-                    <div class="tabcontent">
-                        <h4>예약정보</h4>
-                        <br>
-                        <hr><br>
-                        <div class="booking-list">
-                            <table>
-                                <tr>
-                                    <th width="200px">예약일</th>
-                                    <th width="200px">예약번호</th>
-                                    <th height="50px" width="400px">패키지정보</th>
-                                    <th width="200px">예약일정</th>
-                                    <th width="200px">금액</th>
-                                    <th width="200px">진행상황</th>
-                                    <th width="200px">예약취소</th>
-                                </tr>
-                                <tr>
-                                    <td>2023-08-01</td>
-                                    <td>1234</td>
-                                    <td><img src="img/">패키지명</td>
-                                    <td>2023-09-28<br>~2023-09-30</td>
-                                    <td>0원</td>
-                                    <td>예약완료</td>
-                                    <td><button type="submit" class="cbtn">예약취소</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2023-08-01</td>
-                                    <td>1234</td>
-                                    <td><img src="img/">패키지명</td>
-                                    <td>2023-09-28<br>~2023-09-30</td>
-                                    <td>0원</td>
-                                    <td>예약완료</td>
-                                    <td><button type="submit" class="cbtn">예약취소</button></td>
-                                </tr>
-                            </table>
-                        </div>
+        <div class="tab-wrap">
+            <ul class="tabs">
+                <a href="/member/mypage">
+                    <li>회원정보</li>
+                </a>
+                <a href="/member/myFavorite">
+                    <li>내가 찜한 여행지</li>
+                </a>
+                <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}" class="active-tab">
+                    <li>예약현황</li>
+                </a>
+                <a href="/member/myBoard">
+                    <li>자유게시판</li>
+                </a>
+                <a href="/member/myQna">
+                    <li>Q&A</li>
+                </a>
+            </ul>
+            <div class="content-wrap">
+                <div class="tabcontent">
+                    <h4>예약정보</h4>
+                    <br>
+                    <hr><br>
+                    <div class="booking-list">
+                        <table>
+                            <tr>
+                                <th width="15%">결제일</th>
+                                <th width="15%">주문번호</th>
+                                <th width="21%">패키지정보</th>
+                                <th width="19%">예약일정</th>
+                                <th width="10%">결제금액</th>
+                                <th width="10%">진행상황</th>
+                                <th width="10%">예약취소</th>
+                            </tr>
+                            <tr th:each="mpp : ${mppList}">
+                                <form action="/pay/cancelPay" method="get">
+                                    <td th:text="${mpp.payDate}"></td>
+                                    <td th:text="${mpp.payBuyNo}"></td>
+                                    <td>
+                                        <img th:src="${mpp.productFilepath}">
+                                        <div th:text="${mpp.productName}"></div>
+                                    </td>
+                                    <td>
+                                        <span th:text="${mpp.payStart}"></span>
+                                        <span>~</span>
+                                        <span th:text="${mpp.payEnd}"></span>
+                                    </td>
+                                    <td th:text="${#numbers.formatInteger(mpp.payPrice,3,'COMMA')} + '원'"></td>
+                                    <th:block th:if="${mpp.payStatus == 1}">
+                                        <td th:text="결제완료"></td>
+                                    </th:block>
+                                    <th:block th:if="${mpp.payStatus == 2}">
+                                        <td th:text="취소요청중"></td>
+                                    </th:block>
+                                    <th:block th:if="${mpp.payStatus == 3}">
+                                        <td th:text="취소완료"></td>
+                                    </th:block>
+                                    <td>
+                                        <button type="submit" class="cbtn">예약취소</button>
+                                        <input type="hidden" name="payNo" id="payNo" th:value="${mpp.payNo}">
+                                        <input type="hidden" name="memberNo" id="memberNo" th:value="${session.m.memberNo}">
+                                    </td>
+                                </form>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
-    <script src="/js/mypage.js"></script>
 </body>
-
 </html>

@@ -444,4 +444,87 @@ width: 600px;
 height: 340px;
 }
 
+/* *******************미리보기 밑 부분 멍멍이 자랑이나 멍멍이 식음료부분*********************** */
+
+.wrap-bottom{
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: white;
+}
+.mung{
+    width: 61%;
+    float: left;
+}
+.mung-logo{
+    overflow: hidden;
+    border-bottom: 1px solid rgb(158, 210, 220);
+
+}
+.mung-icon{
+    width: 15%;
+    float: left;
+    text-align: center;
+}
+.mung-icon>span{
+    font-size: 40px;
+    color: rgb(4, 144, 159);
+
+}
+.mung-text{
+    width: 85%;
+    float: left;
+}
+.mung-text>span{
+    font-size: 40px;
+    font-family: kotra-hope;
+    color: rgb(4, 144, 159);
+}
+.mung-content{
+    overflow: hidden;
+}
+.mung-content>ul>li{
+    float: left;
+    padding: 20px 10px 20px 20px;
+}
+.mung-content>ul>li>a>img{
+    width: 150px;
+    height: 150px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+/*  */
+.eat{
+    padding-left: 20px;
+    width: 30%;
+    float: left;
+}
+.eat-logo{
+    overflow: hidden;
+    border-bottom: 1px solid rgb(158, 210, 220);
+
+}
+.eat-icon{
+    width: 15%;
+    float: left;
+    text-align: center;
+}
+.eat-icon>span{
+    font-size: 40px;
+    color: rgb(4, 144, 159);
+
+}
+.eat-text{
+    width: 85%;
+    float: left;
+}
+.eat-text>span{
+    font-size: 40px;
+    font-family: kotra-hope;
+    color: rgb(4, 144, 159);
+}
+.Slidesbackground2{
+    padding-top: 10px;
+}
 

@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.or.iei.FileUtil;
@@ -19,6 +21,7 @@ import kr.or.iei.facility.model.service.FacilityService;
 import kr.or.iei.facility.model.vo.Facility;
 import kr.or.iei.facility.model.vo.FacilityFile;
 import kr.or.iei.facility.model.vo.FacilityListData;
+import kr.or.iei.member.model.vo.Member;
 
 @Controller
 @RequestMapping(value = "/facility")
@@ -31,11 +34,12 @@ public class FacilityController {
 	private String root;
 	
 	@GetMapping(value = "/tourDetail")
-	public String tourDetail(int facilityNo, Model model) {
-		Facility facility = facilityService.selectOneTour(facilityNo);
-		System.out.println(facility.getFacilityFilepathArr().size());
+	public String tourDetail(int facilityNo, Model model, @SessionAttribute(required= false) Member m) {	
+		int memberNo = (m==null? 0 : m.getMemberNo());
+		Facility facility = facilityService.selectOneTour(facilityNo, memberNo);
 		model.addAttribute("f",facility);
 		return "facility/tourDetail";
+		
 	}
 		
 	@GetMapping(value="/insertFrm")
@@ -146,4 +150,17 @@ public class FacilityController {
 		}
 		return "common/msg";
 	}
+	
+	@ResponseBody
+	@PostMapping(value = "addFavorite")
+	public void addFavorite(int memberNo, int facilityNo) {
+		facilityService.addFavorite(memberNo, facilityNo);
+	}
+	
+	@ResponseBody
+	@PostMapping(value = "removeFavorite")
+	public void removeFavorite(int memberNo, int facilityNo) {
+		facilityService.removeFavorite(memberNo, facilityNo);
+	}
+	
 }

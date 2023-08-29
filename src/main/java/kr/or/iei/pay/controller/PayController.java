@@ -56,4 +56,24 @@ public class PayController {
 		model.addAttribute("loc", "/product/list");
 		return "common/msg";
 	}
+	
+	@GetMapping(value = "/cancelPay")
+	public String cancelPay(int payNo, int memberNo, Model model) {
+		// 취소요청한 상품의 상태코드 확인
+		Pay p = payService.checkPayStatus(payNo);
+		
+		int result = payService.cancelPay(payNo);
+		if(result > 0) {
+			model.addAttribute("title", "취소요청성공");
+			model.addAttribute("msg", "취소 요청이 완료되었습니다.");
+			model.addAttribute("icon", "success");
+			model.addAttribute("loc", "/member/myReservation?memberNo=" + memberNo);
+		}else {
+			model.addAttribute("title", "취소요청실패");
+			model.addAttribute("msg", "취소 요청이 실패했습니다. 잠시 후 다시 시도해주세요.");
+			model.addAttribute("icon", "error");
+			model.addAttribute("loc", "/member/myReservation?memberNo=" + memberNo);
+		}
+		return "common/msg";
+	}
 }

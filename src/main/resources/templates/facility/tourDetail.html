@@ -17,10 +17,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 	<!-- vscode용 -->
-    <!-- 
-    <link rel="stylesheet" href="../../static/css/default.css">
-    <link rel="stylesheet" href="../../static/css/tourDetail.css">
-	 -->
 </head>
 <style>
 .swiper {
@@ -68,7 +64,10 @@
             <div class="swiper">
             	<div class="tour-title wrap-flex">
                     <span th:text="${f.facilityName}"></span>
-                    <span class="material-icons flex-left wish" onclick="wish(this);">turned_in_not</span>
+                    <!-- th:if="${f.favorite!=null && session.m!=null}"-->
+                    <span class="material-icons flex-left wish" th:if="${session.m==null}">turned_in_not</span>
+                    <span class="material-icons flex-left wish" th:if="${f.favorite==0 && session.m!=null}" th:onclick="wish(this,[[${session.m.memberNo}]],[[${f.facilityNo}]]);">turned_in_not</span>
+                	<span class="material-icons flex-left wish" th:if="${f.favorite==1 && session.m!=null}" th:onclick="delWish(this,[[${session.m.memberNo}]],[[${f.facilityNo}]]);">turned_in</span>
                 </div>
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper" >
@@ -131,8 +130,7 @@
 
     
     <script>
-        // 지도api
-        
+        // 지도api   
 		var mapOptions = {
 	        center: new naver.maps.LatLng('[[${f.facilityLat}]]', '[[${f.facilityLng}]]'),
             //center: new naver.maps.LatLng(37.3595704, 127.105399),
@@ -155,24 +153,34 @@
 			content : contentString
 		});
 		infoWindow.open(map, marker);
-		
 
-	
-        
         //찜하기(파라미터 상품번호)
-        function wish(obj){
+        function wish(obj, memberNo, facilityNo){
             const wishBtn = $(obj);
-            wishBtn.text("turned_in");
-            wishBtn.attr("onclick","delWish(this);");
+            $.ajax({
+            	url:"/facility/addFavorite",
+            	type: "post",
+            	data:{memberNo: memberNo, facilityNo: facilityNo},
+            	success: function(data){
+		            wishBtn.text("turned_in");
+		            wishBtn.attr("onclick","delWish(this,"+memberNo+","+facilityNo+");");            		
+            	}
+            })
         };
+        
         //찜하기 삭제(파라미터 상품번호)
-    	function delWish(obj){
+    	function delWish(obj, memberNo, facilityNo){
         	const delBtn = $(obj);
-        	delBtn.text("turned_in_not");
-            delBtn.attr("onclick","wish(this);");
+        	$.ajax({
+        		url: "/facility/removeFavorite",
+        		type: "post",
+        		data:{memberNo: memberNo, facilityNo: facilityNo},
+            	success: function(data){
+            		delBtn.text("turned_in_not");
+            		delBtn.attr("onclick","wish(this,"+memberNo+","+facilityNo+");");            		
+            	}
+        	});
         }
-        //시설이미지
-        //$(".swiper-wrapper")
         
         //이미지 슬라이드
         const swiper = new Swiper('.swiper', {

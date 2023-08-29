@@ -93,6 +93,7 @@ td {
 
 .booking-list>table {
     margin: 0 auto;
+    width: 100%;
     border: 2px solid #cbcbcb;
     font-family: ns-m;
     border-collapse: collapse;
@@ -107,9 +108,8 @@ td {
 
 .booking-list>table td {
     border: 1px solid #cbcbcb;
+    padding: 0.5rem;
     border-collapse: collapse;
-    height: 200px;
-
 }
 
 .booking-list>table:first-child>tr {
@@ -128,9 +128,9 @@ td {
 
 .cbtn{
 	background-color: darkgrey;
-    border-radius: 4px;
-    height: 40px;
-    width: 80px;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 16px;
     border: 1px solid #cbcbcb;
     color: white;
     cursor: pointer;
