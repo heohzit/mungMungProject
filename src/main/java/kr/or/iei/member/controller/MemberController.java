@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.or.iei.EmailSender;
+import kr.or.iei.board.model.service.BoardService;
+import kr.or.iei.board.model.vo.BoardListData;
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
@@ -25,7 +27,8 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private EmailSender emailSender;
-	
+	@Autowired
+	private BoardService boardService;
 	
 	@PostMapping(value="/signin")
 	public String signIn(String signId, String signPw, Model model, HttpSession session) {
@@ -113,7 +116,9 @@ public class MemberController {
 		return "member/myReservation";
 	}
 	@GetMapping(value="/myBoard")
-	public String myBoard() {
+	public String myBoard(Model model,int memberNo) {
+		List boardList = boardService.selectMyBoard(memberNo);
+		model.addAttribute("boardList", boardList);
 		return "member/myBoard";
 	}
 	@GetMapping(value="/myQna")

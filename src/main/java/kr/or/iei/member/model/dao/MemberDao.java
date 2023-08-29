@@ -21,8 +21,6 @@ public class MemberDao {
 	private MemberRowMapper memberRowMapper;
 	@Autowired
 	private MemberProductPayRowMapper memberProductPayRowMapper;
-	@Autowired
-	private MemberLikeListRowMapper memberLikeListRowMapper;
 	
 	public Member selectOneMember(String signId, String signPw) {
 		String query = "select * from member where member_id = ? and member_pw = ?";

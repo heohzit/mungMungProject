@@ -162,5 +162,11 @@ public class BoardDao {
 		return totalCount;
 	}
 
+	public List selectMyBoard(int memberNo) {
+		String query = "select * from board join member on(member.member_no=board.board_writer) where board_writer=?";
+		List list = jdbc.query(query, boardRowMapper,memberNo);
+		return list;
+	}
+
 	
 }
