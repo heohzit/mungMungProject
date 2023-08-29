@@ -10,14 +10,13 @@
 </head>
 <body>  
 <th:block th:include="common/mung_header"></th:block>
-		<div class="color-head">
-			<h1>멍멍 공지사항</h1>
-		</div>
     <div class="page-content">
-
+        <div class="page-title">
+        	<h1>Q&A</h1>
+        </div>
         <div class="page-content-top">
         	<div>
-            	<a th:if="${session.m!=null && session.m.memberLevel==1}" href="/notice/writeFrm" class="btn bc1">글쓰기</a>
+            	<a th:if="${session.m!=null}" href="/qna/writeFrm" class="btn bc1">글쓰기</a>
             </div>
             <div>
 	            <form action="/notice/searchNoticeList" method="get" id="formsearch">
@@ -33,20 +32,20 @@
 	       </div>
         </div>
         <div class="page-content-mid">
-        <table class="notice-table">
+        <table class="insert-table">
             <tr class="tr-2">
                 <th style="width: 7%;">번호</th>
-                <th style="width: 60%;">제목</th>
+                <th style="width: 50%;">제목</th>
                 <th style="width: 10%;">작성자</th>
-                <th style="width: 7%;">조회수</th>
+                <th style="width: 7%;">답변</th>
                 <th style="width: 15%;">등록일</th>
             </tr>
-            <tr th:each="notice : ${noticeList}" class="tr-1">
-                <td th:text="${notice.noticeNo}"></td>
-                <td><a th:href="@{/notice/view(noticeNo=${notice.noticeNo})}" th:text="${notice.noticeTitle}"></a></td>
-                <td th:text="${notice.memberId}"></td>
-                <td th:text="${notice.noticeReadCount}"></td>
-                <td th:text="${notice.noticeWriteDate}"></td>
+            <tr th:each="qna : ${qnaList}" class="tr-1">
+                <td th:text="${qna.qnaNo}"></td>
+                <td><a th:href="@{/qna/view(qnaNo=${qna.qnaNo})}" th:text="${qna.qnaTitle}"></a></td>
+                <td th:text="${qna.memberId}"></td>
+                <td th:text="${qna.qnaAnswerCase}"></td>
+                <td th:text="${qna.qnaWriteDate}"></td>
             </tr>
         </table>
         </div>

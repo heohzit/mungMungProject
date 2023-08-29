@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Q&A 상세보기</title>
+<link rel="stylesheet" href="../css/qnaList.css">
+
+</head>
+<body>
+<th:block th:include="common/mung_header"></th:block>
+    <div class="page-content">
+        <div class="page-title">
+        	<h1>Q&A</h1>
+        </div>
+        <div class="page-content-mid">
+        <table class="insert-table">
+            <tr>
+            	<th>문의유형</th>
+                <td colspan="1" th:text="${q.qnaCase}"></td>
+            	<th>제목</th>
+                <td colspan="4" th:text="${q.qnaTitle}"></td>
+            </tr>
+            <tr>
+                <th>작성자</th>
+                <td th:text="${q.memberId}"></td>
+                <th>작성일</th>
+                <td th:text="${q.qnaWriteDate}"></td>
+                 <th>답변상태</th>
+                <td th:text="${q.qnaAnswerCase}"></td>
+            </tr>
+            <tr>
+               	<td colspan="6">
+				<div class="noticeContent" th:utext="${q.qnaContent}"></div>
+            	</td>
+            </tr>
+        </table>
+        </div>
+        <div class="btn1">
+        	<a href="/qna/list?reqPage=1" class="btn bc1"  style="float: right;">목록</a>
+        </div>
+        <div class="btn1" style="height: 70px" th:if="${session.m != null && session.m.memberNo == q.qnaWriter}">
+	        <a th:href="@{/qna/updateFrm(qnaNo=${q.qnaNo})}" class="btn bc1">수정하기</a>
+	        <a th:href="@{/qna/delete(qnaNo=${q.qnaNo})}" onClick="alert('게시글을 삭제하시겠습니까?')" class="btn bc1">삭제하기</a>
+		</div>
+		<!-- 댓글 입력창 -->
+		<div class="inputCommentBox" th:if="${session.m != null}">
+			<form action="/notice/insertComment" method="post">
+				<ul>
+					<li>
+						<span class="material-icons">account_box</span>
+					</li>
+					<li>
+						<input th:value="${session.m.memberId}">
+						<input name="noticeRef">
+						<textarea name="noticeCommentContent" class="input-form"></textarea>
+					</li>
+					<li>
+						<button type="submit" class="btn bc1 bs4">등록</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+    </div>
+    <th:block th:include="common/mung_footer"></th:block>
+</body>
+</html>
