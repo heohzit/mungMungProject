@@ -132,18 +132,17 @@
     padding: 17px 50px 13px 0px;
     float: left;
 }
-#noticeListView{
-	font-size:25px;
-}
 .notice-content{
-	padding-left:10px;
 	height: 30px;
     background-color: white;
     border-radius: 5px;
 }
 .notice-content>a{
-    font-size: 16px;
+    font-size: 18px;
+    width: 100%;
+    height: 30px;
     display: block;
+    text-indent: 10px;
 }
 .search{
     width: 800px;
