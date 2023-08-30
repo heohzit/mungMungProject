@@ -12,11 +12,11 @@
 <script src="/summernote/summernote-lite.js"></script>
 <script src="/summernote/lang/summernote-ko-KR.js"></script>
 <link rel="stylesheet" href="/summernote/summernote-lite.css">
-		<div class="color-head">
-			<h1>공지사항</h1>
-		</div>
-    <div class="page-content">
 
+    <div class="page-content">
+		<div class="page-title">
+        	<h1>멍멍 공지사항</h1>
+        </div>
 		<div class="page-content-mid">
         <form action="/notice/write" method="post" enctype="multipart/form-data">
             <table class="insert-table">
@@ -28,7 +28,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" style="text-align:left;">
                     	<input style="display: none;" type="file" name="upfile" multiple>
                         <textarea id="noticeContent" name="noticeContent"></textarea>
                     </td>

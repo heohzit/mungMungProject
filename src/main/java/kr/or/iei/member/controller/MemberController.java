@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.or.iei.EmailSender;
 import kr.or.iei.board.model.service.BoardService;
+import kr.or.iei.board.model.vo.BoardListData;
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.FavoriteListData;
 import kr.or.iei.member.model.vo.Member;
@@ -116,9 +117,10 @@ public class MemberController {
 		return "member/myReservation";
 	}
 	@GetMapping(value="/myBoard")
-	public String myBoard(Model model,int memberNo) {
-		List boardList = boardService.selectMyBoard(memberNo);
-		model.addAttribute("boardList", boardList);
+	public String myBoard(Model model,int reqPage,int memberNo) {
+		BoardListData bld = boardService.selectMyBoard(memberNo,reqPage);
+		model.addAttribute("boardList", bld.getBoardList());
+		model.addAttribute("pageNavi", bld.getPageNavi());
 		return "member/myBoard";
 	}
 	@GetMapping(value="/myQna")

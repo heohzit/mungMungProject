@@ -10,17 +10,17 @@
 </head>
 <body>
 <th:block th:include="common/mung_header"></th:block>
-<div class="color-head">
-	<h1>마이페이지</h1>	
-</div>
     <div class="page-content">
+    	<div class="page-title">
+        	<h1>마이 페이지</h1>
+        </div>    
         <form action="/member/update" method="post">
             <div class="tab-wrap">
                 <ul class="tabs">
                     <a href="/member/mypage"><li>회원정보</li></a>
                     <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=1)}"><li>내가 찜한 여행지</li></a>
                     <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li>예약현황</li></a>
-                    <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo})}"><li>자유게시판</li></a>
+                    <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo},reqPage=1)}"><li>자유게시판</li></a>
                     <a th:href="@{/member/myQna(memberNo=${session.m.memberNo},reqPage=1)}" class="active-tab"><li>Q&A</li></a>
                     </th:block>
                 </ul>
@@ -29,11 +29,8 @@
                         <h4>Q&A</h4>
                         <br><hr><br>
                         <div class="page-content">
-        <div class="page-title">
-        	<h1>Q&A</h1>
-        	<div style="display: flex;">
+        <div class="page-title" style="display: flex;">
             	<a th:if="${session.m!=null}" href="/qna/writeFrm" class="btn bc1" style="margin-left: auto;">글쓰기</a>
-            </div>
         </div>
         <div class="page-content-mid">
         <table class="insert-table">

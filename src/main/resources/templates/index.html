@@ -16,21 +16,17 @@
             -->    
             <span class="slideshow-container">
                 <div class="Slidesbackground">
-                    <div class="mySlides fade">
-                        
-                        <img src="../img/main/댕댕이와 등산.jpg" class="slideshow-image">
+                	<div class="mySlides fade">                    
+                        <img src="../img/main/멍메인-1.jpg" class="slideshow-image">
                     </div>
-                    <div class="mySlides fade">
-                        
-                        <img src="../img/main/댕댕이 헤엄.jpg" class="slideshow-image">
+                    <div class="mySlides fade">                    
+                        <img src="../img/main/멍메인-2.jpg" class="slideshow-image">
                     </div>
-                    <div class="mySlides fade">
-                        
-                        <img src="../img/main/댕댕이 식사.jpg" class="slideshow-image">
+                    <div class="mySlides fade">                    
+                        <img src="../img/main/멍메인-3.jpg" class="slideshow-image">
                     </div>
-                    <div class="mySlides fade">
-                        
-                        <img src="../img/main/노을 해변가 댕댕이.jpg" class="slideshow-image">
+                    <div class="mySlides fade">                    
+                        <img src="../img/main/멍메인-4.jpg" class="slideshow-image">
                     </div>
                 </div>
             </span>
@@ -64,39 +60,31 @@
                             <form class="search-main">
                                 <input type="hidden" name="reqPage" value="1">
                                 <input type="text" name="searchName" id="searchName" placeholder="검색어를 입력해주세요.">
-                                <button type="submit" class="search-submit">검색하기</button>
+                                <button type="submit" class="search-submit">검색</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="top-bottom"><!--소개이미지-->
             
-            <!-- 
-            <div class="bottom-img">
-                    <img src="../img/main/메인 화면 이미지.jpg">
-                </div>
-            </div>
-            --> 
-        </div>
         <div class="wrap-mid">
  		<!-- 메인 페이지 middle영역 숙소,체험, 식음료, 관광지-->
- 			 <div class="lodging">
+ 			 <div class="sa sa-up"><!-- 효과 넣는다면 여기? -->
                 <div class="lodging-logo">
-                <a href="/facility/hotelList?reqPage=1">                
-                    <div class="lodging-icon">
-                        <span class="material-icons">cottage</span>
-                    </div>
-                    <div class="lodging-text">
-                        <span>애견 동반 추천 숙소</span>
-                    </div>
-                </a>
+                	<a href="/facility/hotelList?reqPage=1">                
+                    	<div class="lodging-icon">
+                        	<span class="material-icons">cottage</span>
+                    	</div>
+                    	<div class="lodging-text">
+                        	<span>애견 동반 추천 숙소</span>
+                    	</div>
+                	</a>
                 </div>
                 <div id="slideShow1">
                     <ul class="slides1"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
                       <li th:each=" hotelList : ${hotelList}">
                         <a th:href="@{/facility/tourDetail(facilityNo=${hotelList.facilityNo})}">
-                            <img th:src="${hotelList.facilityFilepath}" style="width: 252px; height: 252px;"><!--시설중 숙소로 이미지 가져오기-->
+                            <img th:src="${hotelList.facilityFilepath}" style="width: 320px; height: 320px;"><!--시설중 숙소로 이미지 가져오기-->
                             <h3 th:text="${hotelList.facilityName}"></h3>
                         </a>
                     </li>
@@ -110,7 +98,7 @@
                   </div>
             </div>
             <div class="mid-content">
-                <div class="travel">
+                <div class="sa sa-right"><!-- 효과 넣는다면 여기? -->
                     <div class="travel-logo">
                     <a href="/facility/tourList?reqPage=1">
                         <div class="travel-icon">
@@ -138,7 +126,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="pakage">
+                <div class="sa sa-left">
                     <div class="pakage-logo">
                         <div class="pakage-icon">
                             <span class="material-icons">map</span>
@@ -154,12 +142,12 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div><!-- 효과 넣는다면 여기? -->
             </div>
         </div>
         <div class="wrap-bottom">
             <!-- 메인 페이지 bottom영역 동물병원 , 패키지 소개 및 댕댕이 자랑 슬라이드-->
-            <div class="mung">
+            <div class="sa sa-down"><!-- 효과 넣는다면 여기? -->
                 <div class="mung-logo">
                     <a href="/board/list?reqPage=1">
                         <div class="mung-icon">
@@ -173,33 +161,33 @@
                 <div class="mung-content">
                     <ul > <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
                         <li>
-                            <a href="#">
-                                <img src="img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3>멈멈미</h3>
+                            <a th:href="@{/board/view(boardNo=${boardList[0].boardNo})}">
+                                <img th:src="'/boardmain/'+${boardList[0].boardFilepath}">
+                                <h3 th:text="${boardList[0].boardTitle}"></h3>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <img src="img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3>멈멈미</h3>
+                            <a th:href="@{/board/view(boardNo=${boardList[1].boardNo})}">
+                                <img th:src="'/boardmain/'+${boardList[1].boardFilepath}"><!--시설중 숙소로 이미지 가져오기-->
+                                <h3 th:text="${boardList[1].boardTitle}"></h3>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <img src="img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3>멈멈미</h3>
+                            <a th:href="@{/board/view(boardNo=${boardList[2].boardNo})}">
+                                <img th:src="'/boardmain/'+${boardList[2].boardFilepath}"><!--시설중 숙소로 이미지 가져오기-->
+                                <h3 th:text="${boardList[2].boardTitle}"></h3>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <img src="img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3>멈멈미</h3>
+                            <a th:href="@{/board/view(boardNo=${boardList[3].boardNo})}">
+                                <img th:src="'/boardmain/'+${boardList[3].boardFilepath}"><!--시설중 숙소로 이미지 가져오기-->
+                                <h3 th:text="${boardList[3].boardTitle}"></h3>
                             </a>
                         </li>
                     </ul>  
                 </div>
             </div>
-            <div class="eat">
+            <div class="sa sa-scaleUp"><!-- 효과 넣는다면 여기? -->
                 <div class="eat-logo">
                     <a href="/facility/cafeList?reqPage=1">
                         <div class="eat-icon">
@@ -238,6 +226,21 @@
 				                	$(".search-main").attr("action","/facility/searchActivityList")
 				                }
 				            });
+				            const saTriggerMargin = 300;
+				            const saElementList = document.querySelectorAll('.sa');
+
+				            const saFunc = function() {
+				              for (const element of saElementList) {
+				                if (!element.classList.contains('show')) {
+				                  if (window.innerHeight > element.getBoundingClientRect().top + saTriggerMargin) {
+				                    element.classList.add('show');
+				                  }
+				                }
+				              }
+				            }
+
+				            window.addEventListener('load', saFunc);
+				            window.addEventListener('scroll', saFunc);
 				        </script>
 </body>
 </html>

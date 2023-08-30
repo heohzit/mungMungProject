@@ -25,14 +25,14 @@ let currentIdx1 = 0; //현재 슬라이드 index
 const slideCount1 = slideImg1.length; // 슬라이드 개수
 const prev1 = document.querySelector('.prev1'); //이전 버튼
 const next1 = document.querySelector('.next1'); //다음 버튼
-const slideWidth1 = 300; //한개의 슬라이드 넓이
+const slideWidth1 = 400;//한개의 슬라이드 넓이
 const slideMargin1 = 100; //슬라이드간의 margin 값
 
 //전체 슬라이드 컨테이너 넓이 설정
 slides1.style.width = (slideWidth1 + slideMargin1) * slideCount1 + 'px';
 
 function moveSlide1(num) {
-  slides1.style.left = -num * 950 + 'px';
+  slides1.style.left = -num * 1152 + 'px';
   currentIdx1 = num;
 }
 

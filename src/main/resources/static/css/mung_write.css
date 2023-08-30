@@ -61,28 +61,28 @@
 .pcw{
     width: 400px;
     height: 60px;
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(243, 244, 248);
 }
 .pcw>label{
-    font-size: 30px;
-    color: aliceblue;
+    font-size: 18px;
+    color: black;
 }
 .pci{
     width: 800px;
     height: 59px;
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 20px;
     border: none;
-    border-bottom: 2px solid rgb(1, 78, 200);
+    border-bottom: 1px solid lightgray;
     outline: none;
 }
 .pcw-0{
     width: 400px;
     height: 600px;
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(243, 244, 248);
 }
 .pcw-0>label{
-    font-size: 30px;
-    color: aliceblue;
+    font-size: 18px;
+    color: black;
     
 }

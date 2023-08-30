@@ -1,3 +1,4 @@
+//개인정보 동의
 const allAgree = document.querySelector("#allAgree");
 allAgree.addEventListener("click",function(){
     const status = this.checked;
@@ -7,12 +8,14 @@ allAgree.addEventListener("click",function(){
     })
 });
 
+//이메일연결
 const select = document.querySelector(".email-choice");
 select.addEventListener("change",function(){
     const input = document.querySelector("[name=memberEmail2]");
     input.value = select.value;
 });
 
+//이메일 인증번호
 let authCode = null;
 let email = null;
 $("#sendBtn").on("click",function(){
@@ -29,36 +32,8 @@ $("#sendBtn").on("click",function(){
         }
     });
 });
-<<<<<<< Updated upstream
-		let intervalId = null;
-		function authTime(){
-			$("#timeZone").html("<span id='min'>5</span> : <span id='sec'>00</span>");
-			intervalId = window.setInterval(function(){
-				const min = $("#min").text();
-				const sec = $("#sec").text();
-				if(sec == "00"){
-					if(min == "0"){
-						window.clearInterval(intervalId);
-						authCode = null;
-						$("#authMsg").text("인증 시간이 만료되었습니다.");
-						$("#authMsg").css("color","red");
-						
-					}else{
-						const newMin = Number(min) -1;
-						$("#min").text(newMin);
-						$("#sec").text(59);
-					}
-				
-				}else{
-					const newSec = Number(sec) - 1;
-					if(newSec < 10){
-						$("#sec").text("0"+newSec);
-					}else{
-					$("#sec").text(newSec);
-				}
-			}
-		},1000);
-=======
+
+//이메일 인증시간
 let intervalId = null;
 function authTime() {
 	$("#timeZone").html("<span id='min'>5</span> : <span id='sec'>00</span>");
@@ -89,45 +64,7 @@ function authTime() {
 	}, 1000);
 }
 
-
-
-
-const checkArr =[false,false,false,false,false,false,false];
-$("#memberId").on("change",function(){
-	//정규표현식을 통한 유효성 검사
-	const idReg = /^[a-z0-9]{4,12}$/;
-	const memberId = $(this).val();
-	const check = idReg.test(memberId);
-	if (idReg.test(memberId)) {
-		$.ajax({
-			//MemberController에 작성
-			url: "/member/ajaxCheckId",
-			type: "get",
-			data: { memberId: memberId },
-			success: function (data) {
-				if (data == "0") {
-					$("#ajaxCheckId").text(" " + "사용 가능한 아이디입니다.");
-					$("#ajaxCheckId").css("color", "green");
-					$("#ajaxCheckId").css("font-size", "14px");
-					$("#memberId").css("border", "1px solid green");
-					checkArr[0] = true;
-				} else {
-					$("#ajaxCheckId").text(" " + "이미 사용 중인 아이디입니다.");
-					$("#ajaxCheckId").css("color", "red");
-					$("#ajaxCheckId").css("font-size", "14px");
-					$("#memberId").css("border", "1px solid red");
-					checkArr[0] = false;
-				}
-			}
-		});
-	} else {
-		$("#ajaxCheckId").text(" " + "영문 소문자/숫자 4~12글자 이내로 입력해주세요.");
-		$("#ajaxCheckId").css("color", "red");
-		$("#ajaxCheckId").css("font-size", "14px");
-		$(this).css("border", "1px solid red");
->>>>>>> Stashed changes
-	}
-	
+//이메일 인증 확인
 $("#authBtn").on("click", function(){
 	if(authCode != null){
 		const inputCode = $("#authCode").val();
@@ -144,61 +81,63 @@ $("#authBtn").on("click", function(){
 		}
 	}
 });
+
+//유효성검사 아이디
+const checkArr =[false,false,false,false,false,false,false];
 $("#memberId").on("change",function(){
-			const memberId = $(this).val();
-			//정규표현식을 통한 유효성 검사
-			const idReg = /^[a-z0-9]{4,10}$/;
-			if(idReg.test(memberId)){
-				$.ajax({
-					//MemberController에 작성
-					url:"/member/ajaxCheckId",
-					type : "get",
-					data : {memberId : memberId},
-					success : function(data){
-					console.log(data);
-						if(data == "0"){
-							$("#ajaxCheckId").text(" " + "사용 가능한 아이디입니다.");
-							$("#ajaxCheckId").css("color","blue");
-							$("#memberId").css("border","1px solid blue");
-						}else{
-							$("#ajaxCheckId").text(" " + "이미 사용 중인 아이디입니다.");
-							$("#ajaxCheckId").css("color","red");
-							$("#memberId").css("border","1px solid red");
-							
-						}
-					}
-				});
-			}else{
-				$("#ajaxCheckId").text(" " + "영문 소문자/숫자 4~10글자 이내로 입력해주세요.");
-				$("#ajaxCheckId").css("color","red");
-				$(this).css("border","1px solid red");
-				
+	//정규표현식을 통한 유효성 검사
+	const idReg = /^[a-z0-9]{4,12}$/;
+	const memberId = $(this).val();
+	const check = idReg.test(memberId);
+	if (idReg.test(memberId)) {
+		$.ajax({
+			//MemberController에 작성
+			url: "/member/ajaxCheckId",
+			type: "get",
+			data: { memberId: memberId },
+			success: function (data) {
+				if (data == "0") {
+					$("#ajaxCheckId").text(" " + "사용 가능한 아이디입니다.");
+					$("#ajaxCheckId").css("color", "green");
+					$("#memberId").css("border", "1px solid green");
+					checkArr[0] = true;
+				} else {
+					$("#ajaxCheckId").text(" " + "이미 사용 중인 아이디입니다.");
+					$("#ajaxCheckId").css("color", "red");
+					$("#memberId").css("border", "1px solid red");
+					checkArr[0] = false;
+				}
 			}
-			//db에서 중복체크(ajax)
 		});
+	} else {
+		$("#ajaxCheckId").text(" " + "영문 소문자/숫자 4~12글자 이내로 입력해주세요.");
+		$("#ajaxCheckId").css("color", "red");
+		$(this).css("border", "1px solid red");
+	}
+	//db에서 중복체크(ajax)
+});
+
 
 //비밀번호
-const checkArr =[false,false,false,false,false,false,false,false];
-const memberArr = ["user01","user02","user"];
-const comment1 = $(".comment1");
-const comment2 = $(".comment2");
+const comment = $(".comment");
 $("#memberPw").on("change",function(){
-    const pwReg = /^[a-z0-9\d$@$!%*?&]{4,10}$/;
     const inputPw = $(this).val();
-    const check = pwReg.test(inputPw);
-    if(check){
+    const pwReg = [
+        /^.{8,12}$/,
+        /[a-z]/,
+        /[0-9]/,
+        /[!@#$%]/
+    ];
+	let count = 0;
+	for(let i = 0; i<pwReg.length; i++){
+		const check = pwReg[i].test(inputPw);
+		if(check){
+			count++;
+		}
+	}
+    if(count == pwReg.length){
         //정규표현식 만족한 경우
         //중복체크
-<<<<<<< Updated upstream
-        comment1.text(" " + "사용 가능한 비밀번호입니다.")
-        comment1.css("color","blue");
-        $(this).css("border","1px solid blue");
-        checkArr[1] = true;
-    }else{
-        //정규표현식 만족하지 못한 경우
-        comment1.text(" " + "영문 소문자/숫자/특수문자 4글자~10글자 이내로 입력해주세요.");
-        comment1.css("color","red");
-=======
         comment.eq(0).text(" " + "사용 가능한 비밀번호입니다.")
         comment.eq(0).css("color","green");
         comment.eq(0).css("font-size", "14px");
@@ -209,33 +148,24 @@ $("#memberPw").on("change",function(){
         comment.eq(0).text(" " + "영문 소문자/숫자/특수문자(!,@,#,$,%만 가능) 8글자~12글자 이내로 입력해주세요.");
         comment.eq(0).css("color","red");
         comment.eq(0).css("font-size", "14px");
->>>>>>> Stashed changes
         $(this).css("border","1px solid red");
         checkArr[1] = false;
     }
-    if(comment1.text() != ""){
+    if(comment.eq(0).text() != ""){
         pwDupCheck();
     }
 });
+
+
 //비밀번호확인 
 $("#memberPwRe").on("change",function(){
     pwDupCheck();
 });
-
 function pwDupCheck(){
     //비밀번호확인 
     const inputPw = $("#memberPw").val();
     const inputPwRe = $("#memberPwRe").val();
     if(inputPw == inputPwRe){
-<<<<<<< Updated upstream
-        comment2.text(" " +"비밀번호와 일치합니다.")
-        comment2.css("color","blue");
-        $("#memberPwRe").css("border","1px solid blue");
-        checkArr[2] = true;
-    }else{
-        comment2.text(" " +"비밀번호와 일치하지 않습니다.")
-        comment2.css("color","red");
-=======
         comment.eq(1).text(" " +"비밀번호와 일치합니다.")
         comment.eq(1).css("color","green");
         comment.eq(1).css("font-size", "14px");
@@ -245,16 +175,11 @@ function pwDupCheck(){
         comment.eq(1).text(" " +"비밀번호와 일치하지 않습니다.")
         comment.eq(1).css("color","red");
         comment.eq(1).css("font-size", "14px");
->>>>>>> Stashed changes
         $("#memberPwRe").css("border","1px solid red");
         checkArr[2] = false;
     }
 }
 
-
-<<<<<<< Updated upstream
-	
-=======
 // 이름
 $("#memberName").on("change",function(){
     const nameReg = /^[가-힣]{1,7}$/;
@@ -337,7 +262,7 @@ $(".signbtn").on("click",function(event){
 		}else if(!checkArr[3]){
 			alert("이름을 확인해주세요.");
 		}else if(!checkArr[4]){
-			alert("휴대폰번호를 확인해주세요.");
+			alert("휴대폰 번호를 확인해주세요.");
 		}else if(!checkArr[5]){
 			alert("이메일 인증이 필요합니다.");
 		}else if(!checkArr[6]){
@@ -345,4 +270,3 @@ $(".signbtn").on("click",function(event){
 		}
     }
 });
->>>>>>> Stashed changes

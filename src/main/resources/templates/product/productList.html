@@ -8,31 +8,31 @@
 <body>
 	<th:block th:include="common/mung_header"></th:block>
 	<!-- 전체를 감싸는 div  -->
-<div class="color-head">
-	<h1>멍멍 패키지</h1>	
-</div>
-	    <div class="productlist-wrap">
 
         	<div class="product-content">
+        <div class="page-title">
+        	<h1>멍멍 패키지</h1>
+        </div>
             	<!-- 관리자용 패키지 등록 버튼 -->
             	<div class="admin_insert">
                 	<a th:if="${session.m != null && session.m.memberLevel ==1 }" href="/product/writeFrm"><button type="button">패키지 등록하기</button></a>
            		</div>
             	<!-- 패키지 리스트 -->
-				<div class="productlist">
-					<ul th:each="product : ${productList}">
-						<li class="product">
+				<div class="page-content-mid">
+					<ul class="mid-list-wrap">
+						<li th:each="product : ${productList}" class="mid-list">
                      		<a th:href="@{/product/view(productNo=${product.productNo})}">
-                        		<div class="img-box">
+                        		<div class="list-img-box">
                             		<img th:src="'/productmain/'+${product.productFilepath}"><!-- 이미지크기는 250*250 -->
-                            		<h3 th:text="${product.productName}"></h3>
                         		</div>
+                        		<div class="list-text-box">
+                            		<h3 th:text="${product.productName}"></h3>
+                            	</div>
                      		</a>
                  		</li>
 					</ul>
 				</div>
 			</div>
-		</div>
 	
 	<th:block th:include="common/mung_footer"></th:block>
 </body>

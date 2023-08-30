@@ -58,7 +58,12 @@
 <div class="color-head">
 </div>
     <div class="page-content">
-
+	<div class="page-title" style="margin-bottom:40px;">
+		<h1 th:if="${f.facilityCase}==1">식음료</h1>
+		<h1 th:if="${f.facilityCase}==2">숙박</h1>
+		<h1 th:if="${f.facilityCase}==3">관광지</h1>
+		<h1 th:if="${f.facilityCase}==4">체험</h1>
+	</div>
         <div class="tour-detail wrap-flex">
             <!-- Slider main container -->
             <div class="swiper">
