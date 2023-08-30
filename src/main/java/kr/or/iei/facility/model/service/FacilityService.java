@@ -774,4 +774,15 @@ public class FacilityService {
 		}
 		return tourList;
 	}
+	public List selectCafeList() {
+		List cafeList = facilityDao.selectCafeList();
+		for(int i = 0; i < cafeList.size(); i++) {
+			Object facilityObj = cafeList.get(i);
+			Facility facilityFacility = (Facility)facilityObj;
+			int facilityNo = facilityFacility.getFacilityNo();
+			String facilityFilepath = facilityDao.selectFacilityFile(facilityNo);
+			facilityFacility.setFacilityFilepath(facilityFilepath);
+		}
+		return cafeList;
+	}
 }

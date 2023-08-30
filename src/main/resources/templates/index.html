@@ -212,21 +212,10 @@
                 </div>
                 <span class="slideshow-container2"><!--슬라이드 -->
                     <div class="Slidesbackground2">
-                        <div class="mySlides2 fade">
-                            
-                            <img src="../img/main/댕댕이와 등산.jpg" class="slideshow-image2">
-                        </div>
-                        <div class="mySlides2 fade">
-                            
-                            <img src="../img/main/댕댕이 헤엄.jpg" class="slideshow-image2">
-                        </div>
-                        <div class="mySlides2 fade">
-                            
-                            <img src="../img/main/댕댕이 식사.jpg" class="slideshow-image2">
-                        </div>
-                        <div class="mySlides2 fade">
-                            
-                            <img src="../img/main/노을 해변가 댕댕이.jpg" class="slideshow-image2">
+                        <div class="mySlides2 fade" th:each=" cafeList : ${cafeList}">
+                            <a th:href="@{/facility/tourDetail(facilityNo=${cafeList.facilityNo})}">
+                            	<img th:src="${cafeList.facilityFilepath}" class="slideshow-image2">                            
+                            </a>
                         </div>
                     </div>
                 </span>

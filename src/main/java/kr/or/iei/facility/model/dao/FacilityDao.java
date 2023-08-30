@@ -201,6 +201,12 @@ public class FacilityDao {
 	}
 
 	public List selectTourList() {
+		String query = "select * from facility where facility_case = 3";
+		List list = jdbc.query(query, facilityRowMapper);
+		return list;
+	}
+
+	public List selectCafeList() {
 		String query = "select * from facility where facility_case = 1";
 		List list = jdbc.query(query, facilityRowMapper);
 		return list;
