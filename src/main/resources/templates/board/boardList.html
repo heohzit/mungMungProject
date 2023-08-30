@@ -31,86 +31,32 @@
             </div>
         </div>
        <div class="page-content-mid">
-	        <div class="boardlist">
-				<ul th:each="board : ${boardList}">
-					<li class="board">
+	   		<ul class="mid-list-wrap">
+					<li class="mid-list" th:each="board : ${boardList}" style="height: 380px">
 	                     <a th:href="@{/board/view(boardNo=${board.boardNo})}">
-	                        <div class="img-box">
+	                        <div class="list-img-box">
 	                            <img th:src="'/boardmain/'+${board.boardFilepath}" style="width: 250px; height: 250px">
-	                        <div>
 	                        </div>
+	                        <div class="list-text-box">
+	                        	<ul>
+	                        	<li >
 	                            <h3 th:text="${board.boardTitle}"></h3>
 	                            <span th:text="${board.memberId}"></span>
 	                            <span>|</span>
 	                            <span th:text="${board.boardWriteDate}" style="color: #aaa"></span>
+	                            </li>
+	                            </ul>
 	                        </div>
 	                     </a>
 	                 </li>
 				</ul>
-			</div>
 		</div>
 		 <div class="page-content-bottom">
             <div id="pageNavi" th:utext="${pageNavi}"></div>
         </div>
 	</div>
 	<th:block th:include="common/mung_footer"></th:block>
-	<script>
-
-	/*
-	
-		$("#more-btn").on("click",function(){
-			const start =$(this).val();
-			const amount =4;
-			const end = Number(start)+amount-1;
-			$.ajax({
-				url : "/board/more",
-				type : "post",
-				data : {start:start,end:end},
-				success : function(data){
-					for(let i=0;i<data.length;i++){
-						const board = data[i];					
-						const div = $("<table>");
-						div.addClass("posting-item");	
-						
-						const imgDiv = $("<div>");
-						imgDiv.addClass("posting-img");
-						
-						const atab = $("<a>");
-						atab.attr("href","/board/view?boardNo="+board.boardNo);
-						
-						const img = $("<img>");
-						img.attr("src","/boardmain/"+board.boardFilepath);
-						atab.append(img);
-						imgDiv.append(atab);
-						
-						const contentDiv = $("<div>");
-						contentDiv.addClass("posting-contentDiv");
-						
-						const title =$("<p>");
-						title.text(board.boardTitle);
-						contentDiv.append(title);
-		
-						div.append(imgDiv).append(contentDiv);
-						$(".boardWrapper").append(div);
-					
-					}
-					const currentVal =Number($("#more-btn").val());
-					$("#more-btn").val(currentVal+amount);
-					const currentCount = Number($("#more-btn").attr("currentCount"));
-					const changeCount = currentCount+data.length;
-					$("#more-btn").attr("currentCount",changeCount);	
-					const totalCount = Number($("#more-btn").attr("totalCount"));
-					if(totalCount == changeCount){
-						$("#more-btn").remove();
-					}		
-				}		
-			})
-		});
-		
-		
-		$("#more-btn").click();
-		
-	*/	
+	<script>	
 		$("#searchBtn").on("click",function(){
 			$("#reqPage").val(1);
 			if($("#sch1").val()==""){

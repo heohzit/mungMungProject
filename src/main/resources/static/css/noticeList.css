@@ -19,30 +19,6 @@ table td {
 }
 
 
-
-.boardlist{
-    text-align: center;
-    overflow: hidden;
-}
-
-.board{
-    padding: 10px 0px 10px 39px;
-    list-style: none;
-    float: left;
-}
-.board>a{
-    display: block;
-    text-decoration: none;
-    
-}
-
-.img-box>img{
-    border: 1px solid lightgray;
-    border-radius: 10px;
-}
-
-
-
 .notice-table{
 	width: 100%;
 	box-shadow: 3px 3px 3px #ccc;
