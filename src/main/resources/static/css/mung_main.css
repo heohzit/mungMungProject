@@ -32,6 +32,10 @@
     font-family: ns-regular;
     src: url(../font/NotoSansKR-Regular.otf);
 }
+@font-face {
+    font-family: cafe-24;
+    src: url(../font/Cafe24Ssurround-v2.0.otf);
+}
 
 *{
     margin: 0;
@@ -201,7 +205,7 @@
     overflow: hidden;
 }
 .lodging-icon{
-    width: 5%;
+    width: 50px;
     float: left;
     text-align: center;
 }
@@ -214,8 +218,8 @@
     float: left;
 }
 .lodging-text>span{
-    font-size: 40px;
-    font-family: kotra-hope;
+    font-size: 30px;
+    font-family: cafe-24;
     color: #001538;
 }
   .slides1>li{
@@ -321,7 +325,7 @@
     overflow: hidden;
 }
 .travel-icon{
-    width: 15%;
+    width: 50px;
     float: left;
     text-align: center;
 }
@@ -334,8 +338,8 @@
     float: left;
 }
 .travel-text>span{
-    font-size: 40px;
-    font-family: kotra-hope;
+    font-size: 30px;
+    font-family: cafe-24;
     color: #001538;
 }
   .slides2>li{
@@ -359,7 +363,11 @@
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
   }
-  
+  .slideshow-image2{  
+    width: 380px;
+    height: 200px;
+    overflow: hidden;
+}
   
   .slides2{
     position: absolute;
@@ -429,12 +437,12 @@
     float: left;
 }
 .pakage-logo{
-    border-bottom: 1px solid #001538;
+    border-bottom: 1px solid rgb(204,204,204);
     padding: 20px 0px 0px 0px;
     overflow: hidden;
 }
 .pakage-icon{
-    width: 15%;
+    width: 50px;
     float: left;
     text-align: center;
 }
@@ -447,8 +455,8 @@
     float: left;
 }
 .pakage-text>span{
-    font-size: 40px;
-    font-family: kotra-hope;
+    font-size: 30px;
+    font-family: cafe-24;
     color: #001538;
 }
 .pakage-content{
@@ -479,7 +487,7 @@ border-radius: 5%;
 
 }
 .mung-icon{
-    width: 15%;
+    width: 50px;
     float: left;
     text-align: center;
 }
@@ -493,8 +501,8 @@ border-radius: 5%;
     float: left;
 }
 .mung-text>span{
-    font-size: 40px;
-    font-family: kotra-hope;
+    font-size: 30px;
+    font-family: cafe-24;
     color: #001538;
 }
 .mung-content{
@@ -522,7 +530,7 @@ border-radius: 5%;
     border-bottom: 1px solid #001538;
 }
 .eat-icon{
-    width: 15%;
+    width: 50px;
     float: left;
     text-align: center;
 }
@@ -536,8 +544,8 @@ border-radius: 5%;
     float: left;
 }
 .eat-text>span{
-    font-size: 40px;
-    font-family: kotra-hope;
+    font-size: 30px;
+    font-family: cafe-24;
     color: #001538;
 }
 .Slidesbackground2{

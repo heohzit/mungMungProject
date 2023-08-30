@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../css/mung_header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../js/jquery-3.6.0.js"></script>
 </head>
 <header>
@@ -17,17 +18,17 @@
                 </div>
                 <!-- 로그인 안했을시  -->
                 <div class="header_signin">
-                    <a href="/member/signup" th:if="${session.m == null}"><button type="button" name="signin" class="header_btn">회원가입</button></a>
+                    <a href="/member/signup" th:if="${session.m == null}"><span name="signin" class="material-icons" style="font-size: 50px;">person_add</span></a>
                 </div>
                 <div class="header_login">
-                    <a href="/member/login" th:if="${session.m == null}"><button type="button" name="login" class="header_btn">로그인</button></a>
+                    <a href="/member/login" th:if="${session.m == null}"><span name="login" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">login</span></a>
                 </div>
                 <!-- 로그인 시  -->
                 <div class="header_signin"> <!-- css 적용을 위해 div 클래스는 같은걸 썻어요  -->
-                    <a href="/member/logout" th:if="${session.m != null}"><button type="button" name="signin" class="header_btn">로그아웃</button></a>
+                    <a href="/member/logout" th:if="${session.m != null}"><span name="signin" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">logout</span></a>
                 </div>
                 <div class="header_login">
-                    <a href="/member/mypage" th:if="${session.m != null}"><button type="button" name="login" class="header_btn">마이페이지</button></a>
+                    <a href="/member/mypage" th:if="${session.m != null}"><span name="login" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">person_outline</span></a>
                 </div>
             </div>
         </div>
