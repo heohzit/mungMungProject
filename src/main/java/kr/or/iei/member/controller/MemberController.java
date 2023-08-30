@@ -38,12 +38,10 @@ public class MemberController {
 			session.setAttribute("m", m);
 			model.addAttribute("title", "로그인 완료");
 			model.addAttribute("msg", "로그인이 완료되었습니다.");		
-			model.addAttribute("icon", "success");
 			model.addAttribute("loc", "/");
 		}else {
 			model.addAttribute("title", "로그인 실패");
 			model.addAttribute("msg", "아이디 또는 비밀번호를 확인해주세요.");		
-			model.addAttribute("icon", "error");
 			model.addAttribute("loc", "/");
 		}
 		return "common/msg";
@@ -65,13 +63,11 @@ public class MemberController {
 		int result = memberService.insertMember(member);
 		if(result>0) {
 			model.addAttribute("title", "가입 완료");
-			model.addAttribute("msg", "회원가입이 완료되었습니다.");
-			model.addAttribute("icon", "success");
+			model.addAttribute("msg", "회원가입이 완료되었습니다.");;
 			model.addAttribute("loc", "/");
 		}else {
 			model.addAttribute("title", "가입 실패");
 			model.addAttribute("msg", "입력하신 정보를 다시 확인해주세요.");
-			model.addAttribute("icon", "error");
 			model.addAttribute("loc", "/");
 		}
 		return "common/msg";
@@ -142,13 +138,11 @@ public class MemberController {
 			m.setMemberName(member.getMemberName());
 			
 			model.addAttribute("title", "정보 수정 완료");
-			model.addAttribute("msg", "회원정보 수정 완료되었습니다.");
-			model.addAttribute("icon", "success");
+			model.addAttribute("msg", "회원정보 수정이 완료되었습니다.");
 			model.addAttribute("loc", "/member/mypage");	
 		}else {
 			model.addAttribute("title", "정보 수정 실패");
-			model.addAttribute("msg", "정보를 다시 입력해주세요.");
-			model.addAttribute("icon", "error");
+			model.addAttribute("msg", "회원정보를 다시 입력해주세요.");
 			model.addAttribute("loc", "/");
 		}
 		return "common/msg";
@@ -161,7 +155,6 @@ public class MemberController {
 		}else {
 			model.addAttribute("title", "로그아웃 실패");
 			model.addAttribute("msg", "마이페이지로 이동합니다.");
-			model.addAttribute("icon", "warning");
 			model.addAttribute("loc", "/member/mypage");	
 		}
 		 return "common/msg";
