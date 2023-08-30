@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.or.iei.EmailSender;
 import kr.or.iei.board.model.service.BoardService;
-import kr.or.iei.board.model.vo.BoardListData;
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.FavoriteListData;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
+import kr.or.iei.qna.model.vo.QnaListData;
 
 @Controller
 @RequestMapping(value="/member")
@@ -122,7 +122,10 @@ public class MemberController {
 		return "member/myBoard";
 	}
 	@GetMapping(value="/myQna")
-	public String myQna() {
+	public String myQna(int reqPage, Model model, int memberNo) {
+		QnaListData qld = memberService.myQna(reqPage, memberNo);
+		model.addAttribute("qnaList", qld.getQnaList());
+		model.addAttribute("pageNavi", qld.getPageNavi());
 		return "member/myQna";
 	}
 

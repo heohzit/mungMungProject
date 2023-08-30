@@ -12,6 +12,7 @@ import kr.or.iei.member.model.vo.FavoriteListData;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberFacilityFavorite;
 import kr.or.iei.member.model.vo.MemberListData;
+import kr.or.iei.qna.model.vo.QnaListData;
 
 @Service
 public class MemberService {
@@ -207,6 +208,56 @@ public class MemberService {
 		FavoriteListData fld = new FavoriteListData(favoriteList, pageNavi);
 		
 		return fld;
+	}
+	public QnaListData myQna(int reqPage, int memberNo) {
+		int numPerPage = 10;
+		int end = reqPage * numPerPage;
+		int start = end-numPerPage+1;
+		List qnaList = memberDao.myQna(start, end, memberNo);
+		
+		int totalCount = memberDao.selectQnaTotalNum(memberNo);
+		int totalPage = totalCount%numPerPage == 0 ? totalCount/numPerPage : totalCount/numPerPage+1;
+		
+		int pageNaviSize =5;
+		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
+		
+		String pageNavi ="<ul class='pagination'>";
+		if(pageNo !=1) {
+			pageNavi +="<li>";
+			pageNavi +="<a class='page-btn' href='/notice/list?reqPage="+(pageNo-1)+"'>";
+			pageNavi += "<span class='material-icons'>arrow_back_ios_new</span>";
+			pageNavi +="</a>";
+			pageNavi +="</li>";
+		}
+		for(int i=0;i<pageNaviSize;i++) {
+			if(pageNo == reqPage) {
+				pageNavi +="<li>";
+				pageNavi +="<a class='page-btn select-page' href='/qna/list?reqPage="+(pageNo)+"'>";
+				pageNavi += pageNo;
+				pageNavi += "</a>";
+				pageNavi += "</li>";
+			}else {
+				pageNavi +="<li>";
+				pageNavi +="<a class='page-btn' href='/qna/list?reqPage="+(pageNo)+"'>";
+				pageNavi += pageNo;
+				pageNavi += "</a>";
+				pageNavi += "</li>";
+			}
+			pageNo++;
+			if(pageNo>totalPage) {
+				break;
+			}
+		}		
+			if(pageNo <= totalPage) {
+				pageNavi +="<li>";
+				pageNavi +="<a class='page-btn' href='/qna/list?reqPage="+(pageNo)+"'>";
+				pageNavi += "<span class='material-icons'>arrow_forward_ios</span>";
+				pageNavi +="</a>";
+				pageNavi +="</li>";
+			}
+			pageNavi +="</ul>";
+			QnaListData qld = new QnaListData(qnaList, pageNavi);
+			return qld;
 	}
 
 }
