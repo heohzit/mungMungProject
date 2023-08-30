@@ -636,8 +636,7 @@ background: linear-gradient(180deg, rgba(78,146,240,0.896796218487395) 0%, rgba(
 /* 댓글 */
 .posting-comment {
   display: flex;
-  border-top: 2px solid #ccc;
-
+  border-top: 1px solid #1C2B2D;
   list-style-type: none;
 }
 .posting-comment > li {
@@ -649,7 +648,7 @@ background: linear-gradient(180deg, rgba(78,146,240,0.896796218487395) 0%, rgba(
   justify-content: center;
   align-items: center;
   min-height: 100px;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #1C2B2D;
 }
 .posting-comment.reply > li:first-child {
   width: 20%;
@@ -681,7 +680,7 @@ background: linear-gradient(180deg, rgba(78,146,240,0.896796218487395) 0%, rgba(
   padding: 0px 10px;
 }
 .posting-comment > li:last-child > .comment-info > span:not(:last-child) {
-  border-right: 2px solid #ccc;
+  border-right: 1px solid #1C2B2D;
 }
 .posting-comment > li:last-child > .comment-content {
   padding: 0px 15px;
