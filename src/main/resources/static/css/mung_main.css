@@ -134,6 +134,7 @@
 	font-size:25px;
 }
 .notice-content{
+	padding-left:10px;
 	height: 40px;
     background-color: white;
     border-radius: 5px;
