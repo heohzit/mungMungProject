@@ -173,27 +173,27 @@
                 <div class="mung-content">
                     <ul > <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
                         <li>
-                            <a href="#">
-                                <img src="img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3>멈멈미</h3>
+                            <a th:href="@{/board/view(boardNo=${boardList[0].boardNo})}">
+                                <img th:src="'/boardmain/'+${boardList[0].boardFilepath}">
+                                <h3 th:text="${boardList[0].boardTitle}"></h3>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <img src="img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3>멈멈미</h3>
+                            <a th:href="@{/board/view(boardNo=${boardList[1].boardNo})}">
+                                <img th:src="'/boardmain/'+${boardList[1].boardFilepath}"><!--시설중 숙소로 이미지 가져오기-->
+                                <h3 th:text="${boardList[1].boardTitle}"></h3>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <img src="img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3>멈멈미</h3>
+                            <a th:href="@{/board/view(boardNo=${boardList[2].boardNo})}">
+                                <img th:src="'/boardmain/'+${boardList[2].boardFilepath}"><!--시설중 숙소로 이미지 가져오기-->
+                                <h3 th:text="${boardList[2].boardTitle}"></h3>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <img src="img/main/테테스트.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3>멈멈미</h3>
+                            <a th:href="@{/board/view(boardNo=${boardList[3].boardNo})}">
+                                <img th:src="'/boardmain/'+${boardList[3].boardFilepath}"><!--시설중 숙소로 이미지 가져오기-->
+                                <h3 th:text="${boardList[3].boardTitle}"></h3>
                             </a>
                         </li>
                     </ul>  

@@ -257,5 +257,10 @@ public class BoardService {
   			return bld;
 	}
 
+	public List selectBoardList() {
+		List boardList = boardDao.selectBoardList();
+		return boardList;
+	}
+
 
 }
