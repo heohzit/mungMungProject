@@ -120,8 +120,9 @@
 }
 .notice-text>span:last-child{
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 900;
+    font-family : GangwonState;
 }
 .notice-list{
     width: 400px;
