@@ -168,10 +168,23 @@ public class BoardDao {
 		return list;
 	}
 
+
+	public List selectBoardList() {
+		String query = "select * from board order by 1 desc";
+		List list = jdbc.query(query, boardSearchRowMapper);
+		return list;
+	}
 	public List selectBoardList(int start, int end, int memberNo) {
 		String query ="select * from (select rownum as rnum , n.* from (select * from board join member on (member.member_no = board.board_writer)where member_no =? order by 1 desc) n)where rnum between ? and ?";
 		List list = jdbc.query(query, boardRowMapper, memberNo, start, end);
+
 		return list;
+	}
+
+	public int selectBoardTotalNum(int memerNo) {
+		String query = "select count(*) from board join member on (member.member_no = board.board_writer) where member_no = ?";
+		int totalCountNum = jdbc.queryForObject(query, Integer.class,memerNo);
+		return totalCountNum;
 	}
 
 	

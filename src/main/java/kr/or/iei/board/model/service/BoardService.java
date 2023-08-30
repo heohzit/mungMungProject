@@ -212,7 +212,7 @@ public class BoardService {
   		int start = end-numPerPage+1;
   		List boardList = boardDao.selectBoardList(start, end,memberNo);
   		//커뮤니티 총 게시글
-  		int totalCount = boardDao.selectBoardTotalNum();
+  		int totalCount = boardDao.selectBoardTotalNum(memberNo);
   		int totalPage = totalCount%numPerPage == 0 ? totalCount/numPerPage : totalCount/numPerPage+1;
   		
   		int pageNaviSize =5;
@@ -221,7 +221,7 @@ public class BoardService {
   		String pageNavi ="<ul class='pagination'>";
   		if(pageNo !=1) {
   			pageNavi +="<li>";
-  			pageNavi +="<a class='page-btn' href='/board/list?reqPage="+(pageNo-1)+"'>";
+  			pageNavi +="<a class='page-btn' href='/member/myBoard?memberNo="+memberNo+"&reqPage="+(pageNo-1)+"'>";
   			pageNavi +="<span class='material-icons'>arrow_back_ios_new</span>";
   			pageNavi +="</a>";
   			pageNavi +="</li>";
@@ -229,7 +229,7 @@ public class BoardService {
   		for(int i=0;i<pageNaviSize;i++) {
   			if(pageNo == reqPage) {
   				pageNavi +="<li>";
-  				pageNavi +="<a class='page-btn select-page' href='/member/myBoard?memberNo="+memberNo+"&reqPage="+(pageNo-1)+"'>";
+  				pageNavi +="<a class='page-btn select-page' href='/member/myBoard?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
   				pageNavi += pageNo;
   				pageNavi += "</a>";
   				pageNavi += "</li>";
@@ -255,6 +255,11 @@ public class BoardService {
   			pageNavi +="</ul>";
   			BoardListData bld = new BoardListData(boardList, pageNavi);
   			return bld;
+	}
+
+	public List selectBoardList() {
+		List boardList = boardDao.selectBoardList();
+		return boardList;
 	}
 
 
