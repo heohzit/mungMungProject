@@ -6,6 +6,9 @@
 </head>
 <body>
     <th:block th:include="common/mung_header"></th:block>
+		<div class="page-title">
+        	<h1>멍멍 소개</h1>
+        </div>
         <section style="width: 1200px;">
           <div class="sa sa-up">
             <div class="content-text">
@@ -22,8 +25,12 @@
         </div>
         </section>
         <section>
-            <div class="sa sa-right"><img src="../img/main/소개글 (1).png"></div>
-            <div>멍멍 탐험대가 좋은 3가지</div>
+            <div class="sa sa-right" style="position: relative;">
+	            <div class="move-text" style="position: absolute;">
+	            	<span style="color: rgb(1,78,200); font-family: strawberry; font-size: 50px">멍멍</span> 
+	            	<span style="color: rgb(1,50,131); font-family: Recipekorea;">탐험대</span>가 좋은 3가지</div>
+            	<img src="../img/main/소개글 (1).png">
+            </div>
         </section>
         <section style="width: 1200px;">
           <div class="sa sa-scaleUp">
@@ -64,6 +71,14 @@
            float: left;
            width: 50%;
            height: 100%;
+        }
+        .move-text{
+        	font-family: Recipekorea;
+        	padding-top:50px;
+        	text-align: center;
+        	font-size: 30px;
+        	font-weight: 10px;
+        	width: 100%;
         }
   
         /* Scroll Animation (sa, 스크롤 애니메이션) */
