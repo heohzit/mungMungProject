@@ -4,17 +4,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+.color{
+	background-color: rgba(255,255,255,0.5);
+}
+.swal-overlay {
+  background-color: rgba(139, 161, 187, 0.2);
+}
+</style>
 <body>
 	<script src="/js/sweetalert.min.js"></script>
 	<script th:inline="javascript">
+	//https://blog.naver.com/10hsb04/221714175649
 		const title = [[${title}]];
 		const msg = [[${msg}]];
-		const icon = [[${icon}]];
+		//const icon = [[${icon}]];
 		const loc = [[${loc}]];
 		swal({
 			title : title,
 			text : msg,
-			icon : icon
+			//icon : icon,
+			//className: "color",
 		}).then(function(){
 			location.href = loc;
 		});

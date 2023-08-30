@@ -467,10 +467,12 @@ input[name=daterange]{
 
 
 /**************헤더 영역*****************/
-
-.header-top{
-    width: 100%;
+.header-top-wrap{
     border-bottom: 1px solid lightgray;
+}
+.header-top{
+    width: 1200px;
+    margin: 0 auto;    
     text-align: center;
     overflow: hidden;
 }
@@ -509,68 +511,61 @@ float: left;
 }
 
 /****************헤더 내비 탭 영역******************/
-.navi>ul{
+.navi{
+    width: 1200px;
     margin: 0 auto;
+}
+.navi ul{
+    margin: 0;
     padding: 0;
-    width: 90%;
     overflow: hidden;
 }
-.navi>ul>li{
-    list-style: none;
-    float: left;
-    width: 342px;
+.navi ul>li{
+    list-style-type: none;
+    width: calc(100% / 5);
 }
-.navi>ul>li>a{
+.navi ul>li>a{
     display: block;
     text-align: center;
     height: 60px;
     line-height: 60px;
     text-decoration: none;
-    font-size: 19px;
-    font-family: GangwonState;
-    color: black;
+    font-size: 22px;
+    font-family: kotra-hope;
 }
-.navi>ul>li:hover{
-    background-color: rgb(1, 78, 200);
+.navi ul>li>a:hover{
+    background-color: rgb(78, 146, 240);
+    color: aliceblue;
 }
-.navi>ul>li:hover>a{
-    font-weight: 900;
-    color:aliceblue;
-    
+.navi>ul>li{
+    float: left;
 }
+
+
+
 /************헤더 서브 메뉴 탭 영역**************/
 .sub{
-    background-color: rgb(1, 78, 200);
-	z-index: 1000;
-    position: absolute;
-    list-style-type: none;
-    margin: 0 auto;
-    padding: 0;
-    width: 342px;
-    overflow: hidden;
     display: none;
-}
-.sub>li{
-    text-align: center;
-}
-.sub>li>a:hover{
-	font-size:21px;
-	background-color: rgb(78, 146, 240);
+    width: 1200px;
+    z-index: 1000;
+    position: absolute;
 }
 .sub>li>a{
     display: block;
     height: 60px;
     line-height: 60px;
     text-decoration: none;
-    color: white;
+    background-color: rgb(1, 78, 200);
+    color: aliceblue;
     font-size: 19px;
     font-family: GangwonState;
 }
-.sub-a{
-    color: aliceblue;
-}
 .sub>li>a:hover{
-    font-weight: 900;
+	background-color: rgb(78, 146, 240);
+}
+.navi>ul>li:hover>a{
+    background-color: rgb(1, 78, 200);
+    color: aliceblue;
 }
 .navi>ul>li:hover>a+.sub{
     display: block;
@@ -578,7 +573,6 @@ float: left;
 /****************************************************/
 
 .color-head{
-	height: 240px;
 	background: rgb(78,146,240);
 background: linear-gradient(180deg, rgba(78,146,240,0.896796218487395) 0%, rgba(255,255,255,1) 100%);
 }
