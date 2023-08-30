@@ -51,14 +51,15 @@
     padding: 0;
 }
 .slideshow-image{  
-    width: 1200px;
-    height: 100%;
+    width: 100%;
+
+    height:100%;
     overflow: hidden;
 }
 .mySlides {
     text-align: center;
     border-radius:3%;
-    width: 1200px;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -103,14 +104,15 @@
     overflow: hidden;
 }
 .notice{
-    width: 1200px;
+    width: 1920px;
     margin: 0 auto;
 	overflow: hidden;
+	height: 60px;
 }
 .notice-text{
-    width: 200px;
+    width: 380px;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 10px 10px;
     text-align: right;
     float: left;
 }
@@ -120,20 +122,22 @@
 }
 .notice-text>span:last-child{
     color: white;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 900;
+    font-family : GangwonState;
 }
 .notice-list{
-    width: 400px;
+    width: 650px;
     box-sizing: border-box;
-    padding: 25px 50px 20px 0px;
+    padding: 17px 50px 13px 0px;
     float: left;
 }
 #noticeListView{
 	font-size:25px;
 }
 .notice-content{
-	height: 40px;
+	padding-left:10px;
+	height: 30px;
     background-color: white;
     border-radius: 5px;
 }
@@ -142,11 +146,11 @@
     display: block;
 }
 .search{
-    width: 600px;
+    width: 800px;
     float: left;
     box-sizing: border-box;
-    padding-top: 20px;
-    padding-left:  20px;
+	padding-top: 5px;
+    padding-left:  70px;
     overflow: hidden;
 
 }
@@ -156,18 +160,19 @@
 }
 .search-icon>span{
     color: white;
-    font-size: 50px;
+    font-size: 45px;
 }
 .search-input{
     float: left;
+    padding: 10px 5px 0px 10px;
 }
 .search-select{
 	float : left;
-	padding : 0px 5px 0px 5px;
+	padding : 10px 5px 0px 5px;
 }
 .sel-search{
 	width:100px;
-	height:47px;
+
 	font-size:20px;
 	border-radius:30px;
 	text-align:center;
@@ -175,8 +180,8 @@
 	font-weight: bold;
 }
 #searchName{
-    padding: 10px;
-    height: 25px;
+    padding: 4px;
+    height: 20px;
     font-size: 20px;
     border: 2px solid rgb(78, 146, 240);
     border-radius: 5px;
@@ -187,7 +192,7 @@
 
     border: none;
     width: 90px;
-    height: 47px;
+    height: 30px;
     font-size: 20px;
     font-weight: 600;
  
@@ -204,7 +209,7 @@
 }
 /* ******************여러 페이지 미리보기 슬라이더 들어갈 영역*****/
 .lodging-logo{
-    width: 1000px;
+    width: 1200px;
     margin: 0 auto;
     padding: 20px 0px 0px 0px;
     overflow: hidden;
@@ -240,7 +245,7 @@
   
   /* 보여줄 구간의 높이와 넓이 설정 */
   #slideShow1{
-    width: 1000px;
+    width: 1200px;
     height: 400px;
     position: relative;
     margin: 0px auto;
@@ -526,7 +531,7 @@ border-radius: 5%;
 
 /*  */
 .eat{
-    padding-left: 20px;
+    padding-left: 80px;
     width: 30%;
     float: left;
 }
