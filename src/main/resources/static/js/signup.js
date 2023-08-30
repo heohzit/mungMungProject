@@ -99,11 +99,13 @@ $("#memberId").on("change",function(){
 				if (data == "0") {
 					$("#ajaxCheckId").text(" " + "사용 가능한 아이디입니다.");
 					$("#ajaxCheckId").css("color", "green");
+					$("#ajaxCheckId").css("font-size", "14px");
 					$("#memberId").css("border", "1px solid green");
 					checkArr[0] = true;
 				} else {
 					$("#ajaxCheckId").text(" " + "이미 사용 중인 아이디입니다.");
 					$("#ajaxCheckId").css("color", "red");
+					$("#ajaxCheckId").css("font-size", "14px");
 					$("#memberId").css("border", "1px solid red");
 					checkArr[0] = false;
 				}
@@ -112,6 +114,7 @@ $("#memberId").on("change",function(){
 	} else {
 		$("#ajaxCheckId").text(" " + "영문 소문자/숫자 4~12글자 이내로 입력해주세요.");
 		$("#ajaxCheckId").css("color", "red");
+		$("#ajaxCheckId").css("font-size", "14px");
 		$(this).css("border", "1px solid red");
 	}
 	//db에서 중복체크(ajax)
