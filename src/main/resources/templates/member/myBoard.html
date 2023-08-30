@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
     <link rel="stylesheet" href="../css/mypage.css">
+    <link rel="stylesheet" href="../css/noticeList.css">
 </head>
 <body>
 <th:block th:include="common/mung_header"></th:block>
@@ -18,30 +19,32 @@
                 	<a href="/member/mypage"><li>회원정보</li></a>
                     <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=1)}"><li>내가 찜한 여행지</li></a>
                     <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li>예약현황</li></a>
-                    <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo})}" class="active-tab"><li>자유게시판</li></a>
-                    <a href="/member/myQna"><li>Q&A</li></a>
+                    <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo},reqPage=1)}" class="active-tab"><li>자유게시판</li></a>
+                    <a th:href="@{/member/myQna(memberNo=${session.m.memberNo},reqPage=1)}"><li>Q&A</li></a>
            		</ul>
               <div class="content-wrap">
 			<div class="page-content-mid">
        			<div class="boardlist">
 					<ul th:each="board : ${boardList}">
 						<li class="board">
-                    			<a th:href="@{/board/view(boardNo=${board.boardNo})}">
-                       			<div class="img-box">
-                           			<img th:src="'/boardmain/'+${board.boardFilepath}" style="width: 250px; height: 250px">
-                       			</div>
-                      				 <div>
+		                     <a th:href="@{/board/view(boardNo=${board.boardNo})}">
+		                        <div class="img-box">
+		                            <img th:src="'/boardmain/'+${board.boardFilepath}" style="width: 250px; height: 250px">
+		                        </div>
+		                        <div>
 		                            <h3 th:text="${board.boardTitle}"></h3>
 		                            <span th:text="${board.memberId}"></span>
 		                            <span>|</span>
 		                            <span th:text="${board.boardWriteDate}" style="color: #aaa"></span>
-                       			</div>
-                    			</a>
-                			</li>
-						</ul>
-					</div>
+		                        </div>
+		                     </a>
+		                 </li>
+					</ul>
 				</div>
 			</div>
+		 <div class="page-content-bottom">
+            <div id="pageNavi" th:utext="${pageNavi}"></div>
+        </div>
        </div>
      </div>
     <th:block th:include="common/mung_footer"></th:block>

@@ -19,8 +19,8 @@
                     <a href="/member/mypage" class="active-tab"><li>회원정보</li></a>
                     <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=1)}"><li>내가 찜한 여행지</li></a>
                     <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li>예약현황</li></a>
-                    <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo})}"><li>자유게시판</li></a>
-                    <a href="/member/myQna"><li>Q&A</li></a>
+                    <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo},reqPage=1)}"><li>자유게시판</li></a>
+                    <a th:href="@{/member/myQna(memberNo=${session.m.memberNo},reqPage=1)}"><li>Q&A</li></a>
                 </ul>
                 <div class="content-wrap">
                     <div class="tabcontent">
