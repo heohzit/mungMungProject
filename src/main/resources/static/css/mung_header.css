@@ -521,7 +521,7 @@ float: left;
 	border-radius: 20px;
 	width: 90px;
 	display: inline-block;
-	margin:5px;
+	margin:0 5px;
 	height: 25px;
 	color: rgb(1,50,131);
 	letter-spacing: -1px;
