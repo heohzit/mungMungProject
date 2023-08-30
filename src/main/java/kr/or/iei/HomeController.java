@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import kr.or.iei.board.model.service.BoardService;
+import kr.or.iei.board.model.vo.BoardListData;
 import kr.or.iei.facility.model.service.FacilityService;
 import kr.or.iei.facility.model.vo.FacilityListData;
 import kr.or.iei.notice.model.service.NoticeService;
@@ -21,6 +23,9 @@ public class HomeController {
 	private NoticeService noticeService;
 	@Autowired
 	private FacilityService facilityService;
+	@Autowired
+	private BoardService boardService;
+	
 	@GetMapping(value="/")
 	public String main(Model model) { 
 //	공지사항 최신 가져오기
@@ -39,7 +44,9 @@ public class HomeController {
 // 식음료 가져오기 
 		List cafeList = facilityService.selectCafeList();
 		model.addAttribute("cafeList", cafeList);
-		
+// 커뮤니티 가져오기 
+		List boardList = boardService.selectBoardList();
+		model.addAttribute("boardList", boardList);
 		return "index";
 	}
 	@GetMapping(value="/ref")

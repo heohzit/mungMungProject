@@ -210,5 +210,10 @@ public class BoardService {
 		return boardList;
 	}
 
+	public List selectBoardList() {
+		List boardList = boardDao.selectBoardList();
+		return boardList;
+	}
+
 
 }

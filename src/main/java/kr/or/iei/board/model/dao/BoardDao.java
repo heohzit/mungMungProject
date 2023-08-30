@@ -168,5 +168,11 @@ public class BoardDao {
 		return list;
 	}
 
+	public List selectBoardList() {
+		String query = "select * from board order by 1 desc";
+		List list = jdbc.query(query, boardSearchRowMapper);
+		return list;
+	}
+
 	
 }
