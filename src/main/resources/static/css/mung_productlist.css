@@ -57,13 +57,13 @@
     height: 60px;
 }
 .admin_insert>a>button{
-    width: 400px;
-    height: 60px;
-    font-size: 30px;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
     font-family: ns-bold ;
     border: none;
     border-radius: 10px;
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1, 50, 131);
     color: aliceblue;
     cursor: pointer;
 

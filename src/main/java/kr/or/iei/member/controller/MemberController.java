@@ -139,11 +139,11 @@ public class MemberController {
 			m.setMemberPhone(member.getMemberPhone());
 			m.setMemberName(member.getMemberName());
 			
-			model.addAttribute("title", "정보 수정 완료");
+			model.addAttribute("title", "정보수정 완료");
 			model.addAttribute("msg", "회원정보 수정이 완료되었습니다.");
 			model.addAttribute("loc", "/member/mypage");	
 		}else {
-			model.addAttribute("title", "정보 수정 실패");
+			model.addAttribute("title", "정보수정 실패");
 			model.addAttribute("msg", "회원정보를 다시 입력해주세요.");
 			model.addAttribute("loc", "/");
 		}

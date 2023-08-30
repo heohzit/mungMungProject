@@ -36,6 +36,10 @@
     font-family: strawberry;
     src: url(../font/strawberry.ttf);
 }
+@font-face {
+    font-family: Recipekorea;
+    src: url(../font/Recipekorea.otf);
+}
 
 
 *{
@@ -111,13 +115,13 @@
     border-radius: 5px;
 }
 .bc1{
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131);
     color: #fff;
-    border: 2px solid rgb(1, 78, 200);
+    border: 2px solid rgb(1,50,131);
 }
 .bc1:hover{
-    background-color: rgb(1, 78, 200);
-    border: 2px solid rgb(1, 78, 200);
+    background-color: rgb(1,50,131);
+    border: 2px solid rgb(1,50,131);
     cursor: pointer;
 }
 
@@ -272,7 +276,7 @@ textarea.input-form {
 }
 .mid-list>a:hover{
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
-     border: 3px solid rgb(1,78,200);
+     border: 2px solid rgb(1,78,200);
     transform: translateY(-10px);
     
 }
@@ -321,7 +325,7 @@ textarea.input-form {
     line-height: 40px;
 }
 .select-page{
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131);
     color: #fff;
 }
 
@@ -487,7 +491,6 @@ input[name=daterange]{
     margin: 0 auto;    
     text-align: center;
     overflow: hidden;
-    height: 140px;
 }
 .logo{
 width: 100%;
@@ -499,33 +502,36 @@ float: left;
     text-decoration: none;
 }
 .logo>a>span{
-    color: rgb(78, 146, 240);
-    font-family: GangwonState;
-    font-size: 60px;
+    color: rgb(1,50,131);
+    font-family: Recipekorea;
+    font-size: 50px;
+    letter-spacing: -4px;
 }
 .logo>a>span>span{
-    color: rgb(128,255,0);
+    color: rgb(1, 78, 200);
     font-family: strawberry;
-    font-size: 50px;
-}
-.header_login{
-    float: right;
-    padding: 0px 10px 10px 10px;
-}
-
-.header_signin{
-    float: right;
-    padding: 0px 10px 10px 10px;
+    font-size: 65px;
+    letter-spacing: -8px;
 }
 .header_btn{
-    width: 100px;
-    font-size: 18px;
-    font-weight: 550;
-    border: none;
-    background-color: rgb(1, 78, 200);
-    color: aliceblue;
-    border-radius: 5px;
+	float: right;
     cursor: pointer;
+    border: 2px solid rgb(1,50,131);
+	border-radius: 20px;
+	width: 90px;
+	display: inline-block;
+	margin:5px;
+	height: 25px;
+	color: rgb(1,50,131);
+	letter-spacing: -1px;
+}
+.header_btn:hover{
+	color: white;
+	background-color: rgb(1,50,131);
+	/*rgb(1, 78, 200);
+	#1C2B2D*/
+	transform: scale(1.05);
+  	transition-duration: 0.3s;
 }
 
 /****************헤더 내비 탭 영역******************/
@@ -552,7 +558,7 @@ float: left;
     font-family: GangwonState;
 }
 .navi ul>li>a:hover{
-    background-color: rgb(78, 146, 240);
+    background-color: rgb(1, 78, 200); /*서브메뉴 호버 시 변경*/
     color: aliceblue;
 }
 .navi>ul>li{
@@ -573,18 +579,18 @@ float: left;
     height: 60px;
     line-height: 60px;
     text-decoration: none;
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131); /*서브메뉴 기본 색상*/
     
     color: aliceblue;
     font-size: 19px;
     font-family: GangwonState;
 }
 .sub>li>a:hover{
-	background-color: rgb(78, 146, 240);
+	background-color: rgb(1, 78, 200); /*이거 뭐지?*/
 
 }
 .navi>ul>li:hover>a{
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131); /*헤더메뉴 호버 시 변경*/
 
     color: aliceblue;
 }

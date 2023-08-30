@@ -62,7 +62,7 @@
 	margin: 0 auto;
 }
 .updatebtn{
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131);
     color: white;
     border-style: none;
     width: 100px;
@@ -73,7 +73,7 @@
 
 }
 .memberbtn{
-    background-color: rgb(78, 146, 240);
+    background-color: rgb(1, 78, 200);
     color: white;
     border-radius: 4px;
     font-size: 15px;

@@ -60,7 +60,7 @@
                             <form class="search-main">
                                 <input type="hidden" name="reqPage" value="1">
                                 <input type="text" name="searchName" id="searchName" placeholder="검색어를 입력해주세요.">
-                                <button type="submit" class="search-submit">검색하기</button>
+                                <button type="submit" class="search-submit">검색</button>
                             </form>
                         </div>
                     </div>
@@ -80,11 +80,11 @@
                     	</div>
                 	</a>
                 </div>
-                <div id="slideShow1">
+                <div id="slideShow1" class="bd-line">
                     <ul class="slides1"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
                       <li th:each=" hotelList : ${hotelList}">
                         <a th:href="@{/facility/tourDetail(facilityNo=${hotelList.facilityNo})}">
-                            <img th:src="${hotelList.facilityFilepath}" style="width: 320px; height: 320px;"><!--시설중 숙소로 이미지 가져오기-->
+                            <img th:src="${hotelList.facilityFilepath}" style="width: 320px; height: 320px;border-radius: 5%;"><!--시설중 숙소로 이미지 가져오기-->
                             <h3 th:text="${hotelList.facilityName}"></h3>
                         </a>
                     </li>
@@ -98,7 +98,7 @@
                   </div>
             </div>
             <div class="mid-content">
-                <div class="travel"><!-- 효과 넣는다면 여기? -->
+                <div class="sa sa-right"><!-- 효과 넣는다면 여기? -->
                     <div class="travel-logo">
                     <a href="/facility/tourList?reqPage=1">
                         <div class="travel-icon">
@@ -109,7 +109,7 @@
                         </div>                    
                     </a>
                     </div>
-                    <div id="slideShow2">
+                    <div id="slideShow2" class="bd-line">
                         <ul class="slides2"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
                         <li th:each=" tourList : ${tourList}">
                             <a th:href="@{/facility/tourDetail(facilityNo=${tourList.facilityNo})}">
@@ -126,16 +126,16 @@
                         </p>
                     </div>
                 </div>
-                <div class="pakage">
+                <div class="sa sa-left">
                     <div class="pakage-logo">
                         <div class="pakage-icon">
                             <span class="material-icons">map</span>
                         </div>
                         <div class="pakage-text">
-                            <span>신상 멍멍특가패키지 </span>
+                            <span>신상 멍멍특가 패키지 </span>
                         </div>
                     </div>
-                    <div class="pakage-content">
+                    <div class="pakage-content bd-line">
                         <a th:href="@{/product/view(productNo=${productList[0].productNo})}">
                             <div class="pakage-img" >
                                 <img th:src="'/productmain/'+${productList[0].productFilepath}">
@@ -147,18 +147,18 @@
         </div>
         <div class="wrap-bottom">
             <!-- 메인 페이지 bottom영역 동물병원 , 패키지 소개 및 댕댕이 자랑 슬라이드-->
-            <div class="mung"><!-- 효과 넣는다면 여기? -->
+            <div class="sa sa-down"><!-- 효과 넣는다면 여기? -->
                 <div class="mung-logo">
                     <a href="/board/list?reqPage=1">
                         <div class="mung-icon">
                             <span class="material-icons">pets</span>
                         </div>
                         <div class="mung-text">
-                            <span>우리 멍멍이 자랑  </span>
+                            <span>우리 멍멍이 자랑 </span>
                         </div>
                     </a>
                 </div>
-                <div class="mung-content">
+                <div class="mung-content bd-line">
                     <ul > <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
                         <li>
                             <a th:href="@{/board/view(boardNo=${boardList[0].boardNo})}">
@@ -178,16 +178,10 @@
                                 <h3 th:text="${boardList[2].boardTitle}"></h3>
                             </a>
                         </li>
-                        <li>
-                            <a th:href="@{/board/view(boardNo=${boardList[3].boardNo})}">
-                                <img th:src="'/boardmain/'+${boardList[3].boardFilepath}"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3 th:text="${boardList[3].boardTitle}"></h3>
-                            </a>
-                        </li>
                     </ul>  
                 </div>
             </div>
-            <div class="eat"><!-- 효과 넣는다면 여기? -->
+            <div class="sa sa-scaleUp"><!-- 효과 넣는다면 여기? -->
                 <div class="eat-logo">
                     <a href="/facility/cafeList?reqPage=1">
                         <div class="eat-icon">
@@ -198,15 +192,15 @@
                         </div>
                     </a>
                 </div>
-                <span class="slideshow-container2"><!--슬라이드 -->
-                    <div class="Slidesbackground2">
+                <div class="slideshow-container2"><!--슬라이드 -->
+                    <div class="Slidesbackground2 bd-line">
                         <div class="mySlides2 fade" th:each=" cafeList : ${cafeList}">
                             <a th:href="@{/facility/tourDetail(facilityNo=${cafeList.facilityNo})}">
                             	<img th:src="${cafeList.facilityFilepath}" class="slideshow-image2">                            
                             </a>
                         </div>
                     </div>
-                </span>
+                </div>
             </div>
         </div>
     </div>

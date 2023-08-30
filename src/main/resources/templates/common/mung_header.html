@@ -8,7 +8,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../js/jquery-3.6.0.js"></script>
 </head>
-<header>
+<body>
     <div class="header-wrap"><!--전체를 감싸는 div-->
         <!-- 로고 영역 headerTop -->
         <div class="header-top-wrap">
@@ -17,18 +17,18 @@
                     <a href="/"><span>강원도 <span>멍멍</span> 탐험대</span></a>
                 </div>
                 <!-- 로그인 안했을시  -->
-                <div class="header_signin">
-                    <a href="/member/signup" th:if="${session.m == null}"><span name="signin" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">person_add</span></a>
+                <div class="header_signin" th:if="${session.m == null}">
+                    <a href="/member/signup"><span class="header_btn">회원가입</span></a>
                 </div>
-                <div class="header_login">
-                    <a href="/member/login" th:if="${session.m == null}"><span name="login" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">login</span></a>
+                <div class="header_login" th:if="${session.m == null}">
+                    <a href="/member/login"><span class="header_btn">로그인</span></a>
                 </div>
                 <!-- 로그인 시  -->
-                <div class="header_signin"> <!-- css 적용을 위해 div 클래스는 같은걸 썻어요  -->
-                    <a href="/member/logout" th:if="${session.m != null}"><span name="signin" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">logout</span></a>
+                <div class="header_signin" th:if="${session.m != null}">
+                    <a href="/member/logout"><span class="header_btn">로그아웃</span></a>
                 </div>
-                <div class="header_login">
-                    <a href="/member/mypage" th:if="${session.m != null}"><span name="login" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">person_outline</span></a>
+                <div class="header_login" th:if="${session.m != null}">
+                    <a href="/member/mypage"><span class="header_btn">마이페이지</span></a>
                 </div>
             </div>
         </div>
@@ -47,12 +47,16 @@
                     </li>
                     <li><a href="/product/list">멍멍 패키지</a></li>
                     <li><a href="/board/list?reqPage=1">멍멍 커뮤니티</a></li>
-                    <li><a href="/notice/list?reqPage=1">멍멍 공지사항</a></li>
-                    <li><a href="/qna/list?reqPage=1">멍멍 Q&A</a></li>
+                    <li><a href="/notice/list?reqPage=1">멍멍 공지사항</a>
+                    	<ul class="sub">
+		                    <li><a href="/qna/list?reqPage=1">멍멍 Q&A</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/mung_info">멍멍 소개</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <script src="../js/mung_header.js"></script>
-</header>
+</body>
 </html>

@@ -100,8 +100,15 @@
 .top-mid{
     width: 100%;
     height: 100%;
-    background-color:rgb(1, 78, 200);
+    background-color:rgb(1,50,131);
     overflow: hidden;
+    background: #373B44;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, rgb(1, 47, 121), rgb(1,50,131), rgb(1, 47, 121));  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, rgb(1, 47, 121), rgb(1,50,131), rgb(1, 47, 121)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#noticeListView{
+	font-size: 16px;
+	overflow: hidden;
 }
 .notice{
     width: 1920px;
@@ -122,7 +129,7 @@
 }
 .notice-text>span:last-child{
     color: white;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 900;
     font-family : GangwonState;
 }
@@ -149,9 +156,8 @@
     float: left;
     box-sizing: border-box;
 	padding-top: 5px;
-    padding-left:  70px;
+    padding-left: 40px;
     overflow: hidden;
-
 }
 .search-icon{
     width: 50px;
@@ -167,37 +173,35 @@
 }
 .search-select{
 	float : left;
-	padding : 10px 5px 0px 5px;
+	padding : 11px 5px 0px 5px;
 }
 .sel-search{
-	width:100px;
-
-	font-size:20px;
+	width:80px;
+	font-size:18px;
 	border-radius:30px;
 	text-align:center;
-	color:rgb(1, 78, 200);
+	color:rgb(1,50,131);
 	font-weight: bold;
+	outline: none;
 }
 #searchName{
-    padding: 4px;
-    height: 20px;
+    padding: 2px;
+    height: 24px;
     font-size: 20px;
-    border: 2px solid rgb(78, 146, 240);
+    border: 1px solid rgb(1,50,131);
     border-radius: 5px;
     outline: none;
-    
+    font-size: 16px;
+    margin-right: 5px;
 }
 .search-submit{
-
-    border: none;
-    width: 90px;
+    width: 70px;
     height: 30px;
-    font-size: 20px;
-    font-weight: 600;
- 
-    background-color: rgb(78, 146, 240);
-    color: aliceblue;
-    border-radius: 5px;
+    font-size: 18px;
+    background-color: rgb(1,50,131);
+    color: white;
+    border: 2.5px solid white;
+    border-radius: 18px;
 	cursor:pointer;
 }
 /************************이미지 위 소개글 **********************/
@@ -209,7 +213,7 @@
 /* ******************여러 페이지 미리보기 슬라이더 들어갈 영역*****/
 .sa {
         opacity: 0;
-        transition: all .5s ease;
+        transition: all 2s ease;
       }
 .sa-up{
 	transform: translate(0, 100px);
@@ -229,18 +233,27 @@
     float: left;
     text-align: center;
 }
-.lodging-icon>span{
-    font-size: 40px;
-    color: #001538;
-}
 .lodging-text{
     width: 95%;
     float: left;
 }
-.lodging-text>span{
-    font-size: 30px;
-    font-family: cafe-24;
+.lodging-icon>span,
+.travel-icon>span,
+.pakage-icon>span,
+.mung-icon>span,
+.eat-icon>span{
+    font-size: 35px;
     color: #001538;
+}
+.lodging-text>span,
+.travel-text>span,
+.pakage-text>span,
+.mung-text>span,
+.eat-text>span{
+    font-size: 25px;
+    font-family: cafe-24;
+    color: #001231;
+    letter-spacing: -2px;
 }
   .slides1>li{
     list-style-type: none;
@@ -260,7 +273,6 @@
     position: relative;
     margin: 0px auto;
     overflow: hidden;
-    border-top:  1px solid #001538;
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
@@ -299,7 +311,7 @@
     text-align: center;
     border-radius: 50%;
     padding: 10px 20px;
-    top: 50%;
+    top: 40%;
     font-size: 1.3em;
     cursor: pointer;
   }
@@ -310,23 +322,23 @@
   }
   
   .prev1{
-    left: 10px;
+    left: 1px;
   }
   
   /* 이전 화살표에 마우스 커서가 올라가 있을때 
   이전 화살표가 살짝 왼쪽으로 이동하는 효과*/
   .prev1:hover{
-    transform: translateX(-10px);
+    transform: translateX(-2px);
   }
   
   .next1{
-    right: 10px;
+    right: 1px;
   }
   
   /* 다음 화살표에 마우스 커서가 올라가 있을때 
   이전 화살표가 살짝 오른쪽으로 이동하는 효과*/
   .next1:hover{
-    transform: translateX(10px);
+    transform: translateX(2px);
   }
   /************8*** 관광지와 식음료 감싸는 **************************/
 .mid-content{
@@ -336,9 +348,10 @@
 }
 
   /********************** 관광지 영역********************************/
-.travel{
+.sa-right{
     width: 50%;
     float: left;
+    transform: translate(-100px, 0);
 }
 .travel-logo{
     padding: 20px 0px 0px 0px;
@@ -349,18 +362,10 @@
     float: left;
     text-align: center;
 }
-.travel-icon>span{
-    font-size: 40px;
-    color: #001538;
-}
+
 .travel-text{
     width: 85%;
     float: left;
-}
-.travel-text>span{
-    font-size: 30px;
-    font-family: cafe-24;
-    color: #001538;
 }
   .slides2>li{
     list-style-type: none;
@@ -378,14 +383,13 @@
     height: 400px;
     position: relative;
     overflow: hidden;
-    border-top:  1px solid #001538;
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
   }
   .slideshow-image2{  
-    width: 380px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
   
@@ -421,7 +425,7 @@
     text-align: center;
     border-radius: 50%;
     padding: 10px 20px;
-    top: 50%;
+    top: 40%;
     font-size: 1.3em;
     cursor: pointer;
   }
@@ -452,12 +456,12 @@
   }
   
   /* ++++++++++++++++++++++++++++패키지 영역++++++++++++++++++++++++++++++ */
-.pakage{
+.sa-left{
+	transform: translate(100px, 0);
     width: 50%;
     float: left;
 }
 .pakage-logo{
-    border-bottom: 1px solid rgb(204,204,204);
     padding: 20px 0px 0px 0px;
     overflow: hidden;
 }
@@ -466,21 +470,14 @@
     float: left;
     text-align: center;
 }
-.pakage-icon>span{
-    font-size: 40px;
-    color: #001538;
-}
+
 .pakage-text{
     width: 85%;
     float: left;
 }
-.pakage-text>span{
-    font-size: 30px;
-    font-family: cafe-24;
-    color: #001538;
-}
+
 .pakage-content{
-    padding: 10px;
+    padding: 10px 0px;
     margin: 0 auto;
 }
 .pakage-img>img{
@@ -494,16 +491,17 @@ border-radius: 5%;
 .wrap-bottom{
     width: 1200px;
     margin: 0 auto;
+    height: 400px;
     overflow: hidden;
     background-color: white;
 }
-.mung{
-    width: 61%;
+.sa-down{
+	transform: translate(0, -100px);
+    width: 50%;
     float: left;
 }
 .mung-logo{
     overflow: hidden;
-    border-bottom: 1px solid #001538;
 
 }
 .mung-icon{
@@ -511,22 +509,16 @@ border-radius: 5%;
     float: left;
     text-align: center;
 }
-.mung-icon>span{
-    font-size: 40px;
-    color: #001538;
-
-}
 .mung-text{
     width: 85%;
     float: left;
 }
-.mung-text>span{
-    font-size: 30px;
-    font-family: cafe-24;
-    color: #001538;
-}
 .mung-content{
     overflow: hidden;
+    padding-left: 25px;
+}
+.mung-content>*{
+	
 }
 .mung-content>ul>li{
     float: left;
@@ -540,35 +532,29 @@ border-radius: 5%;
 }
 
 /*  */
-.eat{
-    padding-left: 80px;
-    width: 30%;
-    float: left;
+.sa-scaleUp{
+	transform: scale(.5);
+	float: right;
+    width: 40%;
 }
 .eat-logo{
     overflow: hidden;
-    border-bottom: 1px solid #001538;
 }
 .eat-icon{
     width: 50px;
     float: left;
     text-align: center;
 }
-.eat-icon>span{
-    font-size: 40px;
-    color: #001538;
 
-}
 .eat-text{
     width: 85%;
     float: left;
 }
-.eat-text>span{
-    font-size: 30px;
-    font-family: cafe-24;
-    color: #001538;
-}
 .Slidesbackground2{
     padding-top: 10px;
+    width: 100%;
+}
+.bd-line{
+	border-top: 2px solid rgb(1,50,131);
 }
 
