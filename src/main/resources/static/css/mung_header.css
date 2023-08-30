@@ -521,7 +521,7 @@ float: left;
 	border-radius: 20px;
 	width: 90px;
 	display: inline-block;
-	margin:0 5px;
+	margin:5px;
 	height: 25px;
 	color: rgb(1,50,131);
 	letter-spacing: -1px;
@@ -559,7 +559,7 @@ float: left;
     font-family: GangwonState;
 }
 .navi ul>li>a:hover{
-    background-color: rgb(78, 146, 240);
+    background-color: rgb(1, 78, 200); /*서브메뉴 호버 시 변경*/
     color: aliceblue;
 }
 .navi>ul>li{
@@ -580,18 +580,18 @@ float: left;
     height: 60px;
     line-height: 60px;
     text-decoration: none;
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131); /*서브메뉴 기본 색상*/
     
     color: aliceblue;
     font-size: 19px;
     font-family: GangwonState;
 }
 .sub>li>a:hover{
-	background-color: rgb(78, 146, 240);
+	background-color: rgb(1, 78, 200); /*이거 뭐지?*/
 
 }
 .navi>ul>li:hover>a{
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131); /*헤더메뉴 호버 시 변경*/
 
     color: aliceblue;
 }
