@@ -208,6 +208,17 @@
 
 }
 /* ******************여러 페이지 미리보기 슬라이더 들어갈 영역*****/
+.sa {
+        opacity: 0;
+        transition: all .5s ease;
+      }
+.sa-up{
+	transform: translate(0, 100px);
+}
+ .sa.show {
+        opacity: 1;
+        transform: none;
+      }
 .lodging-logo{
     width: 1200px;
     margin: 0 auto;
