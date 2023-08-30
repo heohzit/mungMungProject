@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.or.iei.EmailSender;
 import kr.or.iei.board.model.service.BoardService;
+import kr.or.iei.board.model.vo.BoardListData;
 import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.FavoriteListData;
 import kr.or.iei.member.model.vo.Member;
