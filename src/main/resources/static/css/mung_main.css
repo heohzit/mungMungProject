@@ -100,8 +100,15 @@
 .top-mid{
     width: 100%;
     height: 100%;
-    background-color:rgb(1, 78, 200);
+    background-color:rgb(1,50,131);
     overflow: hidden;
+    background: #373B44;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, rgb(1, 47, 121), rgb(1,50,131), rgb(1, 47, 121));  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, rgb(1, 47, 121), rgb(1,50,131), rgb(1, 47, 121)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#noticeListView{
+	font-size: 16px;
+	overflow: hidden;
 }
 .notice{
     width: 1920px;
@@ -122,7 +129,7 @@
 }
 .notice-text>span:last-child{
     color: white;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 900;
     font-family : GangwonState;
 }
@@ -149,9 +156,8 @@
     float: left;
     box-sizing: border-box;
 	padding-top: 5px;
-    padding-left:  70px;
+    padding-left: 40px;
     overflow: hidden;
-
 }
 .search-icon{
     width: 50px;
@@ -167,37 +173,35 @@
 }
 .search-select{
 	float : left;
-	padding : 10px 5px 0px 5px;
+	padding : 11px 5px 0px 5px;
 }
 .sel-search{
-	width:100px;
-
-	font-size:20px;
+	width:80px;
+	font-size:18px;
 	border-radius:30px;
 	text-align:center;
-	color:rgb(1, 78, 200);
+	color:rgb(1,50,131);
 	font-weight: bold;
+	outline: none;
 }
 #searchName{
-    padding: 4px;
-    height: 20px;
+    padding: 2px;
+    height: 24px;
     font-size: 20px;
-    border: 2px solid rgb(78, 146, 240);
+    border: 1px solid rgb(1,50,131);
     border-radius: 5px;
     outline: none;
-    
+    font-size: 16px;
+    margin-right: 5px;
 }
 .search-submit{
-
-    border: none;
-    width: 90px;
+    width: 70px;
     height: 30px;
-    font-size: 20px;
-    font-weight: 600;
- 
-    background-color: rgb(78, 146, 240);
-    color: aliceblue;
-    border-radius: 5px;
+    font-size: 18px;
+    background-color: rgb(1,50,131);
+    color: white;
+    border: 2.5px solid white;
+    border-radius: 18px;
 	cursor:pointer;
 }
 /************************이미지 위 소개글 **********************/
