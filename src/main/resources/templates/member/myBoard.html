@@ -16,14 +16,17 @@
         </div>
     	<div class="tab-wrap">
                 <ul class="tabs">
-                	<a href="/member/mypage"><li>회원정보</li></a>
-                    <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=1)}"><li>내가 찜한 여행지</li></a>
-                    <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li>예약현황</li></a>
-                    <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo},reqPage=1)}" class="active-tab"><li>자유게시판</li></a>
-                    <a th:href="@{/member/myQna(memberNo=${session.m.memberNo},reqPage=1)}"><li>Q&A</li></a>
+                	<a href="/member/mypage"><li class="tabs-title">회원정보</li></a>
+                    <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=1)}"><li class="tabs-title">내가 찜한 여행지</li></a>
+                    <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li class="tabs-title">예약현황</li></a>
+                    <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo},reqPage=1)}" class="active-tab"><li class="tabs-title">자유게시판</li></a>
+                    <a th:href="@{/member/myQna(memberNo=${session.m.memberNo},reqPage=1)}"><li class="tabs-title">Q&A</li></a>
            		</ul>
               <div class="content-wrap">
 			<div class="page-content-mid">
+				<h4 style="padding-left: 30px;">자유게시판</h4>
+                <br>
+                <hr><br>
        			<div class="boardlist">
 					<ul class="mid-list-wrap">
 						<li class="mid-list" th:each="board : ${boardList}" style="height: 380px">

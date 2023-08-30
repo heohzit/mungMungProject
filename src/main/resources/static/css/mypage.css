@@ -17,17 +17,24 @@
     height: 45px;
     line-height: 45px;
     text-align: center;
-    background-color: rgb(78, 146, 240);
+    background-color: #fff;
     cursor: pointer;
     font-size: 16px;
+    border: 2px solid rgb(1,50,131);
+    box-sizing: border-box;
+    border-radius: 20px;
 }
-.tabs li {
-    color: #fff;
+.tabs-title{
     display: inline-block;
+    color: rgb(1,50,131);
 }
-.tabs .active-tab{
-    background-color: rgb(1, 78, 200);
+.tabs>a.active-tab{
+    background-color: rgb(1,50,131);
 }
+.tabs>a.active-tab>li{
+    color: #fff;
+}
+
 
 
 .content-wrap {
