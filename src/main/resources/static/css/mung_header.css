@@ -419,6 +419,8 @@ textarea.input-form {
     width: 90%;
     margin: 0 auto;
     border: 1px solid #ddd;
+    box-shadow: 3px 3px 3px #ccc;
+    border-radius: 10px;
 }
 .product-box{
     width: 50%;
@@ -453,7 +455,7 @@ textarea.input-form {
 }
 .pay-box-tbl-td{
     width: 90%;
-    height: 200px;
+    height: 100px;
     padding: 1rem 0.5rem;
     text-align: center;
 }
@@ -463,9 +465,8 @@ textarea.input-form {
 	margin: 0 auto;
 }
 .pay-pointer{
+	padding: 0.5rem;
 	font-size: 30px;
-	line-height: 40px;
-    height: 40px;
     float: left;
 }
 input[name=daterange]{
