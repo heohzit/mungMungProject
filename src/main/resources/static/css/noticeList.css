@@ -35,14 +35,13 @@ table td {
     text-decoration: none;
     
 }
+
 .img-box>img{
     border: 1px solid lightgray;
     border-radius: 10px;
 }
 
-.img-box>img:hover {
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5);
-}
+
 
 .notice-table{
 	width: 100%;
