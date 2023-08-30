@@ -49,6 +49,11 @@ public class HomeController {
 		model.addAttribute("boardList", boardList);
 		return "index";
 	}
+	
+	@GetMapping(value="/mung_info")
+	public String mungInfo() {
+		return "common/mung_info";
+	}
 	@GetMapping(value="/ref")
 	public String ref() {
 		return "ref";
