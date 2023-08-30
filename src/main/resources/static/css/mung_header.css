@@ -263,6 +263,7 @@ textarea.input-form {
     margin: 10px;
     box-sizing: border-box;
     float: left;
+    height: 300px;
 }
 .mid-list>a{
     display: block;
@@ -485,7 +486,7 @@ input[name=daterange]{
     margin: 0 auto;    
     text-align: center;
     overflow: hidden;
-    height: 135px;
+    height: 140px;
 }
 .logo{
 width: 100%;

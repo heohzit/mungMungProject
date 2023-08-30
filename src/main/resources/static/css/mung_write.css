@@ -61,11 +61,11 @@
 .pcw{
     width: 400px;
     height: 60px;
-    background-color: rgb(1, 78, 200);
+    background-color: aliceblue;
 }
 .pcw>label{
     font-size: 30px;
-    color: aliceblue;
+    color: black;
 }
 .pci{
     width: 800px;
@@ -79,10 +79,10 @@
 .pcw-0{
     width: 400px;
     height: 600px;
-    background-color: rgb(1, 78, 200);
+    background-color: aliceblue;
 }
 .pcw-0>label{
-    font-size: 30px;
-    color: aliceblue;
+    font-size: 20px;
+    color: black;
     
 }
