@@ -263,6 +263,7 @@ textarea.input-form {
     margin: 10px;
     box-sizing: border-box;
     float: left;
+    height: 300px;
 }
 .mid-list>a{
     display: block;
