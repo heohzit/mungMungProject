@@ -18,7 +18,7 @@
                 </div>
                 <!-- 로그인 안했을시  -->
                 <div class="header_signin">
-                    <a href="/member/signup" th:if="${session.m == null}"><span name="signin" class="material-icons" style="font-size: 50px;">person_add</span></a>
+                    <a href="/member/signup" th:if="${session.m == null}"><span name="signin" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">person_add</span></a>
                 </div>
                 <div class="header_login">
                     <a href="/member/login" th:if="${session.m == null}"><span name="login" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">login</span></a>
