@@ -33,7 +33,7 @@
     border-radius: 5px;
 }
 #authBtn{
-	background-color: rgb(1, 78, 200);
+	background-color: rgb(1,50,131);
     color: white;
     border-style: none;
     width: 60px;
@@ -52,7 +52,7 @@
     margin-top: 10px;
 }
 .memberbtn{
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131);
     color:white;
     border-style: none;
     width: 100px;
@@ -87,7 +87,7 @@
     font-size: 12px;
 }
 .signbtn{
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131);
     color: white;
     border-style: none;
     width: 100px;
