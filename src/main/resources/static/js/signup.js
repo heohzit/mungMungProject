@@ -64,23 +64,6 @@ function authTime() {
 	}, 1000);
 }
 
-//이메일 인증 확인
-$("#authBtn").on("click", function(){
-	if(authCode != null){
-		const inputCode = $("#authCode").val();
-		if(authCode == inputCode){
-			$("#authMsg").text("인증 완료되었습니다.");
-			$("#authMsg").css("color","blue");
-			window.clearInterval(intervalId);
-			$("#timeZone").empty();
-			$("#memberEmail").val(email);
-			console.log($("#memberEmail").val());
-		}else{
-			$("#authMsg").text("인증번호를 다시 확인해주세요.");
-			$("#authMsg").css("color","red");
-		}
-	}
-});
 
 //유효성검사 아이디
 const checkArr =[false,false,false,false,false,false,false];
