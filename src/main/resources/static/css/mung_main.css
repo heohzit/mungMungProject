@@ -310,23 +310,23 @@
   }
   
   .prev1{
-    left: 10px;
+    left: 1px;
   }
   
   /* 이전 화살표에 마우스 커서가 올라가 있을때 
   이전 화살표가 살짝 왼쪽으로 이동하는 효과*/
   .prev1:hover{
-    transform: translateX(-10px);
+    transform: translateX(-2px);
   }
   
   .next1{
-    right: 10px;
+    right: 1px;
   }
   
   /* 다음 화살표에 마우스 커서가 올라가 있을때 
   이전 화살표가 살짝 오른쪽으로 이동하는 효과*/
   .next1:hover{
-    transform: translateX(10px);
+    transform: translateX(2px);
   }
   /************8*** 관광지와 식음료 감싸는 **************************/
 .mid-content{
