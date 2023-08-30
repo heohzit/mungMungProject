@@ -4,10 +4,13 @@
 <meta charset="UTF-8">
 <title>Q&A 상세보기</title>
 <link rel="stylesheet" href="../css/qnaList.css">
-
+<script src="/js/jquery-3.6.0.js"></script>
 </head>
 <body>
 <th:block th:include="common/mung_header"></th:block>
+<link rel="stylesheet" href="/summernote/summernote-lite.css">
+<script src="/summernote/summernote-lite.js"></script>
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
     <div class="page-content">
         <div class="page-title">
         	<h1>Q&A</h1>
@@ -48,7 +51,7 @@
 		<!-- 답변양식 -->
 		<div class="inputCommentBox" th:if="${session.m != null && session.m.memberLevel == 1 && q.qnaAnswerCase==1}" style="width: 100%; margin: 0">
 		<div style="border-bottom: 5px solid #ccc;">
-			<h3><img src="../img/board/icon-dog.png" style="width: 50px;">답변을 작성해 주세요.</h3>
+			<h3><img src="../img/board/icon-dog.png" style="width: 50px;"> 답변을 작성해 주세요.</h3>
 		</div>
 			<form action="/qna/answer" method="post">
 				<ul style="margin-top: 50px;">
@@ -57,7 +60,7 @@
 					</li>
 					<li style="width: 100%">
 						<input type="hidden" name="qnaNo" th:value="${q.qnaNo}">
-						<textarea name="qnaAnswer"  class="input-form" style="height: 200px;"></textarea>
+						<textarea name="qnaAnswer" id="qnaAnswer" class="input-form"></textarea>
 					</li>
 				</ul>					
 						<button type="submit" class="btn bc1" id="commentBtn" style="margin-top: 50px;">답변 등록</button>
@@ -70,6 +73,9 @@
 			<h3><img src="../img/board/icon-dog.png" style="width: 50px;"> 답변</h3>
 			</div>
 			<ul style="margin-top: 50px;">
+				<li>
+					<img alt="" src="../img/answer.png" style="width: 50%; padding-bottom: 50px; ">
+				</li>
 				<li style="width: 100%">
 					<input type="hidden" name="qnaNo" th:value="${q.qnaNo}">
 					<div th:utext="${q.qnaAnswer}" class="input-form" style="min-height: 150px; background-color: white;"></div>
@@ -78,5 +84,25 @@
 		</div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
+    <script>
+	    $("#qnaAnswer").summernote({
+			height : 200,
+			maxHeight: 200,
+			minHeight: 200,
+			lang :"ko-KR",
+			disableResize: true,            // Does not work
+		    disableResizeEditor: true,      // Does not work either
+		    resize: false,         
+			toolbar: false,
+			callbacks :{
+				onImageUpload : function(files){
+					uploadImage(files[0],this);
+				}
+			}
+		});
+	    $('.note-resizebar').hide();
+	    $('.note-statusbar').hide();
+	    
+    </script>
 </body>
 </html>

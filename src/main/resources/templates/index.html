@@ -83,7 +83,7 @@
                     <ul class="slides1"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
                       <li th:each=" hotelList : ${hotelList}">
                         <a th:href="@{/facility/tourDetail(facilityNo=${hotelList.facilityNo})}">
-                            <img th:src="${hotelList.facilityFilepath}" style="width: 252px; height: 252px;"><!--시설중 숙소로 이미지 가져오기-->
+                            <img th:src="${hotelList.facilityFilepath}" style="width: 320px; height: 320px;"><!--시설중 숙소로 이미지 가져오기-->
                             <h3 th:text="${hotelList.facilityName}"></h3>
                         </a>
                     </li>

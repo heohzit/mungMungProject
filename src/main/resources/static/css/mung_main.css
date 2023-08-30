@@ -120,8 +120,9 @@
 }
 .notice-text>span:last-child{
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 900;
+    font-family : GangwonState;
 }
 .notice-list{
     width: 400px;
@@ -133,6 +134,7 @@
 	font-size:25px;
 }
 .notice-content{
+	padding-left:10px;
 	height: 40px;
     background-color: white;
     border-radius: 5px;
@@ -204,7 +206,7 @@
 }
 /* ******************여러 페이지 미리보기 슬라이더 들어갈 영역*****/
 .lodging-logo{
-    width: 1000px;
+    width: 1200px;
     margin: 0 auto;
     padding: 20px 0px 0px 0px;
     overflow: hidden;
@@ -240,7 +242,7 @@
   
   /* 보여줄 구간의 높이와 넓이 설정 */
   #slideShow1{
-    width: 1000px;
+    width: 1200px;
     height: 400px;
     position: relative;
     margin: 0px auto;
