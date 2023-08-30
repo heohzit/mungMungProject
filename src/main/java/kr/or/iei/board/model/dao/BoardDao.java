@@ -174,5 +174,11 @@ public class BoardDao {
 		return list;
 	}
 
+	public int selectBoardTotalNum(int memerNo) {
+		String query = "select count(*) from board join member on (member.member_no = board.board_writer) where member_no = ?";
+		int totalCountNum = jdbc.queryForObject(query, Integer.class,memerNo);
+		return totalCountNum;
+	}
+
 	
 }
