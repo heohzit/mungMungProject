@@ -204,9 +204,61 @@ public class BoardService {
 		int result = boardDao.deleteComment(boardCommentNo);
 		return result;
 	}
+	
+	//마이페이지 커뮤니티
+	public BoardListData selectMyBoard(int memberNo, int reqPage) {
+		int numPerPage = 8;
+  		int end = reqPage * numPerPage;
+  		int start = end-numPerPage+1;
+  		List boardList = boardDao.selectBoardList(start, end,memberNo);
+  		//커뮤니티 총 게시글
+  		int totalCount = boardDao.selectBoardTotalNum(memberNo);
+  		int totalPage = totalCount%numPerPage == 0 ? totalCount/numPerPage : totalCount/numPerPage+1;
+  		
+  		int pageNaviSize =5;
+  		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
+  		
+  		String pageNavi ="<ul class='pagination'>";
+  		if(pageNo !=1) {
+  			pageNavi +="<li>";
+  			pageNavi +="<a class='page-btn' href='/member/myBoard?memberNo="+memberNo+"&reqPage="+(pageNo-1)+"'>";
+  			pageNavi +="<span class='material-icons'>arrow_back_ios_new</span>";
+  			pageNavi +="</a>";
+  			pageNavi +="</li>";
+  		}
+  		for(int i=0;i<pageNaviSize;i++) {
+  			if(pageNo == reqPage) {
+  				pageNavi +="<li>";
+  				pageNavi +="<a class='page-btn select-page' href='/member/myBoard?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
+  				pageNavi += pageNo;
+  				pageNavi += "</a>";
+  				pageNavi += "</li>";
+  			}else {
+  				pageNavi +="<li>";
+  				pageNavi +="<a class='page-btn' href='/member/myBoard?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
+  				pageNavi += pageNo;
+  				pageNavi += "</a>";
+  				pageNavi += "</li>";
+  			}
+  			pageNo++;
+  			if(pageNo>totalPage) {
+  				break;
+  			}
+  		}		
+  			if(pageNo <= totalPage) {
+  				pageNavi +="<li>";
+  				pageNavi +="<a class='page-btn' href='/member/myBoard?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
+  				pageNavi += "<span class='material-icons'>arrow_forward_ios</span>";
+  				pageNavi +="</a>";
+  				pageNavi +="</li>";
+  			}
+  			pageNavi +="</ul>";
+  			BoardListData bld = new BoardListData(boardList, pageNavi);
+  			return bld;
+	}
 
-	public List selectMyBoard(int memberNo) {
-		List boardList = boardDao.selectMyBoard(memberNo);
+	public List selectBoardList() {
+		List boardList = boardDao.selectBoardList();
 		return boardList;
 	}
 

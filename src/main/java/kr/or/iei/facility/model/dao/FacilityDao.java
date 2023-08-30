@@ -26,7 +26,7 @@ public class FacilityDao {
 	private FacilityFavoriteRowMapper facilityFavoriteRowMapper;
 
 	public List selectTourList(int startNum, int endNum) {
-		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 3) n) where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 3 order by facility_no) n) where rnum between ? and ?";
 		List list = jdbc.query(query, facilityRowMapper, startNum, endNum);
 		return list;
 	}
@@ -55,7 +55,7 @@ public class FacilityDao {
 	}
 
 	public List selectSearchTourList(int startNum, int endNum, String searchName) {
-		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 3 and facility_name like '%'||?||'%') n) where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 3 and facility_name like '%'||?||'%' order by facility_no) n) where rnum between ? and ?";
 		List list = jdbc.query(query, facilityRowMapper, searchName, startNum, endNum);
 		return list;
 	}
@@ -67,7 +67,7 @@ public class FacilityDao {
 	}
 
 	public List selectHotelList(int startNum, int endNum) {
-		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 2) n) where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 2 order by facility_no) n) where rnum between ? and ?";
 		List list = jdbc.query(query, facilityRowMapper, startNum, endNum);
 		return list;
 	}
@@ -79,7 +79,7 @@ public class FacilityDao {
 	}
 
 	public List selectSearchHotelList(int startNum, int endNum, String searchName) {
-		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 2 and facility_name like '%'||?||'%') n) where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 2 and facility_name like '%'||?||'%' order by facility_no) n) where rnum between ? and ?";
 		List list = jdbc.query(query, facilityRowMapper, searchName, startNum, endNum);
 		return list;
 	}
@@ -91,7 +91,7 @@ public class FacilityDao {
 	}
 
 	public List selectCafeList(int startNum, int endNum) {
-		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 1) n) where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 1 order by facility_no) n) where rnum between ? and ?";
 		List list = jdbc.query(query, facilityRowMapper, startNum, endNum);
 		return list;
 	}
@@ -103,7 +103,7 @@ public class FacilityDao {
 	}
 
 	public List selectSearchCafeList(int startNum, int endNum, String searchName) {
-		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 1 and facility_name like '%'||?||'%') n) where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 1 and facility_name like '%'||?||'%' order by facility_no) n) where rnum between ? and ?";
 		List list = jdbc.query(query, facilityRowMapper, searchName, startNum, endNum);
 		return list;
 	}
@@ -115,7 +115,7 @@ public class FacilityDao {
 	}
 
 	public List selectActivityList(int startNum, int endNum) {
-		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 4) n) where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum, n.* from (select * from facility where facility_case = 4 order by facility_no) n) where rnum between ? and ?";
 		List list = jdbc.query(query, facilityRowMapper, startNum, endNum);
 		return list;
 	}
@@ -127,7 +127,7 @@ public class FacilityDao {
 	}
 
 	public List selectSearchActivityList(int startNum, int endNum, String searchName) {
-		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 4 and facility_name like '%'||?||'%') n) where rnum between ? and ?";
+		String query = "select * from (select rownum as rnum , n.* from (select * from facility where facility_case = 4 and facility_name like '%'||?||'%' order by facility_no) n) where rnum between ? and ?";
 		List list = jdbc.query(query, facilityRowMapper, searchName, startNum, endNum);
 		return list;
 	}
