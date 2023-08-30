@@ -95,32 +95,28 @@ td {
 .booking-list>table {
     margin: 0 auto;
     width: 100%;
-    border: 2px solid #cbcbcb;
     font-family: ns-m;
     border-collapse: collapse;
-
+    box-shadow: 3px 3px 3px #ccc;
 }
 
 .booking-list>table th {
-    border: 1px solid #cbcbcb;
-    background-color: lightgray;
-
+    background-color: rgb(243,244,248);
+    padding: 1rem 0.5rem;
 }
 
 .booking-list>table td {
-    border: 1px solid #cbcbcb;
     padding: 0.5rem;
     border-collapse: collapse;
 }
 
 .booking-list>table:first-child>tr {
     text-align: center;
-
 }
 
 .booking-list>table tr {
     text-align: center;
-
+    border-bottom: 1px solid #ccc;
 }
 
 .booking-list img {
