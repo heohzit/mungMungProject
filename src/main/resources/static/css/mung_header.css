@@ -471,7 +471,7 @@ input[name=daterange]{
 }
 
 
-/**************헤더 영역*****************/
+/**********************************헤더 영역*******************************************/
 .header-top-wrap{
     border-bottom: 1px solid lightgray;
 }
@@ -480,10 +480,11 @@ input[name=daterange]{
     margin: 0 auto;    
     text-align: center;
     overflow: hidden;
+    height: 135px;
 }
 .logo{
 width: 100%;
-padding: 30px 0px 0px 0px;
+padding: 20px 0px 0px 0px;
 text-align: center;
 float: left;
 }
@@ -491,9 +492,9 @@ float: left;
     text-decoration: none;
 }
 .logo>a>span{
-    color: rgb(0,22,151);
-    font-family: strawberry;
-    font-size: 40px;
+    color: rgb(78, 146, 240);
+    font-family: GangwonState;
+    font-size: 60px;
 }
 .logo>a>span>span{
     color: rgb(128,255,0);
@@ -540,8 +541,8 @@ float: left;
     height: 60px;
     line-height: 60px;
     text-decoration: none;
-    font-size: 22px;
-    font-family: kotra-hope;
+    font-size: 19px;
+    font-family: GangwonState;
 }
 .navi ul>li>a:hover{
     background-color: rgb(78, 146, 240);
@@ -566,15 +567,18 @@ float: left;
     line-height: 60px;
     text-decoration: none;
     background-color: rgb(1, 78, 200);
+    
     color: aliceblue;
     font-size: 19px;
     font-family: GangwonState;
 }
 .sub>li>a:hover{
 	background-color: rgb(78, 146, 240);
+
 }
 .navi>ul>li:hover>a{
     background-color: rgb(1, 78, 200);
+
     color: aliceblue;
 }
 .navi>ul>li:hover>a+.sub{

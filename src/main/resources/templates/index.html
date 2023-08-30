@@ -16,21 +16,8 @@
             -->    
             <span class="slideshow-container">
                 <div class="Slidesbackground">
-                    <div class="mySlides fade">
-                        
-                        <img src="../img/main/댕댕이와 등산.jpg" class="slideshow-image">
-                    </div>
-                    <div class="mySlides fade">
-                        
-                        <img src="../img/main/댕댕이 헤엄.jpg" class="slideshow-image">
-                    </div>
-                    <div class="mySlides fade">
-                        
-                        <img src="../img/main/댕댕이 식사.jpg" class="slideshow-image">
-                    </div>
-                    <div class="mySlides fade">
-                        
-                        <img src="../img/main/노을 해변가 댕댕이.jpg" class="slideshow-image">
+                    <div class="mySlides fade">                    
+                        <img src="../img/main/main-2.jpg" class="slideshow-image">
                     </div>
                 </div>
             </span>
@@ -96,7 +83,7 @@
                     <ul class="slides1"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
                       <li th:each=" hotelList : ${hotelList}">
                         <a th:href="@{/facility/tourDetail(facilityNo=${hotelList.facilityNo})}">
-                            <img th:src="${hotelList.facilityFilepath}" style="width: 252px; height: 252px;"><!--시설중 숙소로 이미지 가져오기-->
+                            <img th:src="${hotelList.facilityFilepath}" style="width: 320px; height: 320px;"><!--시설중 숙소로 이미지 가져오기-->
                             <h3 th:text="${hotelList.facilityName}"></h3>
                         </a>
                     </li>
