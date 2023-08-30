@@ -64,7 +64,6 @@ public class MemberDao {
 	}
 	
 	public int updateMember(Member member) {
-		//query,Object = 바꿀 내용 순서대로 작성
 		String query = "update member set member_pw=?, member_phone=?, member_name=? where member_id=?";
 		Object [] params = {member.getMemberPw(),member.getMemberPhone(),member.getMemberName(),member.getMemberId()};
 		int result = jdbc.update(query,params);
