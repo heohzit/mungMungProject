@@ -5,6 +5,9 @@
     margin-top: 5px;
     border-radius: 5px;
 }
+.insert-table{
+	box-shadow: 3px 3px 3px #ccc;
+}
 
 .insert-table th,
 .insert-table td {

@@ -46,6 +46,7 @@ table td {
 
 .notice-table{
 	width: 100%;
+	box-shadow: 3px 3px 3px #ccc;
     border-collapse: collapse;
 }
 .notice-table tr{

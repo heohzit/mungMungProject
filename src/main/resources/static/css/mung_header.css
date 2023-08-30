@@ -32,6 +32,10 @@
     font-family: ns-regular;
     src: url(../font/NotoSansKR-Regular.otf);
 }
+@font-face {
+    font-family: strawberry;
+    src: url(../font/strawberry.ttf);
+}
 
 
 *{
@@ -318,6 +322,7 @@ textarea.input-form {
 .insert-table{
     border: 1px solid #ccc;
     border-collapse: collapse;
+    box-shadow: 3px 3px 3px #ccc;
 }
 .insert-table tr{
     border-bottom: 1px solid #ccc;
@@ -486,9 +491,14 @@ float: left;
     text-decoration: none;
 }
 .logo>a>span{
-    color: rgb(78, 146, 240);
-    font-family: GangwonState;
-    font-size: 70px;
+    color: rgb(0,22,151);
+    font-family: strawberry;
+    font-size: 40px;
+}
+.logo>a>span>span{
+    color: rgb(128,255,0);
+    font-family: strawberry;
+    font-size: 50px;
 }
 .header_login{
     float: right;
