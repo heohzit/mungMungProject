@@ -224,7 +224,7 @@ public class MemberService {
 		String pageNavi ="<ul class='pagination'>";
 		if(pageNo !=1) {
 			pageNavi +="<li>";
-			pageNavi +="<a class='page-btn' href='/notice/list?reqPage="+(pageNo-1)+"'>";
+			pageNavi +="<a class='page-btn' href='/member/myQna?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
 			pageNavi += "<span class='material-icons'>arrow_back_ios_new</span>";
 			pageNavi +="</a>";
 			pageNavi +="</li>";
@@ -232,13 +232,13 @@ public class MemberService {
 		for(int i=0;i<pageNaviSize;i++) {
 			if(pageNo == reqPage) {
 				pageNavi +="<li>";
-				pageNavi +="<a class='page-btn select-page' href='/qna/list?reqPage="+(pageNo)+"'>";
+				pageNavi +="<a class='page-btn select-page' href='/member/myQna?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
 				pageNavi += pageNo;
 				pageNavi += "</a>";
 				pageNavi += "</li>";
 			}else {
 				pageNavi +="<li>";
-				pageNavi +="<a class='page-btn' href='/qna/list?reqPage="+(pageNo)+"'>";
+				pageNavi +="<a class='page-btn' href='/member/myQna?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
 				pageNavi += pageNo;
 				pageNavi += "</a>";
 				pageNavi += "</li>";
@@ -250,7 +250,7 @@ public class MemberService {
 		}		
 			if(pageNo <= totalPage) {
 				pageNavi +="<li>";
-				pageNavi +="<a class='page-btn' href='/qna/list?reqPage="+(pageNo)+"'>";
+				pageNavi +="<a class='page-btn' href='/member/myQna?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
 				pageNavi += "<span class='material-icons'>arrow_forward_ios</span>";
 				pageNavi +="</a>";
 				pageNavi +="</li>";
