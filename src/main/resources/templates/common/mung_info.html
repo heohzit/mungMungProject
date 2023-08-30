@@ -6,35 +6,92 @@
 </head>
 <body>
     <th:block th:include="common/mung_header"></th:block>
-    <style>
-        * { box-sizing: border-box; }
-        body { margin: 0px; }
-        main { padding-bottom: 100px; }
+		<div class="page-title">
+        	<h1>멍멍 소개</h1>
+        </div>
+        <section style="width: 1200px;">
+          <div class="sa sa-up">
+            <div class="content-text">
+		    	<h2>멍멍이와 함께 즐겁고! 간편하게!<br>
+		        <strong>강원특별자치도로 놀러오시개!</strong></h2><br>
+		                멍멍이와 같이 여행 할 수 있는 장소를 서로 공유하여<br>
+		                함께 반려견 동반 여행지도를 만들어 가는 반려동물 여행 플랫폼!<br>
+		        <strong>멍멍탐험대</strong>는 강원특별자치도 여행을 좋아하고<br>
+		                반려동물을 사랑하는 모두에게 열려 있습니다.<br>
+            </div>
+            <div class="content-img">
+                <img src="../img/main/핸드폰위강아지.png">
+            </div>
+        </div>
+        </section>
+        <section>
+            <div class="sa sa-right" style="position: relative;">
+	            <div class="move-text" style="position: absolute;">
+	            	<span style="color: rgb(1,78,200); font-family: strawberry; font-size: 50px">멍멍</span> 
+	            	<span style="color: rgb(1,50,131); font-family: Recipekorea;">탐험대</span>가 좋은 3가지</div>
+            	<img src="../img/main/소개글 (1).png">
+            </div>
+        </section>
+        <section style="width: 1200px;">
+          <div class="sa sa-scaleUp">
+                <div class="content-text" style="padding-top: 150px;">
+		                    강원관광재단이 함께 만드는 멍멍탐험대는<br>
+		                    강원지역의 지역별, 분야별 여행지를 소개하고 공유하는 공간입니다.<br>
+		                    <br>
+		                    반려동물 동반 업체의 사장님이시라면 멍멍탐험대를 통해 홍보를!<br>
+		                    여행을 준비하는 반려인이라면 다양한 여행 코스를 계획해보세요.<br>
+		                    <br>
+		                    강원도 멍멍탐험대와 함께 여행이라는 <strong>추억</strong>을 선물 하세요.<br>
+                </div>
+                <div class="content-img">
+                    <img src="../img/main/소개 강아지.jpg">
+                </div>
+          </div>
+        </section>
+    <th:block th:include="common/mung_footer"></th:block>
+  <style>
+    	*{
+    	}
         section {
+    	margin: 0 auto;
           justify-content: space-between;
-          padding: 5%;
-          height: 500px;
+          height: 550px;
         }
         section div {
           height: 300px;
+          text-align: center;
         }
         .content-text{
             float: left;
+            width: 50%;
+            font-size: 20px;
+            letter-spacing: -2px;
         }
         .content-img{
-            float: left;
+           float: left;
+           width: 50%;
+           height: 100%;
+        }
+        .move-text{
+        	font-family: Recipekorea;
+        	padding-top:50px;
+        	text-align: center;
+        	font-size: 30px;
+        	font-weight: 10px;
+        	width: 100%;
         }
   
         /* Scroll Animation (sa, 스크롤 애니메이션) */
         .sa {
           opacity: 0;
-          transition: all 2.0s ease;
+          transition: all 3.0s ease;
         }
   
         /* 아래에서 위로 페이드 인 */
         .sa-up {
           transform: translate(0, 100px);
           overflow: hidden;
+         	padding-top: 120px;
         }
         /* 왼쪽에서 오른쪽으로 페이드 인 */
         .sa-right {
@@ -46,45 +103,6 @@
           transform: none;
         }
       </style>
-    </head>
-    <body>
-      <main>
-        <section>
-          <div class="sa sa-up">
-            <div class="content-text">
-                멍멍이와 함께 즐겁고! 간편하게!<br>
-                강원특별자치도로 놀러오시개!<br>
-                멍멍이와 같이 여행 할 수 있는 장소를 서로 공유하여<br>
-                함께 반려견 동반 여행지도를 만들어 가는 반려동물 여행 플랫폼!<br>
-                멍멍탐험대는 강원특별자치도 여행을 좋아하고<br>
-                반려동물을 사랑하는 모두에게 열려 있습니다.<br>
-            </div>
-            <div class="content-img">
-                <img src="../img/main/핸드폰위강아지.png">
-            </div>
-        </div>
-        </section>
-        <section>
-            <div class="sa sa-right"><img src="../img/main/소개글 (1).png"></div>
-        </section>
-        <section>
-          <div class="sa sa-scaleUp">
-                <div class="content-text">
-                    강원관광재단이 함께 만드는 멍멍탐험대는<br>
-                    강원지역의 지역별, 분야별 여행지를 소개하고 공유하는 공간입니다.<br>
-                    <br>
-                    반려동물 동반 업체의 사장님이시라면 멍멍탐험대를 통해 홍보를!<br>
-                    여행을 준비하는 반려인이라면 다양한 여행 코스를 계획해보세요.<br>
-                    <br>
-                    강원도 멍멍탐험대와 함께 여행이라는 추억을 선물 하세요.<br>
-                </div>
-                <div class="content-img">
-                    <img src="../img/main/소개 강아지.jpg">
-                </div>
-          </div>
-        </section>
-      </main>
-  
       <script>
         // Scroll Animation (sa, 스크롤 애니메이션)
         const saTriggerMargin = 300;
@@ -102,9 +120,6 @@
   
         window.addEventListener('load', saFunc);
         window.addEventListener('scroll', saFunc);
-      </script>
-    
-    
-    <th:block th:include="common/mung_footer"></th:block>
+      </script> 
 </body>
 </html>

@@ -1,3 +1,4 @@
+//개인정보 동의
 const allAgree = document.querySelector("#allAgree");
 allAgree.addEventListener("click",function(){
     const status = this.checked;
@@ -7,12 +8,14 @@ allAgree.addEventListener("click",function(){
     })
 });
 
+//이메일연결
 const select = document.querySelector(".email-choice");
 select.addEventListener("change",function(){
     const input = document.querySelector("[name=memberEmail2]");
     input.value = select.value;
 });
 
+//이메일 인증번호
 let authCode = null;
 let email = null;
 $("#sendBtn").on("click",function(){
@@ -29,6 +32,8 @@ $("#sendBtn").on("click",function(){
         }
     });
 });
+
+//이메일 인증시간
 let intervalId = null;
 function authTime() {
 	$("#timeZone").html("<span id='min'>5</span> : <span id='sec'>00</span>");
@@ -59,9 +64,25 @@ function authTime() {
 	}, 1000);
 }
 
+//이메일 인증 확인
+$("#authBtn").on("click", function(){
+	if(authCode != null){
+		const inputCode = $("#authCode").val();
+		if(authCode == inputCode){
+			$("#authMsg").text("인증 완료되었습니다.");
+			$("#authMsg").css("color","blue");
+			window.clearInterval(intervalId);
+			$("#timeZone").empty();
+			$("#memberEmail").val(email);
+			console.log($("#memberEmail").val());
+		}else{
+			$("#authMsg").text("인증번호를 다시 확인해주세요.");
+			$("#authMsg").css("color","red");
+		}
+	}
+});
 
-
-
+//유효성검사 아이디
 const checkArr =[false,false,false,false,false,false,false];
 $("#memberId").on("change",function(){
 	//정규표현식을 통한 유효성 검사
@@ -78,11 +99,13 @@ $("#memberId").on("change",function(){
 				if (data == "0") {
 					$("#ajaxCheckId").text(" " + "사용 가능한 아이디입니다.");
 					$("#ajaxCheckId").css("color", "green");
+					$("#ajaxCheckId").css("font-size", "14px");
 					$("#memberId").css("border", "1px solid green");
 					checkArr[0] = true;
 				} else {
 					$("#ajaxCheckId").text(" " + "이미 사용 중인 아이디입니다.");
 					$("#ajaxCheckId").css("color", "red");
+					$("#ajaxCheckId").css("font-size", "14px");
 					$("#memberId").css("border", "1px solid red");
 					checkArr[0] = false;
 				}
@@ -91,6 +114,7 @@ $("#memberId").on("change",function(){
 	} else {
 		$("#ajaxCheckId").text(" " + "영문 소문자/숫자 4~12글자 이내로 입력해주세요.");
 		$("#ajaxCheckId").css("color", "red");
+		$("#ajaxCheckId").css("font-size", "14px");
 		$(this).css("border", "1px solid red");
 	}
 	//db에서 중복체크(ajax)
@@ -119,12 +143,14 @@ $("#memberPw").on("change",function(){
         //중복체크
         comment.eq(0).text(" " + "사용 가능한 비밀번호입니다.")
         comment.eq(0).css("color","green");
+        comment.eq(0).css("font-size", "14px");
         $(this).css("border","1px solid green");
         checkArr[1] = true;
     }else{
         //정규표현식 만족하지 못한 경우
-        comment.eq(0).text(" " + "영문 소문자/숫자/특수문자 8글자~12글자 이내로 입력해주세요.");
+        comment.eq(0).text(" " + "영문 소문자/숫자/특수문자(!,@,#,$,%만 가능) 8글자~12글자 이내로 입력해주세요.");
         comment.eq(0).css("color","red");
+        comment.eq(0).css("font-size", "14px");
         $(this).css("border","1px solid red");
         checkArr[1] = false;
     }
@@ -145,16 +171,17 @@ function pwDupCheck(){
     if(inputPw == inputPwRe){
         comment.eq(1).text(" " +"비밀번호와 일치합니다.")
         comment.eq(1).css("color","green");
+        comment.eq(1).css("font-size", "14px");
         $("#memberPwRe").css("border","1px solid green");
         checkArr[2] = true;
     }else{
         comment.eq(1).text(" " +"비밀번호와 일치하지 않습니다.")
         comment.eq(1).css("color","red");
+        comment.eq(1).css("font-size", "14px");
         $("#memberPwRe").css("border","1px solid red");
         checkArr[2] = false;
     }
 }
-
 
 // 이름
 $("#memberName").on("change",function(){
@@ -162,13 +189,15 @@ $("#memberName").on("change",function(){
     const inputName = $(this).val();
     const check = nameReg.test(inputName);
     if(check){
-        comment.eq(2).text("사용 가능한 이름입니다.");
+        comment.eq(2).text(" " +"사용 가능한 이름입니다.");
         comment.eq(2).css("color","green");
+        comment.eq(2).css("font-size", "14px");
         $(this).css("border","1px solid green");
         checkArr[3] = true;
     }else{
-        comment.eq(2).text("이름은 한글로 1~7글자입니다.");
+        comment.eq(2).text(" " +"한글로 1~7글자입니다.");
         comment.eq(2).css("color","red");
+        comment.eq(2).css("font-size", "14px");
         $(this).css("border","1px solid red");
         checkArr[3] = false;
     }
@@ -180,13 +209,15 @@ $("#memberPhone").on("change", function(){
 	const inputPhone = $(this).val();
 	const check = phoneReg.test(inputPhone);
 	if(check){
-        comment.eq(3).text("사용 가능한 전화번호입니다.");
+        comment.eq(3).text(" " +"사용 가능한 휴대폰 번호입니다.");
         comment.eq(3).css("color","green");
+        comment.eq(3).css("font-size", "14px");
         $(this).css("border","1px solid green");
         checkArr[4] = true;
     }else{
-        comment.eq(3).text("전화번호를 확인해주세요.");
+        comment.eq(3).text(" " +"휴대폰 번호를 입력해주세요.");
         comment.eq(3).css("color","red");
+        comment.eq(3).css("font-size", "14px");
         $(this).css("border","1px solid red");
         checkArr[4] = false;
     }
@@ -197,16 +228,18 @@ $("#authBtn").on("click", function(){
 	if(authCode != null){
 		const inputCode = $("#authCode").val();
 		if(authCode == inputCode){
-			$("#authMsg").text("인증이 완료되었습니다.");
+			$("#authMsg").text(" " +"인증이 완료되었습니다.");
 			$("#authMsg").css("color","green");
+			$("#authMsg").css("font-size", "14px");
 			window.clearInterval(intervalId);
 			$("#timeZone").empty();
 			$("#memberEmail").val(email);
 			console.log($("#memberEmail").val());
 			checkArr[5] = true;
 		}else{
-			$("#authMsg").text("인증번호를 다시 확인해주세요.");
+			$("#authMsg").text(" " +"인증번호를 다시 확인해주세요.");
 			$("#authMsg").css("color","red");
+			$("#authMsg").css("font-size", "14px");
 			checkArr[5] = false;
 		}
 	}
@@ -232,7 +265,7 @@ $(".signbtn").on("click",function(event){
 		}else if(!checkArr[3]){
 			alert("이름을 확인해주세요.");
 		}else if(!checkArr[4]){
-			alert("전화번호를 확인해주세요.");
+			alert("휴대폰 번호를 확인해주세요.");
 		}else if(!checkArr[5]){
 			alert("이메일 인증이 필요합니다.");
 		}else if(!checkArr[6]){
