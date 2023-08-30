@@ -588,11 +588,11 @@ background: linear-gradient(180deg, rgba(78,146,240,0.896796218487395) 0%, rgba(
 .inputCommentBox{
 	margin: 50px;
 }
-.inputCommentBox>form>ul{
+.inputCommentBox ul{
 	list-style-type: none;
 	display: flex;
 }
-.inputCommentBox>form>ul>li:first-child{
+.inputCommentBox ul>li:first-child{
 	width: 15%;
 	display: flex;
 	justify-content: center;
