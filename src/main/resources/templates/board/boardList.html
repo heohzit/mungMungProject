@@ -56,11 +56,6 @@
 	<th:block th:include="common/mung_footer"></th:block>
 	<script>
 
-	$("#tableview #trview").on("click", function(){
-		const view = ($(this).children().eq(0).text());
-		$(location).attr("href","/board/view?boardNo="+view);
-	})
-	
 	/*
 	
 		$("#more-btn").on("click",function(){
