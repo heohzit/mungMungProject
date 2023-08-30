@@ -491,7 +491,6 @@ input[name=daterange]{
     margin: 0 auto;    
     text-align: center;
     overflow: hidden;
-    height: 140px;
 }
 .logo{
 width: 100%;
