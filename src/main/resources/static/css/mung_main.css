@@ -386,13 +386,13 @@
   /* 첫 번째 슬라이드 가운데에 정렬하기위해
   첫번째 슬라이드만 margin-left조정 */
   .slides2 li:first-child{
-    margin-left: 68px;
+    margin-left: 70px;
   }
   
   /* 슬라이드들 옆으로 정렬 */
   .slides2 li:not(:last-child){
     float: left;
-    margin-right: 68px;
+    margin-right: 70px;
   }
   
   .slides2 li{

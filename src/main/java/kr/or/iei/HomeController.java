@@ -33,7 +33,9 @@ public class HomeController {
 // 숙소 가져오기
 		List hotelList = facilityService.selectHotelList();
 		model.addAttribute("hotelList", hotelList);
-		
+// 관광지 가져오기 
+		List tourList = facilityService.selectTourList();
+		model.addAttribute("tourList", tourList);
 		return "index";
 	}
 	@GetMapping(value="/ref")

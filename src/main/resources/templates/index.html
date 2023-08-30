@@ -97,10 +97,7 @@
                       <li th:each=" hotelList : ${hotelList}">
                         <a th:href="@{/facility/tourDetail(facilityNo=${hotelList.facilityNo})}">
                             <img th:src="${hotelList.facilityFilepath}" style="width: 252px; height: 252px;"><!--시설중 숙소로 이미지 가져오기-->
-                            
-                            
                             <h3 th:text="${hotelList.facilityName}"></h3>
-                            
                         </a>
                     </li>
                     </ul>  
@@ -126,42 +123,12 @@
                     </div>
                     <div id="slideShow2">
                         <ul class="slides2"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
-                        <li>
-                            <a href="#">
-                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3>관광지</h3>
-                                
+                        <li th:each=" tourList : ${tourList}">
+                            <a th:href="@{/facility/tourDetail(facilityNo=${tourList.facilityNo})}">
+                                <img th:src="${tourList.facilityFilepath}" style="width: 300px; height: 300px;"><!--시설중 숙소로 이미지 가져오기-->
+                                <h3 th:text="${tourList.facilityName}"></h3>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h2>관광지</h2>
-                                
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h2>관광지</h2>
-                                
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h2>관광지</h2>
-                                
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h2>관광지</h2>
-                                
-                            </a>
-                        </li>
-
                         </ul>  
                         <p class="controller2">
                         <!-- &lang: 왼쪽 방향 화살표
