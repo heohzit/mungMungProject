@@ -233,18 +233,27 @@
     float: left;
     text-align: center;
 }
-.lodging-icon>span{
-    font-size: 40px;
-    color: #001538;
-}
 .lodging-text{
     width: 95%;
     float: left;
 }
-.lodging-text>span{
-    font-size: 30px;
-    font-family: cafe-24;
+.lodging-icon>span,
+.travel-icon>span,
+.pakage-icon>span,
+.mung-icon>span,
+.eat-icon>span{
+    font-size: 35px;
     color: #001538;
+}
+.lodging-text>span,
+.travel-text>span,
+.pakage-text>span,
+.mung-text>span,
+.eat-text>span{
+    font-size: 25px;
+    font-family: cafe-24;
+    color: #001231;
+    letter-spacing: -2px;
 }
   .slides1>li{
     list-style-type: none;
@@ -264,7 +273,6 @@
     position: relative;
     margin: 0px auto;
     overflow: hidden;
-    border-top:  1px solid #001538;
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
@@ -303,7 +311,7 @@
     text-align: center;
     border-radius: 50%;
     padding: 10px 20px;
-    top: 50%;
+    top: 40%;
     font-size: 1.3em;
     cursor: pointer;
   }
@@ -354,18 +362,10 @@
     float: left;
     text-align: center;
 }
-.travel-icon>span{
-    font-size: 40px;
-    color: #001538;
-}
+
 .travel-text{
     width: 85%;
     float: left;
-}
-.travel-text>span{
-    font-size: 30px;
-    font-family: cafe-24;
-    color: #001538;
 }
   .slides2>li{
     list-style-type: none;
@@ -383,14 +383,13 @@
     height: 400px;
     position: relative;
     overflow: hidden;
-    border-top:  1px solid #001538;
     /*리스트 형식으로 이미지를 일렬로 
     정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
     hidden으로 숨겨줘야됨*/
   }
   .slideshow-image2{  
-    width: 380px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
   
@@ -426,7 +425,7 @@
     text-align: center;
     border-radius: 50%;
     padding: 10px 20px;
-    top: 50%;
+    top: 40%;
     font-size: 1.3em;
     cursor: pointer;
   }
@@ -463,7 +462,6 @@
     float: left;
 }
 .pakage-logo{
-    border-bottom: 1px solid rgb(204,204,204);
     padding: 20px 0px 0px 0px;
     overflow: hidden;
 }
@@ -472,19 +470,12 @@
     float: left;
     text-align: center;
 }
-.pakage-icon>span{
-    font-size: 40px;
-    color: #001538;
-}
+
 .pakage-text{
     width: 85%;
     float: left;
 }
-.pakage-text>span{
-    font-size: 30px;
-    font-family: cafe-24;
-    color: #001538;
-}
+
 .pakage-content{
     padding: 10px;
     margin: 0 auto;
@@ -500,17 +491,17 @@ border-radius: 5%;
 .wrap-bottom{
     width: 1200px;
     margin: 0 auto;
+    height: 400px;
     overflow: hidden;
     background-color: white;
 }
 .sa-down{
 	transform: translate(0, -100px);
-    width: 61%;
+    width: 50%;
     float: left;
 }
 .mung-logo{
     overflow: hidden;
-    border-bottom: 1px solid #001538;
 
 }
 .mung-icon{
@@ -518,22 +509,16 @@ border-radius: 5%;
     float: left;
     text-align: center;
 }
-.mung-icon>span{
-    font-size: 40px;
-    color: #001538;
-
-}
 .mung-text{
     width: 85%;
     float: left;
 }
-.mung-text>span{
-    font-size: 30px;
-    font-family: cafe-24;
-    color: #001538;
-}
 .mung-content{
     overflow: hidden;
+    padding-left: 25px;
+}
+.mung-content>*{
+	
 }
 .mung-content>ul>li{
     float: left;
@@ -549,34 +534,27 @@ border-radius: 5%;
 /*  */
 .sa-scaleUp{
 	transform: scale(.5);
-    padding-left: 80px;
-    width: 30%;
-    float: left;
+	float: right;
+    width: 40%;
 }
 .eat-logo{
     overflow: hidden;
-    border-bottom: 1px solid #001538;
 }
 .eat-icon{
     width: 50px;
     float: left;
     text-align: center;
 }
-.eat-icon>span{
-    font-size: 40px;
-    color: #001538;
 
-}
 .eat-text{
     width: 85%;
     float: left;
 }
-.eat-text>span{
-    font-size: 30px;
-    font-family: cafe-24;
-    color: #001538;
-}
 .Slidesbackground2{
     padding-top: 10px;
+    width: 100%;
+}
+.bd-line{
+	border-top: 2px solid rgb(1,50,131);
 }
 
