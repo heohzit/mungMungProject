@@ -101,4 +101,13 @@ public class QnaService {
 		}
 	}
 
+	public int answer(int qnaNo, String qnaAnswer) {
+		int result = qnaDao.answer(qnaNo, qnaAnswer);
+		if(result > 0) {
+			return result;
+		}else {
+			return 0;
+		}
+	}
+
 }

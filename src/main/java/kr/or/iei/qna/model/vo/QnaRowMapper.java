@@ -20,6 +20,8 @@ public class QnaRowMapper implements RowMapper<Qna>{
 		q.setQnaTitle(rs.getString("qna_title"));
 		q.setQnaWriteDate(rs.getString("qna_write_date"));
 		q.setQnaWriter(rs.getInt("qna_writer"));
+		q.setQnaAnswer(rs.getNString("qna_answer"));
+		
 		q.setMemberId(rs.getString("member_id"));
 		return q;
 	}

@@ -13,8 +13,8 @@
         <div class="wrap-top">
             <!-- 메인 페이지 Top영역 
                 이미지 슬라이드 및 공지사항 검색창, 이미지 위 소개글 
-            -->
-            <span class="slideshow-container"><!--슬라이드 -->
+            -->    
+            <span class="slideshow-container">
                 <div class="Slidesbackground">
                     <div class="mySlides fade">
                         
@@ -34,6 +34,7 @@
                     </div>
                 </div>
             </span>
+            
             <div class="top-mid"><!--공지사항 검색창 영역-->
                 <div class="notice">
                     <div class="notice-text">
@@ -52,29 +53,31 @@
                         </div>
                         <div class="search-select">
                         <select name="searchType" class="sel-search">
-                        	<option value="">선택</option>
-		                	<option value="TourList">관광지</option>
-		                	<option value="HotelList">숙박</option>
-		                	<option value="CafeList">식음료</option>
-		                	<option value="ActivityList">체험</option>
-		            	</select>
+                            <option value="">선택</option>
+                            <option value="TourList">관광지</option>
+                            <option value="HotelList">숙박</option>
+                            <option value="CafeList">식음료</option>
+                            <option value="ActivityList">체험</option>
+                        </select>
                         </div>
                         <div class="search-input">
-	                        <form  class="search-main">
-	                        	<input type="hidden" name="reqPage" value="1">
-	                            <input type="text" name="searchName" id="searchName" placeholder="검색어를 입력해주세요.">
-	                            <button type="submit" class="search-submit">검색하기</button>
-	                        </form>
+                            <form class="search-main">
+                                <input type="hidden" name="reqPage" value="1">
+                                <input type="text" name="searchName" id="searchName" placeholder="검색어를 입력해주세요.">
+                                <button type="submit" class="search-submit">검색하기</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="top-bottom"><!--소개이미지-->
             
-                <div class="bottom-img">
+            <!-- 
+            <div class="bottom-img">
                     <img src="../img/main/메인 화면 이미지.jpg">
                 </div>
             </div>
+            --> 
         </div>
         <div class="wrap-mid">
  		<!-- 메인 페이지 middle영역 숙소,체험, 식음료, 관광지-->
@@ -94,10 +97,7 @@
                       <li th:each=" hotelList : ${hotelList}">
                         <a th:href="@{/facility/tourDetail(facilityNo=${hotelList.facilityNo})}">
                             <img th:src="${hotelList.facilityFilepath}" style="width: 252px; height: 252px;"><!--시설중 숙소로 이미지 가져오기-->
-                            
-                            
                             <h3 th:text="${hotelList.facilityName}"></h3>
-                            
                         </a>
                     </li>
                     </ul>  
@@ -123,42 +123,12 @@
                     </div>
                     <div id="slideShow2">
                         <ul class="slides2"> <!-- th:foreach 로 시설중 숙소 있는수만큼 반복되게 수정 -->
-                        <li>
-                            <a href="#">
-                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h3>관광지</h3>
-                                
+                        <li th:each=" tourList : ${tourList}">
+                            <a th:href="@{/facility/tourDetail(facilityNo=${tourList.facilityNo})}">
+                                <img th:src="${tourList.facilityFilepath}" style="width: 300px; height: 300px;"><!--시설중 숙소로 이미지 가져오기-->
+                                <h3 th:text="${tourList.facilityName}"></h3>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h2>관광지</h2>
-                                
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h2>관광지</h2>
-                                
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h2>관광지</h2>
-                                
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="../img/main/4df35949efd9d681ba97979ce27c82cd616b58f7bf017e58d417ccb3283deeb3.png"><!--시설중 숙소로 이미지 가져오기-->
-                                <h2>관광지</h2>
-                                
-                            </a>
-                        </li>
-
                         </ul>  
                         <p class="controller2">
                         <!-- &lang: 왼쪽 방향 화살표
@@ -242,21 +212,10 @@
                 </div>
                 <span class="slideshow-container2"><!--슬라이드 -->
                     <div class="Slidesbackground2">
-                        <div class="mySlides2 fade">
-                            
-                            <img src="../img/main/댕댕이와 등산.jpg" class="slideshow-image">
-                        </div>
-                        <div class="mySlides2 fade">
-                            
-                            <img src="../img/main/댕댕이 헤엄.jpg" class="slideshow-image">
-                        </div>
-                        <div class="mySlides2 fade">
-                            
-                            <img src="../img/main/댕댕이 식사.jpg" class="slideshow-image">
-                        </div>
-                        <div class="mySlides2 fade">
-                            
-                            <img src="../img/main/노을 해변가 댕댕이.jpg" class="slideshow-image">
+                        <div class="mySlides2 fade" th:each=" cafeList : ${cafeList}">
+                            <a th:href="@{/facility/tourDetail(facilityNo=${cafeList.facilityNo})}">
+                            	<img th:src="${cafeList.facilityFilepath}" class="slideshow-image2">                            
+                            </a>
                         </div>
                     </div>
                 </span>

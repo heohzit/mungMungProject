@@ -5,47 +5,52 @@
     <link rel="stylesheet" href="../css/mung_header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../js/jquery-3.6.0.js"></script>
 </head>
 <header>
     <div class="header-wrap"><!--전체를 감싸는 div-->
         <!-- 로고 영역 headerTop -->
-        <div class="header-top">
-            <div class="logo">
-                <a href="/"><span>강원도 멍멍 탐험대</span></a>
-            </div>
-            <!-- 로그인 안했을시  -->
-            <div class="header_signin">
-                <a href="/member/signup" th:if="${session.m == null}"><button type="button" name="signin" class="header_btn">회원가입</button></a>
-            </div>
-            <div class="header_login">
-                <a href="/member/login" th:if="${session.m == null}"><button type="button" name="login" class="header_btn">로그인</button></a>
-            </div>
-            <!-- 로그인 시  -->
-            <div class="header_signin"> <!-- css 적용을 위해 div 클래스는 같은걸 썻어요  -->
-                <a href="/member/logout" th:if="${session.m != null}"><button type="button" name="signin" class="header_btn">로그아웃</button></a>
-            </div>
-            <div class="header_login">
-                <a href="/member/mypage" th:if="${session.m != null}"><button type="button" name="login" class="header_btn">마이페이지</button></a>
+        <div class="header-top-wrap">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="/"><span>강원도 멍멍 탐험대</span></a>
+                </div>
+                <!-- 로그인 안했을시  -->
+                <div class="header_signin">
+                    <a href="/member/signup" th:if="${session.m == null}"><span name="signin" class="material-icons" style="font-size: 50px;">person_add</span></a>
+                </div>
+                <div class="header_login">
+                    <a href="/member/login" th:if="${session.m == null}"><span name="login" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">login</span></a>
+                </div>
+                <!-- 로그인 시  -->
+                <div class="header_signin"> <!-- css 적용을 위해 div 클래스는 같은걸 썻어요  -->
+                    <a href="/member/logout" th:if="${session.m != null}"><span name="signin" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">logout</span></a>
+                </div>
+                <div class="header_login">
+                    <a href="/member/mypage" th:if="${session.m != null}"><span name="login" class="material-icons" style="font-size: 50px; color: rgb(78, 146, 240)">person_outline</span></a>
+                </div>
             </div>
         </div>
         <!--메뉴 navi탭 영역-->
-        <div class="navi">
-            <ul>
-                <li>
-                    <a href=#>멍멍 여행지</a>
-                    <ul class="sub">
-                        <li><a href="/facility/tourList?reqPage=1">멍멍 관광지</a></li>
-                        <li><a href="/facility/hotelList?reqPage=1">멍멍 숙박</a></li>
-                        <li><a href="/facility/cafeList?reqPage=1">멍멍 식음료</a></li>
-                        <li><a href="/facility/activityList?reqPage=1">멍멍 체험</a></li>
-                    </ul>
-                </li>
-                <li><a href="/product/list">멍멍 패키지</a></li>
-                <li><a href="/board/list?reqPage=1">멍멍 커뮤니티</a></li>
-                <li><a href="/notice/list?reqPage=1">멍멍 공지사항</a></li>
-                <li><a href="/qna/list?reqPage=1">멍멍 Q&A</a></li>
-            </ul>
+        <div class="navi-wrap">
+            <div class="navi">
+                <ul>
+                    <li>
+                        <a href=#>멍멍 여행지</a>
+                        <ul class="sub">
+                            <li><a href="/facility/tourList?reqPage=1">멍멍 관광지</a></li>
+                            <li><a href="/facility/hotelList?reqPage=1">멍멍 숙박</a></li>
+                            <li><a href="/facility/cafeList?reqPage=1">멍멍 식음료</a></li>
+                            <li><a href="/facility/activityList?reqPage=1">멍멍 체험</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/product/list">멍멍 패키지</a></li>
+                    <li><a href="/board/list?reqPage=1">멍멍 커뮤니티</a></li>
+                    <li><a href="/notice/list?reqPage=1">멍멍 공지사항</a></li>
+                    <li><a href="/qna/list?reqPage=1">멍멍 Q&A</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <script src="../js/mung_header.js"></script>
