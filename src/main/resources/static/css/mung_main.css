@@ -337,9 +337,10 @@
 }
 
   /********************** 관광지 영역********************************/
-.travel{
+.sa-right{
     width: 50%;
     float: left;
+    transform: translate(-100px, 0);
 }
 .travel-logo{
     padding: 20px 0px 0px 0px;
@@ -453,7 +454,8 @@
   }
   
   /* ++++++++++++++++++++++++++++패키지 영역++++++++++++++++++++++++++++++ */
-.pakage{
+.sa-left{
+	transform: translate(100px, 0);
     width: 50%;
     float: left;
 }
@@ -498,7 +500,8 @@ border-radius: 5%;
     overflow: hidden;
     background-color: white;
 }
-.mung{
+.sa-down{
+	transform: translate(0, -100px);
     width: 61%;
     float: left;
 }
@@ -541,7 +544,8 @@ border-radius: 5%;
 }
 
 /*  */
-.eat{
+.sa-scaleUp{
+	transform: scale(.5);
     padding-left: 80px;
     width: 30%;
     float: left;
