@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'GangwonState';
+    font-family: GangwonState;
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
@@ -35,6 +35,10 @@
 @font-face {
     font-family: strawberry;
     src: url(../font/strawberry.ttf);
+}
+@font-face {
+    font-family: Recipekorea;
+    src: url(../font/Recipekorea.otf);
 }
 
 
@@ -419,6 +423,8 @@ textarea.input-form {
     width: 90%;
     margin: 0 auto;
     border: 1px solid #ddd;
+    box-shadow: 3px 3px 3px #ccc;
+    border-radius: 10px;
 }
 .product-box{
     width: 50%;
@@ -453,7 +459,7 @@ textarea.input-form {
 }
 .pay-box-tbl-td{
     width: 90%;
-    height: 200px;
+    height: 100px;
     padding: 1rem 0.5rem;
     text-align: center;
 }
@@ -463,9 +469,8 @@ textarea.input-form {
 	margin: 0 auto;
 }
 .pay-pointer{
+	padding: 0.5rem;
 	font-size: 30px;
-	line-height: 40px;
-    height: 40px;
     float: left;
 }
 input[name=daterange]{
@@ -486,7 +491,7 @@ input[name=daterange]{
     margin: 0 auto;    
     text-align: center;
     overflow: hidden;
-    height: 135px;
+    height: 140px;
 }
 .logo{
 width: 100%;
@@ -498,33 +503,36 @@ float: left;
     text-decoration: none;
 }
 .logo>a>span{
-    color: rgb(78, 146, 240);
-    font-family: GangwonState;
-    font-size: 60px;
+    color: rgb(1,50,131);
+    font-family: Recipekorea;
+    font-size: 50px;
+    letter-spacing: -4px;
 }
 .logo>a>span>span{
-    color: rgb(128,255,0);
+    color: rgb(1, 78, 200);
     font-family: strawberry;
-    font-size: 50px;
-}
-.header_login{
-    float: right;
-    padding: 0px 10px 10px 10px;
-}
-
-.header_signin{
-    float: right;
-    padding: 0px 10px 10px 10px;
+    font-size: 65px;
+    letter-spacing: -8px;
 }
 .header_btn{
-    width: 100px;
-    font-size: 18px;
-    font-weight: 550;
-    border: none;
-    background-color: rgb(1, 78, 200);
-    color: aliceblue;
-    border-radius: 5px;
+	float: right;
     cursor: pointer;
+    border: 2px solid rgb(1,50,131);
+	border-radius: 20px;
+	width: 90px;
+	display: inline-block;
+	margin:0 5px;
+	height: 25px;
+	color: rgb(1,50,131);
+	letter-spacing: -1px;
+}
+.header_btn:hover{
+	color: white;
+	background-color: rgb(1,50,131);
+	/*rgb(1, 78, 200);
+	#1C2B2D*/
+	transform: scale(1.05);
+  	transition-duration: 0.3s;
 }
 
 /****************헤더 내비 탭 영역******************/

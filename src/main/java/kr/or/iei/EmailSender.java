@@ -42,7 +42,6 @@ public class EmailSender {
 	}
 
 	public String authMail(String email) {
-		System.out.println(email);
 		MimeMessage message = sender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message);
 		
