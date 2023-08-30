@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
     <link rel="stylesheet" href="../css/mypage.css">
+    <link rel="stylesheet" href="../css/noticeList.css">
 </head>
 <body>
 <th:block th:include="common/mung_header"></th:block>
@@ -17,35 +18,46 @@
             <div class="tab-wrap">
                 <ul class="tabs">
                     <a href="/member/mypage"><li>회원정보</li></a>
-                    <th:block th:if="${session.m.memberLevel != 1}">
-                    <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=${1})}"><li>내가 찜한 여행지</li></a>
+                    <a th:href="@{/member/myFavorite(memberNo=${session.m.memberNo},reqPage=1)}"><li>내가 찜한 여행지</li></a>
                     <a th:href="@{/member/myReservation(memberNo=${session.m.memberNo})}"><li>예약현황</li></a>
-                    <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo},reqPage=${1})}"><li>자유게시판</li></a>
-                    <a href="/member/myQna" class="active-tab"><li>Q&A</li></a>
+                    <a th:href="@{/member/myBoard(memberNo=${session.m.memberNo})}"><li>자유게시판</li></a>
+                    <a th:href="@{/member/myQna(memberNo=${session.m.memberNo},reqPage=1)}" class="active-tab"><li>Q&A</li></a>
                     </th:block>
                 </ul>
                 <div class="content-wrap">
                     <div class="tabcontent">
                         <h4>Q&A</h4>
                         <br><hr><br>
-                        <div class="qnacontent">
-                            <ul class="qna-list">
-                                <li>
-                                    <a href="#">Q. 질문1</a>
-                                    <ul class="a-list">
-                                        <li><a href="#">A. 답변1</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul class="qna-list">
-                                <li>
-                                    <a href="#">Q. 질문2</a>
-                                    <ul class="a-list">
-                                        <li><a href="#">A. 답변2</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                        <div class="page-content">
+        <div class="page-title">
+        	<h1>Q&A</h1>
+        	<div style="display: flex;">
+            	<a th:if="${session.m!=null}" href="/qna/writeFrm" class="btn bc1" style="margin-left: auto;">글쓰기</a>
+            </div>
+        </div>
+        <div class="page-content-mid">
+        <table class="insert-table">
+            <tr class="tr-2">
+                <th style="width: 7%;">번호</th>
+                <th style="width: 50%;">제목</th>
+                <th style="width: 10%;">작성자</th>
+                <th style="width: 7%;">답변</th>
+                <th style="width: 15%;">등록일</th>
+            </tr>
+            <tr th:each="qna : ${qnaList}" class="tr-1">
+                <td th:text="${qna.qnaNo}"></td>
+                <td><a th:href="@{/qna/view(qnaNo=${qna.qnaNo})}" th:text="${qna.qnaTitle}"></a></td>
+                <td th:text="${qna.memberId}"></td>
+                <td th:if="${qna.qnaAnswerCase == 1}">미답변</td>
+                <td th:if="${qna.qnaAnswerCase == 2}">답변완료</td>
+                <td th:text="${qna.qnaWriteDate}"></td>
+            </tr>
+        </table>
+        </div>
+        <div class="page-content-bottom">
+            <div id="pageNavi" th:utext="${pageNavi}"></div>
+        </div>
+    </div>
                     </div>
                 </div>
             </div>

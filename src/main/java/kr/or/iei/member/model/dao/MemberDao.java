@@ -7,10 +7,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import kr.or.iei.member.model.vo.Member;
-import kr.or.iei.member.model.vo.MemberListData;
 import kr.or.iei.member.model.vo.MemberFacilityFavoriteRowMapper;
 import kr.or.iei.member.model.vo.MemberProductPayRowMapper;
 import kr.or.iei.member.model.vo.MemberRowMapper;
+import kr.or.iei.qna.model.vo.QnaRowMapper;
 
 @Repository
 public class MemberDao {
@@ -23,7 +23,8 @@ public class MemberDao {
 	private MemberProductPayRowMapper memberProductPayRowMapper;
 	@Autowired
 	private MemberFacilityFavoriteRowMapper memberFacilityFavoriteRowMapper;
-
+	@Autowired
+	private QnaRowMapper qnaRowMapper;
 	
 	public Member selectOneMember(String signId, String signPw) {
 		String query = "select * from member where member_id = ? and member_pw = ?";
@@ -125,6 +126,19 @@ public class MemberDao {
 		String query = "select * from (select rownum as rnum, n.* from (select * from member join favorite on (member_no = favorite_member_no) join facility on (favorite_facility_no = facility_no) where member_no = ?) n) where rnum between ? and ?";
 		List list = jdbc.query(query, memberFacilityFavoriteRowMapper, memberNo, startNum, endNum);
 		return list;
+	}
+
+	public List myQna(int start, int end, int memberNo) {
+		// TODO Auto-generated method stub
+		String query = "select * from (select rownum as rnum , n.* from (select * from qna join member on (member.member_no = qna.qna_writer) order by 1 desc)n)where (rnum between ? and ?) and qna_writer = ?";
+		List qnaList = jdbc.query(query, qnaRowMapper, start, end, memberNo);
+		return qnaList;
+	}
+
+	public int selectQnaTotalNum(int memberNo) {
+		String query = "select count(*) from qna where qna_writer = ?";
+		int totalNum = jdbc.queryForObject(query, Integer.class, memberNo);
+		return totalNum;
 	}
 }	
 
