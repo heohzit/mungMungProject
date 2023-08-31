@@ -16,10 +16,10 @@
                 <a th:if="${session.m != null && session.m.memberLevel == 1}" href="/facility/insertFrm" class="btn bc1">등록하기</a>
             </div>
             <div>
-                <form action="/facility/searchTourList">
+                <form action="/facility/searchTourList" method="get">
                     <input type="text" class="input-form1" name="searchName" id="sch1" placeholder="검색어를 입력하세요.">
                     <input type="hidden" name="reqPage" value="1">
-                    <button type="button" class="btn bc1" id="searchBtn">검색</button>
+                    <button type="submit" class="btn bc1" id="searchBtn">검색</button>
                 </form>
             </div>
         </div>
@@ -51,6 +51,7 @@
     <th:block th:include="common/mung_footer"></th:block>
     <script>
     $("#searchBtn").on("click",function(){
+    	$("#reqPage").val(1);
 		if($("#sch1").val()==""){
 		      alert("검색어를 입력하세요.");
 		      return false;

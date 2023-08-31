@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
+	// 자원위치 관리
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/**")
@@ -39,4 +40,14 @@ public class WebConfig implements WebMvcConfigurer {
 	}
 
 
+	// 인터셉터 관리
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new LoginInterceptor())
+				.addPathPatterns("/member/**")
+				.excludePathPatterns("/member/signup","/member/login","/member/signin","/member/searchId","/member/searchPw");
+		
+		registry.addInterceptor(new AdminInterceptor())
+				.addPathPatterns("/member/admin","/member/cancelManage");
+	}
 }
