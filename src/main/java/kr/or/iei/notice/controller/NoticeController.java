@@ -116,7 +116,7 @@ public class NoticeController {
 			model.addAttribute("loc", "/notice/list?reqPage=1");
 		} else {
 			model.addAttribute("title", "삭제실패");
-			model.addAttribute("msg", "관리자에게 문의하세요");
+			model.addAttribute("msg", "관리자에게 문의하세요.");
 			model.addAttribute("icon", "error");
 			model.addAttribute("loc", "/notice/view?noticeNo="+noticeNo);		
 		}
@@ -142,7 +142,7 @@ public class NoticeController {
 			model.addAttribute("icon", "success");					
 		}else {
 			model.addAttribute("title", "수정실패");
-			model.addAttribute("msg", "관리자에게 문의하세요");
+			model.addAttribute("msg", "관리자에게 문의하세요.");
 			model.addAttribute("icon", "error");	
 		}
 		model.addAttribute("loc","/notice/view?noticeNo="+n.getNoticeNo());
