@@ -711,3 +711,14 @@ background: linear-gradient(180deg, rgba(78,146,240,0.896796218487395) 0%, rgba(
 .posting-comment > li:last-child > .comment-link > a:hover {
   text-decoration: underline;
 }
+
+
+.error-content{
+    width: 600px;
+    margin: 100px auto;
+    text-align: center;
+}
+.error-img{
+	width: 50px;
+    margin-bottom: 10px;
+}
