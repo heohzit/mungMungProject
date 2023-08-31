@@ -22,12 +22,26 @@
 .footer_text{
     width: 1200px;
     margin: 0 auto;
+    overflow: hidden;
 }
 .footer_text>ul>li{
     padding: 8px;
     font-size: 17px;
     font-weight: 500;
-    color: gray;
+    color: #ccc;
+}
+.footer_text_div{
+	width: 600px;
+	float: left;
+	text-align: center;
+	font-size: 18px;
+}
+.footer_text_div a>span:hover{
+	font-weight: 100px;
+}
+.footer_text_div1{
+	width: 600px;
+	float: left;
 }
 .footer_logo{
     background-color: rgb(1,50,131);
@@ -47,7 +61,29 @@
 .footer_logo_wrap>a>span{
     font-size: 50px;
     color: aliceblue;
-    font-family: KOTRAHOPE;
+    font-family: Recipekorea;
     padding-left: 10px;
     text-align: left;
+    letter-spacing: -4px;
+}
+.footer_logo_wrap>a>span>span{
+    font-size: 60px;
+    color: rgb(1, 78, 200);
+    font-family: strawberry;
+    padding-left: 10px;
+    text-align: left;
+    letter-spacing: -8px;
+}
+
+.logo>a>span{
+    color: rgb(1,50,131);
+    font-family: Recipekorea;
+    font-size: 50px;
+    letter-spacing: -4px;
+}
+.logo>a>span>span{
+    color: rgb(1, 78, 200);
+    font-family: strawberry;
+    font-size: 65px;
+    letter-spacing: -8px;
 }

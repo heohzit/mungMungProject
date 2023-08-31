@@ -4,14 +4,10 @@
 <meta charset="UTF-8">
 <title>커뮤니티 상세보기</title>
 <link rel="stylesheet" href="../css/noticeList.css">
-<script src="/js/jquery-3.6.0.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <th:block th:include="common/mung_header"></th:block>
-<link rel="stylesheet" href="/summernote/summernote-lite.css">
-<script src="/summernote/summernote-lite.js"></script>
-<script src="/summernote/lang/summernote-ko-KR.js"></script>
     <div class="page-content">
     	<div class="page-title">
         	<h1>멍멍 커뮤니티</h1>
@@ -47,8 +43,8 @@
 		</div>
 		
 		<!-- 댓글입력 -->
-		<div style="border-bottom: 2px solid rgb(1,50,131);">
-			<h3 style="margin-bottom: 10px;"><img src="../img/board/icon-dog.png" style="width: 50px;">의견을 남겨주세요.</h3>
+		<div style="border-bottom: 2px solid rgb(1, 78, 200);">
+			<h3><img src="../img/board/icon-dog.png" style="width: 50px;">의견을 남겨주세요.</h3>
 		</div>
 		<div class="inputCommentBox" th:if="${session.m != null}">
 			<form action="/board/insertComment" method="post">
@@ -81,9 +77,9 @@
 							<span th:text="${cl.boardCommentWriteDate}"></span>
 						</p>
 						<p class="comment-content" th:utext="${cl.boardCommentContent}"></p>
-						<textarea name="boardCommentContent" id="boardCommentContent" class="input-form" 
+						<textarea  name="boardCommentContent" id="boardCommentContent" class="input-form" 
 									style="min-height:96px;display:none;" 
-									th:utext="${cl.boardCommentContent}"></textarea>
+									th:text="${cl.boardCommentContent}"></textarea>
 						<p class="comment-link"> 
 							<th:block th:if="${session.m!=null}">
 								<th:block th:if="${session.m.memberId==cl.memberId}">
@@ -107,10 +103,10 @@
 								<span th:text="${rcl.memberId}"></span>				
 								<span th:text="${rcl.boardCommentWriteDate}"></span>
 							</p>
-							<p class="comment-content" th:utext="${rcl.boardCommentContent}"></p>
+							<p class="comment-content" th:text="${rcl.boardCommentContent}"></p>
 							<textarea name="boardCommentContent" id="boardCommentContent" class="input-form" 
 									style="min-height:96px;display:none;" 
-									th:utext="${rcl.boardCommentContent}"></textarea>
+									th:text="${rcl.boardCommentContent}"></textarea>
 							<p class="comment-link">
 							<th:block th:if="${session.m!=null}">
 								<th:block th:if="${session.m.memberId==rcl.memberId}">
@@ -153,24 +149,7 @@
 
 </style>
 <script>
-	$("#boardCommentContent").summernote({
-		height : 200,
-		maxHeight: 100,
-		minHeight: 100,
-		lang :"ko-KR",
-		disableResize: true,            // Does not work
-	    disableResizeEditor: true,      // Does not work either
-	    resize: false,         
-		toolbar: false,
-		callbacks :{
-			onImageUpload : function(files){
-				uploadImage(files[0],this);
-			}
-		}
-	});
-    $('.note-resizebar').hide();
-    $('.note-statusbar').hide();
-	
+
 	//대댓글 보이기
 	$(".reCommentShow").on("click",function(){
 		const index = $(".reCommentShow").index(this);
@@ -214,6 +193,7 @@
 		const boardNoInput = $("<input type='text' name='boardNo'>");
 		boardNoInput.val(boardNo);
 		const textArea = $(obj).parent().prev().clone();
+		console.log(textArea)
 		form.append(commentNoInput).append(boardNoInput).append(textArea);
 		$("body").append(form);
 		form.submit();

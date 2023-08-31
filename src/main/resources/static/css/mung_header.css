@@ -557,10 +557,12 @@ float: left;
     text-decoration: none;
     font-size: 19px;
     font-family: GangwonState;
+    transition: all 0.2s;
 }
 .navi ul>li>a:hover{
     background-color: rgb(1,59,157); /*서브메뉴 호버 시 변경*/
     color: aliceblue;
+    font-size: 20px;
 }
 .navi>ul>li{
     float: left;
