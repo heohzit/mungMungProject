@@ -23,17 +23,23 @@
         <table class="insert-table" style="width: 100%">
             <tr class="tr-2">
                 <th style="width: 7%;">번호</th>
-                <th style="width: 50%;">제목</th>
+                <th style="width: 10%;">유형</th>
+                <th style="width: 10%;">답변</th>
+                <th style="width: 40%;">제목</th>
                 <th style="width: 10%;">작성자</th>
-                <th style="width: 7%;">답변</th>
+                
                 <th style="width: 15%;">등록일</th>
             </tr>
             <tr th:each="qna : ${qnaList}" class="tr-1">
                 <td th:text="${qna.qnaNo}"></td>
-                <td style="text-align: left;"><a th:href="@{/qna/view(qnaNo=${qna.qnaNo})}" th:text="${qna.qnaTitle}"></a></td>
-                <td th:text="${qna.memberId}"></td>
+                <td th:if="${qna.qnaCase == 1}">예약/취소</td>
+                <td th:if="${qna.qnaCase == 2}">패키지상품</td>
+                <td th:if="${qna.qnaCase == 3}">기타</td>
                 <td th:if="${qna.qnaAnswerCase == 1}">미답변</td>
                 <td th:if="${qna.qnaAnswerCase == 2}">답변완료</td>
+                <td style="text-align: left;"><a th:href="@{/qna/view(qnaNo=${qna.qnaNo})}" th:text="${qna.qnaTitle}"></a></td>
+                <td th:text="${qna.memberId}"></td>
+                
                 <td th:text="${qna.qnaWriteDate}"></td>
             </tr>
         </table>
