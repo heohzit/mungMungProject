@@ -587,16 +587,16 @@ float: left;
 }
 .sub>li>a:hover{
 	background-color: rgb(1, 78, 200); /*이거 뭐지?*/
-
 }
 .navi>ul>li:hover>a{
     background-color: rgb(1,50,131); /*헤더메뉴 호버 시 변경*/
-
-    color: aliceblue;
+    color: white;
 }
+
 .navi>ul>li:hover>a+.sub{
     display: block;
 }
+
 /****************************************************/
 
 .color-head{

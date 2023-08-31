@@ -69,7 +69,7 @@
 		
 		<!-- 답변불러오기 -->
 		<div class="inputCommentBox" th:if="${q.qnaAnswerCase==2}" style="width: 100%; margin: 0">
-			<div style="border-bottom: 2px solid rgb(1, 78, 200);">
+			<div style="border-bottom: 2px solid rgb(1,50,131);">
 			<h3><img src="../img/board/icon-dog.png" style="width: 50px;"> 답변</h3>
 			</div>
 			<ul style="margin-top: 50px;">
@@ -78,7 +78,7 @@
 				</li>
 				<li style="width: 100%">
 					<input type="hidden" name="qnaNo" th:value="${q.qnaNo}">
-					<div th:utext="${q.qnaAnswer}" class="input-form" style="min-height: 150px; background-color: white;box-shadow: 3px 3px 3px #ccc;"></div>
+					<div th:utext="${q.qnaAnswer}" class="input-form" style="min-height: 150px; background-color: white;"></div>
 				</li>
 			</ul>	
 		</div>
