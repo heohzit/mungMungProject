@@ -33,7 +33,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" style="text-align:left;">
                         <input style="display: none;" type="file" name="upfile" multiple>
                         <textarea id="noticeContent" name="noticeContent" th:utext="${n.noticeContent}"></textarea>
                     </td>
@@ -48,7 +48,8 @@
     <th:block th:include="common/mung_footer"></th:block>
     <script>
     $("#noticeContent").summernote({
-		height : 800,
+    	height : 545,
+		disableResizeEditor: true,
 		lang :"ko-KR",
 		callbacks :{
 			onImageUpload : function(files){
