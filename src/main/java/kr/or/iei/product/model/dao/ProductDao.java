@@ -16,9 +16,9 @@ public class ProductDao {
 	@Autowired
 	private ProductRowMapper productRowMapper;
 	
-	public List selectProductList() {
-	String query = "select * from product order by 1 desc";
-	List list = jdbc.query(query, productRowMapper);
+	public List selectProductList(int start, int end) {
+	String query = "select * from (select rownum as rnum , n.* from (select * from product order by 1 desc)n)where rnum between ? and ?";
+	List list = jdbc.query(query, productRowMapper, start, end);
 		return list;
 	}
 
@@ -47,6 +47,18 @@ public class ProductDao {
 		Object[] params = {p.getProductName(),p.getProductContent(),p.getProductPrice(),p.getProductStock(),p.getProductStart(),p.getProductEnd(),p.getProductDay(),p.getProductFilepath(),p.getProductNo()};
 		int result = jdbc.update(query,params);
 		return result;
+	}
+
+	public int selectProductTotalNum() {
+		String query = "select count(*) from product";
+		int totalNum = jdbc.queryForObject(query, Integer.class);
+		return totalNum;
+	}
+
+	public List selectProductList() {
+		String query = "select * from product order by 1 desc";
+		List list = jdbc.query(query, productRowMapper);
+		return list;
 	}
 
 }

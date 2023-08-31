@@ -23,7 +23,7 @@
 						<li th:each="product : ${productList}" class="mid-list">
                      		<a th:href="@{/product/view(productNo=${product.productNo})}">
                         		<div class="list-img-box">
-                            		<img th:src="'/productmain/'+${product.productFilepath}"><!-- 이미지크기는 250*250 -->
+                            		<img th:src="'/productmain/'+${product.productFilepath}">
                         		</div>
                         		<div class="list-text-box">
                             		<h3 th:text="${product.productName}"></h3>
@@ -32,6 +32,9 @@
                  		</li>
 					</ul>
 				</div>
+				<div class="page-content-bottom">
+            <div id="pageNavi" th:utext="${pageNavi}"></div>
+        </div>
 			</div>
 	
 	<th:block th:include="common/mung_footer"></th:block>
