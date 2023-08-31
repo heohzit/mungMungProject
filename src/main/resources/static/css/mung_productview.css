@@ -121,6 +121,7 @@ position: absolute;
     background-color: rgb(1, 50, 131);
     color: white;
     border-radius: 5px;
+    cursor: pointer;
 }
 /* ****************썸머노트 영역 및 관리자용 삭제 수정********************* */
 .productview-main{
@@ -165,7 +166,7 @@ position: absolute;
     height: 40px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(1, 70, 200);
+    background-color: rgb(1, 50, 131);
     color: white;
     cursor: pointer;
 }
