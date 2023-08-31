@@ -30,7 +30,7 @@
             </tr>
             <tr th:each="qna : ${qnaList}" class="tr-1">
                 <td th:text="${qna.qnaNo}"></td>
-                <td><a th:href="@{/qna/view(qnaNo=${qna.qnaNo})}" th:text="${qna.qnaTitle}"></a></td>
+                <td style="text-align: left;"><a th:href="@{/qna/view(qnaNo=${qna.qnaNo})}" th:text="${qna.qnaTitle}"></a></td>
                 <td th:text="${qna.memberId}"></td>
                 <td th:if="${qna.qnaAnswerCase == 1}">미답변</td>
                 <td th:if="${qna.qnaAnswerCase == 2}">답변완료</td>
