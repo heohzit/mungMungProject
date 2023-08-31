@@ -33,14 +33,28 @@
 .footer_text_div{
 	width: 600px;
 	float: left;
-	text-align: center;
 	font-size: 18px;
-	padding-top: 40px;
+
 }
 .footer_text_div a>span:hover{
-	font-weight: 900;
-	font-size:20px;
+	font-weight: 100px;
+	padding-top: 40px;
+	text-align: right;
+	
 }
+.footer_text_div1>ul>li{
+	color: gray;
+}
+
+.footer_text_div a>span{
+	width: 150px;
+	font-family: cafe-24;
+}
+.footer_text_div a>span:hover{
+	font-size: 19px;
+	padding-top: 40px;
+}
+
 .footer_text_div1{
 	width: 600px;
 	float: left;
