@@ -104,7 +104,7 @@ public class ProductController {
 			model.addAttribute("loc", "/product/list?reqPage=1");
 		}else {
 			model.addAttribute("title", "삭제실패");
-			model.addAttribute("msg", "이미 삭제된 글이거나 삭제 할 수 없는 글입니다");
+			model.addAttribute("msg", "이미 삭제된 글이거나 삭제 할 수 없는 글입니다.");
 			model.addAttribute("icon", "error");
 			model.addAttribute("loc", "/notice/view?productNo="+productNo);	
 		}
@@ -135,11 +135,11 @@ public class ProductController {
 		int result = productService.updateProduct(p);
 		if(result>0) {
 			model.addAttribute("title", "수정완료");
-			model.addAttribute("msg", "패키지가 수정되었습니다");
+			model.addAttribute("msg", "패키지가 수정되었습니다.");
 			model.addAttribute("icon", "success");	
 		}else {
 			model.addAttribute("title", "수정실패");
-			model.addAttribute("msg", "수정에 실패하였습니다 ");
+			model.addAttribute("msg", "수정에 실패하였습니다. ");
 			model.addAttribute("icon", "error");
 		}
 		model.addAttribute("loc", "/product/view?productNo="+p.getProductNo());
