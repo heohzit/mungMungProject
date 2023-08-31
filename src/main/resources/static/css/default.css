@@ -120,12 +120,12 @@ body {
     cursor: pointer;
 }
 .bc11 {
-  color: rgba(37, 42, 52, 1);
+  color: rgb(1,50,131);
   background-color: #fff;
-  border: 2px solid rgba(37, 42, 52, 1) !important;
+  border: 2px solid rgb(1,50,131) !important;
 }
 .bc11:hover {
-  background-color: rgba(37, 42, 52, 1);
+  background-color: rgb(1,50,131);
   cursor: pointer;
   color: #fff;
 }
