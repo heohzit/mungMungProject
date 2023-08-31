@@ -12,6 +12,7 @@ import kr.or.iei.member.model.vo.FavoriteListData;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberFacilityFavorite;
 import kr.or.iei.member.model.vo.MemberListData;
+import kr.or.iei.member.model.vo.ReservationListData;
 import kr.or.iei.qna.model.vo.QnaListData;
 
 @Service
@@ -127,9 +128,70 @@ public class MemberService {
 		Member m = memberDao.selectMemberByIdAndEmail(memberId, memberEmail);
 		return m;
 	}
-	public List selectOneMpp(int memberNo) {
-		List list = memberDao.selectOneMpp(memberNo);
-		return list;
+	public ReservationListData selectOneMpp(int memberNo, int reqPage) {
+		int numPerPage = 10;
+		int endNum = reqPage * numPerPage;
+		int startNum = endNum - numPerPage + 1;
+		List list = memberDao.selectOneMpp(memberNo, startNum, endNum);
+		
+		int totalList = memberDao.selectOneMppTotalCount(memberNo);
+
+		int totalPage = totalList / numPerPage;
+
+		if(totalList % numPerPage != 0) {
+			totalPage += 1;
+		}
+
+		int pageNaviSize = 5;
+
+		int pageNo = ((reqPage - 1) / pageNaviSize) * pageNaviSize + 1;
+		
+		String pageNavi = "<ul class='pagination'>";
+		// 페이지 내비게이션 번호가 1이 아닌 경우에만 이전버튼 활성화
+		if(pageNo != 1) {
+			pageNavi += "<li>";
+			pageNavi += "<a class='page-btn' href='/member/myReservation?memberNo="+memberNo+"&reqPage="+(pageNo-1)+"'>";
+			pageNavi += "<span class='material-icons'>arrow_back_ios_new</span>";
+			pageNavi += "</a>";
+			pageNavi += "</li>";
+		}
+		// 페이지 내비게이션 숫자버튼 제작
+		// 요청페이지와 페이지 내비게이션 번호가 같은 경우만 css활성화
+		// 페이지 내비게이션 번호가 총 페이지 수보다 크면 반복문 종료
+		for(int i = 0; i < pageNaviSize; i++) {
+			if(pageNo == reqPage) {
+				pageNavi += "<li>";
+				pageNavi += "<a class='page-btn select-page' href='/member/myReservation?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
+				pageNavi += pageNo;
+				pageNavi += "</a>";
+				pageNavi += "</li>";
+			}else {
+				pageNavi += "<li>";
+				pageNavi += "<a class='page-btn' href='/member/myReservation?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
+				pageNavi += pageNo;
+				pageNavi += "</a>";
+				pageNavi += "</li>";
+			}
+			pageNo++;
+			if(pageNo > totalPage) {
+				break;
+			}
+		}
+		
+		// 페이지 내비게이션 번호가 총 페이지 수보다 크지 않은 경우만 다음버튼 활성화
+		if(pageNo <= totalPage) {
+			pageNavi += "<li>";
+			pageNavi += "<a class='page-btn' href='/member/myReservation?memberNo="+memberNo+"&reqPage="+pageNo+"'>";
+			pageNavi += "<span class='material-icons'>arrow_forward_ios</span>";
+			pageNavi += "</a>";
+			pageNavi += "</li>";
+		}
+		
+		pageNavi += "</ul>";
+		
+		ReservationListData rld = new ReservationListData(list, pageNavi);
+		
+		return rld;
 	}
 
 	public List selectAllMpp() {
