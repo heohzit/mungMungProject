@@ -70,7 +70,7 @@
             	<div class="tour-title wrap-flex">
                     <span th:text="${f.facilityName}"></span>
                     <!-- th:if="${f.favorite!=null && session.m!=null}"-->
-                    <span class="material-icons flex-left wish" th:if="${session.m==null}">turned_in_not</span>
+                    <span class="material-icons flex-left wish" th:if="${session.m==null}" onclick="alert('로그인 후 사용 가능합니다.');">turned_in_not</span>
                     <span class="material-icons flex-left wish" th:if="${f.favorite==0 && session.m!=null}" th:onclick="wish(this,[[${session.m.memberNo}]],[[${f.facilityNo}]]);">turned_in_not</span>
                 	<span class="material-icons flex-left wish" th:if="${f.favorite==1 && session.m!=null}" th:onclick="delWish(this,[[${session.m.memberNo}]],[[${f.facilityNo}]]);">turned_in</span>
                 </div>

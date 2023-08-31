@@ -118,8 +118,8 @@ position: absolute;
     font-weight: bold;
     width: 120px;
     height: 40px;
-    background-color: rgb(1, 78, 200);
-    color: aliceblue;
+    background-color: rgb(1, 50, 131);
+    color: white;
     border-radius: 5px;
 }
 /* ****************썸머노트 영역 및 관리자용 삭제 수정********************* */
@@ -149,8 +149,8 @@ position: absolute;
     height: 40px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(1, 78, 200);
-    color: aliceblue;
+    background-color: rgb(1, 50, 131);
+    color: white;
     cursor: pointer;
 }
 .productview-update{
@@ -165,7 +165,7 @@ position: absolute;
     height: 40px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(78, 146, 240);
-    color: lightslategray;
+    background-color: rgb(1, 70, 200);
+    color: white;
     cursor: pointer;
 }
