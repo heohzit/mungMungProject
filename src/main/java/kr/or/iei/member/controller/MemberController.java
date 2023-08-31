@@ -203,4 +203,20 @@ public class MemberController {
 		model.addAttribute("cancelList", list);
 		return "/member/cancelManage";
 	}
+	
+	@GetMapping(value = "/loginMsg")
+	public String loginMsg(Model model) {
+		model.addAttribute("title", "로그인 필요");
+		model.addAttribute("msg", "로그인이 필요합니다.");
+		model.addAttribute("loc", "/");
+		return "common/msg";
+	}
+	
+	@GetMapping(value = "/adminMsg")
+	public String adminMsg(Model model) {
+		model.addAttribute("title", "관리자 페이지");
+		model.addAttribute("msg", "관리자 권한이 필요합니다.");
+		model.addAttribute("loc", "/");
+		return "common/msg";
+	}
 }
