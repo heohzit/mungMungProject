@@ -559,7 +559,7 @@ float: left;
     font-family: GangwonState;
 }
 .navi ul>li>a:hover{
-    background-color: rgb(1, 78, 200); /*서브메뉴 호버 시 변경*/
+    background-color: rgb(1,59,157); /*서브메뉴 호버 시 변경*/
     color: aliceblue;
 }
 .navi>ul>li{
