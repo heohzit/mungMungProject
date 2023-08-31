@@ -20,6 +20,7 @@ import kr.or.iei.member.model.service.MemberService;
 import kr.or.iei.member.model.vo.FavoriteListData;
 import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.member.model.vo.MemberListData;
+import kr.or.iei.member.model.vo.ReservationListData;
 import kr.or.iei.qna.model.vo.QnaListData;
 
 @Controller
@@ -111,9 +112,10 @@ public class MemberController {
 		return "member/myFavorite";
 	}
 	@GetMapping(value="/myReservation")
-	public String myReservation(int memberNo, Model model) {
-		List list = memberService.selectOneMpp(memberNo);
-		model.addAttribute("mppList", list);
+	public String myReservation(int memberNo, int reqPage, Model model) {
+		ReservationListData rld = memberService.selectOneMpp(memberNo, reqPage);
+		model.addAttribute("mppList", rld.getFavoriteList());
+		model.addAttribute("pageNavi", rld.getPageNavi());
 		return "member/myReservation";
 	}
 	@GetMapping(value="/myBoard")
@@ -153,7 +155,10 @@ public class MemberController {
 	public String delete(Model model, @SessionAttribute(required = false)Member m) {
 		 int result = memberService.deleteMember(m.getMemberNo());
 		 if(result>0) {
-			return "redirect:/member/logout";
+			model.addAttribute("title", "회원탈퇴 완료");
+			model.addAttribute("msg", "회원탈퇴가 완료되었습니다.");
+			model.addAttribute("loc", "/");
+			return "common/msg";
 		}else {
 			model.addAttribute("title", "회원탈퇴 실패");
 			model.addAttribute("msg", "마이페이지로 이동합니다.");
