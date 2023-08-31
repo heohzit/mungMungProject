@@ -101,7 +101,7 @@ public class ProductController {
 			model.addAttribute("title", "삭제완료");
 			model.addAttribute("msg", "패키지가 삭제되었습니다.");
 			model.addAttribute("icon", "success");
-			model.addAttribute("loc", "/product/list");
+			model.addAttribute("loc", "/product/list?reqPage=1");
 		}else {
 			model.addAttribute("title", "삭제실패");
 			model.addAttribute("msg", "이미 삭제된 글이거나 삭제 할 수 없는 글입니다");
