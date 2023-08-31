@@ -44,7 +44,7 @@ public class PayController {
 		model.addAttribute("title", "결제 성공");
 		model.addAttribute("msg", "결제가 완료되었습니다.");
 		model.addAttribute("icon", "success");
-		model.addAttribute("loc", "/product/list");
+		model.addAttribute("loc", "/product/list?reqPage=1");
 		return "common/msg";
 	}
 	
@@ -53,7 +53,7 @@ public class PayController {
 		model.addAttribute("title", "결제 실패");
 		model.addAttribute("msg", "결제가 실패했습니다. 잠시 후 다시 시도해주세요.");
 		model.addAttribute("icon", "error");
-		model.addAttribute("loc", "/product/list");
+		model.addAttribute("loc", "/product/list?reqPage=1");
 		return "common/msg";
 	}
 	
