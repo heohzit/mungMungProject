@@ -52,8 +52,9 @@
 }
 .footer_text_div a>span:hover{
 	font-size: 19px;
->>>>>>> Stashed changes
+	padding-top: 40px;
 }
+
 .footer_text_div1{
 	width: 600px;
 	float: left;
