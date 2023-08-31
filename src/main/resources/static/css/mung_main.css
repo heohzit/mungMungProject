@@ -59,6 +59,7 @@
     text-align: center;
     border-radius:3%;
     height:700px;
+    min-width: 1900px;
     display: flex;
     justify-content: center;
     align-items: center;
