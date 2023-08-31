@@ -153,7 +153,10 @@ public class MemberController {
 	public String delete(Model model, @SessionAttribute(required = false)Member m) {
 		 int result = memberService.deleteMember(m.getMemberNo());
 		 if(result>0) {
-			return "redirect:/member/logout";
+			model.addAttribute("title", "회원탈퇴 완료");
+			model.addAttribute("msg", "회원탈퇴가 완료되었습니다.");
+			model.addAttribute("loc", "/");
+			return "common/msg";
 		}else {
 			model.addAttribute("title", "회원탈퇴 실패");
 			model.addAttribute("msg", "마이페이지로 이동합니다.");
