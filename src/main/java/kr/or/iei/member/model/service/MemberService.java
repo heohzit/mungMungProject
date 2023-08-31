@@ -51,7 +51,7 @@ public class MemberService {
 	}
 	public MemberListData selectAllMember(int reqPage) {
 		// 1. 한 페이지당 게시물 수 설정
-		int numPerPage = 15;
+		int numPerPage = 10;
 		// 게시물을 DB에서 조회 후 가져옴
 		int endNum = reqPage * numPerPage;
 		int startNum = endNum - numPerPage + 1;

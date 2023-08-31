@@ -155,11 +155,11 @@ public class MemberController {
 		 if(result>0) {
 			return "redirect:/member/logout";
 		}else {
-			model.addAttribute("title", "로그아웃 실패");
+			model.addAttribute("title", "회원탈퇴 실패");
 			model.addAttribute("msg", "마이페이지로 이동합니다.");
 			model.addAttribute("loc", "/member/mypage");	
+			return "common/msg";
 		}
-		 return "common/msg";
 	}
 	
 	@GetMapping(value="/admin")
