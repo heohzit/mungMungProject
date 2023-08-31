@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import kr.or.iei.FileUtil;
 import kr.or.iei.product.model.service.ProductService;
 import kr.or.iei.product.model.vo.Product;
+import kr.or.iei.product.model.vo.ProductListData;
 
 @Controller
 @RequestMapping(value = "/product")
@@ -29,9 +30,10 @@ public class ProductController {
 		private FileUtil fileUtil;
 	
 	@GetMapping(value = "/list")//패키지 리스트
-	public String productList(Model model) {
-		List productList = productService.selectProductList();
-		model.addAttribute("productList", productList);
+	public String productList(int reqPage ,Model model) {
+		ProductListData pld = productService.selectProductList(reqPage);
+		model.addAttribute("productList", pld.getProductList());
+		model.addAttribute("pageNavi", pld.getPageNavi());
 		return "product/productList";
 	}
 	
@@ -55,7 +57,7 @@ public class ProductController {
 		}
 		int result = productService.insertProduct(p);
 		if(result>0) {
-			return "redirect:/product/list";
+			return "redirect:/product/list?reqPage=1";
 		}else {
 			return "product/writeFrm";
 		}
