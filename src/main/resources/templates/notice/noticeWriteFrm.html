@@ -43,7 +43,8 @@
     <th:block th:include="common/mung_footer"></th:block>
     <script>
     $("#noticeContent").summernote({
-		height : 800,
+		height : 500,
+		disableResizeEditor: true,
 		lang :"ko-KR",
 		callbacks :{
 			onImageUpload : function(files){

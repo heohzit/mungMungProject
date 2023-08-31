@@ -17,17 +17,24 @@
     height: 45px;
     line-height: 45px;
     text-align: center;
-    background-color: rgb(78, 146, 240);
+    background-color: #fff;
     cursor: pointer;
     font-size: 16px;
+    border: 2px solid rgb(1,50,131);
+    box-sizing: border-box;
+    border-radius: 20px;
 }
-.tabs li {
-    color: #fff;
+.tabs-title{
     display: inline-block;
+    color: rgb(1,50,131);
 }
-.tabs .active-tab{
-    background-color: rgb(1, 78, 200);
+.tabs>a.active-tab{
+    background-color: rgb(1,50,131);
 }
+.tabs>a.active-tab>li{
+    color: #fff;
+}
+
 
 
 .content-wrap {
@@ -58,7 +65,7 @@
     box-sizing: border-box;
 }
 .member-info{
-	width: 95%;
+	width: 400px;
 	margin: 0 auto;
 }
 .updatebtn{
@@ -95,32 +102,28 @@ td {
 .booking-list>table {
     margin: 0 auto;
     width: 100%;
-    border: 2px solid #cbcbcb;
     font-family: ns-m;
     border-collapse: collapse;
-
+    box-shadow: 3px 3px 3px #ccc;
 }
 
 .booking-list>table th {
-    border: 1px solid #cbcbcb;
-    background-color: lightgray;
-
+    background-color: rgb(243,244,248);
+    padding: 1rem 0.5rem;
 }
 
 .booking-list>table td {
-    border: 1px solid #cbcbcb;
     padding: 0.5rem;
     border-collapse: collapse;
 }
 
 .booking-list>table:first-child>tr {
     text-align: center;
-
 }
 
 .booking-list>table tr {
     text-align: center;
-
+    border-bottom: 1px solid #ccc;
 }
 
 .booking-list img {

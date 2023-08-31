@@ -325,7 +325,7 @@ textarea.input-form {
     line-height: 40px;
 }
 .select-page{
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131);
     color: #fff;
 }
 
@@ -387,14 +387,15 @@ textarea.input-form {
     margin: 0 auto;   
     text-align: center;
     border: none;
-    box-sizing: border-box;
-    transition-duration: 0.5s;    
-    background-color: rgb(78, 146, 240);
-    color: #fff;
+    box-sizing: border-box;   
+    background-color: #fff;
+    color: rgb(1,50,131);
     cursor: pointer;
+    border: 2px solid rgb(1,50,131);
+    border-radius: 20px;
 }
 .page-content-top>.admin-page-select>a.admin-page-active-tab{
-    background-color: rgb(1, 78, 200);
+    background-color: rgb(1,50,131);
     color: #fff;  
 }
 
@@ -402,6 +403,7 @@ textarea.input-form {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 50px;
+    box-shadow: 3px 3px 3px #ccc;
 }
 .admin-tbl tr{
     border-bottom: 1px solid #ccc;
@@ -410,7 +412,7 @@ textarea.input-form {
     border: none;
 }
 .admin-tbl th{
-    background-color: #eee;
+    background-color: rgb(243,244,248);
     padding: 1rem 0.5rem;
 }
 .admin-tbl td{
@@ -491,7 +493,6 @@ input[name=daterange]{
     margin: 0 auto;    
     text-align: center;
     overflow: hidden;
-    height: 140px;
 }
 .logo{
 width: 100%;
