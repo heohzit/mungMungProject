@@ -72,11 +72,9 @@
     width: 800px;
     height: 59px;
     font-size: 18px;
-    padding-left: 20px;
     border: none;
-    border-bottom: 1px solid lightgray;
     outline: none;
-    line-height: 3px;
+
 }
 .pcw-0{
     width: 400px;

@@ -17,12 +17,10 @@
 			<!-- 전체를 감싸는  -->
     <div class="productwrite-wrap">
         <div class="write-content">
-            <table class="insert-product">
+            <table class="insert-table">
                 <tr>
                     <th>
-                        <div class="pcw">
                             <label for="productName">패키지 이름</label>
-                        </div>
                     </th>
                     <td>
                     	<input type="hidden" name="productNo" th:value="${p.productNo}">
@@ -31,9 +29,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <div class="pcw">
                             <label for="productPrice">패키지 가격</label>
-                        </div>
                     </th>
                     <td>
                         <input type="text" name="productPrice" id="productPrice" class="pci" th:value="${p.productPrice}">
@@ -41,9 +37,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <div class="pcw">
-                            <label for="productStart">예약 가능 시작일</label>
-                        </div>
+                            <label for="productStart">여행 선택 시작일</label>
                     </th>
                     <td>
                         <input type="date" min="2023-09-01" max="2024-09-01" name="productStart" id="productStart" class="pci" th:value="${p.productStart}">
@@ -51,9 +45,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <div class="pcw">
-                            <label for="productEnd">예약 가능 마감일</label>
-                        </div>
+                            <label for="productEnd">여행 선택 마감일</label>
                     </th>
                     <td>
                         <input type="date" min="2023-09-01" max="2024-09-01" name="productEnd" id="productEnd" class="pci"  th:value="${p.productEnd}">
@@ -61,9 +53,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <div class="pcw">
-                            <label for="productDay">패키지 기간일</label>
-                        </div>
+                            <label for="productDay">여행 일정</label>
                     </th>
                     <td>
                         <input type="number" name="productDay" id="productDay" class="pci" th:value="${p.productDay}">
@@ -71,9 +61,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <div class="pcw">
                             <label for="productStock">패키지 재고 수량</label>
-                        </div>
                     </th>
                     <td>
                         <input type="number" name="productStock" id="productStock" class="pci"  th:value="${p.productStock}">
@@ -81,11 +69,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <div class="pcw">
                             <label for="productUpdateImg">패키지 썸네일 </label>
-                    <span>(이미지 크기는 250*250만 가능합니다 )</span>
-                            
-                        </div>
                     </th>
                     <td>
                         <input type="file" name="productUpdateImg" id="productUpdateImg" class="pci" accept=".jpg,.png,.jpeg"  th:value="${p.productFilepath}">
@@ -94,9 +78,7 @@
                 </tr>
                 <tr>
                     <th>
-                        <div class="pcw-0">
                             <label for="productContent">패키지 내용</label>
-                        </div>
                     </th>
                     <td>
            
