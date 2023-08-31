@@ -98,4 +98,13 @@
     border-radius: 10px;
 }
 
-
+/**************패키지 품절시 ******************/
+.mid-list-soldout{
+	width: calc((100% / 4) - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+    float: left;
+    height: 300px;
+    background: lightgray;
+    opacity: 0.5;
+}

@@ -107,9 +107,9 @@ public class MemberDao {
 		return (Member)list.get(0);
 	}
 
-	public List selectOneMpp(int memberNo) {
-		String query = "select * from member join pay on (member_no = pay_member_no) join product on (pay_product_no = product_no) where member_no = ?";
-		List list = jdbc.query(query, memberProductPayRowMapper, memberNo);
+	public List selectOneMpp(int memberNo, int startNum, int endNum) {
+		String query = "select * from (select rownum as rnum, n.* from (select * from member join pay on (member_no = pay_member_no) join product on (pay_product_no = product_no) where member_no = ? order by pay_no desc) n) where rnum between ? and ?";
+		List list = jdbc.query(query, memberProductPayRowMapper, memberNo, startNum, endNum);
 		return list;
 	}
 
@@ -138,6 +138,12 @@ public class MemberDao {
 		String query = "select count(*) from qna where qna_writer = ?";
 		int totalNum = jdbc.queryForObject(query, Integer.class, memberNo);
 		return totalNum;
+	}
+
+	public int selectOneMppTotalCount(int memberNo) {
+		String query = "select count(*) from pay where pay_member_no = ?";
+		int totalCount = jdbc.queryForObject(query, Integer.class, memberNo);
+		return totalCount;
 	}
 }	
 
