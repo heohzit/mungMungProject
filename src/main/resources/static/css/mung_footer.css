@@ -35,9 +35,11 @@
 	float: left;
 	text-align: center;
 	font-size: 18px;
+	padding-top: 40px;
 }
 .footer_text_div a>span:hover{
-	font-weight: 100px;
+	font-weight: 900;
+	font-size:20px;
 }
 .footer_text_div1{
 	width: 600px;

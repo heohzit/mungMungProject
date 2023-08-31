@@ -108,12 +108,12 @@ $("#memberId").on("change",function(){
 const comment = $(".comment");
 $("#memberPw").on("change",function(){
     const inputPw = $(this).val();
-    const pwReg = [
-        /^.{8,12}$/,
-        /[a-z]/,
-        /[0-9]/,
-        /[!@#$%]/
-    ];
+	const pwReg = [
+		/^.{8,12}$/,
+		/[a-z]/,
+		/[0-9]/,
+		/[!@#$%]/
+	];
 	let count = 0;
 	for(let i = 0; i<pwReg.length; i++){
 		const check = pwReg[i].test(inputPw);
