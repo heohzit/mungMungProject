@@ -31,10 +31,11 @@
     color: #ccc;
 }
 .footer_text_div{
-	width: 600px;
+	width: 37%;
 	float: left;
 	font-size: 18px;
-
+	padding-top: 40px;
+	text-align: right;
 }
 .footer_text_div a>span:hover{
 	font-weight: 100px;
@@ -56,7 +57,7 @@
 }
 
 .footer_text_div1{
-	width: 600px;
+	width: 63%;
 	float: left;
 }
 .footer_logo{
