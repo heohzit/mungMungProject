@@ -50,8 +50,8 @@
 		</div>
 		<!-- 답변양식 -->
 		<div class="inputCommentBox" th:if="${session.m != null && session.m.memberLevel == 1 && q.qnaAnswerCase==1}" style="width: 100%; margin: 0">
-		<div style="border-bottom: 5px solid #ccc;">
-			<h3><img src="../img/board/icon-dog.png" style="width: 50px;"> 답변을 작성해 주세요.</h3>
+		<div style="border-bottom: 2px solid rgb(1,50,131);">
+			<h3 style="margin-bottom: 10px;"><img src="../img/board/icon-dog.png" style="width: 50px;"> 답변을 작성해 주세요.</h3>
 		</div>
 			<form action="/qna/answer" method="post">
 				<ul style="margin-top: 50px;">
@@ -63,14 +63,14 @@
 						<textarea name="qnaAnswer" id="qnaAnswer" class="input-form"></textarea>
 					</li>
 				</ul>					
-						<button type="submit" class="btn bc1" id="commentBtn" style="margin-top: 50px;">답변 등록</button>
+						<button type="submit" class="btn bc1" id="commentBtn" style="margin-top: 10px;">답변 등록</button>
 			</form>
 		</div>
 		
 		<!-- 답변불러오기 -->
 		<div class="inputCommentBox" th:if="${q.qnaAnswerCase==2}" style="width: 100%; margin: 0">
 			<div style="border-bottom: 2px solid rgb(1,50,131);">
-			<h3><img src="../img/board/icon-dog.png" style="width: 50px;"> 답변</h3>
+			<h3 style="margin-bottom: 10px;"><img src="../img/board/icon-dog.png" style="width: 50px;"> 답변</h3>
 			</div>
 			<ul style="margin-top: 50px;">
 				<li>
