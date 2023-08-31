@@ -24,6 +24,10 @@
             </div>
         </div>
         <div class="page-content-mid">
+        <div th:if="${#lists.size(facilityList)==0}" style="text-align: center;">
+       		<img src="../img/main/dogsad.png" style="width: 250px; height: 250px">
+       		<h3>검색 결과가 없습니다.</h3>
+       </div>        
             <ul class="mid-list-wrap">
                 <li class="mid-list" th:each="facility : ${facilityList}">
                     <a th:href="@{/facility/tourDetail(facilityNo=${facility.facilityNo})}">

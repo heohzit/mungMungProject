@@ -43,12 +43,16 @@
             </tr>
             <tr th:each="notice : ${noticeList}" class="tr-1">
                 <td th:text="${notice.noticeNo}"></td>
-                <td><a th:href="@{/notice/view(noticeNo=${notice.noticeNo})}" th:text="${notice.noticeTitle}"></a></td>
+                <td style="text-align: left;"><a th:href="@{/notice/view(noticeNo=${notice.noticeNo})}" th:text="${notice.noticeTitle}"></a></td>
                 <td th:text="${notice.memberId}"></td>
                 <td th:text="${notice.noticeReadCount}"></td>
                 <td th:text="${notice.noticeWriteDate}"></td>
             </tr>
         </table>
+      <div th:if="${#lists.size(noticeList)==0}" style="text-align: center;">
+       		<img src="../img/main/dogsad.png" style="width: 250px; height: 250px">
+       		<h3>검색 결과가 없습니다.</h3>
+       </div>
         </div>
         <div class="page-content-bottom">
             <div id="pageNavi" th:utext="${pageNavi}"></div>
