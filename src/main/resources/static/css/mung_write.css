@@ -66,6 +66,7 @@
 .pcw>label{
     font-size: 18px;
     color: black;
+    line-height: 3.5px;
 }
 .pci{
     width: 800px;
@@ -75,6 +76,7 @@
     border: none;
     border-bottom: 1px solid lightgray;
     outline: none;
+    line-height: 3px;
 }
 .pcw-0{
     width: 400px;
