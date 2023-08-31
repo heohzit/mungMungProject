@@ -17,9 +17,9 @@
             </div>
             <div>
                 <form action="/facility/searchHotelList">
-                    <input type="text" class="input-form1" name="searchName">
+                    <input type="text" class="input-form1" name="searchName" id="sch1" placeholder="검색어를 입력하세요.">
                     <input type="hidden" name="reqPage" value="1">
-                    <button type="button" class="btn bc1">검색</button>
+                    <button type="button" class="btn bc1" id="searchBtn">검색</button>
                 </form>
             </div>
         </div>
@@ -49,5 +49,13 @@
         </div>
     </div>
     <th:block th:include="common/mung_footer"></th:block>
+    <script>
+    $("#searchBtn").on("click",function(){
+		if($("#sch1").val()==""){
+		      alert("검색어를 입력하세요.");
+		      return false;
+		   }
+	});
+    </script>
 </body>
 </html>

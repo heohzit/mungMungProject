@@ -131,12 +131,12 @@ public class QnaController {
 		public String answer(int qnaNo, String qnaAnswer, Model model) {
 			int result = qnaService.answer(qnaNo, qnaAnswer);
 			if(result>0) {
-				model.addAttribute("title", "수정완료");
-				model.addAttribute("msg", "게시글이 수정되었습니다");
+				model.addAttribute("title", "답변완료");
+				model.addAttribute("msg", "답변이 등록되었습니다");
 				model.addAttribute("icon", "success");					
 			}else {
-				model.addAttribute("title", "수정실패");
-				model.addAttribute("msg", "관리자에게 문의하세요");
+				model.addAttribute("title", "답변실패");
+				model.addAttribute("msg", "잘못된 접근");
 				model.addAttribute("icon", "error");	
 			}
 			model.addAttribute("loc","/qna/view?qnaNo="+qnaNo);
