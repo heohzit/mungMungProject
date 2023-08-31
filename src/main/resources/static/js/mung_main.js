@@ -14,7 +14,7 @@ var slideIndex = 0;
         }
         slides[slideIndex - 1].style.display = "block";
     
-        setTimeout(showSlides, 5000); // 이미지 변경 시간 
+        setTimeout(showSlides, 3500); // 이미지 변경 시간 
     }
     
 ///////////////숙소 슬라이더////////////////////

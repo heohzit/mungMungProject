@@ -1,11 +1,17 @@
-//개인정보 동의
-const allAgree = document.querySelector("#allAgree");
-allAgree.addEventListener("click",function(){
-    const status = this.checked;
-    const agree = document.querySelectorAll("[name=agree]");
-    agree.forEach(function(item){
-        item.checked = status;
-    })
+//이용약관 동의
+$(document).ready(function() {
+    $("#allAgree").click(function() {
+        if($("#allAgree").is(":checked")) $("input[name=agree]").prop("checked", true);
+        else $("input[name=agree]").prop("checked", false);
+    });
+    
+    $("input[name=agree]").click(function() {
+        var total = $("input[name=agree]").length;
+        var checked = $("input[name=agree]:checked").length;
+        
+        if(total != checked) $("#allAgree").prop("checked", false);
+        else $("#allAgree").prop("checked", true); 
+    });
 });
 
 //이메일연결

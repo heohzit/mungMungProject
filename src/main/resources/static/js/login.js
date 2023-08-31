@@ -6,7 +6,6 @@ $("#searchIdBtn").on("click",function(){
         data : {memberName : memberName, memberEmail : memberEmail},
         type : "get",
         success : function(data){
-            console.log(data);
             if(data){
          		// 아이디는[]입니다.
          		alert("아이디는 " + data + " 입니다.");
@@ -26,7 +25,6 @@ $("#searchPwBtn").on("click",function(){
         data : {memberId : memberId, memberEmail : memberEmail},
         type : "get",
         success : function(data){
-            console.log(data);
             if(data == "1"){
          		// 해당 메일로 비밀번호 전송
          		alert("회원님의 이메일로 비밀번호가 전송되었습니다.");
