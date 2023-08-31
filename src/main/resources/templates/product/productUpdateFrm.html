@@ -80,7 +80,7 @@
                     <th>
                             <label for="productContent">패키지 내용</label>
                     </th>
-                    <td>
+                    <td style="text-align:left;">
            
                         <textarea name="productContent" id="productContent"  th:utext="${p.productContent}"></textarea>
                     </td>
@@ -96,7 +96,8 @@
 	<th:block th:include="common/mung_footer"></th:block>
 	<script>
     $("#productContent").summernote({
-		height : 545,
+    	height : 545,
+		disableResizeEditor: true,
 		lang :"ko-KR",
 		callbacks :{
 			onImageUpload : function(files){

@@ -232,6 +232,16 @@
 
 				            window.addEventListener('load', saFunc);
 				            window.addEventListener('scroll', saFunc);
+				            
+				            	
+				    		$(".search-submit").on("click",function(){
+				    			
+				    			if($("#searchName").val()==""){
+				    			      alert("검색어를 입력하세요.");
+				    			      return false;
+				    			   }
+				    		});
+				    	
 				        </script>
 </body>
 </html>
