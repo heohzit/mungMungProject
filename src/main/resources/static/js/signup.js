@@ -31,7 +31,6 @@ $("#sendBtn").on("click",function(){
         data : {email : email},
         type : "post",
         success : function(data){
-            console.log(data);
             authCode = data;
             $("#auth").show();
             authTime();

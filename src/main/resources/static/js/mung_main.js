@@ -19,7 +19,7 @@ var slideIndex = 0;
     
 ///////////////숙소 슬라이더////////////////////
 
-    const slides1 = document.querySelector('.slides1'); //전체 슬라이드 컨테이너
+const slides1 = document.querySelector('.slides1'); //전체 슬라이드 컨테이너
 const slideImg1 = document.querySelectorAll('.slides1 li'); //모든 슬라이드들
 let currentIdx1 = 0; //현재 슬라이드 index
 const slideCount1 = slideImg1.length; // 슬라이드 개수
@@ -49,7 +49,7 @@ next1.addEventListener('click', function () {
   다음 버튼 눌러도 아무런 반응 없게 하기 위해
   currentIdx !==slideCount - 1 일때만 
   moveSlide 함수 불러옴 */
-  console.log(1111);
+  /* console.log(1111); */
   if (currentIdx1 !== slideCount1 - 1) {
     moveSlide1(currentIdx1 + 1);
   }

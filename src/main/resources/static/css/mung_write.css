@@ -71,11 +71,26 @@
 .pci{
     width: 800px;
     height: 59px;
-    font-size: 18px;
+    font-size: 16px;
+    border: none;
+    outline: none;	
+}
+
+.productImg-wrap{
+	width: 800px;
+    height: 59px;
+    font-size: 16px;
     border: none;
     outline: none;
-
+    overflow: hidden;
 }
+#productImg{
+	float: left;
+	margin-left: 95px;
+	margin-top: 15px;
+}
+
+
 .pcw-0{
     width: 400px;
     height: 600px;
