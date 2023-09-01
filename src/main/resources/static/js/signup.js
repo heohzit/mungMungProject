@@ -85,6 +85,7 @@ $("#memberId").on("change",function(){
 			type: "get",
 			data: { memberId: memberId },
 			success: function (data) {
+				console.log(data);
 				if (data == "0") {
 					$("#ajaxCheckId").text(" " + "사용 가능한 아이디입니다.");
 					$("#ajaxCheckId").css("color", "green");
