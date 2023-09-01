@@ -18,7 +18,7 @@ $(document).ready(function() {
 const select = document.querySelector(".email-choice");
 select.addEventListener("change",function(){
 	const input1 = document.querySelector("[name=memberEmail1]").value;
-	const input1 = document.querySelector("[name=memberEmail2]").value;
+	const input2 = document.querySelector("[name=memberEmail2]").value;
     const input = document.querySelector("[name=memberEmail]");
     input.value = input1+input2;
 });

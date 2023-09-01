@@ -40,8 +40,9 @@ public class MemberDao {
 		String query = "insert into member values(member_seq.nextval,?,?,?,?,2,to_char(sysdate,'yyyy-mm-dd'),?)";
 		Object [] params = {member.getMemberId(),member.getMemberPw(),member.getMemberPhone(),member.getMemberEmail(),member.getMemberName()};
 			return jdbc.update(query,params);
-	}
-
+		} 
+	
+	
 	public Member selectOneMemberId(String memberId) {
 		String query = "select * from member where member_id=?";
 		List list = jdbc.query(query, memberRowMapper,memberId);
