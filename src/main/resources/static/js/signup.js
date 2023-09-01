@@ -17,8 +17,10 @@ $(document).ready(function() {
 //이메일연결
 const select = document.querySelector(".email-choice");
 select.addEventListener("change",function(){
-    const input = document.querySelector("[name=memberEmail2]");
-    input.value = select.value;
+	const input1 = document.querySelector("[name=memberEmail1]").value;
+	const input2 = document.querySelector("[name=memberEmail2]").value;
+    const input = document.querySelector("[name=memberEmail]");
+    input.value = input1+input2;
 });
 
 //이메일 인증번호
@@ -84,6 +86,7 @@ $("#memberId").on("change",function(){
 			type: "get",
 			data: { memberId: memberId },
 			success: function (data) {
+				console.log(data);
 				if (data == "0") {
 					$("#ajaxCheckId").text(" " + "사용 가능한 아이디입니다.");
 					$("#ajaxCheckId").css("color", "green");
