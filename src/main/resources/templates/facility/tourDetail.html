@@ -98,7 +98,7 @@
                     </li>
                     <li><p class="list">문의처 </p><p th:text="${f.facilityPhone}"></p></li>
                     <li><p class="list">이용시간 </p><p th:text="${f.facilityTime}"></p></li>
-                    <li><p class="list">홈페이지 </p><p th:text="${f.facilityHomepage}"></p></li>
+                    <li><p class="list">홈페이지 </p><a th:href="@{${f.facilityHomepage}}" th:text="${f.facilityHomepage}" style="overflow: hidden;text-decoration: underline;font-style: italic;"></a></li>
                 </ul>
             </div>
         </div>
