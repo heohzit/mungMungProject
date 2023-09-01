@@ -18,7 +18,7 @@ public class AdminInterceptor implements HandlerInterceptor{
 		if(m.getMemberLevel() == 1) {
 			return true;
 		}else {
-			response.sendRedirect("/member/adminMsg");
+			response.sendRedirect("/error/badRequest");
 			return false;
 		}
 	}

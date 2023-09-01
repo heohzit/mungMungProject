@@ -32,6 +32,10 @@
             </div>
         </div>
        <div class="page-content-mid">
+       <div th:if="${#lists.size(boardList)==0}" style="text-align: center;">
+       		<img src="../img/main/dogsad.png" style="width: 250px; height: 250px">
+       		<h3>검색 결과가 없습니다.</h3>
+       </div>
 	   		<ul class="mid-list-wrap">
 					<li class="mid-list" th:each="board : ${boardList}" style="height: 380px">
 	                     <a th:href="@{/board/view(boardNo=${board.boardNo})}">
@@ -40,8 +44,8 @@
 	                        </div>
 	                        <div class="list-text-box">
 	                        	<ul>
-	                        	<li >
-	                            <h3 th:text="${board.boardTitle}"></h3>
+	                        	<li>
+	                            <h3 th:text="${board.boardTitle}" style="height: 30px; overflow: hidden;"></h3>
 	                            <span th:text="${board.memberId}"></span>
 	                            <span>|</span>
 	                            <span th:text="${board.boardWriteDate}" style="color: #aaa"></span>

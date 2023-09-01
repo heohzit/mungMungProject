@@ -37,18 +37,18 @@ public class BoardController {
 	@GetMapping(value="/list")
 	public String boardList (int reqPage , Model model) {
 		BoardListData bld = boardService.selectBoardList(reqPage);
-		model.addAttribute("boardList", bld.getBoardList());
-		model.addAttribute("pageNavi", bld.getPageNavi());
-		return "board/boardList";
+			model.addAttribute("boardList", bld.getBoardList());
+			model.addAttribute("pageNavi", bld.getPageNavi());
+			return "board/boardList";	
 	}
     
     //커뮤니티 리스트(검색)
   	@GetMapping(value="/searchBoardList")
   	public String boardList (int reqPage , Model model,String searchType , String searchName) {
   		BoardListData bld = boardService.searchBoardList(reqPage,searchType,searchName);
-  		model.addAttribute("boardList", bld.getBoardList());
-  		model.addAttribute("pageNavi", bld.getPageNavi());
-  		return "board/boardList";
+	  		model.addAttribute("boardList", bld.getBoardList());
+	  		model.addAttribute("pageNavi", bld.getPageNavi());
+	  		return "board/boardList";
   	}
     
     //커뮤니티 작성 폼

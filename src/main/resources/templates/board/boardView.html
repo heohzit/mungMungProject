@@ -193,7 +193,7 @@
 		const boardNoInput = $("<input type='text' name='boardNo'>");
 		boardNoInput.val(boardNo);
 		const textArea = $(obj).parent().prev().clone();
-		console.log(textArea)
+		/* console.log(textArea) */
 		form.append(commentNoInput).append(boardNoInput).append(textArea);
 		$("body").append(form);
 		form.submit();
