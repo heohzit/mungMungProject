@@ -22,7 +22,7 @@
             <div class="pay-content-wrap">
                 <div class="product-box">
                     <div class="pay-img-box">
-                        <img th:src="${p.productFilepath}">
+                        <img th:src="'/productmain/'+${p.productFilepath}">
                     </div>
                     <div class="pay-name-box">
                         <h3 th:text="${p.productName}"></h3>
