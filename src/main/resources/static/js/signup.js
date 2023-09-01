@@ -17,8 +17,10 @@ $(document).ready(function() {
 //이메일연결
 const select = document.querySelector(".email-choice");
 select.addEventListener("change",function(){
-    const input = document.querySelector("[name=memberEmail2]");
-    input.value = select.value;
+	const input1 = document.querySelector("[name=memberEmail1]").value;
+	const input1 = document.querySelector("[name=memberEmail2]").value;
+    const input = document.querySelector("[name=memberEmail]");
+    input.value = input1+input2;
 });
 
 //이메일 인증번호

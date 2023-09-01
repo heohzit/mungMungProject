@@ -36,13 +36,10 @@ public class MemberDao {
 	}
 
 	public int insertMember(Member member) {
+		System.out.println(member);
 		String query = "insert into member values(member_seq.nextval,?,?,?,?,2,to_char(sysdate,'yyyy-mm-dd'),?)";
 		Object [] params = {member.getMemberId(),member.getMemberPw(),member.getMemberPhone(),member.getMemberEmail(),member.getMemberName()};
-		try {
 			return jdbc.update(query,params);
-		} catch (Exception e) {
-			return 0;
-		}
 	}
 
 	public Member selectOneMemberId(String memberId) {
