@@ -202,8 +202,9 @@
 						const lng = response.result.items[0].point.x;
 						$("#facilityLat").attr("value", lat);
 						$("#facilityLng").attr("value", lng);
-						console.log($("#facilityLat").val());
+						/* console.log($("#facilityLat").val());
 						console.log($("#facilityLng").val());
+						*/
 					});
 				}
 			}).open();
@@ -212,7 +213,7 @@
 
 		$("#facilityAddr2").on("change", function(){
 			$("#facilityAddr").attr("value", $("#facilityAddr1").val() + " " + $("#facilityAddr2").val());
-			console.log($("#facilityAddr").val());
+			/* console.log($("#facilityAddr").val()); */
 		});
 	</script>
 </body>
