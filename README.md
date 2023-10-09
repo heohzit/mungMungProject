@@ -1,6 +1,6 @@
 # 🦴강원도 멍멍탐험대
 <div align="center">
-<img alt="image" src="https://github.com/heohzit/mungMungProject/assets/142005775/4e6f2fd6-2a00-4bb8-a16c-79f1f5b5434e"></p>
+<img alt="image" src="https://github.com/heohzit/mungMungProject/assets/142005775/4e6f2fd6-2a00-4bb8-a16c-79f1f5b5434e">
 </div>
 
 
@@ -28,7 +28,7 @@
 <br>
 
 ### 📋 ERD
-![erd](https://github.com/heohzit/mungMungProject/assets/142005775/4a9f367e-2543-41f1-8f71-9bcdb661e6ed)
+<img alt="image" src="https://github.com/heohzit/mungMungProject/assets/142005775/1fadb1cb-9913-4424-ba1c-5c9318b6407e">
 <br>
 
 ### 😀팀원 & 역할 소개
@@ -87,32 +87,5 @@
 <br>
 
 # 기능 화면
-![메인](https://github.com/heohzit/mungMungProject/assets/142005775/00934ea0-35cf-4b6e-b086-94c2f16f1aa8)
 
-
-![소개](https://github.com/heohzit/mungMungProject/assets/142005775/fc67e8a1-c7ec-4e99-a82e-e5e055ab8833)
-
-![시설](https://github.com/heohzit/mungMungProject/assets/142005775/8f9e0cbe-b0d0-4411-8c0c-bc8d25201358)
-
-![시설상세](https://github.com/heohzit/mungMungProject/assets/142005775/b5baab96-bcf8-4db4-9654-49633fdc9131)
-
-![패키지](https://github.com/heohzit/mungMungProject/assets/142005775/7d9f1c84-19cc-49eb-8099-2d34d5067443)
-![패키지상세](https://github.com/heohzit/mungMungProject/assets/142005775/964366af-2513-48c7-b890-ee05f0cf7ddd)
-
-![공지사항](https://github.com/heohzit/mungMungProject/assets/142005775/388ff434-2fd2-47bb-a9df-88fa7873715a)
-![공지사항글쓰기](https://github.com/heohzit/mungMungProject/assets/142005775/20963d87-50fe-46f6-93d2-b3580805aa60)
-
-![공지사항상세](https://github.com/heohzit/mungMungProject/assets/142005775/b277c5db-5fcb-4589-a8b9-57bae9932e5c)
-![큐앤에이상세1](https://github.com/heohzit/mungMungProject/assets/142005775/831e5bb4-7e0c-47e6-b527-b05c97864a9c)
-
-
-![관리자페이지1](https://github.com/heohzit/mungMungProject/assets/142005775/cc8650f0-67b5-418a-a0c6-ca9098aded84)
-
-![관리자페이지2](https://github.com/heohzit/mungMungProject/assets/142005775/2ec32fb9-e893-43a8-a2b7-c5555ce077d5)
-
-![마이페이지_예약현황](https://github.com/heohzit/mungMungProject/assets/142005775/4b2c46b9-53b0-45f3-948f-53b0fddbb467)
-![마이페이지_커뮤니티](https://github.com/heohzit/mungMungProject/assets/142005775/d0d55c89-4dd3-45fb-890d-1296505d8d35)
-
-![마이페이지_큐앤에이](https://github.com/heohzit/mungMungProject/assets/142005775/a26819d5-62ad-4fc6-8d70-b99bec2bf9cc)
-![에러페이지1](https://github.com/heohzit/mungMungProject/assets/142005775/a9a81082-be45-4614-9cff-986df23bf223)
 
