@@ -3,7 +3,7 @@
 <img width="236" alt="logo" src="https://github.com/heohzit/mungMungProject/assets/142005775/0e5fb4ca-b481-4768-b79a-8edba49ccdac">
 </div>
 
-# 멍멍탐험대 소개
+# 📢멍멍탐험대 소개📢
 ### 📅수행 기간
 >2023.08.16 ~ 2023.08.31
 <br>
@@ -34,7 +34,7 @@
 | 이름   | 역할                                                  |
 |--------|-------------------------------------------------------|
 | 최희정(본인) | 공지사항 / 자유게시판 / 소개페이지 / 마이페이지(회원) |
-| 황연주 | 시설페이지 / QnA페이지 /마이페이지(회원)              |
+| 황연주 | 시설페이지 / QnA페이지 / 마이페이지(회원)              |
 | 곽윤근 | 마이페이지(회원&관리자) / 결제페이지 / 시설페이지     |
 | 이아름 | 회원기능 / 마이페이지(회원)                           |
 | 정하영 | 메인페이지  / 상품페이지                              |
@@ -82,5 +82,36 @@
 >    + 수정 / 삭제 구현
 >    + QnA 유형 및 답변 상태 확인 
 
+<br>
+<br>
 
+# 기능 화면
+![메인](https://github.com/heohzit/mungMungProject/assets/142005775/00934ea0-35cf-4b6e-b086-94c2f16f1aa8)
+
+
+![소개](https://github.com/heohzit/mungMungProject/assets/142005775/fc67e8a1-c7ec-4e99-a82e-e5e055ab8833)
+
+![시설](https://github.com/heohzit/mungMungProject/assets/142005775/8f9e0cbe-b0d0-4411-8c0c-bc8d25201358)
+
+![시설상세](https://github.com/heohzit/mungMungProject/assets/142005775/b5baab96-bcf8-4db4-9654-49633fdc9131)
+
+![패키지](https://github.com/heohzit/mungMungProject/assets/142005775/7d9f1c84-19cc-49eb-8099-2d34d5067443)
+![패키지상세](https://github.com/heohzit/mungMungProject/assets/142005775/964366af-2513-48c7-b890-ee05f0cf7ddd)
+
+![공지사항](https://github.com/heohzit/mungMungProject/assets/142005775/388ff434-2fd2-47bb-a9df-88fa7873715a)
+![공지사항글쓰기](https://github.com/heohzit/mungMungProject/assets/142005775/20963d87-50fe-46f6-93d2-b3580805aa60)
+
+![공지사항상세](https://github.com/heohzit/mungMungProject/assets/142005775/b277c5db-5fcb-4589-a8b9-57bae9932e5c)
+![큐앤에이상세1](https://github.com/heohzit/mungMungProject/assets/142005775/831e5bb4-7e0c-47e6-b527-b05c97864a9c)
+
+
+![관리자페이지1](https://github.com/heohzit/mungMungProject/assets/142005775/cc8650f0-67b5-418a-a0c6-ca9098aded84)
+
+![관리자페이지2](https://github.com/heohzit/mungMungProject/assets/142005775/2ec32fb9-e893-43a8-a2b7-c5555ce077d5)
+
+![마이페이지_예약현황](https://github.com/heohzit/mungMungProject/assets/142005775/4b2c46b9-53b0-45f3-948f-53b0fddbb467)
+![마이페이지_커뮤니티](https://github.com/heohzit/mungMungProject/assets/142005775/d0d55c89-4dd3-45fb-890d-1296505d8d35)
+
+![마이페이지_큐앤에이](https://github.com/heohzit/mungMungProject/assets/142005775/a26819d5-62ad-4fc6-8d70-b99bec2bf9cc)
+![에러페이지1](https://github.com/heohzit/mungMungProject/assets/142005775/a9a81082-be45-4614-9cff-986df23bf223)
 
