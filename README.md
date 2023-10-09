@@ -1,6 +1,6 @@
 # 🦴강원도 멍멍탐험대
 <div align="center">
-<img src="src/main/resources/static/img/logo.PNG">
+<img src="src/main/resources/static/img/img2/logo.PNG">
 </div>
 
 
@@ -28,7 +28,7 @@
 <br>
 
 ### 📋 ERD
-<img alt="image" src="https://github.com/heohzit/mungMungProject/assets/142005775/1fadb1cb-9913-4424-ba1c-5c9318b6407e">
+<img src="src/main/resources/static/img/img2/erd.png">
 <br>
 
 ### 😀팀원 & 역할 소개
@@ -87,5 +87,23 @@
 <br>
 
 # 기능 화면
-
-
+<img src="src/main/resources/static/img/img2/메인.png">
+<img src="src/main/resources/static/img/img2/소개.png">
+<img src="src/main/resources/static/img/img2/시설.png">
+<img src="src/main/resources/static/img/img2/시설상세.png">
+<img src="src/main/resources/static/img/img2/패키지.png">
+<img src="src/main/resources/static/img/img2/패키지상세.png">
+<img src="src/main/resources/static/img/img2/공지사항.png">
+<img src="src/main/resources/static/img/img2/공지사항글쓰기.png">
+<img src="src/main/resources/static/img/img2/공지사항상세.png">
+<img src="src/main/resources/static/img/img2/큐앤에이.png">
+<img src="src/main/resources/static/img/img2/큐앤에이상세1.png">
+<img src="src/main/resources/static/img/img2/관리자페이지1.png">
+<img src="src/main/resources/static/img/img2/관리자페이지2.png">
+<img src="src/main/resources/static/img/img2/마이페이지_예약현황.png">
+<img src="src/main/resources/static/img/img2/마이페이지_찜.png">
+<img src="src/main/resources/static/img/img2/마이페이지_커뮤니티.png">
+<img src="src/main/resources/static/img/img2/마이페이지_큐앤에이.png">
+<img src="src/main/resources/static/img/img2/에러페이지1.png">
+<img src="src/main/resources/static/img/img2/에러페이지2(검색).png">
+<img src="src/main/resources/static/img/img2/에러페이지3(검색).png">
