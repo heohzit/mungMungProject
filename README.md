@@ -1,7 +1,8 @@
 # 🦴강원도 멍멍탐험대
 <div align="center">
-<img width="236" alt="logo" src="https://github.com/heohzit/mungMungProject/assets/142005775/0e5fb4ca-b481-4768-b79a-8edba49ccdac">
+<img alt="image" src="https://github.com/heohzit/mungMungProject/assets/142005775/4e6f2fd6-2a00-4bb8-a16c-79f1f5b5434e"></p>
 </div>
+
 
 # 📢멍멍탐험대 소개📢
 ### 📅수행 기간
