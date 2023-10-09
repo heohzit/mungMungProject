@@ -88,12 +88,12 @@
 
 # 🤩기능 화면
 ### 메인
-|<img src="src/main/resources/static/img/img2/메인.png">|
+|<img src="src/main/resources/static/img/img2/메인.png" width="700">|
 |--- |
 |메인 페이지|
 
 ### 소개
-|<img src="src/main/resources/static/img/img2/소개.png">|
+|<img src="src/main/resources/static/img/img2/소개.png" width="700">|
 |--- |
 |소개 페이지|
 
