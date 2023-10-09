@@ -86,24 +86,50 @@
 <br>
 <br>
 
-# 기능 화면
-<img src="src/main/resources/static/img/img2/메인.png">
-<img src="src/main/resources/static/img/img2/소개.png">
-<img src="src/main/resources/static/img/img2/시설.png">
-<img src="src/main/resources/static/img/img2/시설상세.png">
-<img src="src/main/resources/static/img/img2/패키지.png">
-<img src="src/main/resources/static/img/img2/패키지상세.png">
-<img src="src/main/resources/static/img/img2/공지사항.png">
-<img src="src/main/resources/static/img/img2/공지사항글쓰기.png">
-<img src="src/main/resources/static/img/img2/공지사항상세.png">
-<img src="src/main/resources/static/img/img2/큐앤에이.png">
-<img src="src/main/resources/static/img/img2/큐앤에이상세1.png">
-<img src="src/main/resources/static/img/img2/관리자페이지1.png">
-<img src="src/main/resources/static/img/img2/관리자페이지2.png">
-<img src="src/main/resources/static/img/img2/마이페이지_예약현황.png">
-<img src="src/main/resources/static/img/img2/마이페이지_찜.png">
-<img src="src/main/resources/static/img/img2/마이페이지_커뮤니티.png">
-<img src="src/main/resources/static/img/img2/마이페이지_큐앤에이.png">
-<img src="src/main/resources/static/img/img2/에러페이지1.png">
-<img src="src/main/resources/static/img/img2/에러페이지2(검색).png">
-<img src="src/main/resources/static/img/img2/에러페이지3(검색).png">
+# 🤩기능 화면
+### 메인
+|<img src="src/main/resources/static/img/img2/메인.png">|
+|--- |
+|메인 페이지|
+
+### 소개
+|<img src="src/main/resources/static/img/img2/소개.png">|
+|--- |
+|소개 페이지|
+
+### 시설
+|<img src="src/main/resources/static/img/img2/시설.png">|<img src="src/main/resources/static/img/img2/시설상세.png">|
+|--- | --- | 
+|시설 페이지 | 시설 상세페이지|
+
+### 패키지
+|<img src="src/main/resources/static/img/img2/패키지.png">|<img src="src/main/resources/static/img/img2/패키지상세.png">|
+|--- | --- | 
+|패키지 페이지 | 패키지 상세페이지|
+
+### 공지사항
+|<img src="src/main/resources/static/img/img2/공지사항.png">|<img src="src/main/resources/static/img/img2/공지사항글쓰기.png">|<img src="src/main/resources/static/img/img2/공지사항상세.png">|
+|--- | --- | --- |
+|공지사항 페이지 | 공지사항 상세페이지| 공지사항 상세페이지|
+
+### QnA
+|<img src="src/main/resources/static/img/img2/큐앤에이.png">|<img src="src/main/resources/static/img/img2/큐앤에이상세1.png">|
+|--- | --- | 
+|QnA 페이지 | QnA 상세페이지|
+
+### 관리자
+|<img src="src/main/resources/static/img/img2/관리자페이지1.png">|<img src="src/main/resources/static/img/img2/관리자페이지2.png">|
+|--- | --- | 
+|관리자 페이지 |관리자 페이지|
+
+### 마이페이지
+|<img src="src/main/resources/static/img/img2/마이페이지_예약현황.png">|<img src="src/main/resources/static/img/img2/마이페이지_찜.png">|
+|--- | --- | 
+|마이페이지(예약) |마이페이지(찜)|
+|<img src="src/main/resources/static/img/img2/마이페이지_커뮤니티.png">|<img src="src/main/resources/static/img/img2/마이페이지_큐앤에이.png">|
+|마이페이지(커뮤니티) |마이페이지(QnA)|
+
+### 에러
+|<img src="src/main/resources/static/img/img2/에러페이지1.png">|<img src="src/main/resources/static/img/img2/에러페이지2(검색).png">|<img src="src/main/resources/static/img/img2/에러페이지3(검색).png">|
+|--- | --- | --- |
+|에러 페이지 | 에러 페이지(검색)| 에러 페이지(검색)|
