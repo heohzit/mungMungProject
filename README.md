@@ -1,6 +1,6 @@
 # 🦴강원도 멍멍탐험대
 <div align="center">
-<img alt="image" src="https://github.com/heohzit/mungMungProject/assets/142005775/4e6f2fd6-2a00-4bb8-a16c-79f1f5b5434e">
+<img src="src/main/resources/static/img/logo.PNG">
 </div>
 
 
